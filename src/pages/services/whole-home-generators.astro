@@ -2,12 +2,44 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
 import AEOFAQ from '../../components/AEOFAQ.astro';
+import { siteConfig } from '../../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Services", url: `${siteConfig.url}/services` },
+  { name: "Whole Home Generators", url: `${siteConfig.url}/services/whole-home-generators` }
+];
+
+const serviceData = {
+  name: "Whole-Home Standby Generator Installation",
+  description: "Automatic natural gas and propane standby backup generator installation with automatic transfer switch (ATS) for storm resilience across Hampton Roads (757).",
+  url: `${siteConfig.url}/services/whole-home-generators`,
+  priceRange: "$5,500 - $14,000"
+};
+
+const faqs = [
+  {
+    question: "How does an automatic standby generator protect my home during hurricanes in 757?",
+    answer: "An automatic standby generator (such as Generac or Kohler) is connected directly to your electrical panel and natural gas or propane line. Within 10 seconds of a storm utility power outage, the automatic transfer switch (ATS) starts the generator and restores full power automatically."
+  },
+  {
+    question: "What size standby generator do I need for my home in Virginia Beach or Chesapeake?",
+    answer: "A 14kW to 18kW generator easily powers essential circuits (HVAC heat pump, refrigeration, lights, Wi-Fi, water heater), while a 22kW to 26kW unit powers large luxury multi-zone homes and swimming pool equipment."
+  },
+  {
+    question: "Do you handle city gas plumbing and electrical permits for generator installs?",
+    answer: "Yes. Scott's Electric coordinates complete electrical and gas connection permits, concrete mounting pads, utility connections, and city building inspections across all 7 cities of 757."
+  }
+];
 ---
 
 <Layout 
   title="Whole Home Standby Generator Installation Hampton Roads 757"
-  description="Automatic standby generator installations in Virginia Beach, Norfolk, Chesapeake & 757 area. Never lose power during hurricanes or severe coastal storms."
+  description="Automatic standby generator installations in Virginia Beach, Norfolk, Chesapeake & 757 area. Generac & Kohler authorized installs, automatic transfer switches. Call (757) 536-0478."
   serviceName="Whole Home Generators"
+  breadcrumbs={breadcrumbs}
+  isServicePage={true}
+  serviceData={serviceData}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,7 +62,7 @@ import AEOFAQ from '../../components/AEOFAQ.astro';
           </div>
         </div>
         <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/generator_install.png" alt="Whole Home Standby Generator Installation" class="w-full h-auto object-cover" />
+          <img src="/assets/images/generator_install.png" alt="Whole Home Standby Generator Installation in 757" class="w-full h-auto object-cover" />
         </div>
       </div>
     </div>
@@ -42,5 +74,5 @@ import AEOFAQ from '../../components/AEOFAQ.astro';
     </div>
   </section>
 
-  <AEOFAQ title="Standby Generator FAQ" />
+  <AEOFAQ faqs={faqs} title="Standby Generator FAQ & Direct Answers" />
 </Layout>

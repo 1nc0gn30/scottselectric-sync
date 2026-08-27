@@ -2,12 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import { siteConfig } from '../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Hampton Electrician", url: `${siteConfig.url}/hampton-electrician` }
+];
+
+const cityFaqs = [
+  {
+    question: "Which Hampton communities does Scott's Electric serve?",
+    answer: "We provide full electrical contractor services across Phoebus, Buckroe Beach, Coliseum Central, Fox Hill, Wythe, Downtown Hampton, and Langley."
+  },
+  {
+    question: "Do you repair aluminum wiring and coastal electrical corrosion in Hampton?",
+    answer: "Yes, we perform aluminum wire remediation (AlumiConn / Copalum connectors) and replace corrosion-damaged coastal meter bases and outdoor panels near Buckroe Beach and coastal waterways."
+  },
+  {
+    question: "Can I get an automatic standby generator installed in Hampton, VA?",
+    answer: "Yes, we install Generac and Kohler whole-home backup generators with automatic transfer switches to protect against storm outages across Hampton."
+  }
+];
 ---
 
 <Layout 
-  title="Electrician in Hampton VA | 24/7 Emergency Repair & Generator Installer"
-  description="Top-rated licensed electrician in Hampton, VA. Serving Phoebus, Buckroe Beach & Coliseum Central. 24/7 emergency electrical repair, panel upgrades & standby generators."
+  title="Electrician in Hampton VA | 24/7 Emergency Repair & Standby Generators"
+  description="Top-rated licensed Master Electrician in Hampton, VA. Serving Phoebus, Buckroe Beach & Coliseum Central. 24/7 emergency repair, 200A panel upgrades & generators. Call (757) 536-0478."
   cityName="Hampton"
+  serviceName="Hampton Electrical Contractor"
+  breadcrumbs={breadcrumbs}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,11 +57,42 @@ import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator
     </div>
   </section>
 
-  <section id="quote" class="py-16 bg-brand-dark">
+  <section class="py-16 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-8">
+        Hampton Electrical Solutions
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">🔋</div>
+          <h3 class="font-heading text-xl font-bold text-white">Standby Backup Generators</h3>
+          <p class="text-xs text-gray-300">
+            Automatic storm backup power systems designed to withstand coastal weather and hurricanes.
+          </p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">⚡</div>
+          <h3 class="font-heading text-xl font-bold text-white">200A Panel Modernization</h3>
+          <p class="text-xs text-gray-300">
+            Upgrade obsolete fuse boxes or 100A panels to 200A or 400A smart circuit breaker boxes.
+          </p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">🌊</div>
+          <h3 class="font-heading text-xl font-bold text-white">Coastal Weatherproofing</h3>
+          <p class="text-xs text-gray-300">
+            Corrosion-resistant exterior disconnects, NEMA 4X enclosures, and coastal lighting fixtures.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" class="py-16 bg-brand-card/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
 
-  <AEOFAQ cityName="Hampton" />
+  <AEOFAQ faqs={cityFaqs} title="Hampton Electrical FAQ & Answers" cityName="Hampton" />
 </Layout>

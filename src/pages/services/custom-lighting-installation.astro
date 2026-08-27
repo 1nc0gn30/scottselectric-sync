@@ -2,12 +2,44 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
 import AEOFAQ from '../../components/AEOFAQ.astro';
+import { siteConfig } from '../../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Services", url: `${siteConfig.url}/services` },
+  { name: "Custom Lighting Installation", url: `${siteConfig.url}/services/custom-lighting-installation` }
+];
+
+const serviceData = {
+  name: "Custom Recessed & Architectural Lighting",
+  description: "Interior and exterior architectural lighting, LED recessed wafer lights, under-cabinet illumination, and smart dimmer installation across Hampton Roads (757).",
+  url: `${siteConfig.url}/services/custom-lighting-installation`,
+  priceRange: "$400 - $2,800"
+};
+
+const faqs = [
+  {
+    question: "What are the benefits of LED recessed wafer lights?",
+    answer: "Ultra-thin LED wafer lights fit flush against ceilings without bulky cans, reduce electricity consumption by up to 85%, feature selectable color temperatures (2700K warm white to 5000K daylight), and last over 50,000 hours."
+  },
+  {
+    question: "Can you install under-cabinet and accent cove lighting?",
+    answer: "Yes, we install seamless low-profile LED channel lighting under kitchen cabinets, behind floating shelves, and inside ceiling coves with concealed wiring and dimming controls."
+  },
+  {
+    question: "Do you install exterior landscape and security floodlights in Virginia Beach & 757?",
+    answer: "Yes, we install weather-sealed architectural landscape illumination, low-voltage path lighting, and motion-activated LED security floodlights engineered for coastal weather."
+  }
+];
 ---
 
 <Layout 
   title="Recessed Lighting Installation & Custom LED Electrician 757"
-  description="Architectural LED recessed lighting, cove lights, outdoor landscape lighting & dimmers in Virginia Beach, Norfolk, Chesapeake & 757 area."
+  description="Architectural LED recessed lighting, cove lights, outdoor landscape lighting & dimmers in Virginia Beach, Norfolk, Chesapeake & 757 area. Call (757) 536-0478."
   serviceName="Custom Lighting Installation"
+  breadcrumbs={breadcrumbs}
+  isServicePage={true}
+  serviceData={serviceData}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,7 +62,7 @@ import AEOFAQ from '../../components/AEOFAQ.astro';
           </div>
         </div>
         <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/custom_lighting.png" alt="Custom Recessed Lighting Design" class="w-full h-auto object-cover" />
+          <img src="/assets/images/custom_lighting.png" alt="Custom Recessed Lighting Design in 757" class="w-full h-auto object-cover" />
         </div>
       </div>
     </div>
@@ -42,5 +74,5 @@ import AEOFAQ from '../../components/AEOFAQ.astro';
     </div>
   </section>
 
-  <AEOFAQ title="Custom Lighting FAQ" />
+  <AEOFAQ faqs={faqs} title="Custom Lighting FAQ & Answers" />
 </Layout>

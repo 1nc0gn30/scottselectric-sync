@@ -1,12 +1,41 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
+import AEOFAQ from '../../components/AEOFAQ.astro';
+import { siteConfig } from '../../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Services", url: `${siteConfig.url}/services` },
+  { name: "Smart Home Automation", url: `${siteConfig.url}/services/smart-home-automation` }
+];
+
+const serviceData = {
+  name: "Smart Home Automation & Electrical Integration",
+  description: "Smart switches, whole-home energy monitoring, automated panel relays, and intelligent connected electrical devices across Hampton Roads (757).",
+  url: `${siteConfig.url}/services/smart-home-automation`,
+  priceRange: "$350 - $2,500"
+};
+
+const faqs = [
+  {
+    question: "Which smart home electrical systems do you install in 757?",
+    answer: "We install and configure Lutron Caséta, Leviton Decora Smart, smart energy monitor panels (Span, Emporia), automated thermostats, and smart load controllers."
+  },
+  {
+    question: "Do smart switches require a neutral wire?",
+    answer: "Most modern smart switches require a dedicated neutral wire. If your home has older 2-wire switch boxes, Scott's Electric can install neutral bypass systems or pull new neutral conductors safely."
+  }
+];
 ---
 
 <Layout 
   title="Smart Home Automation & Electrical Integration Electrician 757"
-  description="Smart switches, automated climate, voice-controlled lighting & home security installations in Virginia Beach, Norfolk, Chesapeake & 757 area."
+  description="Smart switches, automated climate, voice-controlled lighting & home security installations in Virginia Beach, Norfolk, Chesapeake & 757 area. Call (757) 536-0478."
   serviceName="Smart Home Automation"
+  breadcrumbs={breadcrumbs}
+  isServicePage={true}
+  serviceData={serviceData}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,4 +59,6 @@ import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalcula
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
+
+  <AEOFAQ faqs={faqs} title="Smart Home Automation FAQ & Answers" />
 </Layout>

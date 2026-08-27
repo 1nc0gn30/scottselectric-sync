@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SchemaMarkup from '../components/SchemaMarkup.astro';
 import LeadPopup from '../components/LeadPopup.jsx';
+import { siteConfig } from '../config/site.js';
 import '../styles/global.css';
 
 interface Props {
@@ -11,6 +12,17 @@ interface Props {
   cityName?: string;
   serviceName?: string;
   canonicalUrl?: string;
+  ogImage?: string;
+  keywords?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  customSchema?: any[];
+  isServicePage?: boolean;
+  serviceData?: {
+    name: string;
+    description: string;
+    url: string;
+    priceRange?: string;
+  };
 }
 
 const {
@@ -18,8 +30,21 @@ const {
   description = "Top-rated Master Electrician serving all 7 cities of Hampton Roads (757). 24/7 Emergency Electrical Repair, 200A Panel Upgrades, EV Chargers & Standby Generators. Call (757) 536-0478.",
   cityName = "Hampton Roads",
   serviceName = "Electrical Services",
-  canonicalUrl = Astro.url.href
+  canonicalUrl = Astro.url.href,
+  ogImage = siteConfig.heroImage,
+  keywords = `electrician ${cityName}, 757 electrician, electrical repair ${cityName}, EV charger installation ${cityName}, generator installation Virginia Beach, electrical panel upgrade Norfolk, Scott's Electric, licensed master electrician Hampton Roads`,
+  breadcrumbs,
+  customSchema,
+  isServicePage = false,
+  serviceData
 } = Astro.props;
+
+// Compute Geo Meta for local search engines
+const currentArea = siteConfig.serviceAreas.find(a => a.name.toLowerCase() === cityName.toLowerCase());
+const geoLatitude = currentArea ? currentArea.geo.latitude : siteConfig.hqGeo.latitude;
+const geoLongitude = currentArea ? currentArea.geo.longitude : siteConfig.hqGeo.longitude;
+const geoRegion = "US-VA";
+const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
 ---
 
 <!DOCTYPE html>
@@ -29,33 +54,62 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="keywords" content={`electrician ${cityName}, 757 electrician, electrical repair ${cityName}, EV charger installation ${cityName}, generator installation Virginia Beach, electrical panel upgrade Norfolk, Scott's Electric`} />
+  <meta name="keywords" content={keywords} />
+  <meta name="author" content="Scott's Electric LLC" />
   
-  <!-- Canonical & Indexing -->
+  <!-- Canonical & Search/AI Bot Directives -->
   <link rel="canonical" href={canonicalUrl} />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-  <!-- OpenGraph / Social -->
+  <!-- Geographic Meta Tags for Local & Maps Search (AEO / Local SEO) -->
+  <meta name="geo.region" content={geoRegion} />
+  <meta name="geo.placename" content={`${geoPlacename}, Virginia`} />
+  <meta name="geo.position" content={`${geoLatitude};${geoLongitude}`} />
+  <meta name="ICBM" content={`${geoLatitude}, ${geoLongitude}`} />
+
+  <!-- OpenGraph / Social Graph (FB, LinkedIn, WhatsApp, AI Snippets) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content="https://scottselectric.pro/assets/images/scotts_electric_logo.png" />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content={`${title} - Scott's Electric`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Scott's Electric" />
   <meta property="og:locale" content="en_US" />
+  <meta property="business:contact_data:phone_number" content={siteConfig.phoneE164} />
+  <meta property="business:contact_data:locality" content={geoPlacename} />
+  <meta property="business:contact_data:region" content="VA" />
+  <meta property="business:contact_data:country_name" content="USA" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content="https://scottselectric.pro/assets/images/scotts_electric_logo.png" />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content={`${title} - Scott's Electric`} />
+
+  <!-- AI Discovery Endpoints -->
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Agent Summary" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/images/scotts_electric_logo_transparent.png" />
   <link rel="apple-touch-icon" href="/assets/images/scotts_electric_logo_transparent.png" />
 
-  <!-- Schema.org Microdata -->
-  <SchemaMarkup cityName={cityName} serviceName={serviceName} />
+  <!-- Schema.org Microdata & JSON-LD Knowledge Graph -->
+  <SchemaMarkup 
+    cityName={cityName} 
+    serviceName={serviceName}
+    pageTitle={title}
+    pageDescription={description}
+    breadcrumbs={breadcrumbs}
+    customSchema={customSchema}
+    isServicePage={isServicePage}
+    serviceData={serviceData}
+  />
 </head>
 <body class="bg-brand-dark text-brand-text min-h-screen flex flex-col antialiased selection:bg-brand-gold selection:text-black relative">
   <!-- Brand Watermark Overlay -->
@@ -64,6 +118,7 @@ const {
       src="/assets/images/scotts_electric_watermark.png" 
       alt="Scott's Electric Watermark" 
       class="w-[650px] max-w-none filter blur-[1px] animate-pulse"
+      loading="lazy"
     />
   </div>
 

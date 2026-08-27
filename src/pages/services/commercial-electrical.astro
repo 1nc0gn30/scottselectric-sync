@@ -1,12 +1,41 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
+import AEOFAQ from '../../components/AEOFAQ.astro';
+import { siteConfig } from '../../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Services", url: `${siteConfig.url}/services` },
+  { name: "Commercial Electrical", url: `${siteConfig.url}/services/commercial-electrical` }
+];
+
+const serviceData = {
+  name: "Commercial Electrical Contracting & 3-Phase Power",
+  description: "Commercial 3-phase power, retail tenant buildouts, office lighting, code compliance corrections, and 24/7 priority commercial dispatch across Hampton Roads (757).",
+  url: `${siteConfig.url}/services/commercial-electrical`,
+  priceRange: "Custom Commercial Quote"
+};
+
+const faqs = [
+  {
+    question: "What commercial electrical services does Scott's Electric provide in 757?",
+    answer: "We provide 3-phase power distribution, commercial LED retrofits, retail tenant buildouts, dedicated machinery wiring, emergency lighting compliance, and industrial motor controls throughout Virginia Beach, Norfolk, Chesapeake, and Newport News."
+  },
+  {
+    question: "Do you offer 24/7 emergency dispatch for commercial facilities in Hampton Roads?",
+    answer: "Yes, we maintain priority on-call dispatch for commercial power outages, main distribution breaker trips, sparking panels, and code compliance violations."
+  }
+];
 ---
 
 <Layout 
   title="Commercial Electrical Contractor 757 | 3-Phase Power & Wiring"
-  description="Licensed Commercial Master Electricians in Virginia Beach, Norfolk, Chesapeake & 757 area. 3-phase power, commercial lighting, safety audits & data cabling."
+  description="Licensed Commercial Master Electricians in Virginia Beach, Norfolk, Chesapeake & 757 area. 3-phase power, commercial lighting, safety audits & data cabling. Call (757) 536-0478."
   serviceName="Commercial Electrical"
+  breadcrumbs={breadcrumbs}
+  isServicePage={true}
+  serviceData={serviceData}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,4 +59,6 @@ import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalcula
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
+
+  <AEOFAQ faqs={faqs} title="Commercial Electrical FAQ & Direct Answers" />
 </Layout>

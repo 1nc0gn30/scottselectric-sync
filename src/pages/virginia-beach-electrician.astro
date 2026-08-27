@@ -2,27 +2,39 @@
 import Layout from '../layouts/Layout.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import { siteConfig } from '../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Virginia Beach Electrician", url: `${siteConfig.url}/virginia-beach-electrician` }
+];
 
 const cityFaqs = [
   {
-    question: "How fast can an electrician arrive in Virginia Beach?",
-    answer: "Scott's Electric offers 24/7 emergency dispatch in Virginia Beach with average arrival times under 45 minutes across Oceanfront, Town Center, Great Neck, Kempsville, Red Mill, and Lynnhaven."
+    question: "How fast can an electrician arrive for an emergency in Virginia Beach?",
+    answer: "Scott's Electric offers 24/7 emergency dispatch across Virginia Beach with average arrival times under 45 minutes to Oceanfront, Town Center, Great Neck, Kempsville, Chic's Beach, Red Mill, Sandbridge, and Lynnhaven."
   },
   {
-    question: "Do I need a city permit for an EV charger in Virginia Beach?",
-    answer: "Yes, Virginia Beach requires an electrical permit for Level 2 EV charger installations and 200A panel upgrades. Scott's Electric handles all city permitting, filing, and municipal code inspection scheduling for you."
+    question: "Do I need a city permit for an EV charger or panel upgrade in Virginia Beach?",
+    answer: "Yes, the City of Virginia Beach Department of Planning & Community Development requires an electrical permit for Level 2 EV charger installations and 200A panel upgrades. Scott's Electric handles all city permitting, filing, and municipal code inspection scheduling for you."
   },
   {
-    question: "Why are generator installations popular for Virginia Beach homes?",
-    answer: "Coastal Virginia Beach frequently experiences hurricane season power outages and coastal storms. Whole-home standby generators provide automatic backup power within seconds to keep HVAC, refrigeration, and medical devices operational."
+    question: "Why are standby generator installations critical for Virginia Beach homes?",
+    answer: "Coastal Virginia Beach frequently experiences hurricane season power outages, Nor'easters, and storm surges. Whole-home standby generators provide automatic backup power within 10 seconds to keep HVAC heat pumps, refrigeration, sump pumps, and medical devices operational."
+  },
+  {
+    question: "Can Scott's Electric handle electrical rewiring for beachfront and coastal properties?",
+    answer: "Yes, we specialize in weatherproofing, marine-grade corrosion resistance, GFCI/AFCI compliance, and exterior architectural lighting designed to withstand salt air and coastal humidity in Sandbridge and Virginia Beach Oceanfront."
   }
 ];
 ---
 
 <Layout 
-  title="Electrician in Virginia Beach VA | 24/7 Emergency Repair & Panel Upgrades"
-  description="Licensed Master Electrician in Virginia Beach, VA. 24/7 emergency repairs, 200A panel upgrades, Tesla EV chargers & whole home standby generators. Call (757) 536-0478."
+  title="Electrician in Virginia Beach VA | 24/7 Emergency Repair & 200A Panel Upgrades"
+  description="Top-rated Master Electrician in Virginia Beach, VA. 24/7 emergency repairs, 200A panel upgrades, Level 2 Tesla EV chargers & whole-home standby generators. Call (757) 536-0478."
   cityName="Virginia Beach"
+  serviceName="Virginia Beach Electrical Contractor"
+  breadcrumbs={breadcrumbs}
 >
   
   <!-- City Hero Header -->
@@ -33,11 +45,11 @@ const cityFaqs = [
           📍 Virginia Beach, VA Electrical Services
         </span>
         <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-          Top-Rated Electrician in <br />
+          Top-Rated Master Electrician in <br />
           <span class="gold-gradient-text">Virginia Beach, VA</span>
         </h1>
         <p class="mt-4 text-base text-gray-300 leading-relaxed">
-          From Oceanfront luxury homes to Sandbridge, Great Neck, Kempsville, and Pembroke Town Center—Scott's Electric provides 24/7 licensed Master Electrician solutions tailored to Virginia Beach homes and commercial properties.
+          From Oceanfront luxury homes to Sandbridge, Great Neck, Kempsville, Chic's Beach, and Pembroke Town Center—Scott's Electric provides 24/7 licensed Master Electrician solutions tailored to Virginia Beach homes and commercial properties.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
           <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
@@ -91,6 +103,6 @@ const cityFaqs = [
   </section>
 
   <!-- City AEO FAQ -->
-  <AEOFAQ faqs={cityFaqs} title="Virginia Beach Electrical FAQ" cityName="Virginia Beach" />
+  <AEOFAQ faqs={cityFaqs} title="Virginia Beach Electrical FAQ & Direct Answers" cityName="Virginia Beach" />
 
 </Layout>

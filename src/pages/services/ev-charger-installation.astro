@@ -2,23 +2,48 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
 import AEOFAQ from '../../components/AEOFAQ.astro';
+import { siteConfig } from '../../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Services", url: `${siteConfig.url}/services` },
+  { name: "EV Charger Installation", url: `${siteConfig.url}/services/ev-charger-installation` }
+];
+
+const serviceData = {
+  name: "Level 2 EV Charging Station Installation",
+  description: "Certified Level 2 home & commercial EV charger installations for Tesla, Rivian, Ford, Chevy, and all electric vehicles across Hampton Roads (757).",
+  url: `${siteConfig.url}/services/ev-charger-installation`,
+  priceRange: "$650 - $1,500"
+};
 
 const faqs = [
   {
-    question: "Which EV charging stations do you install?",
-    answer: "We install all Level 2 home EV chargers including Tesla Wall Connector, ChargePoint Home Flex, Emporia, JuiceBox, Wallbox Pulsar, and NEMA 14-50 heavy duty outlets."
+    question: "Which EV charging stations does Scott's Electric install in 757?",
+    answer: "We install all Level 2 home EV chargers including Tesla Universal Wall Connector, ChargePoint Home Flex, Emporia, JuiceBox, Wallbox Pulsar, and heavy-duty NEMA 14-50 240V outlets."
   },
   {
     question: "Can my current electrical panel handle an EV charger?",
-    answer: "We perform a digital load calculation prior to installation. If your panel lacks capacity, we offer seamless 200A panel upgrades or smart load-sharing switches."
+    answer: "We perform a comprehensive digital load calculation prior to installation. If your panel lacks capacity, we provide fast 200A panel upgrades or smart load-shedding switches."
+  },
+  {
+    question: "How long does a home EV charger installation take?",
+    answer: "Most Level 2 home EV charging installations take between 2 to 4 hours. Scott's Electric handles dedicated 240V circuit wiring, permit filing with the city, and safety commissioning."
+  },
+  {
+    question: "How much faster is Level 2 charging compared to a regular wall plug?",
+    answer: "Level 2 charging delivers 240V power at 32A-48A, adding 30 to 50 miles of range per hour (compared to only 3-5 miles per hour with a standard 120V Level 1 wall outlet)."
   }
 ];
 ---
 
 <Layout 
   title="Level 2 EV Charger Installation in Virginia Beach & 757 Area"
-  description="Licensed Level 2 EV Charger Installation for Tesla, Rivian, Ford, Chevy in Virginia Beach, Norfolk, Chesapeake & 757 area. Call (757) 536-0478."
+  description="Licensed Level 2 EV Charger Installation for Tesla, Rivian, Ford, Chevy in Virginia Beach, Norfolk, Chesapeake & 757 area. Dedicated 240V circuits & full permits. Call (757) 536-0478."
   serviceName="EV Charger Installation"
+  breadcrumbs={breadcrumbs}
+  isServicePage={true}
+  serviceData={serviceData}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +66,7 @@ const faqs = [
           </div>
         </div>
         <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/ev_charger.png" alt="Level 2 EV Charging Station Installation" class="w-full h-auto object-cover" />
+          <img src="/assets/images/ev_charger.png" alt="Level 2 EV Charging Station Installation in Virginia Beach" class="w-full h-auto object-cover" />
         </div>
       </div>
     </div>
@@ -53,5 +78,5 @@ const faqs = [
     </div>
   </section>
 
-  <AEOFAQ faqs={faqs} title="EV Charger Installation FAQ" />
+  <AEOFAQ faqs={faqs} title="EV Charger Installation FAQ & Direct Answers" />
 </Layout>

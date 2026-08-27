@@ -2,23 +2,48 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
 import AEOFAQ from '../../components/AEOFAQ.astro';
+import { siteConfig } from '../../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Services", url: `${siteConfig.url}/services` },
+  { name: "Electrical Panel Upgrades", url: `${siteConfig.url}/services/electrical-panel-upgrades` }
+];
+
+const serviceData = {
+  name: "200A & 400A Electrical Panel Upgrades",
+  description: "Complete replacement of obsolete 100A or hazardous Federal Pacific/Zinsco breaker boxes with modern 200A or 400A smart electrical panels in Hampton Roads (757).",
+  url: `${siteConfig.url}/services/electrical-panel-upgrades`,
+  priceRange: "$1,800 - $3,800"
+};
 
 const faqs = [
   {
-    question: "When should I upgrade my electrical panel from 100A to 200A?",
-    answer: "If your breakers trip frequently, you plan to install an EV charger, hot tub, central heat pump, or major kitchen appliances, upgrading to a 200-amp panel provides safe and reliable power capacity."
+    question: "When should I upgrade my electrical panel from 100A to 200A in Hampton Roads?",
+    answer: "If your breakers trip frequently, you plan to install a Level 2 EV charger, central heat pump, hot tub, induction range, or whole-home generator, upgrading to a 200-amp or 400-amp panel provides safe, code-compliant capacity."
   },
   {
-    question: "How long does an electrical panel upgrade take?",
-    answer: "A complete main panel replacement takes between 4 to 8 hours. Scott's Electric coordinates with Dominion Energy for power disconnect/reconnect to minimize household downtime."
+    question: "How long does an electrical panel replacement take?",
+    answer: "A complete main electrical panel replacement takes between 4 to 8 hours. Scott's Electric coordinates directly with Dominion Energy for the disconnect/reconnect and handles city municipal inspection permits so power is restored on the same day."
+  },
+  {
+    question: "Do you replace dangerous Federal Pacific (FPE) and Zinsco panels in 757?",
+    answer: "Yes. Federal Pacific Stab-Lok and Zinsco panels fail to trip during overcurrent events and represent severe fire risks. We replace them with UL-listed Siemens, Square D, or Eaton modern breaker panels."
+  },
+  {
+    question: "How much does a 200 amp panel upgrade cost in Virginia Beach, Norfolk & Chesapeake?",
+    answer: "A standard 200A panel upgrade typically ranges from $1,800 to $3,800 depending on meter base condition, grounding electrode requirements, and utility service entrance cables."
   }
 ];
 ---
 
 <Layout 
   title="200 Amp Electrical Panel Upgrade & Breaker Box Replacement 757"
-  description="Upgrade your electrical breaker box to 200A or 400A in Virginia Beach, Norfolk, Chesapeake & 757 area. Licensed Master Electricians, code compliant."
+  description="Upgrade your electrical breaker box to 200A or 400A in Virginia Beach, Norfolk, Chesapeake & 757 area. Licensed Master Electricians, Dominion Energy coordination, full permits."
   serviceName="Electrical Panel Upgrades"
+  breadcrumbs={breadcrumbs}
+  isServicePage={true}
+  serviceData={serviceData}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +66,7 @@ const faqs = [
           </div>
         </div>
         <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/panel_upgrade.png" alt="200 Amp Electrical Panel Upgrade" class="w-full h-auto object-cover" />
+          <img src="/assets/images/panel_upgrade.png" alt="200 Amp Electrical Panel Upgrade in Hampton Roads" class="w-full h-auto object-cover" />
         </div>
       </div>
     </div>
@@ -53,5 +78,5 @@ const faqs = [
     </div>
   </section>
 
-  <AEOFAQ faqs={faqs} title="Panel Upgrade FAQ" />
+  <AEOFAQ faqs={faqs} title="Panel Upgrade FAQ & Expert Answers" />
 </Layout>

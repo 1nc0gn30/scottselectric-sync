@@ -1,11 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import { siteConfig } from '../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Contact", url: `${siteConfig.url}/contact` }
+];
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": `${siteConfig.url}/contact#webpage`,
+      "url": `${siteConfig.url}/contact`,
+      "name": "Contact Scott's Electric | 24/7 Dispatch (757) 536-0478",
+      "description": "Contact Scott's Electric for 24/7 emergency repair, panel upgrades, EV chargers, or instant estimates across Virginia Beach, Norfolk, Chesapeake, and all 7 cities.",
+      "isPartOf": { "@id": `${siteConfig.url}/#website` },
+      "about": { "@id": `${siteConfig.url}/#organization` }
+    }
+  ]
+};
 ---
 
 <Layout 
-  title="Contact Scott's Electric | 24/7 Dispatch (757) 536-0478"
-  description="Contact Scott's Electric for electrical service, 24/7 emergency repair, or free estimates across Virginia Beach, Norfolk, Chesapeake, and all 7 cities."
+  title="Contact Scott's Electric | 24/7 Emergency Dispatch (757) 536-0478"
+  description="Contact Scott's Electric for 24/7 emergency electrical repair, panel upgrades, EV chargers, or free estimates across Virginia Beach, Norfolk, Chesapeake, and all 7 cities."
+  breadcrumbs={breadcrumbs}
+  customSchema={[contactSchema]}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

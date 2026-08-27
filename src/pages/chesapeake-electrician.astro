@@ -2,23 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import { siteConfig } from '../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Chesapeake Electrician", url: `${siteConfig.url}/chesapeake-electrician` }
+];
 
 const cityFaqs = [
   {
-    question: "Which Chesapeake neighborhoods do you serve?",
-    answer: "We serve all of Chesapeake including Greenbrier, Great Bridge, Western Branch, Deep Creek, South Norfolk, Hickory, and Grassfield."
+    question: "Which Chesapeake neighborhoods does Scott's Electric serve?",
+    answer: "We serve all of Chesapeake including Greenbrier, Great Bridge, Western Branch, Deep Creek, South Norfolk, Hickory, Grassfield, and Indian River."
   },
   {
     question: "Can you install electrical wiring for a hot tub or swimming pool in Chesapeake?",
-    answer: "Yes, we install dedicated GFCI subpanels, underground conduit, bonding grids, and automatic heating controls for all residential pools and hot tubs."
+    answer: "Yes, we install dedicated 50A/60A GFCI subpanels, underground conduit, equipotential bonding grids, and automated heating circuits for all residential pools and hot tubs."
+  },
+  {
+    question: "Do you install Level 2 EV chargers in Chesapeake garages and driveways?",
+    answer: "Yes, we install high-speed Level 2 charging stations for Tesla, Ford Lightning, Rivian, and all EV models with complete Chesapeake city permits."
   }
 ];
 ---
 
 <Layout 
-  title="Electrician in Chesapeake VA | 24/7 Electrical Repair & Pool Wiring"
-  description="Licensed Master Electrician in Chesapeake, VA serving Greenbrier, Great Bridge & Western Branch. Subpanels, EV chargers, hot tub wiring & 200A panel replacement."
+  title="Electrician in Chesapeake VA | 24/7 Electrical Repair, Panels & Pool Wiring"
+  description="Licensed Master Electrician in Chesapeake, VA serving Greenbrier, Great Bridge & Western Branch. Subpanels, EV chargers, hot tub wiring & 200A panel upgrades. Call (757) 536-0478."
   cityName="Chesapeake"
+  serviceName="Chesapeake Electrical Contractor"
+  breadcrumbs={breadcrumbs}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,5 +94,5 @@ const cityFaqs = [
     </div>
   </section>
 
-  <AEOFAQ faqs={cityFaqs} title="Chesapeake Electrical FAQ" cityName="Chesapeake" />
+  <AEOFAQ faqs={cityFaqs} title="Chesapeake Electrical FAQ & Direct Answers" cityName="Chesapeake" />
 </Layout>

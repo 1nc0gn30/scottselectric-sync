@@ -1,103 +1,77 @@
 ---
+import { siteConfig, getBusinessSchema, getWebSiteSchema, getWebPageSchema, getBreadcrumbSchema, getHowToQuoteSchema } from '../config/site.js';
+
 interface Props {
   cityName?: string;
   serviceName?: string;
+  pageTitle?: string;
+  pageDescription?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  customSchema?: any[];
+  isServicePage?: boolean;
+  serviceData?: {
+    name: string;
+    description: string;
+    url: string;
+    priceRange?: string;
+  };
 }
 
-const { cityName = "Hampton Roads", serviceName = "Electrical Services" } = Astro.props;
+const {
+  cityName = "Hampton Roads",
+  serviceName = "Electrical Services",
+  pageTitle = `${serviceName} in ${cityName} | Scott's Electric (757)`,
+  pageDescription = `Top-rated Master Electrician serving ${cityName} and all 7 cities of Hampton Roads. 24/7 Emergency Electrical Repair, 200A Panel Upgrades, EV Chargers & Standby Generators.`,
+  breadcrumbs = [{ name: "Home", url: siteConfig.url }],
+  customSchema = [],
+  isServicePage = false,
+  serviceData
+} = Astro.props;
 
-const schemaData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Electrician",
-      "@id": "https://scottselectric.pro/#organization",
-      "name": "Scott's Electric",
-      "url": "https://scottselectric.pro",
-      "logo": "https://scottselectric.pro/assets/images/scotts_electric_logo.png",
-      "image": "https://scottselectric.pro/assets/images/hero_electrician.png",
-      "telephone": "+1-757-536-0478",
-      "email": "info@scottselectric.pro",
-      "priceRange": "$$",
-      "description": `Top-rated Master Electrician serving ${cityName} and all 7 cities of Hampton Roads (757). Specializing in electrical panel upgrades, EV chargers, generators, custom lighting, and 24/7 emergency repair.`,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": cityName === "Hampton Roads" ? "Virginia Beach" : cityName,
-        "addressRegion": "VA",
-        "postalCode": "23451",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 36.8529,
-        "longitude": -75.9780
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Virginia Beach" },
-        { "@type": "City", "name": "Norfolk" },
-        { "@type": "City", "name": "Chesapeake" },
-        { "@type": "City", "name": "Newport News" },
-        { "@type": "City", "name": "Hampton" },
-        { "@type": "City", "name": "Portsmouth" },
-        { "@type": "City", "name": "Suffolk" },
-        { "@type": "AdministrativeArea", "name": "Hampton Roads" }
-      ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "00:00",
-          "closes": "23:59"
-        }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "248",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Electrical Services Catalog",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Electrical Panel Upgrades",
-              "description": "200A and 400A smart circuit breaker panel installations and updates."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "EV Charger Installation",
-              "description": "Level 2 home and commercial electric vehicle charging station setups."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Whole Home Backup Generator Installation",
-              "description": "Automatic standby generators for storm protection in 757 area."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "24/7 Emergency Electrical Repair",
-              "description": "Immediate electrician dispatch for outage, sparking, or breaker failures."
-            }
-          }
-        ]
-      }
+const currentUrl = Astro.url.href;
+
+const businessSchema = getBusinessSchema(cityName);
+const websiteSchema = getWebSiteSchema();
+const webpageSchema = getWebPageSchema(currentUrl, pageTitle, pageDescription);
+const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
+const howToSchema = getHowToQuoteSchema();
+
+const graphItems: any[] = [
+  businessSchema,
+  websiteSchema,
+  webpageSchema,
+  breadcrumbSchema,
+  howToSchema
+];
+
+if (isServicePage && serviceData) {
+  graphItems.push({
+    "@type": "Service",
+    "@id": `${serviceData.url}#service`,
+    "name": serviceData.name,
+    "description": serviceData.description,
+    "provider": { "@id": `${siteConfig.url}/#organization` },
+    "areaServed": businessSchema.areaServed,
+    "serviceType": serviceData.name,
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": serviceData.priceRange || "$$",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2026-01-01"
     }
-  ]
+  });
+}
+
+if (customSchema && customSchema.length > 0) {
+  graphItems.push(...customSchema);
+}
+
+const fullSchemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": graphItems
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+<!-- Connected JSON-LD Knowledge Graph for Search & AI Engines -->
+<script type="application/ld+json" set:html={JSON.stringify(fullSchemaGraph)} />

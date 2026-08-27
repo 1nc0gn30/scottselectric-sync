@@ -1,26 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import { siteConfig } from '../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Services", url: `${siteConfig.url}/services` }
+];
 
 const allServices = [
-  { title: "Appliance Installation & Dedicated Circuits", icon: "🍳", desc: "Dedicated high-voltage 240V circuits for ovens, dryers, refrigerators, and water heaters." },
-  { title: "Electrical Panel Upgrades (200A/400A)", icon: "⚡", desc: "Upgrade obsolete fuse boxes or 100A panels to modern high-capacity smart breaker boxes." },
-  { title: "EV Charging Station Installation", icon: "🚘", desc: "Level 2 chargers for Tesla, Rivian, Ford Lightning, and all EV makes in residential & commercial sites." },
-  { title: "Whole-Home Backup Generator Setup", icon: "🔋", desc: "Automatic gas/propane standby power systems for coastal storm outage protection." },
-  { title: "Custom & Recessed Architectural Lighting", icon: "💡", desc: "LED recessed spotlights, cove ambient lighting, under-cabinet strips, and dimming switches." },
-  { title: "Smart Home Automation Systems", icon: "📱", desc: "Integrated smart switches, automated climate, voice control, and smartphone remote access." },
-  { title: "Pool, Hot Tub & Spa Wiring", icon: "🏊", desc: "GFCI protected subpanels, bonding grids, underwater LED lighting, and automatic heaters." },
-  { title: "Whole-Home Surge Protection", icon: "⚡", desc: "Suppress lightning spikes and utility line surges before they damage expensive electronics." },
-  { title: "Electrical Safety Inspections & Audits", icon: "🔍", desc: "Comprehensive home buyer and code compliance safety inspections with digital reports." },
-  { title: "Commercial Electrical & 3-Phase Power", icon: "🏢", desc: "Retail, office, restaurant, and industrial electrical wiring, lighting maintenance, and power." },
-  { title: "Data Cabling & Network Infrastructure", icon: "🌐", desc: "Cat6/Cat6A structured cabling, server rack wiring, and Wi-Fi access point power." },
-  { title: "Emergency Electrical Repairs 24/7", icon: "🚨", desc: "Immediate dispatch for burning smells, tripping main breakers, or total power failure." }
+  { title: "Appliance Installation & Dedicated Circuits", icon: "🍳", desc: "Dedicated high-voltage 240V circuits for ovens, dryers, refrigerators, and water heaters.", link: "/services" },
+  { title: "Electrical Panel Upgrades (200A/400A)", icon: "⚡", desc: "Upgrade obsolete fuse boxes or 100A panels to modern high-capacity smart breaker boxes.", link: "/services/electrical-panel-upgrades" },
+  { title: "EV Charging Station Installation", icon: "🚘", desc: "Level 2 chargers for Tesla, Rivian, Ford Lightning, and all EV makes in residential & commercial sites.", link: "/services/ev-charger-installation" },
+  { title: "Whole-Home Backup Generator Setup", icon: "🔋", desc: "Automatic gas/propane standby power systems for coastal storm outage protection.", link: "/services/whole-home-generators" },
+  { title: "Custom & Recessed Architectural Lighting", icon: "💡", desc: "LED recessed spotlights, cove ambient lighting, under-cabinet strips, and dimming switches.", link: "/services/custom-lighting-installation" },
+  { title: "Smart Home Automation Systems", icon: "📱", desc: "Integrated smart switches, automated climate, voice control, and smartphone remote access.", link: "/services/smart-home-automation" },
+  { title: "Pool, Hot Tub & Spa Wiring", icon: "🏊", desc: "GFCI protected subpanels, bonding grids, underwater LED lighting, and automatic heaters.", link: "/services" },
+  { title: "Whole-Home Surge Protection", icon: "⚡", desc: "Suppress lightning spikes and utility line surges before they damage expensive electronics.", link: "/services" },
+  { title: "Electrical Safety Inspections & Audits", icon: "🔍", desc: "Comprehensive home buyer and code compliance safety inspections with digital reports.", link: "/services" },
+  { title: "Commercial Electrical & 3-Phase Power", icon: "🏢", desc: "Retail, office, restaurant, and industrial electrical wiring, lighting maintenance, and power.", link: "/services/commercial-electrical" },
+  { title: "Data Cabling & Network Infrastructure", icon: "🌐", desc: "Cat6/Cat6A structured cabling, server rack wiring, and Wi-Fi access point power.", link: "/services" },
+  { title: "Emergency Electrical Repairs 24/7", icon: "🚨", desc: "Immediate dispatch for burning smells, tripping main breakers, or total power failure.", link: "/services" }
 ];
 ---
 
 <Layout 
   title="Electrical Services | Scott's Electric (Hampton Roads 757)"
-  description="Full-service licensed Master Electrician solutions across all 7 cities of 757. Panel upgrades, EV chargers, generators, custom lighting, smart home, and commercial electrical."
+  description="Full-service licensed Master Electrician solutions across all 7 cities of 757. 200A panel upgrades, EV chargers, standby generators, custom lighting, smart home, and commercial electrical."
+  breadcrumbs={breadcrumbs}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -46,9 +53,9 @@ const allServices = [
               <h3 class="font-heading text-xl font-bold text-white mb-3">{srv.title}</h3>
               <p class="text-xs text-gray-300 leading-relaxed mb-6">{srv.desc}</p>
             </div>
-            <a href="tel:7575360478" class="text-xs font-bold text-brand-gold hover:underline flex items-center justify-between border-t border-gray-800/80 pt-4">
-              <span>Book Service Now</span>
-              <span>(757) 536-0478 →</span>
+            <a href={srv.link} class="text-xs font-bold text-brand-gold hover:underline flex items-center justify-between border-t border-gray-800/80 pt-4">
+              <span>View Service Details</span>
+              <span>→</span>
             </a>
           </div>
         ))}

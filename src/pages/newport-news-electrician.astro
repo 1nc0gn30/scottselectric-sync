@@ -2,12 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import { siteConfig } from '../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Newport News Electrician", url: `${siteConfig.url}/newport-news-electrician` }
+];
+
+const cityFaqs = [
+  {
+    question: "Which Newport News areas and communities does Scott's Electric cover?",
+    answer: "We provide complete electrical service and emergency dispatch across City Center at Oyster Point, Port Warwick, Hilton Village, Denbigh, Menchville, Kiln Creek, and Hidenwood."
+  },
+  {
+    question: "Do you install whole-home surge protection in Newport News?",
+    answer: "Yes, we install Type 1 and Type 2 panel-mounted surge protective devices (SPDs) to shield electronics, heat pumps, and appliances from Peninsula storm power surges."
+  },
+  {
+    question: "How do I schedule an electrical panel replacement in Newport News?",
+    answer: "Call our 24/7 line at (757) 536-0478 or use our online calculator. We handle Dominion Energy disconnect coordination and City of Newport News code permits."
+  }
+];
 ---
 
 <Layout 
-  title="Electrician in Newport News VA | 24/7 Peninsula Electrical Services"
-  description="Licensed electrician in Newport News, VA serving Oyster Point, Denbigh & Hilton Village. 24/7 emergency electrical repair, 200A panel upgrades & surge protection."
+  title="Electrician in Newport News VA | 24/7 Peninsula Electrical Repair & Panels"
+  description="Licensed Master Electrician in Newport News, VA serving Oyster Point, Denbigh & Hilton Village. 24/7 emergency electrical repair, 200A panel upgrades & EV chargers. Call (757) 536-0478."
   cityName="Newport News"
+  serviceName="Newport News Electrical Contractor"
+  breadcrumbs={breadcrumbs}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,11 +57,42 @@ import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator
     </div>
   </section>
 
-  <section id="quote" class="py-16 bg-brand-dark">
+  <section class="py-16 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-8">
+        Newport News Peninsula Services
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">⚡</div>
+          <h3 class="font-heading text-xl font-bold text-white">200A Panel Replacement</h3>
+          <p class="text-xs text-gray-300">
+            Modernize outdated breaker boxes in historic Hilton Village and Denbigh homes with smart high-capacity panels.
+          </p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">🛡️</div>
+          <h3 class="font-heading text-xl font-bold text-white">Whole-Home Surge Defense</h3>
+          <p class="text-xs text-gray-300">
+            Protect expensive electronics and appliances from grid instability and lightning strikes.
+          </p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">🚘</div>
+          <h3 class="font-heading text-xl font-bold text-white">EV Charger Wiring</h3>
+          <p class="text-xs text-gray-300">
+            Level 2 Tesla Wall Connector and universal EV charging station setups across Newport News.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" class="py-16 bg-brand-card/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
 
-  <AEOFAQ cityName="Newport News" />
+  <AEOFAQ faqs={cityFaqs} title="Newport News Electrical FAQ & Answers" cityName="Newport News" />
 </Layout>

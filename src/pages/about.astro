@@ -1,10 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "About", url: `${siteConfig.url}/about` }
+];
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": `${siteConfig.url}/about#webpage`,
+      "url": `${siteConfig.url}/about`,
+      "name": "About Scott's Electric | Master Electricians in Hampton Roads 757",
+      "description": "Learn about Scott's Electric, Hampton Roads' trusted Master Electrician serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk.",
+      "isPartOf": { "@id": `${siteConfig.url}/#website` },
+      "about": { "@id": `${siteConfig.url}/#organization` }
+    }
+  ]
+};
 ---
 
 <Layout 
   title="About Scott's Electric | Master Electricians in Hampton Roads 757"
-  description="Learn about Scott's Electric, Hampton Roads' trusted Master Electrician serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk."
+  description="Learn about Scott's Electric, Hampton Roads' trusted Master Electrician serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk. 24/7 emergency dispatch."
+  breadcrumbs={breadcrumbs}
+  customSchema={[aboutSchema]}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +47,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
         <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/about_electrician_working.png" alt="Scott's Electric Master Electrician working on electrical panel box" class="w-full h-auto object-cover" />
+          <img src="/assets/images/about_electrician_working.png" alt="Scott's Electric Master Electrician working on electrical panel box in Hampton Roads" class="w-full h-auto object-cover" />
         </div>
       </div>
     </div>

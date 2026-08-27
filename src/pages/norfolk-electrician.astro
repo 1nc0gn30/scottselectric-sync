@@ -2,23 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import { siteConfig } from '../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Norfolk Electrician", url: `${siteConfig.url}/norfolk-electrician` }
+];
 
 const cityFaqs = [
   {
-    question: "Do you specialize in historic home wiring in Norfolk (Ghent / Colonial Place)?",
-    answer: "Yes! Scott's Electric has extensive experience updating knob-and-tube, cloth wiring, and outdated fuse boxes in historic Ghent, Freemason, and Colonial Place homes while preserving original architectural charm."
+    question: "Do you specialize in historic home rewiring in Norfolk (Ghent, Freemason, Colonial Place)?",
+    answer: "Yes! Scott's Electric has extensive experience updating knob-and-tube wiring, ungrounded outlets, and obsolete fuse boxes in historic Ghent, Freemason, and Colonial Place homes while preserving architectural integrity."
   },
   {
     question: "How fast can you respond to commercial electrical emergencies in Norfolk?",
     answer: "We provide 24/7 priority emergency dispatch throughout Downtown Norfolk, Wards Corner, Ocean View, and military base commercial corridors with typical arrival within 30 to 45 minutes."
+  },
+  {
+    question: "Can Scott's Electric upgrade electrical panels for multi-family duplexes and rentals in Norfolk?",
+    answer: "Yes, we handle multi-meter panel upgrades, subpanel additions, tenant metering separation, and commercial 3-phase power distribution throughout Norfolk."
   }
 ];
 ---
 
 <Layout 
-  title="Electrician in Norfolk VA | 24/7 Emergency & Historic Home Rewiring"
-  description="Top-rated licensed electrician in Norfolk, VA. 24/7 emergency repair, Ghent historic home rewiring, 200A breaker panel upgrades & commercial electrical in Norfolk."
+  title="Electrician in Norfolk VA | Historic Home Rewiring & 24/7 Emergency Repair"
+  description="Licensed Master Electrician in Norfolk, VA. Specializing in Ghent historic home rewiring, 200A breaker panel upgrades, EV chargers & 24/7 emergency dispatch. Call (757) 536-0478."
   cityName="Norfolk"
+  serviceName="Norfolk Electrical Contractor"
+  breadcrumbs={breadcrumbs}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,5 +94,5 @@ const cityFaqs = [
     </div>
   </section>
 
-  <AEOFAQ faqs={cityFaqs} title="Norfolk Electrical Guide & FAQ" cityName="Norfolk" />
+  <AEOFAQ faqs={cityFaqs} title="Norfolk Electrical Guide & Direct FAQ" cityName="Norfolk" />
 </Layout>

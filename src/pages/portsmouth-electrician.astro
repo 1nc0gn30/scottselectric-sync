@@ -2,12 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import { siteConfig } from '../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Portsmouth Electrician", url: `${siteConfig.url}/portsmouth-electrician` }
+];
+
+const cityFaqs = [
+  {
+    question: "Do you provide electrical code violation corrections in Portsmouth?",
+    answer: "Yes, we remediate electrical code violations, replace outdated ungrounded wiring, install required GFCI/AFCI protection, and clear municipal inspector checklists in Portsmouth."
+  },
+  {
+    question: "How quickly can you dispatch for an electrical emergency in Olde Towne or Churchland?",
+    answer: "Scott's Electric offers 24/7 immediate emergency dispatch throughout Olde Towne, Churchland, Port Norfolk, and Cradock with typical arrival in 30 to 45 minutes."
+  },
+  {
+    question: "Can I replace an old fuse box with a 200A breaker panel in Portsmouth?",
+    answer: "Yes, we specialize in converting obsolete screw-in fuse boxes into modern 200A Siemens or Square D smart breaker panels with whole-home surge protection."
+  }
+];
 ---
 
 <Layout 
-  title="Electrician in Portsmouth VA | 24/7 Emergency Repair & Panel Upgrades"
-  description="Licensed Master Electrician in Portsmouth, VA serving Olde Towne, Churchland & Port Norfolk. 24/7 emergency repair, code compliance updates & fuse box upgrades."
+  title="Electrician in Portsmouth VA | 24/7 Emergency Repair & Fuse Box Upgrades"
+  description="Licensed Master Electrician in Portsmouth, VA serving Olde Towne, Churchland & Port Norfolk. 24/7 emergency repair, code compliance updates & 200A panel upgrades. Call (757) 536-0478."
   cityName="Portsmouth"
+  serviceName="Portsmouth Electrical Contractor"
+  breadcrumbs={breadcrumbs}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,11 +57,42 @@ import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator
     </div>
   </section>
 
-  <section id="quote" class="py-16 bg-brand-dark">
+  <section class="py-16 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-8">
+        Portsmouth Electrical Solutions
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">🔌</div>
+          <h3 class="font-heading text-xl font-bold text-white">Fuse Box to 200A Breakers</h3>
+          <p class="text-xs text-gray-300">
+            Convert dangerous screw-in fuse boxes to modern 200-amp circuit breaker panels.
+          </p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">📋</div>
+          <h3 class="font-heading text-xl font-bold text-white">Code Violation Repairs</h3>
+          <p class="text-xs text-gray-300">
+            Remediate municipal safety citations, install required GFCI/AFCI breakers, and certify homes.
+          </p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">🚨</div>
+          <h3 class="font-heading text-xl font-bold text-white">24/7 Emergency Dispatch</h3>
+          <p class="text-xs text-gray-300">
+            Immediate dispatch for sparking outlets, power loss, and buzzing electrical panels.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" class="py-16 bg-brand-card/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
 
-  <AEOFAQ cityName="Portsmouth" />
+  <AEOFAQ faqs={cityFaqs} title="Portsmouth Electrical FAQ & Answers" cityName="Portsmouth" />
 </Layout>

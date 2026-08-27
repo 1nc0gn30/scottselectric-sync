@@ -2,12 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import { siteConfig } from '../config/site.js';
+
+const breadcrumbs = [
+  { name: "Home", url: siteConfig.url },
+  { name: "Suffolk Electrician", url: `${siteConfig.url}/suffolk-electrician` }
+];
+
+const cityFaqs = [
+  {
+    question: "Which Suffolk areas does Scott's Electric cover?",
+    answer: "We provide residential, commercial, and agricultural electrical services across Harbour View, Downtown Suffolk, Chuckatuck, Driver, North Suffolk, Holland, and Whaleyville."
+  },
+  {
+    question: "Do you install electrical subpanels for workshops, barns, and detached garages in Suffolk?",
+    answer: "Yes, we install 60A to 125A subpanels, underground feeder conduits, heavy machinery 240V circuits, and dedicated welder outlets across Suffolk."
+  },
+  {
+    question: "Can Scott's Electric install a whole-property standby generator for large Suffolk acreage?",
+    answer: "Yes, we install high-capacity 22kW to 26kW+ automatic standby generators with dual automatic transfer switches to keep expansive Suffolk estates and rural properties powered continuously."
+  }
+];
 ---
 
 <Layout 
-  title="Electrician in Suffolk VA | Standby Generator Installer & Subpanels"
-  description="Licensed electrician in Suffolk, VA serving Harbour View & Downtown. Standby generators, workshop subpanels, EV charging stations & 24/7 emergency service."
+  title="Electrician in Suffolk VA | 24/7 Standby Generator Installer & Subpanels"
+  description="Licensed Master Electrician in Suffolk, VA serving Harbour View & Downtown. Standby generators, workshop subpanels, Level 2 EV chargers & 24/7 emergency repair. Call (757) 536-0478."
   cityName="Suffolk"
+  serviceName="Suffolk Electrical Contractor"
+  breadcrumbs={breadcrumbs}
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,11 +57,42 @@ import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator
     </div>
   </section>
 
-  <section id="quote" class="py-16 bg-brand-dark">
+  <section class="py-16 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-8">
+        Suffolk Electrical Solutions
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">🔋</div>
+          <h3 class="font-heading text-xl font-bold text-white">Standby Generators</h3>
+          <p class="text-xs text-gray-300">
+            Keep rural and suburban Suffolk estates powered during extreme weather and grid outages.
+          </p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">🛠️</div>
+          <h3 class="font-heading text-xl font-bold text-white">Workshop Subpanels</h3>
+          <p class="text-xs text-gray-300">
+            Dedicated power distribution for detached garages, barns, equipment shops, and power tools.
+          </p>
+        </div>
+        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
+          <div class="text-3xl">🚘</div>
+          <h3 class="font-heading text-xl font-bold text-white">Level 2 EV Chargers</h3>
+          <p class="text-xs text-gray-300">
+            Fast home charging station installations for Tesla, Ford Lightning, and all electric vehicles.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" class="py-16 bg-brand-card/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
 
-  <AEOFAQ cityName="Suffolk" />
+  <AEOFAQ faqs={cityFaqs} title="Suffolk Electrical FAQ & Answers" cityName="Suffolk" />
 </Layout>
