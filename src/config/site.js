@@ -10,7 +10,7 @@ export const siteConfig = {
   phoneTel: "tel:7575360478",
   phoneE164: "+1-757-536-0478",
   email: "info@scottselectric.pro",
-  license: "Virginia Master Electrician - VA Class A Contractor License #2710078492",
+  license: "Virginia Master Electrician - Licensed & Insured VA Class A Contractor",
   currenciesAccepted: "USD",
   paymentAccepted: "Cash, Credit Card, Debit Card, Check, Financing",
   foundingDate: "2012",
@@ -18,35 +18,6 @@ export const siteConfig = {
   logoTransparent: "https://scottselectric.pro/assets/images/scotts_electric_logo_transparent.png",
   heroImage: "https://scottselectric.pro/assets/images/real/scotts_electric_employee_in_action/img_2651.webp",
   priceRange: "$$",
-  rating: {
-    ratingValue: "4.9",
-    reviewCount: "254",
-    bestRating: "5",
-    worstRating: "1"
-  },
-  reviews: [
-    {
-      author: "David Miller",
-      datePublished: "2026-07-15",
-      reviewRating: { ratingValue: "5", bestRating: "5" },
-      reviewBody: "Scott's Electric upgraded our old 100A panel to 200A and installed a Tesla Level 2 charger in our Virginia Beach home. Flawless workmanship, passed city inspection the first time!",
-      itemReviewed: { name: "200A Panel Upgrade & EV Charger" }
-    },
-    {
-      author: "Sarah Jenkins",
-      datePublished: "2026-06-28",
-      reviewRating: { ratingValue: "5", bestRating: "5" },
-      reviewBody: "We had sparking breakers during a storm in Norfolk. Called Scott's Electric at 10 PM and a Master Electrician arrived in under 35 minutes to safely replace the burnt breaker.",
-      itemReviewed: { name: "24/7 Emergency Electrical Repair" }
-    },
-    {
-      author: "Robert Kowalski",
-      datePublished: "2026-05-19",
-      reviewRating: { ratingValue: "5", bestRating: "5" },
-      reviewBody: "Installed a whole-home standby generator with automatic transfer switch in Chesapeake. Extremely professional, clean raceway wiring, and crystal clear communication.",
-      itemReviewed: { name: "Standby Generator Installation" }
-    }
-  ],
   hours: [
     {
       days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -240,27 +211,6 @@ export function getBusinessSchema(cityName = "Hampton Roads") {
       "dayOfWeek": h.days,
       "opens": h.opens,
       "closes": h.closes
-    })),
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": siteConfig.rating.ratingValue,
-      "reviewCount": siteConfig.rating.reviewCount,
-      "bestRating": siteConfig.rating.bestRating,
-      "worstRating": siteConfig.rating.worstRating
-    },
-    "review": siteConfig.reviews.map(rev => ({
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": rev.author
-      },
-      "datePublished": rev.datePublished,
-      "reviewBody": rev.reviewBody,
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": rev.reviewRating.ratingValue,
-        "bestRating": rev.reviewRating.bestRating
-      }
     })),
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
