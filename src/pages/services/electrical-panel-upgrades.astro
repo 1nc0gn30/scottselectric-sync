@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
 import AEOFAQ from '../../components/AEOFAQ.astro';
+import JobsiteGallery from '../../components/JobsiteGallery.astro';
+import AEODirectAnswer from '../../components/AEODirectAnswer.astro';
 import { siteConfig } from '../../config/site.js';
 
 const breadcrumbs = [
@@ -16,6 +18,51 @@ const serviceData = {
   url: `${siteConfig.url}/services/electrical-panel-upgrades`,
   priceRange: "$1,800 - $3,800"
 };
+
+const panelGalleryPhotos = [
+  {
+    src: '/assets/images/real/panels/img_0304.webp',
+    alt: "200 Amp Main Breaker Panel Replacement with Clean Wiring",
+    title: "200A Main Breaker Panel Upgrade",
+    category: "Main Service",
+    desc: "Complete 200-amp service modernization with arc-fault protection."
+  },
+  {
+    src: '/assets/images/real/panels/img_3369.webp',
+    alt: "Dual Subpanel Load Center Installation",
+    title: "Dual Subpanel Expansion",
+    category: "Subpanels",
+    desc: "Dedicated power distribution for heat pumps, workshops, and EV chargers."
+  },
+  {
+    src: '/assets/images/real/panels/img_1141.webp',
+    alt: "Precision Wire Dressing and Breaker Circuit Labeling",
+    title: "Clean Breaker Indexing & Dressing",
+    category: "Craftsmanship",
+    desc: "Every circuit mapped, labeled, and cleanly combed for maximum safety."
+  },
+  {
+    src: '/assets/images/real/meters/img_5108.webp',
+    alt: "Electric Meter Base and Service Entrance Cable Tie-In",
+    title: "Service Entrance & Meter Base",
+    category: "Utility Connection",
+    desc: "Coordinated with Dominion Energy for same-day power restoration."
+  },
+  {
+    src: '/assets/images/real/panels/img_4251.webp',
+    alt: "Finished Residential Smart Panel Installation",
+    title: "Modern Siemens Smart Breaker Box",
+    category: "Safety Certified",
+    desc: "Whole-home surge protection and tamper-resistant breakers."
+  },
+  {
+    src: '/assets/images/real/panels/img_3626.webp',
+    alt: "Heavy Load Electrical Panel Replacement",
+    title: "High-Capacity Residential Load Center",
+    category: "Heavy Power",
+    desc: "Engineered for high amp appliances, hot tubs, and EV chargers."
+  }
+];
 
 const faqs = [
   {
@@ -53,24 +100,48 @@ const faqs = [
             ⚡ Electrical Capacity & Safety
           </span>
           <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            200A & 400A Smart <br />
-            <span class="gold-gradient-text">Electrical Panel Upgrades</span>
+            200A & 400A Electrical <br />
+            <span class="gold-gradient-text">Panel Upgrades</span>
           </h1>
           <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Power modern living in Hampton Roads with a state-of-the-art circuit breaker panel installation. Designed to eliminate breaker trips, support EV chargers, and protect sensitive smart home electronics.
+            Eliminate breaker trips and protect your home with high-capacity smart electrical panels. We replace outdated 100A boxes and dangerous Federal Pacific/Zinsco panels across Hampton Roads.
           </p>
           <div class="mt-8 flex gap-4">
             <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Schedule Panel Inspection →
+              Get Panel Upgrade Estimate →
             </a>
           </div>
         </div>
         <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/panel_upgrade.png" alt="200 Amp Electrical Panel Upgrade in Hampton Roads" class="w-full h-auto object-cover" />
+          <img src="/assets/images/real/panels/img_3246.webp" alt="200 Amp Panel Upgrade in Hampton Roads" class="w-full h-auto object-cover" />
         </div>
       </div>
+
+      <!-- Panel Upgrade AEO Direct Answer Block -->
+      <AEODirectAnswer 
+        question="How much does a 200A electrical panel upgrade cost in Hampton Roads?"
+        summary="A professional 200A electrical panel upgrade by Scott's Electric typically costs between $1,800 and $3,800. This includes the modern UL-listed breaker panel, AFCI/GFCI breakers, whole-home surge protector, Dominion Energy disconnect/reconnect coordination, and local city electrical permits with same-day power restoration."
+        facts={[
+          { label: "Turnaround Time", value: "Same-Day (4-8 Hours)", highlight: true },
+          { label: "Standard Price", value: "$1,800 - $3,800" },
+          { label: "Utility Alignment", value: "Dominion Energy Disconnect Handled", highlight: true },
+          { label: "Permits Included", value: "All 7 Cities Municipal Permitting" },
+          { label: "Warranty / Safety", value: "Lifetime Workmanship Guarantee" },
+          { label: "Emergency Dispatch", value: "(757) 536-0478" }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
     </div>
   </section>
+
+  <!-- Real Work Panel Gallery -->
+  <JobsiteGallery 
+    title="Real Electrical Panel Projects in 757"
+    subtitle="Direct photos from Scott's Electric panel replacements, subpanel installations, and clean wire raceways across Hampton Roads."
+    badge="Panel Upgrade Portfolio"
+    photos={panelGalleryPhotos}
+    columns="3"
+  />
 
   <section class="py-16 bg-brand-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,5 +149,5 @@ const faqs = [
     </div>
   </section>
 
-  <AEOFAQ faqs={faqs} title="Panel Upgrade FAQ & Expert Answers" />
+  <AEOFAQ faqs={faqs} title="Panel Upgrade FAQ & Direct Answers" />
 </Layout>

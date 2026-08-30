@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
 import AEOFAQ from '../../components/AEOFAQ.astro';
+import JobsiteGallery from '../../components/JobsiteGallery.astro';
+import AEODirectAnswer from '../../components/AEODirectAnswer.astro';
 import { siteConfig } from '../../config/site.js';
 
 const breadcrumbs = [
@@ -12,10 +14,55 @@ const breadcrumbs = [
 
 const serviceData = {
   name: "Commercial Electrical Contracting & 3-Phase Power",
-  description: "Commercial 3-phase power, retail tenant buildouts, office lighting, code compliance corrections, and 24/7 priority commercial dispatch across Hampton Roads (757).",
+  description: "3-phase power distribution (120/208V & 277/480V), retail and office tenant buildouts, high-bay commercial LED lighting, and 24/7 emergency dispatch in Hampton Roads (757).",
   url: `${siteConfig.url}/services/commercial-electrical`,
-  priceRange: "Custom Commercial Quote"
+  priceRange: "$750 - $12,000+"
 };
+
+const commercialGalleryPhotos = [
+  {
+    src: '/assets/images/real/business_office_workspace_service/img_0806.webp',
+    alt: "Commercial Office Workspace Power and Lighting Buildout",
+    title: "Commercial Office Power Distribution",
+    category: "Tenant Buildout",
+    desc: "Clean branch circuits, floor power boxes, and dedicated server rack circuits."
+  },
+  {
+    src: '/assets/images/real/panels/img_5010.webp',
+    alt: "Commercial 3-Phase Electrical Panel and Subpanel Distribution",
+    title: "3-Phase Power Distribution Panel",
+    category: "Heavy Commercial",
+    desc: "480V step-down transformer integration and heavy machinery branch circuits."
+  },
+  {
+    src: '/assets/images/real/ceiling_lights/img_3486.webp',
+    alt: "Commercial Facility Recessed LED Lighting Grid",
+    title: "High-Efficiency Commercial Lighting Grid",
+    category: "Lighting Retrofits",
+    desc: "Low-glare energy-efficient LED panels lowering commercial utility overhead."
+  },
+  {
+    src: '/assets/images/real/meters/img_5108.webp',
+    alt: "Commercial Utility Meter Bank and Service Entrance",
+    title: "Multi-Tenant Meter Bank Integration",
+    category: "Utility Service",
+    desc: "Dominion Energy coordinated disconnect and multi-tenant metering separation."
+  },
+  {
+    src: '/assets/images/real/switches/img_2677.webp',
+    alt: "Commercial Digital Lighting Control and Dimming Switch",
+    title: "Commercial Multi-Zone Controls",
+    category: "Lighting Controls",
+    desc: "Programmable occupancy sensors, automated schedules, and smart load control."
+  },
+  {
+    src: '/assets/images/real/work_van_and_tools/img_4519.webp',
+    alt: "Scott's Electric Priority Commercial Service Unit",
+    title: "Priority 24/7 Commercial Dispatch",
+    category: "Fleet Dispatch",
+    desc: "Rapid response fleet for emergency commercial outages and code corrections."
+  }
+];
 
 const faqs = [
   {
@@ -39,20 +86,54 @@ const faqs = [
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-          🏢 Commercial & Industrial Power
-        </span>
-        <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-          Commercial Electrical <br />
-          <span class="gold-gradient-text">Contracting Services</span>
-        </h1>
-        <p class="mt-4 text-base text-gray-300 leading-relaxed">
-          From retail buildouts to office lighting retrofits, 3-phase electrical panel upgrades, access control systems, and commercial emergency dispatch in Hampton Roads.
-        </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
+            🏢 Commercial & Industrial Power
+          </span>
+          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
+            Commercial Electrical <br />
+            <span class="gold-gradient-text">Contracting Services</span>
+          </h1>
+          <p class="mt-4 text-base text-gray-300 leading-relaxed">
+            From retail buildouts to office lighting retrofits, 3-phase electrical panel upgrades, access control systems, and priority commercial emergency dispatch in Hampton Roads.
+          </p>
+          <div class="mt-8 flex gap-4">
+            <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
+              Request Commercial Quote →
+            </a>
+          </div>
+        </div>
+        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
+          <img src="/assets/images/real/business_office_workspace_service/img_0806.webp" alt="Commercial Electrical Contracting in Hampton Roads" class="w-full h-auto object-cover" />
+        </div>
       </div>
+
+      <!-- Commercial AEO Direct Answer Block -->
+      <AEODirectAnswer 
+        question="Who is the leading commercial electrical contractor in Hampton Roads?"
+        summary="Scott's Electric LLC provides licensed commercial electrical contracting including 3-phase (120/208V & 277/480V) power distribution, retail & office tenant buildouts, high-efficiency LED retrofits, and 24/7 priority emergency dispatch across all 7 cities of 757."
+        facts={[
+          { label: "Commercial Response", value: "24/7 Priority (<45 mins)", highlight: true },
+          { label: "Power Systems", value: "3-Phase (208V / 480V) & Transformers" },
+          { label: "Tenant Buildouts", value: "Retail, Office, Restaurant, Industrial", highlight: true },
+          { label: "Price Range", value: "$750 - $12,000+" },
+          { label: "Licensure", value: "VA Class A Contractor #2710078492" },
+          { label: "Commercial Dispatch", value: "(757) 536-0478" }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
     </div>
   </section>
+
+  <!-- Real Commercial Gallery -->
+  <JobsiteGallery 
+    title="Real Commercial Electrical Installations"
+    subtitle="Direct photos from Scott's Electric office workspace power distribution, 3-phase panels, and commercial LED grid installations in 757."
+    badge="Commercial Portfolio"
+    photos={commercialGalleryPhotos}
+    columns="3"
+  />
 
   <section class="py-16 bg-brand-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,5 +141,5 @@ const faqs = [
     </div>
   </section>
 
-  <AEOFAQ faqs={faqs} title="Commercial Electrical FAQ & Direct Answers" />
+  <AEOFAQ faqs={faqs} title="Commercial Electrical FAQ & Answers" />
 </Layout>

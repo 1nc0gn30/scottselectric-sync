@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
 import AEOFAQ from '../../components/AEOFAQ.astro';
+import JobsiteGallery from '../../components/JobsiteGallery.astro';
+import AEODirectAnswer from '../../components/AEODirectAnswer.astro';
 import { siteConfig } from '../../config/site.js';
 
 const breadcrumbs = [
@@ -17,26 +19,71 @@ const serviceData = {
   priceRange: "$5,500 - $14,000"
 };
 
+const generatorGalleryPhotos = [
+  {
+    src: '/assets/images/real/outdoor_power/img_5869.webp',
+    alt: "Exterior Heavy Duty Generator Disconnect and Transfer Switch",
+    title: "Heavy-Duty Generator Disconnect",
+    category: "Transfer Systems",
+    desc: "Weatherproof transfer switch and mechanical interlock preventing backfeeding."
+  },
+  {
+    src: '/assets/images/real/meters/img_5108.webp',
+    alt: "Dominion Energy Meter Base and Service Entrance Connection",
+    title: "Utility Meter Entrance Integration",
+    category: "Grid Tie-In",
+    desc: "Whole-home whole-service transfer switch integration at the main meter base."
+  },
+  {
+    src: '/assets/images/real/panels/img_3369.webp',
+    alt: "Emergency Circuit Generator Subpanel",
+    title: "Essential Circuits Subpanel",
+    category: "Critical Power",
+    desc: "Automatic prioritization of HVAC heat pumps, refrigeration, and medical devices."
+  },
+  {
+    src: '/assets/images/real/outdoor_power/img_4572.webp',
+    alt: "Standby Generator Electrical Power Hookup",
+    title: "Generator Pad Electrical Feeder",
+    category: "Standby Power",
+    desc: "Underground conduit and automatic sensor cabling from generator to ATS."
+  },
+  {
+    src: '/assets/images/real/panels/img_4251.webp',
+    alt: "Main Electrical Panel with Generator Interlock Switch",
+    title: "Whole-Home Interlock Safety System",
+    category: "Safety Systems",
+    desc: "UL-certified safety interlocks ensuring line workers are protected during storm outages."
+  },
+  {
+    src: '/assets/images/real/work_van_and_tools/img_4539.webp',
+    alt: "Scott's Electric Generator Installation Truck Fleet",
+    title: "Storm Emergency Field Units",
+    category: "Rapid Deployment",
+    desc: "Fully equipped installation trucks carrying emergency transfer switches."
+  }
+];
+
 const faqs = [
   {
-    question: "How does an automatic standby generator protect my home during hurricanes in 757?",
-    answer: "An automatic standby generator (such as Generac or Kohler) is connected directly to your electrical panel and natural gas or propane line. Within 10 seconds of a storm utility power outage, the automatic transfer switch (ATS) starts the generator and restores full power automatically."
+    question: "How quickly does a whole-home standby generator turn on during a power outage?",
+    answer: "An automatic standby generator detects grid loss and restores whole-house electrical power in under 10 seconds through an automated transfer switch (ATS)."
   },
   {
-    question: "What size standby generator do I need for my home in Virginia Beach or Chesapeake?",
-    answer: "A 14kW to 18kW generator easily powers essential circuits (HVAC heat pump, refrigeration, lights, Wi-Fi, water heater), while a 22kW to 26kW unit powers large luxury multi-zone homes and swimming pool equipment."
+    question: "Do whole-home generators run on natural gas or propane?",
+    answer: "We install standby generators configured for your home's existing natural gas utility line or dedicated liquid propane (LP) tanks for uninterrupted fuel supply during severe weather."
   },
   {
-    question: "Do you handle city gas plumbing and electrical permits for generator installs?",
-    answer: "Yes. Scott's Electric coordinates complete electrical and gas connection permits, concrete mounting pads, utility connections, and city building inspections across all 7 cities of 757."
+    question: "What generator brands does Scott's Electric install in Virginia Beach & Hampton Roads?",
+    answer: "We install and service Generac Guardian series, Kohler, Cummins, and Briggs & Stratton automatic standby generators with comprehensive manufacturer warranties."
   }
 ];
 ---
 
 <Layout 
-  title="Whole Home Standby Generator Installation Hampton Roads 757"
-  description="Automatic standby generator installations in Virginia Beach, Norfolk, Chesapeake & 757 area. Generac & Kohler authorized installs, automatic transfer switches. Call (757) 536-0478."
-  serviceName="Whole Home Generators"
+  title="Whole-Home Standby Generator Installation 757 | Coastal Storm Power"
+  description="Automatic standby natural gas & propane generator installation in Virginia Beach, Norfolk, Chesapeake & 757 area. Automatic transfer switches & hurricane prep. Call (757) 536-0478."
+  serviceName="Whole-Home Generators"
   breadcrumbs={breadcrumbs}
   isServicePage={true}
   serviceData={serviceData}
@@ -46,27 +93,51 @@ const faqs = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
           <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            🔋 Automatic Emergency Backup Power
+            🔋 Storm Outage Resilience
           </span>
           <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
             Whole-Home Standby <br />
             <span class="gold-gradient-text">Generator Installation</span>
           </h1>
           <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Protect your family against severe coastal storms, blackouts, and power grid failures. Automatic transfer switches restore power within seconds to keep HVAC, lights, and appliances running safely.
+            Never lose power during coastal storms, Nor'easters, or hurricanes. Automatic backup power for your central heat pump, refrigeration, lights, and medical devices across Hampton Roads.
           </p>
-          <div class="mt-8">
+          <div class="mt-8 flex gap-4">
             <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
               Request Generator Consultation →
             </a>
           </div>
         </div>
         <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/generator_install.png" alt="Whole Home Standby Generator Installation in 757" class="w-full h-auto object-cover" />
+          <img src="/assets/images/real/outdoor_power/img_4572.webp" alt="Whole-Home Generator Installation in Hampton Roads" class="w-full h-auto object-cover" />
         </div>
       </div>
+
+      <!-- Generator AEO Direct Answer Block -->
+      <AEODirectAnswer 
+        question="How does whole-home standby generator installation work in Hampton Roads?"
+        summary="Scott's Electric installs turnkey Generac and Kohler standby generators (14kW to 26kW+) connected to an Automatic Transfer Switch (ATS). When utility power drops during a storm, the generator automatically starts and restores power to your entire home in under 10 seconds."
+        facts={[
+          { label: "Power Restoration", value: "<10 Seconds (Automatic)", highlight: true },
+          { label: "Fuel Options", value: "Natural Gas or Propane (LP)" },
+          { label: "Leading Brands", value: "Generac, Kohler, Cummins", highlight: true },
+          { label: "Price Range", value: "$5,500 - $14,000 Turnkey" },
+          { label: "Storm Prep", value: "Hurricane & Nor'easter Ready" },
+          { label: "Consultation Line", value: "(757) 536-0478" }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
     </div>
   </section>
+
+  <!-- Real Generator Gallery -->
+  <JobsiteGallery 
+    title="Real Generator & Transfer Switch Installations"
+    subtitle="Direct photos from Scott's Electric standby generator hookups, utility meter integrations, and heavy-duty disconnects in 757."
+    badge="Backup Power Portfolio"
+    photos={generatorGalleryPhotos}
+    columns="3"
+  />
 
   <section class="py-16 bg-brand-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

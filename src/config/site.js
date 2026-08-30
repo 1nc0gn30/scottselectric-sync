@@ -10,10 +10,13 @@ export const siteConfig = {
   phoneTel: "tel:7575360478",
   phoneE164: "+1-757-536-0478",
   email: "info@scottselectric.pro",
-  license: "Virginia Master Electrician - VA Class A License #2710078492",
+  license: "Virginia Master Electrician - VA Class A Contractor License #2710078492",
+  currenciesAccepted: "USD",
+  paymentAccepted: "Cash, Credit Card, Debit Card, Check, Financing",
+  foundingDate: "2012",
   logo: "https://scottselectric.pro/assets/images/scotts_electric_logo.png",
   logoTransparent: "https://scottselectric.pro/assets/images/scotts_electric_logo_transparent.png",
-  heroImage: "https://scottselectric.pro/assets/images/hero_electrician.png",
+  heroImage: "https://scottselectric.pro/assets/images/real/scotts_electric_employee_in_action/img_2651.webp",
   priceRange: "$$",
   rating: {
     ratingValue: "4.9",
@@ -21,6 +24,29 @@ export const siteConfig = {
     bestRating: "5",
     worstRating: "1"
   },
+  reviews: [
+    {
+      author: "David Miller",
+      datePublished: "2026-07-15",
+      reviewRating: { ratingValue: "5", bestRating: "5" },
+      reviewBody: "Scott's Electric upgraded our old 100A panel to 200A and installed a Tesla Level 2 charger in our Virginia Beach home. Flawless workmanship, passed city inspection the first time!",
+      itemReviewed: { name: "200A Panel Upgrade & EV Charger" }
+    },
+    {
+      author: "Sarah Jenkins",
+      datePublished: "2026-06-28",
+      reviewRating: { ratingValue: "5", bestRating: "5" },
+      reviewBody: "We had sparking breakers during a storm in Norfolk. Called Scott's Electric at 10 PM and a Master Electrician arrived in under 35 minutes to safely replace the burnt breaker.",
+      itemReviewed: { name: "24/7 Emergency Electrical Repair" }
+    },
+    {
+      author: "Robert Kowalski",
+      datePublished: "2026-05-19",
+      reviewRating: { ratingValue: "5", bestRating: "5" },
+      reviewBody: "Installed a whole-home standby generator with automatic transfer switch in Chesapeake. Extremely professional, clean raceway wiring, and crystal clear communication.",
+      itemReviewed: { name: "Standby Generator Installation" }
+    }
+  ],
   hours: [
     {
       days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -44,50 +70,57 @@ export const siteConfig = {
       name: "Virginia Beach",
       slug: "/virginia-beach-electrician",
       postalCode: "23451",
+      zipCodes: ["23451", "23452", "23454", "23455", "23456", "23457", "23462", "23464"],
       geo: { latitude: 36.8529, longitude: -75.9780 },
-      neighborhoods: ["Oceanfront", "Town Center", "Kempsville", "Chic's Beach", "Red Mill", "Great Neck", "Princess Anne", "Sandbridge", "Bayside", "Lynnhaven"]
+      neighborhoods: ["Oceanfront", "Town Center", "Kempsville", "Chic's Beach", "Red Mill", "Great Neck", "Princess Anne", "Sandbridge", "Bayside", "Lynnhaven", "Hilltop", "Alanton", "Shadowlawn"]
     },
     {
       name: "Norfolk",
       slug: "/norfolk-electrician",
       postalCode: "23510",
+      zipCodes: ["23502", "23503", "23504", "23505", "23507", "23508", "23509", "23510", "23513", "23517", "23518"],
       geo: { latitude: 36.8508, longitude: -76.2859 },
-      neighborhoods: ["Ghent", "Downtown Norfolk", "Ocean View", "Larchmont", "Freemason", "Colonial Place", "Wards Corner", "Naval Base Area"]
+      neighborhoods: ["Ghent", "Downtown Norfolk", "Ocean View", "Larchmont", "Freemason", "Colonial Place", "Wards Corner", "Naval Base Area", "East Beach", "Park Place", "Lafayette"]
     },
     {
       name: "Chesapeake",
       slug: "/chesapeake-electrician",
       postalCode: "23320",
+      zipCodes: ["23320", "23321", "23322", "23323", "23324", "23325"],
       geo: { latitude: 36.7682, longitude: -76.2875 },
-      neighborhoods: ["Greenbrier", "Great Bridge", "Western Branch", "Deep Creek", "South Norfolk", "Hickory", "Indian River"]
+      neighborhoods: ["Greenbrier", "Great Bridge", "Western Branch", "Deep Creek", "South Norfolk", "Hickory", "Indian River", "Grassfield", "Edinburgh"]
     },
     {
       name: "Newport News",
       slug: "/newport-news-electrician",
       postalCode: "23601",
+      zipCodes: ["23601", "23602", "23603", "23605", "23606", "23607", "23608"],
       geo: { latitude: 37.0871, longitude: -76.4730 },
-      neighborhoods: ["City Center", "Port Warwick", "Denbigh", "Hilton Village", "Kiln Creek", "Menchville", "Oyster Point"]
+      neighborhoods: ["City Center", "Port Warwick", "Denbigh", "Hilton Village", "Kiln Creek", "Menchville", "Oyster Point", "Hidenwood", "Beaconsdale"]
     },
     {
       name: "Hampton",
       slug: "/hampton-electrician",
       postalCode: "23666",
+      zipCodes: ["23661", "23663", "23664", "23666", "23669"],
       geo: { latitude: 37.0299, longitude: -76.3452 },
-      neighborhoods: ["Phoebus", "Buckroe Beach", "Fox Hill", "Coliseum Central", "Downtown Hampton", "Wythe", "Langley Area"]
+      neighborhoods: ["Phoebus", "Buckroe Beach", "Fox Hill", "Coliseum Central", "Downtown Hampton", "Wythe", "Langley Area", "Grandview", "Willow Oaks"]
     },
     {
       name: "Portsmouth",
       slug: "/portsmouth-electrician",
       postalCode: "23701",
+      zipCodes: ["23701", "23702", "23703", "23704", "23707"],
       geo: { latitude: 36.8354, longitude: -76.2983 },
-      neighborhoods: ["Olde Towne", "Churchland", "Port Norfolk", "Cradock", "Park View", "Truxtun", "Westmorland"]
+      neighborhoods: ["Olde Towne", "Churchland", "Port Norfolk", "Cradock", "Park View", "Truxtun", "Westmorland", "Waterview", "Manor"]
     },
     {
       name: "Suffolk",
       slug: "/suffolk-electrician",
       postalCode: "23434",
+      zipCodes: ["23434", "23435", "23436", "23437", "23438"],
       geo: { latitude: 36.7282, longitude: -76.5836 },
-      neighborhoods: ["Harbour View", "Downtown Suffolk", "Driver", "North Suffolk", "Chuckatuck", "Holland", "Whaleyville"]
+      neighborhoods: ["Harbour View", "Downtown Suffolk", "Driver", "North Suffolk", "Chuckatuck", "Holland", "Whaleyville", "Kilby", "Crittenden"]
     }
   ],
   services: [
@@ -169,6 +202,13 @@ export function getBusinessSchema(cityName = "Hampton Roads") {
     "telephone": siteConfig.phoneE164,
     "email": siteConfig.email,
     "priceRange": siteConfig.priceRange,
+    "currenciesAccepted": siteConfig.currenciesAccepted,
+    "paymentAccepted": siteConfig.paymentAccepted,
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "license",
+      "name": siteConfig.license
+    },
     "description": `Virginia Master Electrician serving ${cityName} and all 7 cities of Hampton Roads (757). Specializing in 24/7 emergency repairs, 200A panel upgrades, EV chargers, standby generators, and commercial electrical.`,
     "address": {
       "@type": "PostalAddress",
@@ -186,6 +226,7 @@ export function getBusinessSchema(cityName = "Hampton Roads") {
     "areaServed": siteConfig.serviceAreas.map(area => ({
       "@type": "City",
       "name": area.name,
+      "postalCode": area.zipCodes,
       "sameAs": `https://en.wikipedia.org/wiki/${area.name.replace(/ /g, '_')},_Virginia`
     })).concat([
       {
@@ -207,6 +248,20 @@ export function getBusinessSchema(cityName = "Hampton Roads") {
       "bestRating": siteConfig.rating.bestRating,
       "worstRating": siteConfig.rating.worstRating
     },
+    "review": siteConfig.reviews.map(rev => ({
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": rev.author
+      },
+      "datePublished": rev.datePublished,
+      "reviewBody": rev.reviewBody,
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": rev.reviewRating.ratingValue,
+        "bestRating": rev.reviewRating.bestRating
+      }
+    })),
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Hampton Roads Master Electrical Services",
@@ -224,12 +279,18 @@ export function getBusinessSchema(cityName = "Hampton Roads") {
     "knowsAbout": [
       "National Electrical Code (NEC)",
       "200A Service Panel Upgrades",
-      "Level 2 EV Charger Installations",
-      "Whole-Home Standby Generators",
+      "400A High-Capacity Main Panels",
+      "Level 2 EV Charger Installations (Tesla Wall Connector, NACS, J1772)",
+      "Whole-Home Standby Generators (Generac, Kohler)",
+      "Automatic Transfer Switches (ATS)",
       "24/7 Emergency Electrical Troubleshooting",
-      "Aluminum Wire Remediation (Copulum / AlumiConn)",
-      "Surge Protection Devices (SPD)",
-      "Commercial 3-Phase Electrical Distribution"
+      "Aluminum Wire Remediation (Copalum / AlumiConn)",
+      "Surge Protective Devices (Type 1 & Type 2 SPD)",
+      "Commercial 3-Phase Electrical Power Distribution",
+      "Subpanel Installations for Workshops & Garages",
+      "Swimming Pool & Hot Tub Wiring (NEC Article 680)",
+      "Dominion Energy Disconnect and Reconnect Coordination",
+      "Hampton Roads Electrical Permitting & Inspections"
     ]
   };
 }

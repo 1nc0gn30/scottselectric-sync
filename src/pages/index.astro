@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import CityServiceCard from '../components/CityServiceCard.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import JobsiteGallery from '../components/JobsiteGallery.astro';
+import AEODirectAnswer from '../components/AEODirectAnswer.astro';
 
 const cityList = [
   {
@@ -53,30 +55,75 @@ const featuredServices = [
   {
     title: 'Electrical Panel Upgrades',
     desc: 'Upgrade outdated 100A panels to 200A or 400A smart breaker systems capable of supporting EV chargers, heat pumps, and modern appliances.',
-    img: '/assets/images/panel_upgrade.png',
+    img: '/assets/images/real/panels/img_3246.webp',
     link: '/services/electrical-panel-upgrades',
     tag: 'MOST POPULAR'
   },
   {
     title: 'EV Charging Station Installation',
     desc: 'Certified Level 2 home and commercial charging station installations for Tesla, Rivian, Ford, and all major EV models in 757.',
-    img: '/assets/images/ev_charger.png',
+    img: '/assets/images/real/outdoor_power/img_4370.webp',
     link: '/services/ev-charger-installation',
     tag: 'FAST INSTALL'
   },
   {
     title: 'Whole-Home Standby Generators',
     desc: 'Don’t get left in the dark during coastal storms. Automatic gas and propane backup generator installations with transfer switches.',
-    img: '/assets/images/generator_install.png',
+    img: '/assets/images/real/outdoor_power/img_4572.webp',
     link: '/services/whole-home-generators',
     tag: 'STORM PREP'
   },
   {
     title: 'Custom Recessed & Architectural Lighting',
-    desc: 'Transform your interior with high-efficiency dimmable LED recessed lights, under-cabinet lighting, and custom fixtures.',
-    img: '/assets/images/custom_lighting.png',
+    desc: 'Transform your interior with high-efficiency dimmable LED recessed lights, custom chandeliers, under-cabinet lighting, and fixtures.',
+    img: '/assets/images/real/chandeliers/img_5803.webp',
     link: '/services/custom-lighting-installation',
     tag: 'INTERIOR DESIGN'
+  }
+];
+
+const realShowcasePhotos = [
+  {
+    src: '/assets/images/real/panels/img_3246.webp',
+    alt: "200 Amp Main Breaker Electrical Panel Upgrade in Hampton Roads",
+    title: "200A Smart Breaker Panel Upgrade",
+    category: "Panel Upgrades",
+    desc: "Complete panel replacement with clean arc-fault & surge protection wiring."
+  },
+  {
+    src: '/assets/images/real/chandeliers/img_5803.webp',
+    alt: "Custom High-Ceiling Crystal Chandelier Installation",
+    title: "Grand High-Ceiling Chandelier",
+    category: "Custom Lighting",
+    desc: "Precision ceiling reinforcement, heavy-duty junction box, and dimming integration."
+  },
+  {
+    src: '/assets/images/real/scotts_electric_employee_in_action/img_2651.webp',
+    alt: "Scott's Electric Master Electrician on Jobsite",
+    title: "Master Electrician in Action",
+    category: "Certified Field Work",
+    desc: "Hands-on electrical diagnostics and NEC-compliant craftsmanship."
+  },
+  {
+    src: '/assets/images/real/outdoor_power/img_4370.webp',
+    alt: "Outdoor Weatherproof Disconnect & EV Power Installation",
+    title: "Exterior EV & Heavy Power Disconnect",
+    category: "EV & Outdoor Power",
+    desc: "Marine-grade weatherproof conduit and heavy-duty 240V dedicated circuits."
+  },
+  {
+    src: '/assets/images/real/ceiling_fans/img_4926.webp',
+    alt: "Ceiling Fan & Recessed Lighting Installation",
+    title: "Modern Ceiling Fan & Fixtures",
+    category: "Ceiling Fixtures",
+    desc: "Fan-rated junction boxes, balance calibration, and multi-switch wall controls."
+  },
+  {
+    src: '/assets/images/real/wire_raceways_neat_and_oragnized_open_walls_no_sheetrock/img_0174.webp',
+    alt: "Organized Electrical Rough-In Wiring Raceways",
+    title: "Precision Rough-In Cable Management",
+    category: "Craftsmanship",
+    desc: "Neat, parallel wire raceways stapled to code for ultimate residential safety."
   }
 ];
 ---
@@ -93,9 +140,9 @@ const featuredServices = [
     
     <!-- Background Hero Image -->
     <img 
-      src="/assets/images/hero_electrician.png" 
+      src="/assets/images/real/scotts_electric_employee_in_action/img_2651.webp" 
       alt="Scott's Electric Master Electrician in Virginia Beach Hampton Roads" 
-      class="absolute inset-0 w-full h-full object-cover object-center opacity-35 filter brightness-90 z-0 scale-105 animate-glow"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-30 filter brightness-90 z-0 scale-105 animate-glow"
     />
 
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -152,6 +199,23 @@ const featuredServices = [
           <div class="text-xl md:text-2xl font-extrabold text-brand-cyan">7 Cities</div>
           <div class="text-[11px] text-gray-400 font-semibold uppercase">Hampton Roads Covered</div>
         </div>
+      </div>
+
+      <!-- AEO Direct Answer / Executive Summary Box for AI & Search Snippets -->
+      <div class="mt-12 max-w-4xl mx-auto text-left">
+        <AEODirectAnswer 
+          question="Who is the highest-rated electrician serving all 7 cities of Hampton Roads?"
+          summary="Scott's Electric LLC is a licensed Virginia Master Electrical Contractor (VA Class A License #2710078492) providing 24/7 emergency repair, 200A/400A panel replacements, Level 2 EV charging stations, and whole-home standby generators across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk."
+          facts={[
+            { label: "Emergency Dispatch", value: "24/7 Response (<45 mins)", highlight: true },
+            { label: "Credentials", value: "VA Master Electrician #2710078492" },
+            { label: "Customer Rating", value: "4.9 / 5.0 Stars (250+ Reviews)", highlight: true },
+            { label: "Pricing Model", value: "Upfront Fixed Quotes ($$)" },
+            { label: "Service Area", value: "All 7 Cities of 757" },
+            { label: "Utility Alignment", value: "Dominion Energy Coordinated" }
+          ]}
+          cityName="Hampton Roads (757)"
+        />
       </div>
 
     </div>
@@ -217,6 +281,15 @@ const featuredServices = [
 
     </div>
   </section>
+
+  <!-- Real Field Work & Craftsmanship Gallery Section -->
+  <JobsiteGallery 
+    title="Verified Jobsite Work in Hampton Roads"
+    subtitle="Authentic photos from Scott's Electric residential and commercial projects across Virginia Beach, Norfolk, Chesapeake, and the 757 Peninsula."
+    badge="Real Jobsite Photography"
+    photos={realShowcasePhotos}
+    columns="3"
+  />
 
   <!-- 757 City Coverage Section -->
   <section class="py-20 bg-brand-card/30 border-t border-brand-border">

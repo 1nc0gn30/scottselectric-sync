@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
 import AEOFAQ from '../../components/AEOFAQ.astro';
+import JobsiteGallery from '../../components/JobsiteGallery.astro';
+import AEODirectAnswer from '../../components/AEODirectAnswer.astro';
 import { siteConfig } from '../../config/site.js';
 
 const breadcrumbs = [
@@ -12,10 +14,55 @@ const breadcrumbs = [
 
 const serviceData = {
   name: "Custom Recessed & Architectural Lighting",
-  description: "Interior and exterior architectural lighting, LED recessed wafer lights, under-cabinet illumination, and smart dimmer installation across Hampton Roads (757).",
+  description: "Interior and exterior architectural lighting, LED recessed wafer lights, custom chandeliers, under-cabinet illumination, and smart dimmer installation across Hampton Roads (757).",
   url: `${siteConfig.url}/services/custom-lighting-installation`,
   priceRange: "$400 - $2,800"
 };
+
+const lightingGalleryPhotos = [
+  {
+    src: '/assets/images/real/chandeliers/img_0757.webp',
+    alt: "Multi-Tier Grand Foyer Chandelier Installation",
+    title: "Multi-Tier Foyer Chandelier",
+    category: "Chandeliers",
+    desc: "Ceiling joist reinforcement, motorized hoist / scaffold access, and fine crystal alignment."
+  },
+  {
+    src: '/assets/images/real/chandeliers/img_1645.webp',
+    alt: "Modern Dining Room Designer Chandelier",
+    title: "Designer Dining Fixture",
+    category: "Interior Lighting",
+    desc: "Laser-leveled hanging height and dimmable warmth control."
+  },
+  {
+    src: '/assets/images/real/ceiling_lights/img_2739.webp',
+    alt: "Recessed Wafer LED Ceiling Lights Layout",
+    title: "Recessed Wafer LED Grid",
+    category: "Recessed Lighting",
+    desc: "Ultra-thin canless LEDs with selectable color temperatures (2700K - 5000K)."
+  },
+  {
+    src: '/assets/images/real/ceiling_fans/img_4926.webp',
+    alt: "Master Bedroom Ceiling Fan and Integrated Lighting",
+    title: "Designer Ceiling Fan Installation",
+    category: "Ceiling Fans",
+    desc: "Heavy-duty fan-rated junction boxes, dynamic balancing, and wireless remotes."
+  },
+  {
+    src: '/assets/images/real/outdoor_lights/img_4878.webp',
+    alt: "Exterior Architectural Coach and Security Lighting",
+    title: "Architectural Exterior Lighting",
+    category: "Outdoor Lighting",
+    desc: "Weather-sealed coastal exterior fixtures for curb appeal and night security."
+  },
+  {
+    src: '/assets/images/real/light_decor/img_2345.webp',
+    alt: "Custom Accent and Decorative Mood Lighting",
+    title: "Custom Accent & Ambient Lighting",
+    category: "Accent Lighting",
+    desc: "Architectural cove lighting and smart switch zone integration."
+  }
+];
 
 const faqs = [
   {
@@ -23,12 +70,16 @@ const faqs = [
     answer: "Ultra-thin LED wafer lights fit flush against ceilings without bulky cans, reduce electricity consumption by up to 85%, feature selectable color temperatures (2700K warm white to 5000K daylight), and last over 50,000 hours."
   },
   {
-    question: "Can you install under-cabinet and accent cove lighting?",
-    answer: "Yes, we install seamless low-profile LED channel lighting under kitchen cabinets, behind floating shelves, and inside ceiling coves with concealed wiring and dimming controls."
+    question: "Can recessed LED lights be installed in existing drywall ceilings without major damage?",
+    answer: "Yes! We specialize in ultra-slim canless LED wafer lights that require only a small precision cutout, eliminating the need for bulky metal cans and preventing expensive drywall repair."
   },
   {
-    question: "Do you install exterior landscape and security floodlights in Virginia Beach & 757?",
-    answer: "Yes, we install weather-sealed architectural landscape illumination, low-voltage path lighting, and motion-activated LED security floodlights engineered for coastal weather."
+    question: "Do you install heavy chandeliers in 2-story foyers and vaulted ceilings?",
+    answer: "Yes, we install fan/chandelier-rated heavy-duty ceiling support boxes capable of securely supporting fixtures over 100+ lbs, complete with specialized scaffolding and motorized chandelier lifts."
+  },
+  {
+    question: "What color temperature (Kelvin) is best for residential living rooms and kitchens?",
+    answer: "We recommend 2700K-3000K (Warm White / Soft White) for living rooms and bedrooms for a cozy ambiance, and 3000K-4000K (Bright White) for kitchens and bathrooms for crisp clarity."
   }
 ];
 ---
@@ -53,20 +104,44 @@ const faqs = [
             <span class="gold-gradient-text">Architectural Lighting</span>
           </h1>
           <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Elevate your home's aesthetic with energy-efficient LED recessed lighting, under-cabinet illumination, accent cove lighting, and smart dimming controls.
+            Elevate your home's aesthetic with energy-efficient LED recessed lighting, grand high-ceiling chandeliers, under-cabinet illumination, and smart dimming controls.
           </p>
-          <div class="mt-8">
+          <div class="mt-8 flex gap-4">
             <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
               Schedule Lighting Design Quote →
             </a>
           </div>
         </div>
         <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/custom_lighting.png" alt="Custom Recessed Lighting Design in 757" class="w-full h-auto object-cover" />
+          <img src="/assets/images/real/chandeliers/img_5803.webp" alt="Custom Recessed Lighting and Chandelier Design in 757" class="w-full h-auto object-cover" />
         </div>
       </div>
+
+      <!-- Lighting AEO Direct Answer Block -->
+      <AEODirectAnswer 
+        question="How much does custom recessed LED lighting and chandelier installation cost in 757?"
+        summary="Custom lighting installations by Scott's Electric range from $400 to $2,800 depending on room dimensions, ceiling height, and fixture count. We install canless ultra-thin LED wafer lights with zero drywall damage and reinforce ceiling junction boxes for luxury chandeliers."
+        facts={[
+          { label: "Install Speed", value: "Half-Day to Full-Day", highlight: true },
+          { label: "Drywall Impact", value: "Zero Damage (Canless Wafer)" },
+          { label: "Chandelier Capacity", value: "100+ lbs Reinforced Mounting", highlight: true },
+          { label: "Price Range", value: "$400 - $2,800" },
+          { label: "Dimmer Pairing", value: "Lutron / Leviton Compatible" },
+          { label: "Consultation Phone", value: "(757) 536-0478" }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
     </div>
   </section>
+
+  <!-- Real Lighting Gallery -->
+  <JobsiteGallery 
+    title="Real Lighting & Chandelier Installations"
+    subtitle="Direct photos from Scott's Electric chandelier installations, recessed LED ceiling transformations, and exterior fixtures."
+    badge="Lighting Showcase"
+    photos={lightingGalleryPhotos}
+    columns="3"
+  />
 
   <section class="py-16 bg-brand-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

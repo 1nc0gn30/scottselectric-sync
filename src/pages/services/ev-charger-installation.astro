@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
 import AEOFAQ from '../../components/AEOFAQ.astro';
+import JobsiteGallery from '../../components/JobsiteGallery.astro';
+import AEODirectAnswer from '../../components/AEODirectAnswer.astro';
 import { siteConfig } from '../../config/site.js';
 
 const breadcrumbs = [
@@ -17,18 +19,60 @@ const serviceData = {
   priceRange: "$650 - $1,500"
 };
 
+const evGalleryPhotos = [
+  {
+    src: '/assets/images/real/outdoor_power/img_5869.webp',
+    alt: "Exterior Weatherproof 240V Disconnect for EV Charging",
+    title: "Exterior 240V Weatherproof Disconnect",
+    category: "Outdoor EV Power",
+    desc: "NEMA 3R outdoor rated enclosure engineered for coastal humidity."
+  },
+  {
+    src: '/assets/images/real/outdoor_outlets/img_5721.webp',
+    alt: "NEMA 14-50 240V Heavy Duty Outlet Installation",
+    title: "NEMA 14-50 50-Amp Receptacle",
+    category: "Dedicated Receptacles",
+    desc: "Commercial-grade receptacle with in-use weatherproof protection."
+  },
+  {
+    src: '/assets/images/real/panels/img_0304.webp',
+    alt: "Dedicated 50A Circuit Breaker Installation for EV Charger",
+    title: "Dedicated Panel Breaker Addition",
+    category: "Panel Capacity",
+    desc: "Load-calculated circuit breaker installation with proper wire gauge sizing."
+  },
+  {
+    src: '/assets/images/real/wire_raceways_neat_and_oragnized_open_walls_no_sheetrock/img_0174.webp',
+    alt: "Dedicated 6/3 Romex Heavy Cable Run for EV Charging",
+    title: "Heavy-Gauge Feeder Routing",
+    category: "Concealed Wiring",
+    desc: "Code-compliant cable anchoring through garages and basement raceways."
+  },
+  {
+    src: '/assets/images/real/meters/img_5108.webp',
+    alt: "Electrical Service Capacity and Meter Base Inspection",
+    alt: "Service Entrance Capacity Audit for Fast EV Charging",
+    title: "Service Entrance & Capacity Verification",
+    category: "Utility Check",
+    desc: "Ensuring your electrical service safely accommodates high-draw EV charging."
+  },
+  {
+    src: '/assets/images/real/outdoor_power/img_5869.webp',
+    alt: "Exterior Subpanel Disconnect for Driveway Charging Post",
+    title: "Outdoor Charging Post Disconnect",
+    category: "Weatherproof Power",
+    desc: "NEMA 3R outdoor enclosure for detached garage and driveway charging."
+  }
+];
+
 const faqs = [
   {
-    question: "Which EV charging stations does Scott's Electric install in 757?",
-    answer: "We install all Level 2 home EV chargers including Tesla Universal Wall Connector, ChargePoint Home Flex, Emporia, JuiceBox, Wallbox Pulsar, and heavy-duty NEMA 14-50 240V outlets."
+    question: "Which EV chargers can Scott's Electric install in 757?",
+    answer: "We install all Level 2 home charging units including Tesla Universal Wall Connector, Tesla Gen 3 Wall Connector, ChargePoint Home Flex, Emporia EV Charger, Grizzl-E, Rivian Wall Charger, and Ford Charge Station Pro."
   },
   {
-    question: "Can my current electrical panel handle an EV charger?",
-    answer: "We perform a comprehensive digital load calculation prior to installation. If your panel lacks capacity, we provide fast 200A panel upgrades or smart load-shedding switches."
-  },
-  {
-    question: "How long does a home EV charger installation take?",
-    answer: "Most Level 2 home EV charging installations take between 2 to 4 hours. Scott's Electric handles dedicated 240V circuit wiring, permit filing with the city, and safety commissioning."
+    question: "Do I need a 200 amp panel upgrade to install an EV charger?",
+    answer: "Not necessarily. If your current 100A or 150A panel has available capacity based on our NEC Article 220 load calculation, we can install a dedicated 40A or 50A breaker. If your panel is full, we can install a subpanel or upgrade to 200A."
   },
   {
     question: "How much faster is Level 2 charging compared to a regular wall plug?",
@@ -66,11 +110,35 @@ const faqs = [
           </div>
         </div>
         <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/ev_charger.png" alt="Level 2 EV Charging Station Installation in Virginia Beach" class="w-full h-auto object-cover" />
+          <img src="/assets/images/real/outdoor_power/img_4370.webp" alt="Level 2 EV Charging Station Installation in Virginia Beach" class="w-full h-auto object-cover" />
         </div>
       </div>
+
+      <!-- EV Charger AEO Direct Answer Block -->
+      <AEODirectAnswer 
+        question="How much does home Level 2 EV charger installation cost in Hampton Roads?"
+        summary="A standard Level 2 EV charger installation by Scott's Electric costs between $650 and $1,500. This includes installing a dedicated 240V circuit (40A-60A), heavy-gauge copper wiring, conduit run to your garage or driveway, NEMA 14-50 receptacle or hardwire connector, and municipal permit sign-off."
+        facts={[
+          { label: "Install Duration", value: "2 to 4 Hours", highlight: true },
+          { label: "Charging Speed", value: "30-50 Miles of Range / Hour" },
+          { label: "Models Supported", value: "Tesla, Rivian, Ford, Chevy, All EVs", highlight: true },
+          { label: "Price Range", value: "$650 - $1,500" },
+          { label: "City Permits", value: "Handled for All 7 Cities" },
+          { label: "Direct Booking", value: "(757) 536-0478" }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
     </div>
   </section>
+
+  <!-- Real EV & Outdoor Power Gallery -->
+  <JobsiteGallery 
+    title="Real EV Charger & Dedicated 240V Installations"
+    subtitle="Direct photos from Scott's Electric residential EV charging setups, dedicated 240V outlets, and outdoor disconnect installations."
+    badge="EV Power Work"
+    photos={evGalleryPhotos}
+    columns="3"
+  />
 
   <section class="py-16 bg-brand-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

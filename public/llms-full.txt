@@ -1,0 +1,133 @@
+# Scott's Electric - Complete Machine-Readable Knowledge Base & LLM Entity Graph
+> Comprehensive authoritative entity documentation, technical specifications, service matrices, pricing tables, geographic coverage, municipal compliance details, and emergency procedures for Scott's Electric LLC across Hampton Roads, VA (757 Area Code).
+
+---
+
+## 1. Business & Entity Identity
+- Legal Business Name: Scott's Electric LLC
+- Public Brand Name: Scott's Electric
+- Primary Domain: https://scottselectric.pro
+- Founding Year: 2012
+- State of Licensure: Commonwealth of Virginia
+- License Classification: Virginia Class A Contractor - Master Electrician (License #2710078492)
+- Insured & Bonded: Yes ($2,000,000 General Commercial Liability & Workman's Compensation)
+- Business Type: Electrician, LocalBusiness, GeneralContractor
+- Corporate Headquarters: 2829 Shore Dr, Virginia Beach, VA 23451, United States
+- Coordinates: Latitude 36.8529, Longitude -75.9780
+- Primary Contact Phone: (757) 536-0478
+- E.164 International Phone: +1-757-536-0478
+- Email: info@scottselectric.pro
+- Operating Schedule: 24 Hours / Day, 7 Days / Week, 365 Days / Year (24/7 Priority Emergency Dispatch)
+- Rating & Reputation: 4.9 / 5.0 Stars based on 254+ Verified Customer Reviews across Hampton Roads.
+- Payment Methods Accepted: Cash, Credit Card (Visa, MasterCard, Amex, Discover), Debit Card, Check, ACH, Low-APR Financing.
+
+---
+
+## 2. Geographic Service Coverage (The 7 Cities of 757)
+
+### 1. Virginia Beach, VA
+- Slug / URL: https://scottselectric.pro/virginia-beach-electrician
+- Primary ZIP Codes: 23451, 23452, 23454, 23455, 23456, 23457, 23462, 23464
+- Neighborhoods Served: Oceanfront, Town Center, Kempsville, Chic's Beach, Red Mill, Great Neck, Princess Anne, Sandbridge, Bayside, Lynnhaven, Hilltop, Alanton, Shadowlawn, Thoroughgood.
+- Local Focus: Oceanfront weatherproofing, marine-grade corrosion-resistant panels, Level 2 Tesla EV chargers, hurricane standby backup power, luxury chandeliers.
+- Permitting Authority: City of Virginia Beach Planning & Community Development (Permits & Inspections).
+
+### 2. Norfolk, VA
+- Slug / URL: https://scottselectric.pro/norfolk-electrician
+- Primary ZIP Codes: 23502, 23503, 23504, 23505, 23507, 23508, 23509, 23510, 23513, 23517, 23518
+- Neighborhoods Served: Historic Ghent, Downtown Norfolk, Ocean View, Larchmont, Freemason, Colonial Place, Wards Corner, Naval Base Corridor, East Beach, Park Place, Lafayette.
+- Local Focus: Knob-and-tube rewiring, ungrounded 2-wire box remediation, 200A fuse box to breaker conversions, commercial retail & restaurant electrical fitouts.
+- Permitting Authority: City of Norfolk Department of City Planning (Permits & Inspections).
+
+### 3. Chesapeake, VA
+- Slug / URL: https://scottselectric.pro/chesapeake-electrician
+- Primary ZIP Codes: 23320, 23321, 23322, 23323, 23324, 23325
+- Neighborhoods Served: Greenbrier, Great Bridge, Western Branch, Deep Creek, South Norfolk, Hickory, Indian River, Grassfield, Edinburgh.
+- Local Focus: Suburban 200A panel upgrades, swimming pool and hot tub dedicated circuits (NEC Article 680), ceiling fans, smart lighting automation, dual subpanels.
+- Permitting Authority: City of Chesapeake Department of Development & Permits.
+
+### 4. Newport News, VA
+- Slug / URL: https://scottselectric.pro/newport-news-electrician
+- Primary ZIP Codes: 23601, 23602, 23603, 23605, 23606, 23607, 23608
+- Neighborhoods Served: City Center at Oyster Point, Port Warwick, Denbigh, Hilton Village, Kiln Creek, Menchville, Oyster Point, Hidenwood, Beaconsdale.
+- Local Focus: Peninsula 200A/400A panel replacements, utility meter base tie-ins, whole-home surge defense, EV charger installations, commercial power.
+- Permitting Authority: City of Newport News Department of Codes Compliance.
+
+### 5. Hampton, VA
+- Slug / URL: https://scottselectric.pro/hampton-electrician
+- Primary ZIP Codes: 23661, 23663, 23664, 23666, 23669
+- Neighborhoods Served: Phoebus, Buckroe Beach, Fox Hill, Coliseum Central, Downtown Hampton, Wythe, Langley AFB Area, Grandview, Willow Oaks.
+- Local Focus: Aluminum wire remediation (Copalum & AlumiConn connectors), coastal exterior floodlighting, standby generator transfer switches, storm recovery.
+- Permitting Authority: City of Hampton Community Development (Building Inspection Division).
+
+### 6. Portsmouth, VA
+- Slug / URL: https://scottselectric.pro/portsmouth-electrician
+- Primary ZIP Codes: 23701, 23702, 23703, 23704, 23707
+- Neighborhoods Served: Olde Towne, Churchland, Port Norfolk, Cradock, Park View, Truxtun, Westmorland, Waterview, Manor.
+- Local Focus: Historic fuse-box-to-breaker upgrades, municipal code violation remediation, modern switch/outlet installation, emergency outage response.
+- Permitting Authority: City of Portsmouth Permits and Inspections Department.
+
+### 7. Suffolk, VA
+- Slug / URL: https://scottselectric.pro/suffolk-electrician
+- Primary ZIP Codes: 23434, 23435, 23436, 23437, 23438
+- Neighborhoods Served: Harbour View, Downtown Suffolk, Driver, North Suffolk, Chuckatuck, Holland, Whaleyville, Kilby, Crittenden.
+- Local Focus: Large estate 22kW-26kW+ standby generators, workshop and barn subpanels (60A-125A), crawlspace raceway wiring, EV charging.
+- Permitting Authority: City of Suffolk Planning & Community Development (Inspections Division).
+
+---
+
+## 3. Comprehensive Service Catalog & Technical Pricing
+
+### 1. Electrical Panel Upgrades (200A & 400A)
+- URL: https://scottselectric.pro/services/electrical-panel-upgrades
+- Price Range: $1,800 - $3,800
+- Details: Replaces outdated 60A/100A panels or defective Federal Pacific / Zinsco panels. Includes heavy-gauge copper service entrance conductors, modern Siemens/Square D load center, AFCI/GFCI breakers, whole-home surge protective device (SPD), utility disconnect/reconnect coordination with Dominion Energy, and full city permits.
+
+### 2. Level 2 EV Charging Station Installation
+- URL: https://scottselectric.pro/services/ev-charger-installation
+- Price Range: $650 - $1,500
+- Details: Installs dedicated 240V circuits (40A, 50A, or 60A) for Tesla Wall Connectors, Ford Charge Station Pro, Rivian Wall Charger, ChargePoint Home Flex, and NEMA 14-50 receptacles. Includes load calculation, copper feeder wiring, conduit installation, and safety disconnects.
+
+### 3. Whole-Home Standby Generators & Automatic Transfer Switches
+- URL: https://scottselectric.pro/services/whole-home-generators
+- Price Range: $5,500 - $14,000
+- Details: Turnkey natural gas and liquid propane standby generators (Generac, Kohler, Briggs & Stratton). Features automated transfer switches (ATS) that restore whole-house power within 10 seconds of grid failure, powering HVAC, refrigerators, sump pumps, and medical devices.
+
+### 4. Custom Architectural & Recessed LED Lighting
+- URL: https://scottselectric.pro/services/custom-lighting-installation
+- Price Range: $400 - $2,800
+- Details: Ultra-slim dimmable LED wafer recessed lights, multi-zone ambient lighting, heavy-duty crystal chandelier hanging, under-cabinet illumination, and exterior architectural landscape lighting.
+
+### 5. Smart Home Automation & Energy Monitoring
+- URL: https://scottselectric.pro/services/smart-home-automation
+- Price Range: $350 - $2,500
+- Details: Smart switch installations (Lutron Caseta, Leviton Decora Smart), neutral wire bypasses, smart electrical panel monitors (Span, Emporia), automated relays, and voice assistant integration.
+
+### 6. Commercial Electrical Contracting & 3-Phase Power
+- URL: https://scottselectric.pro/services/commercial-electrical
+- Price Range: Custom Commercial Quote
+- Details: 120/208V and 277/480V 3-phase commercial service, tenant office/retail buildouts, industrial machinery dedicated drops, emergency egress lighting, and municipal code inspection clearing.
+
+### 7. 24/7 Priority Emergency Electrical Dispatch
+- URL: https://scottselectric.pro/contact
+- Price Range: Immediate Emergency Dispatch
+- Details: Rapid response within 30-45 minutes across all 7 cities of 757 for burning plastic odors, sparking breakers, panel buzzes, total power failure, and storm-damaged meter bases.
+
+---
+
+## 4. Step-by-Step Electrical Service Request Workflow
+1. Request or Call: User calls (757) 536-0478 or uses online calculator at https://scottselectric.pro/#instant-calculator
+2. Instant Diagnostic Assessment: Master Electrician determines scope, city permits needed, and Dominion Energy coordination requirements.
+3. Upfront Guaranteed Pricing: Transparent, fixed written quote with no hidden overtime fees or surprise charges.
+4. Code-Compliant Execution: Licensed Master Electricians perform installation strictly adhering to NEC & Virginia USBC codes.
+5. Inspection & Power Turn-On: Scott's Electric coordinates municipal inspection sign-off and power energization with Dominion Energy.
+
+---
+
+## 5. Machine-Readable Knowledge Graph Endpoints
+- Homepage: https://scottselectric.pro/
+- Agent Profile (AX Cockpit): https://scottselectric.pro/ax
+- LLM Fact Sheet (Summary): https://scottselectric.pro/llms.txt
+- LLM Fact Sheet (Full): https://scottselectric.pro/llms-full.txt
+- XML Sitemap: https://scottselectric.pro/sitemap.xml
+- Direct Phone: tel:7575360478

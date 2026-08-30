@@ -2,11 +2,44 @@
 import Layout from '../layouts/Layout.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import JobsiteGallery from '../components/JobsiteGallery.astro';
+import AEODirectAnswer from '../components/AEODirectAnswer.astro';
 import { siteConfig } from '../config/site.js';
 
 const breadcrumbs = [
   { name: "Home", url: siteConfig.url },
   { name: "Portsmouth Electrician", url: `${siteConfig.url}/portsmouth-electrician` }
+];
+
+const portsmouthPhotos = [
+  {
+    src: '/assets/images/real/panels/img_1687.webp',
+    alt: "Olde Towne Portsmouth Fuse Box to 200A Breaker Panel Upgrade",
+    title: "Olde Towne Fuse Box Modernization",
+    category: "Portsmouth",
+    desc: "Safe conversion of outdated screw-in fuse boxes to modern 200A breaker panels."
+  },
+  {
+    src: '/assets/images/real/switches/img_2677.webp',
+    alt: "Olde Towne Portsmouth Modern Switches and Lighting Controls",
+    title: "Olde Towne Switch Upgrades",
+    category: "Portsmouth",
+    desc: "Modern digital switches and safe grounding integrations for vintage homes."
+  },
+  {
+    src: '/assets/images/real/wire_raceways_neat_and_oragnized_open_walls_no_sheetrock/img_0174.webp',
+    alt: "Churchland Portsmouth Code Violation Repair and Rewiring",
+    title: "Churchland Code Remediation",
+    category: "Portsmouth",
+    desc: "Clearing municipal safety inspection checklist items with code-certified wiring."
+  },
+  {
+    src: '/assets/images/real/panels/img_3626.webp',
+    alt: "Cradock Portsmouth 200A Heavy Duty Load Center",
+    title: "Cradock 200A Load Center",
+    category: "Portsmouth",
+    desc: "High-capacity panel upgrade supporting modern HVAC heat pumps and appliances."
+  }
 ];
 
 const cityFaqs = [
@@ -34,26 +67,46 @@ const cityFaqs = [
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-          ⚙️ Portsmouth, VA Electrical Services
-        </span>
-        <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-          Licensed Electrician in <br />
-          <span class="gold-gradient-text">Portsmouth, Virginia</span>
-        </h1>
-        <p class="mt-4 text-base text-gray-300 leading-relaxed">
-          From Olde Towne historic homes to Churchland, Cradock, and Port Norfolk. Fast emergency electrical repair, code compliance updates, fuse box conversions, and surge protection.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-            Get Portsmouth Estimate →
-          </a>
-          <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
-            📞 24/7 Portsmouth Line: (757) 536-0478
-          </a>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
+            ⚙️ Portsmouth, VA Electrical Services
+          </span>
+          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
+            Licensed Electrician in <br />
+            <span class="gold-gradient-text">Portsmouth, Virginia</span>
+          </h1>
+          <p class="mt-4 text-base text-gray-300 leading-relaxed">
+            From Olde Towne historic homes to Churchland, Cradock, and Port Norfolk. Fast emergency electrical repair, code compliance updates, fuse box conversions, and surge protection.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
+              Get Portsmouth Estimate →
+            </a>
+            <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
+              📞 24/7 Portsmouth Line: (757) 536-0478
+            </a>
+          </div>
+        </div>
+        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
+          <img src="/assets/images/real/panels/img_1687.webp" alt="Master Electrician in Portsmouth, VA" class="w-full h-auto object-cover" />
         </div>
       </div>
+
+      <!-- Local AEO Direct Answer Block -->
+      <AEODirectAnswer 
+        question="Need electrical code correction or fuse box replacement in Portsmouth, VA?"
+        summary="Scott's Electric provides 24/7 emergency troubleshooting, screw-in fuse box to 200A breaker modernizations, municipal code violation repairs, and modern wiring upgrades throughout Olde Towne, Churchland, and Cradock."
+        facts={[
+          { label: "Portsmouth Response", value: "30-40 Minutes", highlight: true },
+          { label: "Code Remediation", value: "Full Inspector Sign-Off" },
+          { label: "Permits Coordinated", value: "Portsmouth Permits & Inspections", highlight: true },
+          { label: "Licensure", value: "VA Class A #2710078492" },
+          { label: "Emergency Hotline", value: "(757) 536-0478" },
+          { label: "Portsmouth ZIPs", value: "23701, 23702, 23703, 23704, 23707" }
+        ]}
+        cityName="Portsmouth"
+      />
     </div>
   </section>
 
@@ -87,6 +140,15 @@ const cityFaqs = [
       </div>
     </div>
   </section>
+
+  <!-- Real Work in Portsmouth Gallery -->
+  <JobsiteGallery 
+    title="Real Electrical Installations in Portsmouth"
+    subtitle="Direct photos from fuse box conversions, code remediation, switch modernizations, and panel upgrades across Portsmouth."
+    badge="Portsmouth Projects"
+    photos={portsmouthPhotos}
+    columns="4"
+  />
 
   <section id="quote" class="py-16 bg-brand-card/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

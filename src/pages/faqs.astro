@@ -101,6 +101,10 @@ const allFaqItems = faqCategories.flatMap(cat => cat.items);
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".gold-gradient-text", "h2", "h3", "p"]
+  },
   "mainEntity": allFaqItems.map(item => ({
     "@type": "Question",
     "name": item.q,
@@ -115,6 +119,7 @@ const faqSchema = {
 <Layout 
   title="Electrical FAQs & AI Knowledge Base | Scott's Electric 757"
   description="Comprehensive 757 electrical answers for Virginia Beach, Norfolk, Chesapeake & Hampton Roads. Learn about 200A panel upgrades, EV chargers, generators, emergency repairs & permits."
+  customSchema={[faqSchema]}
 >
   <!-- Header Banner -->
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">

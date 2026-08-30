@@ -2,11 +2,44 @@
 import Layout from '../layouts/Layout.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import JobsiteGallery from '../components/JobsiteGallery.astro';
+import AEODirectAnswer from '../components/AEODirectAnswer.astro';
 import { siteConfig } from '../config/site.js';
 
 const breadcrumbs = [
   { name: "Home", url: siteConfig.url },
   { name: "Hampton Electrician", url: `${siteConfig.url}/hampton-electrician` }
+];
+
+const hamptonPhotos = [
+  {
+    src: '/assets/images/real/outdoor_lights/img_4878.webp',
+    alt: "Hampton VA Architectural Coastal Exterior Lighting",
+    title: "Phoebus Architectural Coastal Lighting",
+    category: "Hampton",
+    desc: "Weather-sealed coastal exterior fixtures for harsh salty air."
+  },
+  {
+    src: '/assets/images/real/outdoor_power/img_4572.webp',
+    alt: "Buckroe Beach Standby Generator Power Setup",
+    title: "Buckroe Standby Backup Power",
+    category: "Hampton",
+    desc: "Automatic generator disconnect and surge protection for storm resilience."
+  },
+  {
+    src: '/assets/images/real/pigtailed_and_wire_nut_wire_open_box_in_sheet_rock/img_8405.webp',
+    alt: "Hampton Aluminum Wire Remediation and Junction Box Pigtails",
+    title: "Aluminum Wire Remediation",
+    category: "Hampton",
+    desc: "Safe Copalum and AlumiConn connector installations in older Hampton homes."
+  },
+  {
+    src: '/assets/images/real/panels/img_1141.webp',
+    alt: "Coliseum Central Hampton 200A Breaker Panel Upgrade",
+    title: "Coliseum Area Panel Modernization",
+    category: "Hampton",
+    desc: "Clean circuit breaker modernization with dedicated heat pump circuits."
+  }
 ];
 
 const cityFaqs = [
@@ -34,26 +67,46 @@ const cityFaqs = [
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-          🏖️ Hampton, VA Electrical Services
-        </span>
-        <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-          Licensed Electrician in <br />
-          <span class="gold-gradient-text">Hampton, Virginia</span>
-        </h1>
-        <p class="mt-4 text-base text-gray-300 leading-relaxed">
-          Phoebus, Buckroe Beach, Coliseum Central, Fox Hill, and Wythe. Complete coastal residential electrical repair, panel upgrades, surge protection, and standby generator setups.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-            Get Hampton Quote →
-          </a>
-          <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
-            📞 24/7 Hampton Line: (757) 536-0478
-          </a>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
+            🏖️ Hampton, VA Electrical Services
+          </span>
+          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
+            Licensed Electrician in <br />
+            <span class="gold-gradient-text">Hampton, Virginia</span>
+          </h1>
+          <p class="mt-4 text-base text-gray-300 leading-relaxed">
+            Phoebus, Buckroe Beach, Coliseum Central, Fox Hill, and Wythe. Complete coastal residential electrical repair, panel upgrades, surge protection, and standby generator setups.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
+              Get Hampton Quote →
+            </a>
+            <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
+              📞 24/7 Hampton Line: (757) 536-0478
+            </a>
+          </div>
+        </div>
+        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
+          <img src="/assets/images/real/outdoor_lights/img_4878.webp" alt="Master Electrician in Hampton, VA" class="w-full h-auto object-cover" />
         </div>
       </div>
+
+      <!-- Local AEO Direct Answer Block -->
+      <AEODirectAnswer 
+        question="Looking for a certified Master Electrician in Hampton, VA?"
+        summary="Scott's Electric provides emergency electrical dispatch, aluminum wiring repair, coastal weatherproofing, 200A panel upgrades, and whole-home standby generator installations across Phoebus, Buckroe Beach, Coliseum Central, and Fox Hill."
+        facts={[
+          { label: "Hampton Response", value: "30-45 Minutes", highlight: true },
+          { label: "Aluminum Wire Fix", value: "AlumiConn / Copalum Certified" },
+          { label: "Permits & Codes", value: "City of Hampton Building Division", highlight: true },
+          { label: "Licensure", value: "VA Class A #2710078492" },
+          { label: "Direct Phone", value: "(757) 536-0478" },
+          { label: "Hampton ZIP Codes", value: "23661, 23663, 23664, 23666, 23669" }
+        ]}
+        cityName="Hampton"
+      />
     </div>
   </section>
 
@@ -87,6 +140,15 @@ const cityFaqs = [
       </div>
     </div>
   </section>
+
+  <!-- Real Work in Hampton Gallery -->
+  <JobsiteGallery 
+    title="Real Electrical Installations in Hampton"
+    subtitle="Direct photos from coastal outdoor lighting, aluminum wiring repairs, standby generator feeds, and panel upgrades in Hampton."
+    badge="Hampton Projects"
+    photos={hamptonPhotos}
+    columns="4"
+  />
 
   <section id="quote" class="py-16 bg-brand-card/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

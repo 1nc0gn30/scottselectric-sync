@@ -92,8 +92,12 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
   <meta name="twitter:image" content={ogImage} />
   <meta name="twitter:image:alt" content={`${title} - Scott's Electric`} />
 
+  <meta name="format-detection" content="telephone=yes" />
+
   <!-- AI Discovery Endpoints -->
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Agent Summary" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Exhaustive LLM Knowledge Graph" />
+  <link rel="alternate" type="text/html" href="/ax" title="Agent Experience (AX) Entity Cockpit" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/images/scotts_electric_logo_transparent.png" />

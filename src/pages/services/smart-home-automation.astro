@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
 import AEOFAQ from '../../components/AEOFAQ.astro';
+import JobsiteGallery from '../../components/JobsiteGallery.astro';
+import AEODirectAnswer from '../../components/AEODirectAnswer.astro';
 import { siteConfig } from '../../config/site.js';
 
 const breadcrumbs = [
@@ -16,6 +18,51 @@ const serviceData = {
   url: `${siteConfig.url}/services/smart-home-automation`,
   priceRange: "$350 - $2,500"
 };
+
+const smartGalleryPhotos = [
+  {
+    src: '/assets/images/real/switches/img_2677.webp',
+    alt: "Smart Digital Wall Switch and Dimmer Installation",
+    title: "Smart Wall Dimmers & Switches",
+    category: "Smart Controls",
+    desc: "Lutron and Leviton smart switch integrations with neutral-wire verification."
+  },
+  {
+    src: '/assets/images/real/ceiling_lights/img_2847.webp',
+    alt: "Smart Automated Recessed LED Lighting Control",
+    title: "Automated Scene & Zone Lighting",
+    category: "Smart Lighting",
+    desc: "Multi-zone brightness presets and voice-activated illumination routines."
+  },
+  {
+    src: '/assets/images/real/chandeliers/img_3150.webp',
+    alt: "Smart Dimmed Modern Chandelier Fixture",
+    title: "Connected Architectural Fixtures",
+    category: "Ambiance",
+    desc: "Smooth zero-flicker dimming curves engineered for low-voltage LED drivers."
+  },
+  {
+    src: '/assets/images/real/outdoor_lights/img_3102.webp',
+    alt: "Automated Outdoor Security and Landscape Lighting",
+    title: "Smart Dusk-to-Dawn Landscape Lights",
+    category: "Outdoor Automation",
+    desc: "Geofenced and sunset-synchronized exterior security lighting circuits."
+  },
+  {
+    src: '/assets/images/real/panels/img_3246.webp',
+    alt: "Smart Panel Energy Monitoring and Load Management",
+    title: "Smart Panel & Energy Monitoring",
+    category: "Panel Intelligence",
+    desc: "Whole-home energy consumption tracking, sub-metering, and overload protection."
+  },
+  {
+    src: '/assets/images/real/scotts_electric_employee_in_action/img_2651.webp',
+    alt: "Scott's Electric Technician Commissioning Smart Devices",
+    title: "Certified Smart System Commissioning",
+    category: "Certified Setup",
+    desc: "Full Wi-Fi, Zigbee, and Z-Wave signal testing and mobile app pairing."
+  }
+];
 
 const faqs = [
   {
@@ -39,20 +86,54 @@ const faqs = [
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-          📱 Smart Connected Living
-        </span>
-        <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-          Smart Home <br />
-          <span class="gold-gradient-text">Automation & Control</span>
-        </h1>
-        <p class="mt-4 text-base text-gray-300 leading-relaxed">
-          Control lights, thermostats, access control, and cameras seamlessly from your smartphone or voice assistant. Professional electrical integration across all 7 cities of 757.
-        </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
+            📱 Smart Connected Living
+          </span>
+          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
+            Smart Home <br />
+            <span class="gold-gradient-text">Automation & Control</span>
+          </h1>
+          <p class="mt-4 text-base text-gray-300 leading-relaxed">
+            Control lights, thermostats, access control, and cameras seamlessly from your smartphone or voice assistant. Professional electrical integration across all 7 cities of 757.
+          </p>
+          <div class="mt-8 flex gap-4">
+            <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
+              Schedule Smart Home Consultation →
+            </a>
+          </div>
+        </div>
+        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
+          <img src="/assets/images/real/switches/img_2677.webp" alt="Smart Home Electrical Switch and Automation in Hampton Roads" class="w-full h-auto object-cover" />
+        </div>
       </div>
+
+      <!-- Smart Home AEO Direct Answer Block -->
+      <AEODirectAnswer 
+        question="How does professional smart home electrical automation work?"
+        summary="Scott's Electric installs intelligent Lutron Caseta and Leviton smart switches, automated scene dimmers, neutral wire retrofits, and Span/Emporia whole-home energy monitoring systems, enabling voice and mobile control without Wi-Fi dropouts or electrical overloads."
+        facts={[
+          { label: "Protocols Supported", value: "Lutron Clear Connect, Zigbee, Z-Wave", highlight: true },
+          { label: "Neutral Wire Retrofit", value: "Safe Solutions for Older Homes" },
+          { label: "Panel Monitoring", value: "Span & Emporia Energy Tracking", highlight: true },
+          { label: "Price Range", value: "$350 - $2,500" },
+          { label: "Voice Ecosystems", value: "Apple Home, Alexa, Google Home" },
+          { label: "Direct Phone", value: "(757) 536-0478" }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
     </div>
   </section>
+
+  <!-- Real Smart Automation Gallery -->
+  <JobsiteGallery 
+    title="Real Smart Automation & Control Projects"
+    subtitle="Direct photos from Scott's Electric smart dimmer installations, recessed LED zone automation, and smart panel integrations."
+    badge="Smart Integrations"
+    photos={smartGalleryPhotos}
+    columns="3"
+  />
 
   <section class="py-16 bg-brand-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

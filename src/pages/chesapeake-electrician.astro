@@ -2,11 +2,44 @@
 import Layout from '../layouts/Layout.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import JobsiteGallery from '../components/JobsiteGallery.astro';
+import AEODirectAnswer from '../components/AEODirectAnswer.astro';
 import { siteConfig } from '../config/site.js';
 
 const breadcrumbs = [
   { name: "Home", url: siteConfig.url },
   { name: "Chesapeake Electrician", url: `${siteConfig.url}/chesapeake-electrician` }
+];
+
+const chesapeakePhotos = [
+  {
+    src: '/assets/images/real/ceiling_fans/img_4926.webp',
+    alt: "Great Bridge Chesapeake Ceiling Fan and Lighting Installation",
+    title: "Great Bridge Ceiling Fan & Fixtures",
+    category: "Chesapeake",
+    desc: "Precision fan-rated mounting, balance tuning, and dual wall control switches."
+  },
+  {
+    src: '/assets/images/real/panels/img_3369.webp',
+    alt: "Greenbrier Chesapeake Dual Subpanel Load Expansion",
+    title: "Greenbrier Subpanel Expansion",
+    category: "Chesapeake",
+    desc: "Upgraded subpanel distribution for additions, heat pumps, and workshops."
+  },
+  {
+    src: '/assets/images/real/outdoor_power/img_5869.webp',
+    alt: "Hickory Chesapeake Heavy Outdoor Disconnect for Pool and Spa",
+    title: "Pool & Spa Heavy Power Disconnect",
+    category: "Chesapeake",
+    desc: "Dedicated 50A GFCI protection and outdoor bonding for residential pools."
+  },
+  {
+    src: '/assets/images/real/outdoor_outlets/img_5721.webp',
+    alt: "Western Branch Chesapeake Weatherproof Exterior GFCI Outlet",
+    title: "Suburban Weatherproof Outlets",
+    category: "Chesapeake",
+    desc: "Extra-duty in-use wet location enclosures for patio, landscape, and yard equipment."
+  }
 ];
 
 const cityFaqs = [
@@ -34,26 +67,46 @@ const cityFaqs = [
 >
   <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-          🏡 Chesapeake, VA Electrical Services
-        </span>
-        <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-          Reliable Electrician in <br />
-          <span class="gold-gradient-text">Chesapeake, Virginia</span>
-        </h1>
-        <p class="mt-4 text-base text-gray-300 leading-relaxed">
-          From Greenbrier commercial hubs to suburban homes in Great Bridge, Western Branch, Hickory, and Deep Creek—Scott's Electric offers fast, certified electrical repair and upgrades.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-            Get Chesapeake Estimate →
-          </a>
-          <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
-            📞 24/7 Chesapeake Dispatch: (757) 536-0478
-          </a>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
+            🏡 Chesapeake, VA Electrical Services
+          </span>
+          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
+            Reliable Electrician in <br />
+            <span class="gold-gradient-text">Chesapeake, Virginia</span>
+          </h1>
+          <p class="mt-4 text-base text-gray-300 leading-relaxed">
+            From Greenbrier commercial hubs to suburban homes in Great Bridge, Western Branch, Hickory, and Deep Creek—Scott's Electric offers fast, certified electrical repair and upgrades.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
+              Get Chesapeake Estimate →
+            </a>
+            <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
+              📞 24/7 Chesapeake Dispatch: (757) 536-0478
+            </a>
+          </div>
+        </div>
+        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
+          <img src="/assets/images/real/ceiling_fans/img_4926.webp" alt="Master Electrician in Chesapeake, VA" class="w-full h-auto object-cover" />
         </div>
       </div>
+
+      <!-- Local AEO Direct Answer Block -->
+      <AEODirectAnswer 
+        question="Looking for top residential or commercial electricians in Chesapeake, VA?"
+        summary="Scott's Electric provides 24/7 certified electrical repairs, 200A breaker upgrades, dedicated pool & spa circuits, subpanels, and Level 2 EV charging station installations across Greenbrier, Great Bridge, Western Branch, and Deep Creek."
+        facts={[
+          { label: "Chesapeake Response", value: "30-45 Minutes", highlight: true },
+          { label: "Pool / Hot Tub Wiring", value: "NEC Article 680 Compliant" },
+          { label: "City Permits", value: "Chesapeake Dept. of Development", highlight: true },
+          { label: "Contractor License", value: "VA Class A #2710078492" },
+          { label: "24/7 Phone Line", value: "(757) 536-0478" },
+          { label: "Chesapeake ZIP Codes", value: "23320, 23321, 23322, 23323, 23324, 23325" }
+        ]}
+        cityName="Chesapeake"
+      />
     </div>
   </section>
 
@@ -87,6 +140,15 @@ const cityFaqs = [
       </div>
     </div>
   </section>
+
+  <!-- Real Work in Chesapeake Gallery -->
+  <JobsiteGallery 
+    title="Real Electrical Installations in Chesapeake"
+    subtitle="Direct photos from ceiling fan installations, subpanel additions, pool/spa power disconnects, and outdoor GFCI boxes in Chesapeake."
+    badge="Chesapeake Projects"
+    photos={chesapeakePhotos}
+    columns="4"
+  />
 
   <section id="quote" class="py-16 bg-brand-card/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

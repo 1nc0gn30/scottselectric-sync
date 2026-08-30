@@ -1,0 +1,82 @@
+---
+interface PhotoItem {
+  src: string;
+  alt: string;
+  title: string;
+  category?: string;
+  desc?: string;
+  span?: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  badge?: string;
+  photos: PhotoItem[];
+  columns?: '2' | '3' | '4';
+}
+
+const {
+  title = "Real Field Work & Craftsmanship Across 757",
+  subtitle = "Direct photos from Scott's Electric jobsites in Virginia Beach, Norfolk, Chesapeake, and across Hampton Roads.",
+  badge = "Verified Jobsite Photos",
+  photos,
+  columns = '3'
+} = Astro.props;
+
+const gridColsClass = columns === '4' 
+  ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6' 
+  : columns === '2' 
+    ? 'grid grid-cols-1 md:grid-cols-2 gap-6' 
+    : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6';
+---
+
+<section class="py-16 bg-brand-dark/95 border-t border-brand-border/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      {badge && (
+        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3.5 py-1.5 rounded-full border border-brand-gold/20 uppercase tracking-widest inline-flex items-center gap-1.5">
+          <span>⚡</span>
+          <span>{badge}</span>
+        </span>
+      )}
+      <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-white mt-4 tracking-tight">
+        {title}
+      </h2>
+      <p class="text-sm md:text-base text-brand-muted mt-3 leading-relaxed">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class={gridColsClass}>
+      {photos.map((photo) => (
+        <div class={`group relative rounded-3xl overflow-hidden glass-panel border border-gray-800/90 hover:border-brand-gold/60 transition-all duration-300 shadow-card flex flex-col justify-between ${photo.span || ''}`}>
+          <div class="relative aspect-4/3 sm:aspect-square overflow-hidden bg-brand-card">
+            <img 
+              src={photo.src} 
+              alt={photo.alt}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            />
+            {photo.category && (
+              <span class="absolute top-3.5 left-3.5 bg-black/80 backdrop-blur-md text-brand-gold text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-lg border border-brand-gold/30">
+                {photo.category}
+              </span>
+            )}
+          </div>
+          <div class="p-5">
+            <h3 class="font-heading text-lg font-bold text-white group-hover:text-brand-amber transition-colors">
+              {photo.title}
+            </h3>
+            {photo.desc && (
+              <p class="text-xs text-gray-300 mt-1.5 leading-relaxed">
+                {photo.desc}
+              </p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
