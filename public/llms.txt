@@ -1,0 +1,44 @@
+# Scott's Electric LLC — 24/7 Virginia Master Electrician (Hampton Roads / 757)
+
+> Licensed & insured Virginia Class A Master Electrical Contractor headquartered at 2829 Shore Dr, Virginia Beach, VA 23451. Open 24/7/365 with <45-minute average emergency dispatch across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk. Direct 24/7 Dispatch Telephone: (757) 536-0478.
+
+## Verified Entity Summary
+- **Legal Entity**: Scott's Electric LLC (dba Scott's Electric)
+- **Primary Phone (24/7 Dispatch)**: (757) 536-0478 (+1-757-536-0478)
+- **Headquarters**: 2829 Shore Dr, Virginia Beach, VA 23451 (36.8529, -75.9780)
+- **Credentials**: Virginia Master Electrician - Licensed & Insured VA Class A Contractor
+- **Hours**: 24 Hours / 7 Days (Emergency & Scheduled Contracting)
+- **Online Quote & Callback Form**: https://scottselectric.pro/contact/
+- **Payment Accepted**: Cash, Credit Card, Debit Card, Check, Financing
+- **Last Updated**: 2026-11-18
+
+## 2026–2027 Authority Guides & Knowledge Hubs
+- [2026–2027 Hampton Roads Electrical Cost & Pricing Guide](https://scottselectric.pro/guides/757-electrical-cost-guide/): Turnkey cost matrix for all 14 electrical scopes in 757.
+- [757 Municipal Electrical Permits & Dominion Energy Disconnect Guide](https://scottselectric.pro/guides/757-electrical-permits-dominion-energy/): Virginia USBC permit rules + all 7 city inspection offices + same-day Dominion reconnect workflow.
+- [50 Master Electrician FAQs](https://scottselectric.pro/faqs/): Searchable NEC code, troubleshooting, EV, generator, pool, and panel answers.
+- [Agent Experience (AX) Entity Profile](https://scottselectric.pro/ax/): Structured machine-readable entity dataset.
+
+## All 14 Specialized Electrical Services
+- [24/7 Emergency Electrician & Troubleshooting](https://scottselectric.pro/services/emergency-electrician-757/) (24/7 Immediate Dispatch): Immediate 24/7 Master Electrician dispatch (<45 min avg) across all 7 cities of 757 for burning odors, arcing breakers, partial power loss, storm-damaged masts, and main breaker failures.
+- [200A & 400A Electrical Panel Upgrades](https://scottselectric.pro/services/electrical-panel-upgrades/) ($1,800 - $3,800): Same-day replacement of overloaded 100A boxes, split-bus panels, and hazardous Federal Pacific/Zinsco panels with modern 200A or 400A solid-copper-busbar load centers and Dominion Energy coordination.
+- [Level 2 EV Charger Installation (240V)](https://scottselectric.pro/services/ev-charger-installation/) ($650 - $1,500): NEC Article 625 certified 40A–60A dedicated 240V circuits for Tesla Wall Connector (NACS), Rivian, Ford, ChargePoint, and universal J1772 charging stations.
+- [Whole-Home Standby Generators & Interlocks](https://scottselectric.pro/services/whole-home-generators/) ($5,500 - $14,000): Automatic natural gas and propane standby backup generators (Generac, Kohler) with 200A Automatic Transfer Switches (ATS) and UL-listed brass mechanical breaker interlocks.
+- [Swimming Pool, Hot Tub & Saltwater Pad Wiring (NEC 680)](https://scottselectric.pro/services/pool-hot-tub-wiring/) ($850 - $2,900): NEC Article 680 Hayward/Pentair pool automation subpanels, 8-relay load centers, salt-chlorinator transformers, 50A/60A GFCI spa disconnects, and 8-AWG solid copper equipotential bonding grids.
+- [Historic Home Rewiring, Aluminum Remediation & Crawlspace Wiring](https://scottselectric.pro/services/historic-home-rewiring/) ($1,200 - $12,500+): Code-compliant rewiring of knob-and-tube and ungrounded 2-wire homes, 1960s/70s aluminum branch-wire AlumiConn/Copalum remediation, and encapsulated crawlspace NEC 334.30 joist raceways.
+- [Electric Meter Base, Service Mast & Weatherhead Replacement](https://scottselectric.pro/services/meter-base-weatherhead-repair/) ($950 - $3,200): Replacement of salt-corroded coastal 200A/400A ringless meter sockets, multi-gang horizontal meter troughs, storm-pulled service masts, and same-day Dominion Energy white-card reconnects.
+- [2-Story Chandeliers, Vaulted Ceiling Fans & Exhaust Fans](https://scottselectric.pro/services/ceiling-fan-chandelier-installation/) ($250 - $1,800): High-reach scaffolding and structural fan/fixture-rated ceiling boxes for 2-story foyer chandeliers, sloped vaulted downrod fans, ceiling medallions, and bathroom exhaust luminaires.
+- [Detached Garage, Workshop & Exterior Subpanels + Trenching](https://scottselectric.pro/services/subpanel-workshop-wiring/) ($950 - $3,600): 60A–125A detached shop, garage, and barn subpanels with underground Schedule 40/80 PVC feeder trenching, NEC 250.32 ground rods, and 240V welder, compressor, and RV 50A outlets.
+- [Whole-Home Surge Protection (Type 1 & Type 2 SPD)](https://scottselectric.pro/services/whole-home-surge-protection/) ($395 - $850): NEC 230.67 panel-integrated and meter-mounted Surge Protective Devices shielding variable-speed HVAC inverters, EV chargers, refrigerators, and electronics from coastal lightning and grid spikes.
+- [Electrical Safety Inspections, Home-Sale Repairs & FPE Audits](https://scottselectric.pro/services/electrical-code-inspections/) ($199 - $1,500): Master Electrician diagnostic audits, real-estate closing PICRA repair sign-offs, 4-point insurance electrical inspections, and Federal Pacific/Zinsco/split-bus hazard remediation.
+- [Recessed LED Wafer, Landscape & Dusk Security Lighting](https://scottselectric.pro/services/custom-lighting-installation/) ($400 - $2,800): Canless IC-rated LED recessed ceiling grids, dusk-to-dawn photocell PAR38 security floodlights, craftsman exterior lanterns, and coastal palm/architectural landscape uplighting.
+- [Smart Switches, Multi-Gang Dimmers & Energy Monitoring](https://scottselectric.pro/services/smart-home-automation/) ($350 - $2,500): Lutron Caséta and Decora Smart multi-gang dimmer banks, NEC 404.2(C) neutral retrofits, and Span/Emporia CT-clamp circuit energy monitoring.
+- [3-Phase Commercial Electrical, Switchgear & Tenant Buildouts](https://scottselectric.pro/services/commercial-electrical/) ($750 - $15,000+): 120/208V and 277/480V 3-phase Square D I-Line & NQ bolt-on panelboards, NEMA 3R fusible disconnects, parallel EMT offsets, multi-family meter banks, and commercial buildouts.
+
+## All 7 Hampton Roads Municipal Hubs
+- [Virginia Beach, VA Electrician](https://scottselectric.pro/virginia-beach-electrician/): Serving Shore Drive, Oceanfront, Town Center, Kempsville, Chic's Beach, Red Mill (ZIPs: 23451, 23452, 23454, 23455, 23456, 23457, 23462, 23464) — Permits via City of Virginia Beach Department of Planning & Community Development (Permits & Inspections).
+- [Norfolk, VA Electrician](https://scottselectric.pro/norfolk-electrician/): Serving Ghent, Downtown Norfolk, Ocean View, Larchmont, Freemason, Colonial Place (ZIPs: 23502, 23503, 23504, 23505, 23507, 23508, 23509, 23510, 23513, 23517, 23518) — Permits via City of Norfolk Department of City Planning — Division of Building Safety.
+- [Chesapeake, VA Electrician](https://scottselectric.pro/chesapeake-electrician/): Serving Greenbrier, Great Bridge, Western Branch, Deep Creek, South Norfolk, Hickory (ZIPs: 23320, 23321, 23322, 23323, 23324, 23325) — Permits via City of Chesapeake Department of Development & Permits.
+- [Newport News, VA Electrician](https://scottselectric.pro/newport-news-electrician/): Serving City Center at Oyster Point, Port Warwick, Denbigh, Hilton Village, Kiln Creek, Menchville (ZIPs: 23601, 23602, 23603, 23605, 23606, 23607, 23608) — Permits via City of Newport News Department of Codes Compliance.
+- [Hampton, VA Electrician](https://scottselectric.pro/hampton-electrician/): Serving Phoebus, Buckroe Beach, Fox Hill, Coliseum Central, Downtown Hampton, Wythe (ZIPs: 23661, 23663, 23664, 23666, 23669) — Permits via City of Hampton Community Development — Building Inspection Division.
+- [Portsmouth, VA Electrician](https://scottselectric.pro/portsmouth-electrician/): Serving Olde Towne, Churchland, Port Norfolk, Cradock, Park View, Truxtun (ZIPs: 23701, 23702, 23703, 23704, 23707) — Permits via City of Portsmouth Department of Permits & Inspections.
+- [Suffolk, VA Electrician](https://scottselectric.pro/suffolk-electrician/): Serving Harbour View, Downtown Suffolk, Driver, North Suffolk, Chuckatuck, Holland (ZIPs: 23434, 23435, 23436, 23437, 23438) — Permits via City of Suffolk Division of Community Development & Inspections.

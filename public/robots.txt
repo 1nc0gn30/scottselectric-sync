@@ -1,4 +1,57 @@
+# Scott's Electric LLC — 2026–2027 Search, AEO & Generative Engine Crawl Policy
+# Canonical Domain: https://scottselectric.pro
+# 24/7 Dispatch: (757) 536-0478
+
 User-agent: *
 Allow: /
 
+# Frontier Search & Media Indexers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI Answer Engines, RAG & Voice Search Crawlers (2026–2027)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+Sitemap: https://scottselectric.pro/sitemap-index.xml
 Sitemap: https://scottselectric.pro/sitemap.xml
+Sitemap: https://scottselectric.pro/image-sitemap.xml

@@ -1,187 +1,471 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import AEODirectAnswer from '../components/AEODirectAnswer.astro';
+import FaqSearchExplorer from '../components/FaqSearchExplorer.jsx';
+import { siteConfig } from '../config/site.js';
 
-const faqCategories = [
+const fullUrl = `${siteConfig.url}/faqs/`;
+
+const breadcrumbs = [
+  { name: 'Home', url: `${siteConfig.url}/` },
+  { name: 'Master Electrician FAQs (50 Q&As)', url: fullUrl }
+];
+
+const categories = [
+  '24/7 Emergency & Safety',
+  '200A & 400A Panel Upgrades',
+  'Level 2 EV Chargers',
+  'Standby Generators & Interlocks',
+  'Pools, Hot Tubs & NEC 680',
+  'Historic Rewiring & Aluminum',
+  'Meters, Permits & Dominion Energy',
+  'Chandeliers, Fans & Smart Controls',
+  '3-Phase Commercial & Inspections'
+];
+
+const masterFaqs = [
+  // 1. 24/7 Emergency & Safety (6)
   {
-    category: "🚨 24/7 Emergency Electrical Services",
-    items: [
-      {
-        q: "What qualifies as an electrical emergency in Hampton Roads?",
-        a: "An electrical emergency includes burning plastic or metallic odors from outlets/switches, visible electrical sparks or arcing, buzzing/humming circuit breakers, hot outlet covers, smoke, or localized power outages. If you notice any of these signs, turn off your main breaker if safe and call Scott's Electric immediately at (757) 536-0478."
-      },
-      {
-        q: "How fast can Scott's Electric arrive during a 24/7 emergency?",
-        a: "We maintain on-call Master Electricians dispatched across all 7 cities of 757: Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk. Average emergency arrival times range from 30 to 45 minutes."
-      },
-      {
-        q: "What should I do if a circuit breaker repeatedly trips?",
-        a: "A breaker that repeatedly trips is warning you of an electrical overload, short circuit, or ground fault. Do not force the breaker to stay on. Unplug devices connected to that circuit and call our licensed electricians to perform a safe diagnostic inspection."
-      }
-    ]
+    category: '24/7 Emergency & Safety',
+    question: 'How fast can a 24/7 emergency electrician arrive in Virginia Beach, Norfolk, or Chesapeake?',
+    answer: 'Scott\'s Electric LLC dispatches licensed Virginia Master Electricians 24 hours a day, 365 days a year across all 7 Hampton Roads cities with an average arrival window of 30 to 45 minutes. Call (757) 536-0478 immediately for active hazards.',
+    link: '/services/emergency-electrician-757/',
+    linkLabel: '24/7 Emergency Dispatch'
   },
   {
-    category: "⚡ Electrical Panel Upgrades (200A / 400A)",
-    items: [
-      {
-        q: "Why do I need to upgrade my electrical panel to 200 Amps in 757?",
-        a: "Older homes built prior to 2000 often have 100-amp panels. Today's modern appliances—including Level 2 EV chargers, central heat pumps, hot tubs, induction cooktops, and home automation systems—exceed 100A capacity. Upgrading to a 200A or 400A smart breaker panel prevents overloading and fire risks."
-      },
-      {
-        q: "How long does a main panel replacement take?",
-        a: "A standard 200A or 400A main electrical panel replacement takes 4 to 8 hours. Scott's Electric coordinates directly with Dominion Energy and local city inspectors to ensure seamless disconnect, replacement, and power restoration on the same day."
-      },
-      {
-        q: "Do you replace dangerous Federal Pacific (FPE) or Zinsco electrical panels?",
-        a: "Yes. Federal Pacific Stab-Lok and Zinsco panels have known safety defects where breakers fail to trip during an overload, creating severe fire hazards. We perform complete code-compliant panel replacements with modern Siemens, Eaton, or Square D breaker boxes."
-      }
-    ]
+    category: '24/7 Emergency & Safety',
+    question: 'Why does an outlet, switch, or electrical panel smell like dead fish or burning plastic?',
+    answer: 'Thermoset phenolic plastics used inside circuit breakers, wire nuts, and receptacles emit a sharp fishy or ammonia odor when arcing above 300°F. Flip off the affected breaker (or main breaker if coming from the panel) and call (757) 536-0478 immediately.',
+    link: '/services/emergency-electrician-757/',
+    linkLabel: 'Emergency Arcing Diagnostics'
   },
   {
-    category: "🚘 EV Charging Station Installation (Level 2)",
-    items: [
-      {
-        q: "What is the difference between Level 1 and Level 2 EV charging?",
-        a: "Level 1 charging uses a standard 120V household outlet and adds only 3-5 miles of range per hour (taking up to 24+ hours for a full charge). Level 2 charging operates on a dedicated 240V circuit (40A-60A) and adds 30-50 miles of range per hour, fully charging your vehicle overnight in 4-8 hours."
-      },
-      {
-        q: "Which electric vehicles do you install home chargers for in 757?",
-        a: "We install home chargers for all EV makes and models, including Tesla (Model 3, Y, S, X, Cybertruck with Tesla Wall Connector), Rivian, Ford F-150 Lightning & Mustang Mach-E, Chevy Silverado EV, Hyundai Ioniq, Kia EV6, BMW, Mercedes, and Audi."
-      },
-      {
-        q: "Can I install an outdoor EV charger at my driveway or beach house?",
-        a: "Yes. We install weatherproof, NEMA 4X rated outdoor EV charging posts and wall stations engineered to withstand coastal rain, salt air, and storm conditions in Virginia Beach, Norfolk, and Hampton Roads."
-      }
-    ]
+    category: '24/7 Emergency & Safety',
+    question: 'Why did half the power in my house go out while my neighbors still have lights?',
+    answer: 'Losing half your 120V lights while 240V appliances (HVAC, dryer, stove) quit indicates either a dropped 120V phase leg or a hazardous open service neutral—either at a corroded meter jaw, burnt main breaker stab, or Dominion Energy service drop.',
+    link: '/services/emergency-electrician-757/',
+    linkLabel: 'Partial Power Loss Repair'
   },
   {
-    category: "🔋 Whole-Home Standby Generators & Coastal Storm Prep",
-    items: [
-      {
-        q: "How does an automatic standby generator protect my home during hurricanes?",
-        a: "An automatic standby generator (such as Generac or Kohler) is connected directly to your home's electrical panel and natural gas or propane supply. Within 10 seconds of a utility outage caused by a storm or hurricane, the automatic transfer switch (ATS) detects the power loss, starts the generator, and powers your entire home seamlessly."
-      },
-      {
-        q: "What size standby generator do I need for my house in Hampton Roads?",
-        a: "Generator sizing depends on your square footage and essential appliances. A 14kW to 18kW generator powers essential circuits (HVAC, refrigeration, lights, water heater), while a 22kW to 26kW generator powers large multi-zone homes and luxury estates."
-      }
-    ]
+    category: '24/7 Emergency & Safety',
+    question: 'Why do some lights in my house get blindingly bright when the microwave, toaster, or AC kicks on?',
+    answer: 'Lights getting brighter on one circuit while dimming on another is the textbook symptom of a failing or open neutral conductor. Instead of splitting 240V evenly into 120V + 120V, voltage swings wildly (e.g., 165V on one leg and 75V on the other), destroying electronics rapidly.',
+    link: '/services/meter-base-weatherhead-repair/',
+    linkLabel: 'Neutral & Meter Socket Repair'
   },
   {
-    category: "📍 757 Permitting, Licensing & City Code Compliance",
-    items: [
-      {
-        q: "Does Scott's Electric handle city permits for electrical work in Virginia Beach, Norfolk & Chesapeake?",
-        a: "Yes. All major electrical work—including panel upgrades, EV charger installs, generator setups, subpanels, and new wiring—requires municipal permits under Virginia USBC building code. We handle all permit applications, municipal filings, and inspection scheduling for all 7 cities of 757."
-      },
-      {
-        q: "Are your electricians Master Electricians in Virginia?",
-        a: "Yes. All work performed by Scott's Electric is led by Virginia Master Electricians (VA Class A License). We carry full commercial general liability and workers' compensation insurance."
-      }
-    ]
+    category: '24/7 Emergency & Safety',
+    question: 'Why does my AFCI (arc-fault) or GFCI breaker keep tripping in humid coastal summer weather?',
+    answer: 'High coastal humidity in crawlspaces, exterior bell boxes without extra-duty gaskets, shared neutral wires between circuits, or nicked Romex staples cause ground-fault milliamp leakage or parallel arc signatures. We isolate the exact fault with megohmmeters and AFCI diagnostic tools.',
+    link: '/services/emergency-electrician-757/',
+    linkLabel: 'Nuisance Breaker Troubleshooting'
   },
   {
-    category: "💲 Pricing, Estimates & Guarantees",
-    items: [
-      {
-        q: "How much does an electrical panel upgrade or EV charger install cost?",
-        a: "We provide transparent, upfront pricing with no hidden fees. Level 2 EV charger installs typically start around $650+, while 200A panel upgrades start around $1,800+. We offer free on-site consultations and instant price calculations via our online estimator."
-      },
-      {
-        q: "What warranties do you provide on electrical work?",
-        a: "We provide a 100% Satisfaction Guarantee along with a 3-Year Craftsmanship & Labor Warranty on all installations, plus manufacturer warranties on panels, chargers, and generators."
-      }
-    ]
+    category: '24/7 Emergency & Safety',
+    question: 'Water is dripping into my breaker panel during a heavy rainstorm—what should I do?',
+    answer: 'Do NOT stand on a wet floor or touch a wet metal panel enclosure! Water wicked down frayed exterior SEU service entrance cable jackets funnels rainwater straight onto live 200A busbars. Stay clear and call (757) 536-0478 for an emergency utility disconnect and mast/cable reseal.',
+    link: '/services/meter-base-weatherhead-repair/',
+    linkLabel: 'Water-Damaged Service Entrance Repair'
+  },
+
+  // 2. 200A & 400A Panel Upgrades (6)
+  {
+    category: '200A & 400A Panel Upgrades',
+    question: 'How much does a 200-amp electrical panel upgrade cost in Hampton Roads in 2026–2027?',
+    answer: 'A turnkey 200A electrical panel upgrade across Virginia Beach, Norfolk, Chesapeake, and 757 typically costs $1,800 to $3,800, including a solid-copper-busbar load center, NEC 230.67 whole-home surge protection, dual copper ground rods, Dominion Energy coordination, and municipal city permits.',
+    link: '/services/electrical-panel-upgrades/',
+    linkLabel: '200A Panel Upgrade Pricing'
+  },
+  {
+    category: '200A & 400A Panel Upgrades',
+    question: 'How long will my house be without electricity during a 200A panel replacement?',
+    answer: 'Household power is typically disconnected for 4 to 6 hours during the workday while we mount the new load center, replace meter/riser components, and torque connections. Power is restored the very same afternoon.',
+    link: '/services/electrical-panel-upgrades/',
+    linkLabel: 'Same-Day Panel Replacement'
+  },
+  {
+    category: '200A & 400A Panel Upgrades',
+    question: 'Why are Federal Pacific Electric (FPE Stab-Lok) and Zinsco panels considered fire hazards?',
+    answer: 'Independent laboratory testing showed FPE Stab-Lok breakers fail to trip up to 25%–60% of the time under dangerous overloads, while Zinsco breakers weld directly onto corroded aluminum busbars. Most Virginia insurance underwriters require replacement prior to binding coverage.',
+    link: '/services/electrical-panel-upgrades/',
+    linkLabel: 'FPE & Zinsco Replacement'
+  },
+  {
+    category: '200A & 400A Panel Upgrades',
+    question: 'What is a split-bus electrical panel and why do home inspectors flag it?',
+    answer: 'Common in 1960s–1970s Hampton Roads homes, split-bus panels have no single 100A/200A main disconnect switch—requiring up to six throws at the top of the box to kill power, and frequently overloading the lower lighting busbar when modern HVAC or EV loads are added.',
+    link: '/services/electrical-panel-upgrades/',
+    linkLabel: 'Split-Bus Panel Upgrades'
+  },
+  {
+    category: '200A & 400A Panel Upgrades',
+    question: 'When do I need a 400-amp (Class 320) electrical service instead of 200 amps?',
+    answer: 'Homes over 3,500–4,000 sq ft running multi-zone electric heat pumps, dual Level 2 EV chargers, an electric tankless water heater, heated saltwater pool equipment, and induction cooking exceed 200A continuous capacity under NEC 220.82—making a 400A twin-panel service ideal.',
+    link: '/services/electrical-panel-upgrades/',
+    linkLabel: '400A Heavy-Up Specs'
+  },
+  {
+    category: '200A & 400A Panel Upgrades',
+    question: 'Why do you specify solid-copper-busbar load centers over cheaper tin-plated aluminum panels?',
+    answer: 'In humid coastal Tidewater garages and exterior NEMA 3R locations, solid copper busbars (Siemens PL, Square D QO, Eaton CH) offer superior thermal conductivity, stronger breaker stab retention, and far greater resistance to galvanic pitting over 30+ years.',
+    link: '/services/electrical-panel-upgrades/',
+    linkLabel: 'Solid Copper Busbar Standards'
+  },
+
+  // 3. Level 2 EV Chargers (6)
+  {
+    category: 'Level 2 EV Chargers',
+    question: 'How much does Level 2 home EV charger installation cost in Virginia Beach & 757?',
+    answer: 'Standard Level 2 (240V, 40A–60A) EV charger installation ranges from $650 to $1,500 depending on conduit/cable run length from your panel to the parking spot, including NEC 220.82 load calculation and municipal electrical permit.',
+    link: '/services/ev-charger-installation/',
+    linkLabel: 'Level 2 EV Charger Scope'
+  },
+  {
+    category: 'Level 2 EV Chargers',
+    question: 'Should I hardwire my EV charger or ask for a 240V NEMA 14-50 plug?',
+    answer: 'Hardwiring is safer, cleaner, and faster: it supports up to 48A charging on a 60A breaker (plugs max out at 40A), eliminates $12 residential outlet meltdown points, works outdoors in rain, and avoids nuisance GFCI breaker conflicts under NEC 625.54.',
+    link: '/services/ev-charger-installation/',
+    linkLabel: 'Hardwire vs NEMA 14-50'
+  },
+  {
+    category: 'Level 2 EV Chargers',
+    question: 'Why do cheap hardware-store NEMA 14-50 outlets melt when charging a Tesla or Rivian?',
+    answer: 'Standard $12 range outlets are built for cycling oven elements, not 7 continuous hours at 40 amps (9.6 kW). When installing 14-50 outlets, we exclusively use industrial EV-rated Hubbell 9450A or Bryant 9450FR receptacles torqued with calibrated inch-pound drivers.',
+    link: '/services/ev-charger-installation/',
+    linkLabel: 'Industrial EV Receptacles'
+  },
+  {
+    category: 'Level 2 EV Chargers',
+    question: 'Can I install a Level 2 EV charger on a 100A or 150A panel without upgrading to 200A?',
+    answer: 'Yes! Using NEC 625.42 UL-listed Dynamic EV Energy Management Systems (Tesla Dynamic Power Meter, Wallbox Power Boost, Emporia Load Management), CT clamps monitor main feeder current and automatically dial down EV amps only when your stove, dryer, and AC peak together.',
+    link: '/services/ev-charger-installation/',
+    linkLabel: 'NEC 625.42 Load Management'
+  },
+  {
+    category: 'Level 2 EV Chargers',
+    question: 'What is the Tesla Universal Wall Connector and does it charge both NACS and J1772 vehicles?',
+    answer: 'Yes. The Tesla Universal Wall Connector features a built-in captive Magic Dock J1772 adapter right inside the holster, seamlessly charging both NACS (Tesla, 2025+ Ford/GM/Rivian/Hyundai) and legacy J1772 EVs at up to 48A (11.5 kW).',
+    link: '/services/ev-charger-installation/',
+    linkLabel: 'NACS & J1772 Chargers'
+  },
+  {
+    category: 'Level 2 EV Chargers',
+    question: 'Can two EVs charge in the same garage without running two separate 60-amp circuits?',
+    answer: 'Yes. Group Power Sharing lets two linked wall connectors share a single 60A circuit—delivering full 48A to one car alone or automatically splitting 24A + 24A when two cars plug in overnight.',
+    link: '/services/ev-charger-installation/',
+    linkLabel: 'Dual-EV Garage Setup'
+  },
+
+  // 4. Standby Generators & Interlocks (6)
+  {
+    category: 'Standby Generators & Interlocks',
+    question: 'How much does a whole-home standby generator vs a portable generator interlock cost in 757?',
+    answer: 'A UL-listed 30A/50A mechanical panel interlock + exterior NEMA 3R power inlet box costs $750 to $1,450 installed. Turnkey 18kW–26kW automatic Generac or Kohler whole-home standby generators with a 200A Automatic Transfer Switch range from $5,500 to $14,000+.',
+    link: '/services/whole-home-generators/',
+    linkLabel: 'Generator & Interlock Pricing'
+  },
+  {
+    category: 'Standby Generators & Interlocks',
+    question: 'Why are double-male "suicide cords" plugged into a dryer outlet illegal and deadly?',
+    answer: 'Backfeeding a dryer outlet bypasses main overcurrent protection, leaves live exposed 240V prongs, and feeds power backward through your neighborhood Dominion Energy transformer—stepping 240V up to 7,200V+ and fatally electrocuting utility linemen restoring storm lines.',
+    link: '/services/whole-home-generators/',
+    linkLabel: 'Safe UL Breaker Interlocks'
+  },
+  {
+    category: 'Standby Generators & Interlocks',
+    question: 'How fast does an Automatic Transfer Switch (ATS) restore power during a hurricane?',
+    answer: 'Within 8 to 10 seconds of a Dominion Energy outage—whether you are asleep at 3 AM or out of town—the ATS isolates utility lines, starts the natural gas or propane generator, and transfers your home HVAC, fridge, sump pump, and lighting loads automatically.',
+    link: '/services/whole-home-generators/',
+    linkLabel: '200A Automatic Transfer Switches'
+  },
+  {
+    category: 'Standby Generators & Interlocks',
+    question: 'What size standby generator is needed to run central AC in a 2,500–3,200 sq ft home?',
+    answer: 'An 18kW to 24kW air-cooled standby generator paired with smart HVAC load-shed modules (and optional AC soft-starters to cut compressor locked-rotor surge current by 60%) easily powers whole-house 200A panels.',
+    link: '/services/whole-home-generators/',
+    linkLabel: 'NEC 702 Generator Sizing'
+  },
+  {
+    category: 'Standby Generators & Interlocks',
+    question: 'Why does my bonded-neutral portable inverter generator trip its GFCI when plugged into my house inlet?',
+    answer: 'Because your house main panel already bonds neutral and ground together, plugging in a portable generator whose frame ALSO bonds neutral to ground creates a parallel neutral path that trips the generator\'s onboard GFCI. Using a floating-neutral generator solves this.',
+    link: '/services/whole-home-generators/',
+    linkLabel: 'Portable Inlet Configuration'
+  },
+  {
+    category: 'Standby Generators & Interlocks',
+    question: 'What are the clearance rules for placing a standby generator next to my house?',
+    answer: 'Under NFPA 37 and manufacturer UL listings, standby generators require at least 5 feet of clearance from any operable window, door, or soffit vent (to prevent carbon monoxide entry) and typically 18 inches from the exterior wall.',
+    link: '/services/whole-home-generators/',
+    linkLabel: 'NFPA 37 Site Clearances'
+  },
+
+  // 5. Pools, Hot Tubs & NEC 680 (5)
+  {
+    category: 'Pools, Hot Tubs & NEC 680',
+    question: 'How much does 240V hot tub or inground saltwater pool electrical wiring cost in 757?',
+    answer: 'Dedicated 50A/60A hot tub GFCI disconnect wiring typically ranges from $850 to $1,650, while complete inground saltwater pool automation subpanels, underground PVC trenching, and NEC 680.26 copper bonding grids range from $1,600 to $2,900+.',
+    link: '/services/pool-hot-tub-wiring/',
+    linkLabel: 'Pool & Hot Tub Wiring'
+  },
+  {
+    category: 'Pools, Hot Tubs & NEC 680',
+    question: 'How far must a 50A/60A hot tub GFCI disconnect box be located from the water?',
+    answer: 'Under NEC 680.22(C) and 680.42, the emergency GFCI disconnect must be within sight of the spa and at least 5 feet horizontally from the inside wall of the hot tub so nobody in the water can touch the enclosure.',
+    link: '/services/pool-hot-tub-wiring/',
+    linkLabel: 'NEC 680 Spa Clearances'
+  },
+  {
+    category: 'Pools, Hot Tubs & NEC 680',
+    question: 'What is NEC 680.26 equipotential pool bonding and why is it different from grounding?',
+    answer: 'Grounding trips a breaker during a short; equipotential bonding ties pool water, steel rebar/shell, concrete/paver perimeter (via an 8-AWG solid bare copper halo), ladders, pumps, and heaters to the exact same voltage potential so swimmers never feel stray shock currents.',
+    link: '/services/pool-hot-tub-wiring/',
+    linkLabel: 'Equipotential Copper Bonding'
+  },
+  {
+    category: 'Pools, Hot Tubs & NEC 680',
+    question: 'Why does my variable-speed pool pump nuisance-trip standard GFCI breakers?',
+    answer: 'Variable-speed pump drives generate high-frequency capacitive leakage above 60Hz that confuses standard residential GFCI sensors. Installing manufacturer-listed Siemens QF / Pentair / Hayward 2-pole GFCI breakers eliminates false trips.',
+    link: '/services/pool-hot-tub-wiring/',
+    linkLabel: 'Pool Pump GFCI Solutions'
+  },
+  {
+    category: 'Pools, Hot Tubs & NEC 680',
+    question: 'Do you wire Hayward OmniLogic and Pentair IntelliCenter saltwater automation load centers?',
+    answer: 'Yes. We mount and wire 8-relay outdoor pool automation subpanels, salt-chlorinator transformers, low-voltage 12V LED pool/landscape transformers, 240V heat-pump pool heaters, and post-mounted GFCI receptacles.',
+    link: '/services/pool-hot-tub-wiring/',
+    linkLabel: 'Pool Automation Subpanels'
+  },
+
+  // 6. Historic Rewiring & Aluminum (5)
+  {
+    category: 'Historic Rewiring & Aluminum',
+    question: 'Can you rewire historic homes in Norfolk (Ghent/Freemason), Portsmouth (Olde Towne), and Phoebus without destroying plaster?',
+    answer: 'Yes. Using flexible auger bits, glow rods, crawlspace/attic vertical chases, and selective baseboard/closet access, we replace knob-and-tube and brittle cloth-sheathed 2-wire circuits with minimal disruption to historic lath-and-plaster walls.',
+    link: '/services/historic-home-rewiring/',
+    linkLabel: 'Historic Home Rewiring'
+  },
+  {
+    category: 'Historic Rewiring & Aluminum',
+    question: 'Is 1965–1973 single-strand aluminum branch wiring safe if remediated with AlumiConn connectors?',
+    answer: 'Yes! Both the U.S. Consumer Product Safety Commission (CPSC) and Virginia insurance underwriters recognize 3-port King Innovation AlumiConn lug connectors (installed with calibrated torque drivers and anti-oxidant paste) as a permanent, drywall-free copper pigtail remediation.',
+    link: '/services/historic-home-rewiring/',
+    linkLabel: 'AlumiConn Aluminum Remediation'
+  },
+  {
+    category: 'Historic Rewiring & Aluminum',
+    question: 'Why are purple "twister" aluminum wire nuts discouraged compared to AlumiConn lugs?',
+    answer: 'Standard twist-on wire nuts press dissimilar copper and aluminum strands directly together under spring tension that relaxes during heat cycles. AlumiConn connectors place aluminum and copper in completely separate tin-plated set-screw ports pre-filled with silicone inhibitor.',
+    link: '/services/historic-home-rewiring/',
+    linkLabel: 'Copper-to-Aluminum Safety'
+  },
+  {
+    category: 'Historic Rewiring & Aluminum',
+    question: 'What is the code-approved fix for 2-prong ungrounded outlets if I am not ready for a full rewire?',
+    answer: 'Under NEC 406.4(D)(2), ungrounded 2-wire circuits can be protected with AFCI/GFCI circuit breakers or tamper-resistant GFCI receptacles labeled "GFCI Protected / No Equipment Ground," providing human shock protection immediately (though sensitive electronics still benefit from grounded circuits).',
+    link: '/services/historic-home-rewiring/',
+    linkLabel: 'Ungrounded 2-Wire Options'
+  },
+  {
+    category: 'Historic Rewiring & Aluminum',
+    question: 'Do you organize sagging or rodent-chewed wiring in encapsulated Tidewater crawlspaces?',
+    answer: 'Yes. Before or after crawlspace encapsulation in Virginia Beach, Chesapeake, and Norfolk, we remove dangling open splices, enclose junctions in gasketed boxes, and dress new NM-B raceways neatly along floor joists per NEC 334.30.',
+    link: '/services/historic-home-rewiring/',
+    linkLabel: 'Crawlspace Raceway Wiring'
+  },
+
+  // 7. Meters, Permits & Dominion Energy (6)
+  {
+    category: 'Meters, Permits & Dominion Energy',
+    question: 'Who pays for repairing a rusted electric meter base or storm-pulled weatherhead—Dominion Energy or the homeowner?',
+    answer: 'Dominion Energy owns the glass/digital meter itself and the overhead service drop up to the weatherhead splice. The homeowner owns the weatherhead, rigid mast/SEU cable, meter socket enclosure, and main breaker panel. We repair homeowner meter gear and coordinate same-day Dominion reconnects.',
+    link: '/services/meter-base-weatherhead-repair/',
+    linkLabel: 'Meter Base & Mast Repair'
+  },
+  {
+    category: 'Meters, Permits & Dominion Energy',
+    question: 'Which electrical projects legally require a city permit in Virginia Beach, Norfolk, and Chesapeake?',
+    answer: 'Under the Virginia USBC, permits are mandatory for panel replacements, meter bases, 240V EV chargers, generators/interlocks, pools/hot tubs, detached subpanels, and circuit additions/rewiring. One-for-one replacement of an existing switch, outlet, or fixture is generally exempt.',
+    link: '/guides/757-electrical-permits-dominion-energy/',
+    linkLabel: '757 Permits & Dominion Guide'
+  },
+  {
+    category: 'Meters, Permits & Dominion Energy',
+    question: 'Can an electrician cut a Dominion Energy meter seal during an emergency?',
+    answer: 'Emergency meter pulls and reconnects follow strict Dominion Energy Virginia and municipal emergency electrical release ("white card") procedures. Never cut a utility meter tag yourself—call our 24/7 licensed Master Electricians at (757) 536-0478.',
+    link: '/guides/757-electrical-permits-dominion-energy/',
+    linkLabel: 'Dominion Disconnect Protocol'
+  },
+  {
+    category: 'Meters, Permits & Dominion Energy',
+    question: 'How deep must underground PVC conduit be buried for a detached garage or workshop in 757?',
+    answer: 'Under NEC Table 300.5, rigid nonmetallic Schedule 40/80 PVC conduit requires at least 18 inches of cover in residential trenches (24 inches under driveways), plus Virginia 811 Miss Utility marking and an open-trench city inspection before backfilling.',
+    link: '/services/subpanel-workshop-wiring/',
+    linkLabel: 'Detached Subpanel & Trenching'
+  },
+  {
+    category: 'Meters, Permits & Dominion Energy',
+    question: 'Why does a detached garage subpanel need both a 4-wire feeder AND two local ground rods?',
+    answer: 'The insulated equipment ground wire in the 4-wire feeder clears 120V/240V breaker faults back to the main panel, while the two local 8-foot copper ground rods (NEC 250.32) dissipate lightning and static gradients locally at the detached building.',
+    link: '/services/subpanel-workshop-wiring/',
+    linkLabel: 'NEC 250.32 Grounding Rules'
+  },
+  {
+    category: 'Meters, Permits & Dominion Energy',
+    question: 'Is whole-home surge protection now mandatory when upgrading a breaker panel in Virginia?',
+    answer: 'Yes! NEC Section 230.67 requires a UL 1449 Type 1 or Type 2 Surge Protective Device (SPD) on all new dwelling services and whenever an existing main service panel is replaced—shielding HVAC inverter boards, refrigerators, and EV chargers.',
+    link: '/services/whole-home-surge-protection/',
+    linkLabel: 'NEC 230.67 Surge Protection'
+  },
+
+  // 8. Chandeliers, Fans & Smart Controls (5)
+  {
+    category: 'Chandeliers, Fans & Smart Controls',
+    question: 'Can you hang a heavy chandelier in a 20-foot 2-story foyer or vaulted ceiling?',
+    answer: 'Yes. We bring padded interior scaffolding and high-reach fiberglass ladders, anchor NEC 314.27 structural steel braces (rated 70–150 lbs) directly into ceiling framing, center medallions, and wire dimmable controls.',
+    link: '/services/ceiling-fan-chandelier-installation/',
+    linkLabel: '2-Story Chandelier Rigging'
+  },
+  {
+    category: 'Chandeliers, Fans & Smart Controls',
+    question: 'Can recessed LED downlights be added to a finished first-floor ceiling with no attic above?',
+    answer: 'Yes. Ultra-thin 1/2-inch ICAT-rated canless LED wafers sit flush directly under floor joists, allowing symmetrical laser-aligned ceiling lighting in first-floor living rooms and kitchens with minimal drywall fishing.',
+    link: '/services/custom-lighting-installation/',
+    linkLabel: 'Recessed LED Ceiling Grids'
+  },
+  {
+    category: 'Chandeliers, Fans & Smart Controls',
+    question: 'Why won\'t my new smart switch work in my older switch box (no neutral wire)?',
+    answer: 'Homes built prior to the 2011 NEC often ran 2-wire switch loops where the white wire is actually a live 120V hot or traveler—not a neutral. We either pull a true NEC 404.2(C) neutral or install UL-listed no-neutral Lutron Caséta smart dimmers.',
+    link: '/services/smart-home-automation/',
+    linkLabel: 'Smart Switch & Neutral Retrofits'
+  },
+  {
+    category: 'Chandeliers, Fans & Smart Controls',
+    question: 'How does an Emporia Vue or Span energy monitor track which appliance is spiking my electric bill?',
+    answer: 'Current transformer (CT) clamps installed safely inside your 200A panel sample amperage thousands of times per second on your main lugs and up to 16 individual circuits—pinpointing exact kWh costs for heat-pump aux strips, water heaters, dehumidifiers, and EVs.',
+    link: '/services/smart-home-automation/',
+    linkLabel: 'Whole-Home Energy Monitoring'
+  },
+  {
+    category: 'Chandeliers, Fans & Smart Controls',
+    question: 'Why shouldn\'t wires be "back-stabbed" into push-in holes on outlets and switches?',
+    answer: 'Push-in 14-AWG back-stab springs grip wire with a tiny razor edge that loosens under space-heater, vacuum, or microwave thermal loads—causing dead downstream rooms and charred receptacles. Our electricians wrap or clamp solid copper pigtails on brass side-screws.',
+    link: '/services/electrical-code-inspections/',
+    linkLabel: 'Copper Pigtail Workmanship'
+  },
+
+  // 9. 3-Phase Commercial & Inspections (5)
+  {
+    category: '3-Phase Commercial & Inspections',
+    question: 'What is the difference between a VA Class A Electrical Contractor and Class B or C?',
+    answer: 'Virginia DPOR caps Class C contractors at $10,000 projects and Class B at $120,000. As a licensed & insured Virginia Class A Contractor with Master Electrician credentials, Scott\'s Electric LLC holds unlimited project authority for residential estates and 3-phase commercial switchgear.',
+    link: '/services/commercial-electrical/',
+    linkLabel: 'VA Class A Commercial Capabilities'
+  },
+  {
+    category: '3-Phase Commercial & Inspections',
+    question: 'Can you complete real-estate home inspection (PICRA) electrical repairs before our closing date?',
+    answer: 'Yes! Send us the electrical pages of your REIN home inspection report—we turn around itemized pricing fast, remediate double-tapped breakers, bootleg grounds, open junction boxes, and missing GFCIs, and issue official VA Class A Contractor invoices for closing.',
+    link: '/services/electrical-code-inspections/',
+    linkLabel: 'Real-Estate PICRA Repairs'
+  },
+  {
+    category: '3-Phase Commercial & Inspections',
+    question: 'Do you service 120/208V and 277/480V 3-phase Square D I-Line and NQ bolt-on commercial panels?',
+    answer: 'Yes. We install, troubleshoot, and expand 3-phase Square D I-Line distribution boards, QOB bolt-on NQ subpanels, NEMA 3R fusible disconnects, parallel EMT conduit racks, and commercial tenant buildouts across all 7 cities.',
+    link: '/services/commercial-electrical/',
+    linkLabel: '3-Phase Switchgear & Buildouts'
+  },
+  {
+    category: '3-Phase Commercial & Inspections',
+    question: 'Do you replace rusted multi-gang apartment, condo, and retail meter banks near the coast?',
+    answer: 'Yes. We replace corroded 2-gang to 6-gang+ horizontal ringless utility meter troughs for HOAs, multi-family duplexes, and commercial strip centers—coordinating multi-tenant Dominion disconnects and same-day city inspection release.',
+    link: '/services/commercial-electrical/',
+    linkLabel: 'Multi-Gang Meter Banks'
+  },
+  {
+    category: '3-Phase Commercial & Inspections',
+    question: 'What payment methods and warranties does Scott\'s Electric LLC provide?',
+    answer: 'We accept Visa, Mastercard, Amex, Discover, debit cards, checks, cash, and offer project financing on major upgrades. Every installation is backed by our licensed workmanship guarantee plus full manufacturer warranties on Siemens, Square D, Eaton, Generac, and Lutron gear.',
+    link: '/guides/757-electrical-cost-guide/',
+    linkLabel: '2026–2027 Cost & Warranty Guide'
   }
 ];
 
-// Flatten Q&As for Schema.org FAQPage microdata
-const allFaqItems = faqCategories.flatMap(cat => cat.items);
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": allFaqItems.map(item => ({
-    "@type": "Question",
-    "name": item.q,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": item.a
+const faqPageSchema = {
+  '@type': 'FAQPage',
+  '@id': `${fullUrl}#faqpage`,
+  mainEntity: masterFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer
     }
   }))
 };
 ---
 
-<Layout 
-  title="Electrical FAQs & AI Knowledge Base | Scott's Electric 757"
-  description="Comprehensive 757 electrical answers for Virginia Beach, Norfolk, Chesapeake & Hampton Roads. Learn about 200A panel upgrades, EV chargers, generators, emergency repairs & permits."
+<Layout
+  title="50 Master Electrician FAQs: 2026–2027 Costs, NEC Codes, Panels & EV Chargers in 757 | Scott's Electric"
+  description="50 verified Master Electrician answers covering 200A panel upgrade costs, Level 2 EV chargers, NEC 680 pool bonding, FPE panels, Dominion Energy permits & 24/7 emergencies in 757."
+  keywords="electrician FAQ Virginia Beach, 200 amp panel upgrade FAQ, EV charger NEC 625 questions, Dominion Energy meter disconnect FAQ, Federal Pacific panel Virginia insurance"
+  ogImage={`${siteConfig.url}/assets/images/real/panels/img_3626.webp`}
+  breadcrumbs={breadcrumbs}
+  customSchema={[faqPageSchema]}
 >
-  <!-- Header Banner -->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-        AEO & AI Search Knowledge Base
-      </span>
-      <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mt-4 leading-tight">
-        Frequently Asked <span class="gold-gradient-text">Electrical Questions</span>
-      </h1>
-      <p class="mt-4 text-base text-gray-300 max-w-3xl mx-auto leading-relaxed">
-        Expert answers compiled by Virginia Master Electricians for homeowners and business owners across all 7 cities of 757.
-      </p>
-      
-      <div class="mt-8 flex items-center justify-center gap-4 text-xs font-bold text-brand-cyan">
-        <span>⚡ 20+ Verified Answers</span>
-        <span>•</span>
-        <span>📍 Servicing Virginia Beach, Norfolk, Chesapeake & 757</span>
-        <span>•</span>
-        <span>📞 24/7 Hotline: (757) 536-0478</span>
+  <section class="coastal-sand-surface py-14 lg:py-20 border-b border-coastal-navy/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl space-y-5">
+        <span class="font-mono text-[11px] font-bold text-teal-700 bg-teal-600/10 px-3.5 py-1.5 rounded-full border border-teal-600/20 uppercase tracking-widest inline-block">
+          50 ZERO-FLUFF MASTER ELECTRICIAN ANSWERS • 9 TECHNICAL CATEGORIES
+        </span>
+        <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-coastal-navy leading-[1.06]">
+          Hampton Roads Electrical{' '}
+          <span class="font-editorial text-[1.12em] font-normal text-teal-700">
+            Code, Cost &amp; Safety Knowledge Base
+          </span>
+        </h1>
+        <p class="text-sm sm:text-lg text-coastal-slate leading-relaxed speakable">
+          Direct engineering, pricing, and Virginia USBC permitting answers written by licensed Virginia Master Electricians serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk.
+        </p>
+        <div class="pt-2 flex flex-wrap gap-3.5">
+          <a href="tel:7575360478" class="cta-phone-beam bg-coastal-navy hover:bg-slate-800 text-white font-extrabold px-6 sm:px-7 py-4 rounded-2xl text-sm shadow-coastal-elevated">
+            Call 24/7: <span class="whitespace-nowrap">(757) 536-0478</span>
+          </a>
+          <a href="/guides/757-electrical-cost-guide/" class="bg-white border border-coastal-navy/20 hover:border-teal-700 text-coastal-navy font-bold px-6 py-4 rounded-2xl text-sm">
+            2026–2027 Cost Matrix →
+          </a>
+          <a href="/guides/757-electrical-permits-dominion-energy/" class="bg-white border border-coastal-navy/20 hover:border-teal-700 text-coastal-navy font-bold px-6 py-4 rounded-2xl text-sm">
+            757 Permits &amp; Dominion Guide →
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQs Categorized Section -->
-  <section class="py-20 bg-brand-dark">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-      
-      {faqCategories.map((cat, catIdx) => (
-        <div key={catIdx} class="space-y-6">
-          <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-brand-amber border-b border-gray-800 pb-3 flex items-center gap-3">
-            {cat.category}
-          </h2>
-
-          <div class="space-y-4">
-            {cat.items.map((item, itemIdx) => (
-              <details class="group glass-panel rounded-2xl p-6 border border-gray-800 hover:border-brand-gold/50 transition-colors [&_summary::-webkit-details-marker]:hidden">
-                <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-                  <h3 class="font-heading text-base md:text-xl font-bold text-white group-open:text-brand-amber transition-colors flex items-start gap-3">
-                    <span class="text-brand-gold font-extrabold">Q.</span>
-                    <span>{item.q}</span>
-                  </h3>
-                  <span class="ml-4 shrink-0 transition duration-300 group-open:-rotate-180">
-                    <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                  </span>
-                </summary>
-                <div class="mt-4 pt-4 border-t border-gray-800/80 text-sm md:text-base leading-relaxed text-gray-300 space-y-2">
-                  <p>{item.a}</p>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      ))}
-
-    </div>
-  </section>
-
-  <!-- Quote Estimator -->
-  <section class="py-16 bg-brand-card/30 border-t border-brand-border">
+  <section class="py-8 coastal-ocean-surface">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
+      <AEODirectAnswer
+        question="Have an urgent electrical code, breaker, or project pricing question in Hampton Roads (757)?"
+        summary="Search all 50 NEC-referenced questions below by keyword or category—covering 24/7 emergency arc faults, 200A/400A heavy-ups, Tesla/NACS EV circuits, Generac standby generators, NEC 680 pool bonding, AlumiConn aluminum remediation, and Dominion Energy meter reconnects—or call (757) 536-0478 any hour."
+        facts={[
+          { label: "Total Verified Q&As", value: "50 Master Electrician Answers", highlight: true },
+          { label: "Code Authority", value: "Virginia USBC + NEC 2020/2023" },
+          { label: "Emergency Response", value: "24/7 (<45 Min Avg Across 757)", highlight: true },
+          { label: "License Tier", value: "VA Class A Master Contractor" },
+          { label: "Direct Dispatch", value: "(757) 536-0478" },
+          { label: "Last Reviewed", value: siteConfig.lastUpdated }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
     </div>
   </section>
 
-  <!-- Inject FAQPage Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <section class="py-16 coastal-dune-surface border-t border-coastal-navy/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FaqSearchExplorer client:load items={masterFaqs} categories={categories} />
+    </div>
+  </section>
 </Layout>

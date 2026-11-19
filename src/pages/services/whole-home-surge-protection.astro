@@ -1,0 +1,77 @@
+---
+import ServiceAuthorityView from '../../components/ServiceAuthorityView.astro';
+---
+
+<ServiceAuthorityView
+  slug="/services/whole-home-surge-protection"
+  serviceName="Whole-Home Surge Protection (Type 1 & Type 2 SPD)"
+  pageTitle="Whole-Home Surge Protector Installation (NEC 230.67 SPD) in 757 | Scott's Electric"
+  metaDescription="Panel-mounted Type 1 & Type 2 whole-home surge protection in Virginia Beach, Norfolk, Chesapeake & 757. Shield HVAC inverter boards, EV chargers & appliances. Call (757) 536-0478."
+  keywords="whole house surge protector Virginia Beach, NEC 230.67 surge protection 757, Siemens FirstSurge installation Norfolk, HVAC surge protector Chesapeake, panel surge arrestor"
+  priceRange="$395 - $850"
+  eyebrow="NEC Article 230.67 • 50kA–140kA Panel-Integrated Surge Defense"
+  h1Plain="Whole-Home Type 1 & Type 2"
+  h1Italic="Surge Protection"
+  heroIntro="Summer coastal lightning storms across Chesapeake Bay, utility capacitor bank switching, and internal compressor cycling fry $2,500 variable-speed HVAC control boards, refrigerators, and EV chargers that plug-in power strips never touch. We install commercial-grade panel Surge Protective Devices (SPDs) across Hampton Roads."
+  heroPhotoSrc="/assets/images/real/panels/img_3626.webp"
+  aeoQuestion="How much does whole-home surge protector installation cost in Virginia Beach & Hampton Roads?"
+  aeoSummary="Professional installation of a UL 1449 4th Edition Type 1 or Type 2 whole-home Surge Protective Device (such as Siemens FirstSurge, Square D HEPD80, or Eaton CHSPT2ULTRA) at your main 200A electrical panel costs $395 to $850 turnkey, including a dedicated 2-pole breaker, grounding verification, and LED diagnostic status indicators."
+  aeoFacts={[
+    { label: "Turnkey Installed Cost", value: "$395 – $850 Complete", highlight: true },
+    { label: "Surge Capacity Rating", value: "50,000A – 140,000A (50kA–140kA)" },
+    { label: "Code Requirement", value: "NEC 230.67 Mandatory on New Panels", highlight: true },
+    { label: "Installation Time", value: "45 – 75 Minutes" },
+    { label: "Hardwired Coverage", value: "HVAC, EV Charger, Fridge, Oven, Washer" },
+    { label: "24/7 Scheduling", value: "(757) 536-0478" }
+  ]}
+  necSpecs={[
+    {
+      code: "NEC 230.67 & 285 // DWELLING SURGE MANDATE",
+      title: "UL 1449 Type 1 & Type 2 Panel Clamping",
+      detail: "Adopted NEC 230.67 requires a Type 1 or Type 2 Surge Protective Device on all new and replacement dwelling services. Installed directly adjacent to your main breaker busbars with ultra-short, straight conductor leads, it clamps transient voltage spikes in nanoseconds before they enter branch circuits."
+    },
+    {
+      code: "NEC 250.53 // LOW-IMPEDANCE SURGE GROUNDING",
+      title: "Grounding Electrode Integrity Verification",
+      detail: "A whole-home SPD can only divert 80kA+ transient energy safely if your panel's grounding electrode conductor (GEC), copper ground rods, and cold-water bond have intact, tight mechanical terminations. Every SPD install includes a full grounding bond check."
+    },
+    {
+      code: "LAYERED DEFENSE // HVAC + MAIN PANEL",
+      title: "Variable-Speed Heat Pump & Mini-Split Protection",
+      detail: "Modern SEER2 inverter heat pumps and ductless mini-splits use sensitive DC rectifier boards that are the #1 lightning/brownout casualty in 757. We pair main-panel Type 2 SPDs (80kA–140kA) with optional outdoor HVAC disconnect surge modules."
+    }
+  ]}
+  processSteps={[
+    { name: "Busbar & Grounding Audit", text: "Inspect main panel brand, verify copper/tin busbar stab health, and test grounding electrode bond continuity." },
+    { name: "Top-Bus Breaker Placement", text: "Relocate branch breakers if needed so the dedicated 2-pole SPD breaker sits closest to the main service lugs for minimal lead inductance." },
+    { name: "Short-Lead Termination", text: "Trim and route SPD phase, neutral, and ground conductors straight and under 6–8 inches to maximize clamping speed (lowest VPR)." },
+    { name: "Diagnostic LED & Audible Check", text: "Energize the unit, verify green phase-protection LEDs and audible alarm readiness, and label the panel directory." }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_4022.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_1141.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_0283.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "Why aren't plug-in power strips enough to protect my home from surges?",
+      answer: "Plug-in power strips only protect the TV or computer plugged into them—leaving your most expensive hardwired 240V equipment (HVAC inverter compressors, EV chargers, electric ranges, refrigerators, tankless water heaters, and smart washers) completely exposed. Furthermore, small MOVs inside $25 power strips saturate quickly during utility grid events."
+    },
+    {
+      question: "What is the difference between a Type 1 and Type 2 whole-home surge protector?",
+      answer: "Type 1 SPDs are listed to be installed on the line or load side of the main service disconnect (including exterior meter-main combos) without needing an additional overcurrent breaker, whereas Type 2 SPDs connect on the load side of your main panel via a dedicated 20A–50A 2-pole circuit breaker."
+    },
+    {
+      question: "Why does lead wire length inside the breaker box matter so much for surge protectors?",
+      answer: "High-frequency lightning transients experience inductive voltage rise (~15–25 volts per inch of wire!). Twisting or leaving long 24-inch loops inside the panel can add hundreds of volts to the let-through clamping voltage. Our electricians mount the SPD right beside the breaker knockouts with short, straight conductors."
+    },
+    {
+      question: "Is whole-home surge protection now required by electrical code in Virginia?",
+      answer: "Yes. NEC Section 230.67 mandates a Type 1 or Type 2 Surge Protective Device on all new residential construction and whenever an existing dwelling unit service panel is replaced or upgraded."
+    },
+    {
+      question: "How long does a whole-home surge protector last?",
+      answer: "Commercial-grade units (Square D HEPD80, Siemens FirstSurge FS100/FS140, Eaton CHSPT2ULTRA) typically last 8 to 12+ years depending on surge frequency and include diagnostic LED lights (plus an audible chime on select models) that alert you if a massive direct strike sacrifices an internal MOV module."
+    }
+  ]}
+/>

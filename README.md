@@ -1,71 +1,29 @@
-# Getting Started with Create React App
+# Scott's Electric LLC — 757 Master Electrician Coastal Motion & 2026–2027 SEO/AEO Web App (`scottselectric.pro`)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Coastal Virginia Beach motion-engineered web application and 2026–2027 Local SEO / AEO / GEO authority architecture for **Scott's Electric LLC** — Licensed & Insured Virginia Master Electrician (VA Class A Contractor) headquartered at `2829 Shore Dr, Virginia Beach, VA 23451`, serving all 7 cities of Hampton Roads (`757`).
 
-## Available Scripts
+## Core Architecture & Capabilities
+- **Phone-First 24/7 Dispatch (`(757) 536-0478`)**: Direct `tel:7575360478` conversion hierarchy paired with Netlify-backed `quote-request` and `popup` callback forms (zero `mailto:` friction).
+- **Coastal Virginia Beach Motion Engine (`CoastalScrollEngine.jsx`)**:
+  - Synchronized **GSAP `ScrollTrigger` + `Lenis`** smooth scroll loop with sunlit Coastal Sand (`#FBF8F3`), Dune (`#F2ECE1`), and Deep Chesapeake Navy (`#0A1929`) surfaces (`Plus Jakarta Sans` + `Instrument Serif` Italic + `JetBrains Mono`).
+  - **Sunlit Shore Drive Hero (`HiggsfieldHeroStage.jsx`)**, **Pinned 6-Card Stacked Scope Deck + Pinned 10-Frame Horizontal Film-Track (`ParallaxMotionReel.jsx`)**, and **Disjoint Field Archive (`MotionVaultGallery.jsx`)** utilizing **61 vision-verified jobsite WebP photos** + `crawlspace_raceway.mp4` (`38/38` unique rendered `<img>` elements on `/`).
+- **Client-Side NEC Article 220.82 Load Calculator (`InteractiveQuoteCalculator.jsx`)**: Computes dwelling demand in Amps @ 240V and kVA alongside real 2026–2027 turnkey 757 cost ranges.
+- **2026–2027 Local SEO, AEO (Answer Engine) & GEO (Generative Engine) Coverage**:
+  - **31 Canonical Indexed Pages** (+ custom `noindex` `404.html`):
+    - **14 Technical NEC Service Pages** (`/services/*`) built on `ServiceAuthorityView.astro` with per-page `ogImage`, NEC engineering cards, 4-step `HowTo` JSON-LD, verified field galleries, and 5–6 Q&As each.
+    - **2 High-Citation Benchmark Guides** (`/guides/757-electrical-cost-guide/` & `/guides/757-electrical-permits-dominion-energy/`) with semantic HTML pricing & 7-city municipal permit matrices (`TechArticle` JSON-LD).
+    - **50-Question Master Electrician FAQ Hub** (`/faqs/`) with live search & 9-category filtering (`FaqSearchExplorer.jsx`) + full 50-item `FAQPage` JSON-LD (**185 total indexed `FAQPage` Q&As site-wide**).
+    - **7 Municipal City Hubs** (`Virginia Beach`, `Norfolk`, `Chesapeake`, `Newport News`, `Hampton`, `Portsmouth`, `Suffolk`) with 6 hyper-local Q&As and permit office metadata each.
+  - **Complete 2026–2027 Crawl & AI Discovery Suite**:
+    - `public/sitemap-index.xml`, `public/sitemap.xml` (31 canonical URLs), and `public/image-sitemap.xml` (all 61 vision-verified WebP photos + H.264 crawlspace video).
+    - `public/robots.txt` explicitly welcoming Google, Bing, `OAI-SearchBot`, `GPTBot`, `ChatGPT-User`, `ClaudeBot`, `Claude-SearchBot`, `PerplexityBot`, `Google-Extended`, `Applebot-Extended`, and `DuckAssistBot`.
+    - `public/llms.txt`, `public/llms-full.txt`, `/ax/` (`Dataset` schema), `public/.well-known/security.txt`, custom Scott's Electric PWA `manifest.json` + lighthouse favicons, and `scripts/submit-indexnow.mjs`.
 
-In the project directory, you can run:
+## Commands
+- **Regenerate SEO & LLM Manifests**: `node scripts/generate-seo-manifests.mjs`
+- **Development Server**: `npm run dev`
+- **Production Static Build**: `npm run build`
+- **IndexNow Submission**: `node scripts/submit-indexnow.mjs`
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# scottselectric
+---
+&copy; Scott's Electric LLC — Licensed & Insured Virginia Master Electrician (`https://scottselectric.pro`).

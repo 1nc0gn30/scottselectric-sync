@@ -1,44 +1,76 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import AEOFAQ from '../components/AEOFAQ.astro';
-import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import CityLandingView from '../components/CityLandingView.astro';
 ---
 
-<Layout 
-  title="Electrician in Newport News VA | 24/7 Peninsula Electrical Services"
-  description="Licensed electrician in Newport News, VA serving Oyster Point, Denbigh & Hilton Village. 24/7 emergency electrical repair, 200A panel upgrades & surge protection."
+<CityLandingView
   cityName="Newport News"
->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-          🏗️ Newport News Peninsula Electrical Services
-        </span>
-        <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-          Peninsula Electrician in <br />
-          <span class="gold-gradient-text">Newport News, VA</span>
-        </h1>
-        <p class="mt-4 text-base text-gray-300 leading-relaxed">
-          Serving City Center at Oyster Point, Hilton Village, Denbigh, Hidenwood, and Menchville. Scott's Electric brings fast Master Electrician dispatch to Peninsula homes and commercial facilities.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-            Get Newport News Quote →
-          </a>
-          <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
-            📞 24/7 Peninsula Line: (757) 536-0478
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="quote" class="py-16 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <AEOFAQ cityName="Newport News" />
-</Layout>
+  slug="/newport-news-electrician"
+  pageTitle="24/7 Emergency Electrician, 200A Panel Upgrades & EV Chargers in Newport News, VA | Scott's Electric"
+  metaDescription="Licensed Master Electrician in Newport News, VA serving Oyster Point, Hilton Village, Port Warwick, Kiln Creek & Denbigh. 200A panels, EV chargers & 24/7 repair. Call (757) 536-0478."
+  eyebrow="Newport News, VA • Peninsula Residential & 3-Phase Commercial Dispatch"
+  h1Lead="24/7 Peninsula Electrician, 200A Panels & EV Chargers"
+  heroIntro="Serving City Center at Oyster Point, Port Warwick, Hilton Village, Hidenwood, Riverside, Denbigh, Kiln Creek, and Menchville with 24/7 emergency troubleshooting, 200A main breaker upgrades, historic Hilton rewiring, exterior meter bases, and commercial 3-phase distribution."
+  heroPhotoSrc="/assets/images/real/panels/img_4523.webp"
+  aeoQuestion="Need a licensed Master Electrician on the Peninsula in Newport News, VA?"
+  aeoSummary="Scott's Electric LLC dispatches Virginia Master Electricians across Newport News for 24/7 emergency electrical repairs, 200A/400A copper-busbar panel replacements, historic Hilton Village rewiring, utility meter socket repairs, Level 2 EV circuits, and commercial 3-phase buildouts—with full Newport News Department of Codes Compliance permitting."
+  aeoFacts={[
+    { label: "Peninsula Dispatch", value: "35–45 Minutes Avg", highlight: true },
+    { label: "Service Entrances", value: "Dominion Meter & 200A Tie-Ins" },
+    { label: "Municipal Permits", value: "Newport News Codes Compliance", highlight: true },
+    { label: "Contractor Class", value: "VA Class A Master" },
+    { label: "24/7 Peninsula Line", value: "(757) 536-0478" },
+    { label: "Newport News ZIPs", value: "23601–23603, 23605–23608" }
+  ]}
+  localScopes={[
+    {
+      code: "01 // PENINSULA UPGRADES",
+      title: "200A Plug-On Neutral Load Centers",
+      desc: "Modernize aging Hilton Village, Hidenwood, and Denbigh panels with Siemens, Square D, and Eaton 200A load centers and NEC 230.67 surge protection.",
+      href: "/services/electrical-panel-upgrades/"
+    },
+    {
+      code: "02 // SERVICE ENTRANCES",
+      title: "Meter Bases, Masts & Aluminum Fixes",
+      desc: "Four-jaw ringless utility meter sockets, storm-damaged weatherheads, Dominion reconnects, and 1970s AlumiConn aluminum branch remediation.",
+      href: "/services/meter-base-weatherhead-repair/"
+    },
+    {
+      code: "03 // COMMERCIAL CORRIDORS",
+      title: "Oyster Point 3-Phase & EV Charging",
+      desc: "3-phase Square D I-Line & NQ panelboards, medical/office tenant buildouts, emergency egress lighting, and dedicated 48A EV chargers.",
+      href: "/services/commercial-electrical/"
+    }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_0283.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_1141.webp", alt: "", title: "" },
+    { src: "/assets/images/real/ceiling_lights/img_3486.webp", alt: "", title: "" },
+    { src: "/assets/images/real/work_van_and_tools/img_4519.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "Which Newport News neighborhoods do your Master Electricians cover?",
+      answer: "We dispatch 24/7 across Oyster Point, Port Warwick, Kiln Creek, Denbigh, Menchville, Hidenwood, Riverside, Hilton Village, Beaconsdale, and Downtown Newport News. Call (757) 536-0478."
+    },
+    {
+      question: "Do you rewire historic 1918–1940s homes in Hilton Village and North Hilton?",
+      answer: "Yes. Historic Hilton Village homes frequently retain ungrounded 2-wire cloth cables or undersized 60A/100A panels. We fish grounded copper NM-B circuits and upgrade to 200A load centers while respecting historic plaster and trim."
+    },
+    {
+      question: "Do you coordinate Dominion Energy disconnects and Newport News Codes Compliance inspections?",
+      answer: "Yes. We pull all electrical permits electronically with the City of Newport News Department of Codes Compliance and schedule Dominion Energy morning disconnects so 200A panel upgrades are re-energized same-day."
+    },
+    {
+      question: "Can you remediate aluminum wiring or Federal Pacific panels in Denbigh and mid-century ranches?",
+      answer: "Yes. We replace hazardous Federal Pacific Stab-Lok and Zinsco panels and perform CPSC-recognized AlumiConn lug copper pigtailing for 1960s/1970s aluminum branch circuits."
+    },
+    {
+      question: "Can you install a Level 2 EV charger in a Kiln Creek or Port Warwick townhome/garage?",
+      answer: "Yes—including NEC 625.42 dynamic load-managed EV chargers when a townhome has a 100A or 150A panel, avoiding expensive underground feeder replacements."
+    },
+    {
+      question: "Do you handle commercial 3-phase buildouts along Jefferson Ave and Oyster Point?",
+      answer: "Yes. As a licensed VA Class A Contractor, we wire 120/208V and 277/480V 3-phase panelboards, parallel EMT conduit racks, commercial HVAC disconnects, and office/medical/retail lighting."
+    }
+  ]}
+/>

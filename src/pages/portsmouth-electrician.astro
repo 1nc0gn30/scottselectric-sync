@@ -1,44 +1,76 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import AEOFAQ from '../components/AEOFAQ.astro';
-import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
+import CityLandingView from '../components/CityLandingView.astro';
 ---
 
-<Layout 
-  title="Electrician in Portsmouth VA | 24/7 Emergency Repair & Panel Upgrades"
-  description="Licensed Master Electrician in Portsmouth, VA serving Olde Towne, Churchland & Port Norfolk. 24/7 emergency repair, code compliance updates & fuse box upgrades."
+<CityLandingView
   cityName="Portsmouth"
->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-          ⚙️ Portsmouth, VA Electrical Services
-        </span>
-        <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-          Licensed Electrician in <br />
-          <span class="gold-gradient-text">Portsmouth, Virginia</span>
-        </h1>
-        <p class="mt-4 text-base text-gray-300 leading-relaxed">
-          From Olde Towne historic homes to Churchland, Cradock, and Port Norfolk. Fast emergency electrical repair, code compliance updates, fuse box conversions, and surge protection.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-            Get Portsmouth Estimate →
-          </a>
-          <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
-            📞 24/7 Portsmouth Line: (757) 536-0478
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="quote" class="py-16 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <AEOFAQ cityName="Portsmouth" />
-</Layout>
+  slug="/portsmouth-electrician"
+  pageTitle="24/7 Emergency Electrician, Fuse Box Upgrades & Code Repairs in Portsmouth, VA | Scott's Electric"
+  metaDescription="Licensed Master Electrician in Portsmouth, VA serving Olde Towne, Churchland, Port Norfolk & Cradock. Fuse-to-200A breaker upgrades, PICRA closing repairs & 24/7 dispatch. Call (757) 536-0478."
+  eyebrow="Portsmouth, VA • Olde Towne, Churchland, Cradock & Port Norfolk"
+  h1Lead="24/7 Emergency Electrician, 200A Panels & Code Repairs"
+  heroIntro="Serving Olde Towne, Churchland, Port Norfolk, Park View, Cradock, Truxtun, and Waterview with 24/7 emergency troubleshooting, fuse-box and split-bus conversions to 200A copper-busbar breakers, historic crawlspace rewiring, and fast real-estate PICRA closing repairs."
+  heroPhotoSrc="/assets/images/real/panels/img_0304.webp"
+  aeoQuestion="Need fuse box replacement, historic rewiring, or municipal code corrections in Portsmouth, VA?"
+  aeoSummary="Scott's Electric LLC performs same-day 200A main breaker conversions, Federal Pacific/Zinsco/split-bus panel replacements, NEC 334.30 crawlspace rewiring, real-estate PICRA closing repairs, and 24/7 emergency dispatch across Portsmouth—handling all City of Portsmouth Department of Permits & Inspections filings."
+  aeoFacts={[
+    { label: "Portsmouth ETA", value: "30–40 Minutes Avg", highlight: true },
+    { label: "Code & PICRA", value: "Closing & Inspector Sign-Off" },
+    { label: "Municipal Permits", value: "Portsmouth Inspections Filed", highlight: true },
+    { label: "Contractor Class", value: "VA Class A Master" },
+    { label: "24/7 Emergency Line", value: "(757) 536-0478" },
+    { label: "Portsmouth ZIPs", value: "23701, 23702, 23703, 23704, 23707" }
+  ]}
+  localScopes={[
+    {
+      code: "01 // SERVICE MODERNIZATION",
+      title: "Fuse Box & Split-Bus to 200A Panels",
+      desc: "Replace obsolete 60A/100A screw-in fuse blocks, FPE Stab-Lok, and split-bus boxes with modern 200A Siemens or Square D main-breaker panels.",
+      href: "/services/electrical-panel-upgrades/"
+    },
+    {
+      code: "02 // COMPLIANCE & CLOSINGS",
+      title: "PICRA Closing & Insurance Repairs",
+      desc: "Clear REIN home-inspection punch lists and insurance 4-point flags—fixing bootleg grounds, double-tapped breakers, and missing GFCIs.",
+      href: "/services/electrical-code-inspections/"
+    },
+    {
+      code: "03 // HISTORIC & CRAWLSPACE",
+      title: "Olde Towne & Cradock Copper Rewiring",
+      desc: "NEC 334.30 stapled copper raceways under historic floor joists and plaster-conscious rewiring in Olde Towne, Port Norfolk, and Cradock.",
+      href: "/services/historic-home-rewiring/"
+    }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_1687.webp", alt: "", title: "" },
+    { src: "/assets/images/real/switches/img_2677.webp", alt: "", title: "" },
+    { src: "/assets/images/real/twisted_insulated_copper_ready_for_wire_nut/img_4992.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_3369.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "Can you clear electrical code violations and REIN home-sale PICRA repairs in Portsmouth before closing?",
+      answer: "Yes! We regularly assist Portsmouth buyers, sellers, and Realtors in Olde Towne, Churchland, and Port Norfolk by resolving double-tapped breakers, ungrounded 3-prong bootleg outlets, open crawlspace splices, and panel hazards with signed VA Class A Contractor documentation."
+    },
+    {
+      question: "Do you upgrade 60-amp fuse boxes and cloth wiring in Olde Towne, Cradock, and Truxtun?",
+      answer: "Yes. Historic Portsmouth homes built between the 1890s and 1940s often retain Edison fuse blocks and ungrounded cloth cables. We upgrade services to 200A copper-busbar panels same-day and fish new grounded copper circuits cleanly."
+    },
+    {
+      question: "Do you pull City of Portsmouth electrical permits and handle Dominion Energy reconnects?",
+      answer: "Yes. Every panel upgrade, meter base replacement, EV circuit, and generator installation includes City of Portsmouth Department of Permits & Inspections filing and coordinated Dominion Energy disconnect/reconnect."
+    },
+    {
+      question: "Can you install Level 2 EV chargers and standby generators in Churchland and Waterview?",
+      answer: "Yes. We install hardwired 48A Tesla/NACS & J1772 garage chargers alongside 18kW–26kW Generac/Kohler automatic standby generators and 50A portable breaker interlocks."
+    },
+    {
+      question: "My crawlspace wiring in Port Norfolk is hanging down or damaged by moisture—can you clean it up?",
+      answer: "Yes. We remove hazardous flying splices, enclose junctions inside gasketed boxes, and secure new NM-B copper cables neatly along floor joists per NEC 334.30 prior to or after crawlspace encapsulation."
+    },
+    {
+      question: "How fast is 24/7 emergency electrician dispatch to Portsmouth?",
+      answer: "Our on-call Master Electricians typically reach Olde Towne, Park View, Port Norfolk, Cradock, and Churchland within 30 to 40 minutes via the Downtown/Midtown corridors and I-664. Call (757) 536-0478."
+    }
+  ]}
+/>

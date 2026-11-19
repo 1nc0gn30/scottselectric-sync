@@ -1,33 +1,80 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
+import ServiceAuthorityView from '../../components/ServiceAuthorityView.astro';
 ---
 
-<Layout 
-  title="Commercial Electrical Contractor 757 | 3-Phase Power & Wiring"
-  description="Licensed Commercial Master Electricians in Virginia Beach, Norfolk, Chesapeake & 757 area. 3-phase power, commercial lighting, safety audits & data cabling."
-  serviceName="Commercial Electrical"
->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-          🏢 Commercial & Industrial Power
-        </span>
-        <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-          Commercial Electrical <br />
-          <span class="gold-gradient-text">Contracting Services</span>
-        </h1>
-        <p class="mt-4 text-base text-gray-300 leading-relaxed">
-          From retail buildouts to office lighting retrofits, 3-phase electrical panel upgrades, access control systems, and commercial emergency dispatch in Hampton Roads.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-</Layout>
+<ServiceAuthorityView
+  slug="/services/commercial-electrical"
+  serviceName="3-Phase Commercial Electrical, Switchgear & Tenant Buildouts"
+  pageTitle="3-Phase Commercial Electrician, Switchgear & Tenant Buildouts in 757 | Scott's Electric"
+  metaDescription="Licensed VA Class A Commercial Master Electricians in Virginia Beach, Norfolk, Chesapeake & 757. 120/208V & 277/480V Square D I-Line panels, EMT risers, meter banks & tenant buildouts. Call (757) 536-0478."
+  keywords="commercial electrician Virginia Beach, 3 phase electrical contractor Norfolk, multi family meter bank replacement 757, tenant buildout electrician Chesapeake, Square D I-Line switchgear"
+  priceRange="$750 - $15,000+"
+  eyebrow="VA Class A Unlimited Capability • 120/208V & 277/480V 3-Phase Systems"
+  h1Plain="3-Phase Commercial Electrical &"
+  h1Italic="Switchgear Buildouts"
+  heroIntro="Commercial downtime costs revenue every hour. As a licensed and insured Virginia Class A Electrical Contractor, Scott's Electric executes 120/208V and 277/480V 3-phase Square D I-Line & NQ bolt-on panelboards, parallel EMT risers, multi-family horizontal meter banks, restaurant/medical/retail buildouts, and 24/7 commercial emergency troubleshooting across all 7 cities."
+  heroPhotoSrc="/assets/images/real/panels/img_4537.webp"
+  aeoQuestion="Need a licensed VA Class A 3-phase commercial electrical contractor in Hampton Roads (757)?"
+  aeoSummary="Scott's Electric LLC provides commercial 3-phase (120/208V Wye & 277/480V) distribution, Square D I-Line & QOB bolt-on panelboards, NEMA 3R fusible disconnects, multi-gang apartment/retail meter troughs, commercial kitchen/HVAC equipment circuits, egress/parking-lot LED retrofits, and <45-minute 24/7 commercial emergency dispatch across 757."
+  aeoFacts={[
+    { label: "Commercial Emergency", value: "24/7 Priority (<45 Min Avg)", highlight: true },
+    { label: "Contractor License", value: "VA Class A Master Electrician" },
+    { label: "3-Phase Voltages", value: "120/208V & 277/480V Switchgear", highlight: true },
+    { label: "Multi-Family / HOA", value: "4–6+ Gang Meter Banks & Risers" },
+    { label: "Raceway Standards", value: "Parallel EMT, Rigid, PVC & MC" },
+    { label: "Direct Commercial Line", value: "(757) 536-0478" }
+  ]}
+  necSpecs={[
+    {
+      code: "NEC 408 & 240 // BOLT-ON 3-PHASE SWITCHGEAR",
+      title: "Square D I-Line, NQ QOB & Siemens B-Series Cans",
+      detail: "Commercial inductive motor and HVAC loads demand high AIC interrupting ratings and rigid mechanical bus connections. We install Square D I-Line distribution boards, QOB bolt-on NQ panelboards, and heavy-duty Littelfuse/Square D NEMA 3R fusible safety switches."
+    },
+    {
+      code: "NEC 358 & 330 // COMMERCIAL RACEWAY CRAFT",
+      title: "Parallel EMT Offsets, Unistrut Racks & Strapped MC",
+      detail: "Exposed ceiling plenums, mechanical rooms, and retail buildouts are wired exclusively in laser-plumbed Electrical Metallic Tubing (EMT) with matched box offsets, Unistrut trapeze supports, and neatly strapped commercial Metal-Clad (MC) cable—zero residential NM-B shortcuts."
+    },
+    {
+      code: "NEC 700 & LIFE SAFETY // MULTI-FAMILY & CODE CITATIONS",
+      title: "Horizontal Meter Troughs, Egress & Fire-Marshal Fixes",
+      detail: "Serving HOAs, coastal condo associations, restaurants, warehouses, and retail strip centers: we replace rusted coastal multi-gang meter banks, restore lost 3-phase legs, and resolve municipal Fire Marshal emergency exit/egress battery luminaire citations."
+    }
+  ]}
+  processSteps={[
+    { name: "Blueprint Take-Off & Load Schedule", text: "Review MEP engineered drawings or field-walk tenant spaces to verify 3-phase AIC ratings, phase balance, and equipment schedules." },
+    { name: "Commercial Permit & Dominion Engineering", text: "Coordinate commercial municipal electrical permits, CT cabinet/multi-meter utility specs, and off-hours shutdown windows." },
+    { name: "EMT / MC Rough-In & Switchgear Set", text: "Mount 3-phase panelboards and transformers, bend parallel EMT conduit racks, and pull color-coded THHN/XHHW-2 phase conductors." },
+    { name: "Ceiling Close-In, Final & CO Sign-Off", text: "Pass above-ceiling rough-in, emergency egress battery drop tests, and final municipal inspection so your Certificate of Occupancy clears on schedule." }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_4533.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_4525.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_3246.webp", alt: "", title: "" },
+    { src: "/assets/images/real/meters/img_5108.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_4536.webp", alt: "", title: "" },
+    { src: "/assets/images/real/business_office_workspace_service/img_0806.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "Why does Virginia require a Class A Contractor license for larger commercial electrical projects?",
+      answer: "Under Virginia DPOR regulations, Class C contractors are capped at small $10,000 projects and Class B at $120,000. As a licensed Virginia Class A Contractor with Master Electrician credentials, Scott's Electric LLC has unlimited single-project and annual contract authority for commercial buildouts, multi-family meter banks, and 3-phase switchgear."
+    },
+    {
+      question: "Can you schedule commercial panel swaps or tenant tie-ins overnight so our business stays open?",
+      answer: "Yes! For restaurants, medical/dental offices, retail storefronts, and offices across Virginia Beach, Norfolk, Chesapeake, and Newport News, we schedule planned switchgear cutovers early morning or after business hours to eliminate lost operating revenue."
+    },
+    {
+      question: "One phase went out in our commercial building (half our lights/RTU AC units stopped working)—can you respond 24/7?",
+      answer: "Yes—call (757) 536-0478 immediately and turn off 3-phase HVAC/walk-in cooler motors so 'single-phasing' doesn't burn out windings! We dispatch 24/7 to diagnose whether a utility transformer fuse blew, a NEMA 3R fusible disconnect cartridge opened, or a meter jaw burned."
+    },
+    {
+      question: "Do you replace corroded multi-gang apartment and condo meter banks near the coast?",
+      answer: "Yes. Salt air along Shore Drive, Oceanfront, Ocean View, and Buckroe frequently rots 4-gang to 6-gang horizontal utility meter troughs. We coordinate full multi-tenant Dominion Energy disconnects, install NEMA 3R ringless multi-meter banks, obtain municipal inspection release, and restore power same-day."
+    },
+    {
+      question: "Do you handle Fire Marshal emergency exit sign, egress bug-eye, and parking lot pole LED repairs?",
+      answer: "Yes. We replace failed NiCad/lead-acid emergency egress fixtures with commercial UL 924 LED units, wire 277V/120V troffer retrofits, and troubleshoot commercial exterior wall-packs and photocell contactors."
+    }
+  ]}
+/>

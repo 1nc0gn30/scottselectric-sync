@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site.js';
+---
+
+<Layout
+  title="Page Not Found — 24/7 Emergency Electrician in 757 | Scott's Electric"
+  description="Need a licensed Virginia Master Electrician in Hampton Roads? Call Scott's Electric 24/7 at (757) 536-0478 or explore our services, pricing guide, and 757 city hubs."
+  noindex={true}
+>
+  <section class="coastal-sand-surface py-20 lg:py-28 border-b border-coastal-navy/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <span class="font-mono text-[11px] font-bold text-teal-700 bg-teal-600/10 px-3.5 py-1.5 rounded-full border border-teal-600/20 uppercase tracking-widest inline-block">
+        404 • CIRCUIT NOT FOUND
+      </span>
+      <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-coastal-navy leading-tight">
+        That Page Moved —{' '}
+        <span class="font-editorial text-[1.12em] font-normal text-teal-700">
+          Our 24/7 Dispatch Hasn&rsquo;t
+        </span>
+      </h1>
+      <p class="text-sm sm:text-lg text-coastal-slate max-w-2xl mx-auto">
+        If you have an active electrical outage, arcing breaker, or project estimate question anywhere in Hampton Roads (757), call our licensed Virginia Master Electricians directly or jump to any hub below.
+      </p>
+
+      <div class="pt-2 flex flex-wrap justify-center gap-4">
+        <a href="tel:7575360478" class="cta-phone-beam bg-coastal-navy hover:bg-slate-800 text-white font-extrabold px-8 py-4 rounded-2xl text-sm sm:text-base shadow-coastal-elevated">
+          Call 24/7 Dispatch: (757) 536-0478
+        </a>
+        <a href="/" class="bg-white border border-coastal-navy/20 hover:border-teal-700 text-coastal-navy font-bold px-6 py-4 rounded-2xl text-sm">
+          Return to Homepage
+        </a>
+        <a href="/services/" class="bg-white border border-coastal-navy/20 hover:border-teal-700 text-coastal-navy font-bold px-6 py-4 rounded-2xl text-sm">
+          All 14 Services →
+        </a>
+      </div>
+
+      <div class="pt-8 flex flex-wrap justify-center gap-2">
+        {siteConfig.serviceAreas.map((area) => (
+          <a
+            href={area.slug}
+            class="px-3.5 py-2 rounded-full bg-white border border-coastal-navy/15 hover:border-teal-600 text-xs font-bold text-coastal-navy"
+          >
+            {area.name}, VA →
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

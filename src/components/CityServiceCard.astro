@@ -3,36 +3,70 @@ interface Props {
   cityName: string;
   slug: string;
   description: string;
-  population?: string;
-  icon?: string;
+  corridor?: string;
+  zipSample?: string;
+  photoSrc?: string;
+  photoAlt?: string;
+  photoFx?: number;
+  photoFy?: number;
 }
 
-const { cityName, slug, description, population = "100k+", icon = "📍" } = Astro.props;
+const {
+  cityName,
+  slug,
+  description,
+  corridor = "24/7 Coastal Dispatch",
+  zipSample = "757 Area",
+  photoSrc,
+  photoAlt,
+  photoFx = 50,
+  photoFy = 50,
+} = Astro.props;
 ---
 
-<a 
+<a
   href={slug}
-  class="group glass-panel p-6 rounded-2xl border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 transform hover:-translate-y-1 shadow-card flex flex-col justify-between"
+  data-deal-item
+  class="group sand-card rounded-3xl overflow-hidden flex flex-col justify-between hover:-translate-y-1"
 >
   <div>
-    <div class="flex items-center justify-between mb-4">
-      <span class="text-2xl">{icon}</span>
-      <span class="text-[10px] font-bold tracking-widest text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full border border-brand-gold/20">
-        757 CITY HUB
-      </span>
+    {photoSrc && (
+      <div class="relative h-44 overflow-hidden bg-coastal-navy">
+        <img
+          data-parallax-img
+          src={photoSrc}
+          alt={photoAlt || `Licensed Master Electrician serving ${cityName}, Virginia`}
+          loading="lazy"
+          decoding="async"
+          style={`object-position: ${photoFx}% ${photoFy}%;`}
+          class="w-full h-full object-cover"
+        />
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-coastal-navy/80 via-transparent to-transparent"></div>
+        <span class="absolute top-3 left-3 font-mono text-[10px] font-bold uppercase tracking-wider bg-white/95 text-coastal-navy px-2.5 py-1 rounded-full shadow-sm">
+          ZIP {zipSample}
+        </span>
+      </div>
+    )}
+
+    <div class="p-6">
+      <div class="font-mono text-[10px] font-bold uppercase tracking-wider text-teal-700 mb-1.5">
+        {corridor}
+      </div>
+      <h3 class="font-heading text-xl font-extrabold text-coastal-navy group-hover:text-teal-700 transition-colors mb-2">
+        Electrician in {cityName}, VA
+      </h3>
+      <p class="text-xs sm:text-sm text-coastal-slate leading-relaxed">
+        {description}
+      </p>
     </div>
-    <h3 class="font-heading text-xl font-bold text-white group-hover:text-brand-amber transition-colors mb-2">
-      {cityName}, VA
-    </h3>
-    <p class="text-xs text-gray-300 leading-relaxed mb-4">
-      {description}
-    </p>
   </div>
 
-  <div class="pt-4 border-t border-gray-800/80 flex items-center justify-between text-xs">
-    <span class="text-brand-cyan font-semibold">24/7 Local Dispatch</span>
-    <span class="text-brand-gold font-bold group-hover:translate-x-1 transition-transform">
-      Explore City Services →
-    </span>
+  <div class="px-6 pb-5 pt-0">
+    <div class="pt-3.5 border-t border-coastal-navy/10 flex items-center justify-between text-xs">
+      <span class="font-mono text-[11px] text-coastal-navy font-bold">(757) 536-0478</span>
+      <span class="text-teal-700 font-extrabold group-hover:translate-x-1 transition-transform">
+        {cityName} Guide →
+      </span>
+    </div>
   </div>
 </a>

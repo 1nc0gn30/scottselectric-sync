@@ -1,46 +1,79 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
-import AEOFAQ from '../../components/AEOFAQ.astro';
+import ServiceAuthorityView from '../../components/ServiceAuthorityView.astro';
 ---
 
-<Layout 
-  title="Whole Home Standby Generator Installation Hampton Roads 757"
-  description="Automatic standby generator installations in Virginia Beach, Norfolk, Chesapeake & 757 area. Never lose power during hurricanes or severe coastal storms."
-  serviceName="Whole Home Generators"
->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            🔋 Automatic Emergency Backup Power
-          </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            Whole-Home Standby <br />
-            <span class="gold-gradient-text">Generator Installation</span>
-          </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Protect your family against severe coastal storms, blackouts, and power grid failures. Automatic transfer switches restore power within seconds to keep HVAC, lights, and appliances running safely.
-          </p>
-          <div class="mt-8">
-            <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Request Generator Consultation →
-            </a>
-          </div>
-        </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/generator_install.png" alt="Whole Home Standby Generator Installation" class="w-full h-auto object-cover" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <AEOFAQ title="Standby Generator FAQ" />
-</Layout>
+<ServiceAuthorityView
+  slug="/services/whole-home-generators"
+  serviceName="Whole-Home Standby Generators & Interlocks"
+  pageTitle="Whole-Home Standby Generator, ATS & Interlock Installation in 757 | Scott's Electric"
+  metaDescription="Automatic standby generator, 200A transfer switch (ATS) & UL-listed breaker interlock installation across Virginia Beach, Norfolk, Chesapeake & 757. Call (757) 536-0478."
+  keywords="whole home standby generator Virginia Beach, Generac electrician Chesapeake, automatic transfer switch installation Norfolk, generator interlock kit 757, 50A generator inlet box"
+  priceRange="$5,500 - $14,000"
+  eyebrow="NEC Article 702 Certified • Automatic Transfer Switches & Brass Interlocks"
+  h1Plain="Whole-Home Standby"
+  h1Italic="Generators & Interlocks"
+  heroIntro="Hurricanes, Nor'easters, and coastal salt-fog transformer faults knock out Hampton Roads feeders every season. Whether you want a 24kW Generac/Kohler automatic standby system that restores whole-house power in 10 seconds or a UL-listed 50A portable generator interlock + exterior inlet box, we engineer zero-backfeed resilience."
+  heroPhotoSrc="/assets/images/real/panels/img_3691.webp"
+  aeoQuestion="How much does whole-home standby generator or portable interlock installation cost in Hampton Roads (757)?"
+  aeoSummary="A UL-listed 30A/50A portable generator mechanical breaker interlock and weatherproof NEMA 3R inlet box costs $750 to $1,450 installed. Turnkey 14kW–26kW automatic natural gas or liquid propane whole-home standby generators (Generac Guardian, Kohler) with a 200A service-rated Automatic Transfer Switch (ATS) range from $5,500 to $14,000+."
+  aeoFacts={[
+    { label: "Automatic Transfer", value: "< 10 Seconds via 200A ATS", highlight: true },
+    { label: "Portable Interlock + Inlet", value: "$750 – $1,450 Installed" },
+    { label: "Turnkey Standby Range", value: "$5,500 – $14,000+ (14kW–26kW)", highlight: true },
+    { label: "Fuel Sources", value: "Virginia Natural Gas or Propane (LP)" },
+    { label: "Safety Standard", value: "NEC Article 702 Zero-Backfeed" },
+    { label: "24/7 Dispatch", value: "(757) 536-0478" }
+  ]}
+  necSpecs={[
+    {
+      code: "NEC 702.5 // AUTOMATIC TRANSFER SWITCHES (ATS)",
+      title: "200A Service-Rated ATS & Smart Load Shedding",
+      detail: "Service-entrance rated 200A Automatic Transfer Switches monitor Dominion Energy line voltage 24/7. Using NEC 702.4 smart load-management modules on HVAC heat pumps, water heaters, and EV chargers, a compact 22kW–26kW air-cooled unit can legally back up an entire 200A home."
+    },
+    {
+      code: "NEC 702.5 & 408 // UL-LISTED MECHANICAL INTERLOCKS",
+      title: "50A SS2-50P Exterior Inlet Boxes & Brass Interlocks",
+      detail: "Never use illegal 'suicide cords' that electrocute utility linemen! We install panel-matched CNC/stamped metal interlock plates ensuring your 200A utility main and 30A/50A generator backfeed breaker can NEVER close simultaneously, paired with an exterior NEMA 3R twist-lock inlet."
+    },
+    {
+      code: "NFPA 37 & COASTAL CLEARANCES // CORROSION DEFENSE",
+      title: "Aluminum Enclosures, Hurricane Pads & Window Clearances",
+      detail: "Coastal 757 installations use RhinoCoat powder-coated aluminum enclosures bolted to hurricane-rated composite pads, respecting strict NFPA 37 5-foot clearances from operable windows/soffit vents and local flood-zone elevation rules."
+    }
+  ]}
+  processSteps={[
+    { name: "NEC 702 Load & Clearance Survey", text: "Calculate peak starting kW (including HVAC locked-rotor amps), verify NFPA 37 clearances, and coordinate gas/propane meter sizing." },
+    { name: "Municipal Electrical & Building Permits", text: "Submit site diagrams and load calculations to your 757 city inspections office and schedule Dominion Energy meter disconnect." },
+    { name: "200A ATS, Conduit & Pad Installation", text: "Set composite pad and generator, mount the 200A Automatic Transfer Switch (or panel interlock), and run power/control raceways." },
+    { name: "Simulated Outage & Load-Shed Test", text: "Pull utility disconnect under live household HVAC load to verify <10-second startup, voltage/Hz stability, and automatic re-transfer." }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_3805.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_power/img_4572.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_power/img_5869.webp", alt: "", title: "" },
+    { src: "/assets/images/real/meters/img_5108.webp", alt: "", title: "" },
+    { src: "/assets/images/real/work_van_and_tools/img_4539.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "What size whole-home standby generator do I need for a 2,500 sq ft home in Hampton Roads?",
+      answer: "Most 2,200 to 3,200 sq ft homes in Virginia Beach, Chesapeake, and Norfolk run comfortably on an 18kW to 24kW air-cooled Generac or Kohler standby generator when paired with 1–2 smart HVAC load-shed modules."
+    },
+    {
+      question: "What is the difference between a manual transfer switch and a mechanical breaker interlock kit?",
+      answer: "A manual subpanel transfer switch restricts you to only 6–10 pre-selected circuits. A UL-listed mechanical breaker interlock kit on your main 200A panel costs less to install and lets you selectively toggle ANY circuit in your house up to your portable generator's wattage capacity!"
+    },
+    {
+      question: "Why do portable inverter generators sometimes trip GFCI outlets when plugged into a house inlet?",
+      answer: "Because your house main panel bonds neutral to ground, connecting a portable generator that ALSO has a 'bonded neutral' frame creates a ground loop that trips the generator's built-in GFCI. Standby/home-inlet setups require either a 'floating neutral' portable generator or a switched-neutral transfer switch."
+    },
+    {
+      question: "How close can a standby generator be placed to windows, doors, or property lines?",
+      answer: "Under NFPA 37 and manufacturer listings, air-cooled standby generators generally require 18 inches clearance from the exterior house wall (with composite/fire-rated backing), at least 5 feet from any operable window, door, or attic vent, and compliance with municipal side-yard zoning setbacks."
+    },
+    {
+      question: "Does my generator automatically test itself every week?",
+      answer: "Yes. Modern Generac Guardian and Kohler standby units perform a quiet low-RPM weekly or bi-weekly self-diagnostic exercise test and push mobile status alerts so you know the battery, starter, and alternator are storm-ready before hurricane season."
+    }
+  ]}
+/>

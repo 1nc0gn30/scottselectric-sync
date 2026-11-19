@@ -1,86 +1,76 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import AEOFAQ from '../components/AEOFAQ.astro';
-import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
-
-const cityFaqs = [
-  {
-    question: "Which Chesapeake neighborhoods do you serve?",
-    answer: "We serve all of Chesapeake including Greenbrier, Great Bridge, Western Branch, Deep Creek, South Norfolk, Hickory, and Grassfield."
-  },
-  {
-    question: "Can you install electrical wiring for a hot tub or swimming pool in Chesapeake?",
-    answer: "Yes, we install dedicated GFCI subpanels, underground conduit, bonding grids, and automatic heating controls for all residential pools and hot tubs."
-  }
-];
+import CityLandingView from '../components/CityLandingView.astro';
 ---
 
-<Layout 
-  title="Electrician in Chesapeake VA | 24/7 Electrical Repair & Pool Wiring"
-  description="Licensed Master Electrician in Chesapeake, VA serving Greenbrier, Great Bridge & Western Branch. Subpanels, EV chargers, hot tub wiring & 200A panel replacement."
+<CityLandingView
   cityName="Chesapeake"
->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-          🏡 Chesapeake, VA Electrical Services
-        </span>
-        <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-          Reliable Electrician in <br />
-          <span class="gold-gradient-text">Chesapeake, Virginia</span>
-        </h1>
-        <p class="mt-4 text-base text-gray-300 leading-relaxed">
-          From Greenbrier commercial hubs to suburban homes in Great Bridge, Western Branch, Hickory, and Deep Creek—Scott's Electric offers fast, certified electrical repair and upgrades.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-            Get Chesapeake Estimate →
-          </a>
-          <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
-            📞 24/7 Chesapeake Dispatch: (757) 536-0478
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-8">
-        Chesapeake Residential & Commercial Care
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">🏊</div>
-          <h3 class="font-heading text-xl font-bold text-white">Pool & Spa Wiring</h3>
-          <p class="text-xs text-gray-300">
-            Dedicated GFCI breakers, bonding, underwater lighting, and heater circuits for Chesapeake outdoor living spaces.
-          </p>
-        </div>
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">🔌</div>
-          <h3 class="font-heading text-xl font-bold text-white">Main Breaker Upgrades</h3>
-          <p class="text-xs text-gray-300">
-            Replace dangerous Federal Pacific or Zinsco panels with modern Siemens or Square D 200A breaker boxes.
-          </p>
-        </div>
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">💡</div>
-          <h3 class="font-heading text-xl font-bold text-white">Smart Lighting Setup</h3>
-          <p class="text-xs text-gray-300">
-            Voice-controlled lighting, automated dimmers, and energy-saving LED transformations.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="quote" class="py-16 bg-brand-card/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <AEOFAQ faqs={cityFaqs} title="Chesapeake Electrical FAQ" cityName="Chesapeake" />
-</Layout>
+  slug="/chesapeake-electrician"
+  pageTitle="24/7 Emergency Electrician, 200A Panels, EV & Pool Wiring in Chesapeake, VA | Scott's Electric"
+  metaDescription="Licensed Master Electrician in Chesapeake, VA serving Greenbrier, Great Bridge, Hickory, Grassfield & Western Branch. 200A panels, NEC 680 pool subpanels & EV chargers. Call (757) 536-0478."
+  eyebrow="Chesapeake, VA • Greenbrier, Great Bridge, Hickory & Western Branch"
+  h1Lead="24/7 Emergency Electrician, 200A Panels & Pool Wiring"
+  heroIntro="Serving Greenbrier, Great Bridge, Hickory, Grassfield, Edinburgh, Western Branch, Deep Creek, and South Norfolk with same-day 200A/400A panel heavy-ups, NEC Article 680 saltwater pool & hot tub subpanels, detached workshop trenching, Level 2 EV chargers, and 2-story foyer chandeliers."
+  heroPhotoSrc="/assets/images/real/panels/img_4251.webp"
+  aeoQuestion="Need a licensed electrician for a 200A panel, EV charger, or pool subpanel in Chesapeake, VA?"
+  aeoSummary="Scott's Electric LLC provides 24/7 emergency troubleshooting, 200A/400A breaker panel upgrades, NEC Article 680 pool & spa automation load centers, detached garage 100A subpanels, and Level 2 EV charging circuits across all Chesapeake boroughs with full Department of Development & Permits handling."
+  aeoFacts={[
+    { label: "Chesapeake ETA", value: "30–45 Minutes Avg", highlight: true },
+    { label: "Pool & Spa Power", value: "NEC Article 680 Subpanels" },
+    { label: "City Permitting", value: "Chesapeake Dev & Permits Filed", highlight: true },
+    { label: "Contractor Class", value: "VA Class A Master" },
+    { label: "24/7 Dispatch Line", value: "(757) 536-0478" },
+    { label: "Chesapeake ZIPs", value: "23320, 23321, 23322, 23323, 23324, 23325" }
+  ]}
+  localScopes={[
+    {
+      code: "01 // NEC ARTICLE 680",
+      title: "Swimming Pool & Hot Tub Subpanels",
+      desc: "Hayward/Pentair 8-relay pool automation centers, salt-chlorinator transformers, 50A GFCI spa disconnects, and 8-AWG copper perimeter bonding.",
+      href: "/services/pool-hot-tub-wiring/"
+    },
+    {
+      code: "02 // ACREAGE & WORKSHOPS",
+      title: "Detached Shop Subpanels & Standby Power",
+      desc: "Underground PVC trenching for Hickory/Grassfield detached garages & barns plus 22kW–26kW Generac/Kohler whole-home standby generators.",
+      href: "/services/subpanel-workshop-wiring/"
+    },
+    {
+      code: "03 // HIGH-BAY INTERIOR",
+      title: "2-Story Foyers, EVs & 200A/400A Panels",
+      desc: "Interior scaffolding for 20-ft foyer chandeliers, hardwired 48A Tesla/Rivian garage chargers, and 200A/400A copper-busbar heavy-ups.",
+      href: "/services/ceiling-fan-chandelier-installation/"
+    }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/outdoor_power/img_4370.webp", alt: "", title: "" },
+    { src: "/assets/images/real/ceiling_fans/img_3327.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_3626.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_outlets/img_5721.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "Which Chesapeake boroughs and neighborhoods do you serve 24/7?",
+      answer: "We dispatch licensed Master Electricians 24/7 across Greenbrier, Great Bridge, Hickory, Grassfield, Edinburgh, Western Branch, Deep Creek, Indian River, and South Norfolk. Call (757) 536-0478."
+    },
+    {
+      question: "Do you handle Chesapeake trench/bonding and final inspections for inground pools and hot tubs?",
+      answer: "Yes! The City of Chesapeake Department of Development & Permits requires an open-trench and NEC 680.26 8-AWG copper equipotential bonding inspection prior to pouring pool decks, followed by a final electrical inspection. We coordinate every stage."
+    },
+    {
+      question: "Can you trench underground power to a detached workshop, pole barn, or RV pad in Hickory or Deep Creek?",
+      answer: "Yes. We call VA 811 Miss Utility, excavate 18\"+ Schedule 40/80 PVC conduit trenches, drive dual NEC 250.32 ground rods, and install 60A–125A subpanels with 240V welder, lift, compressor, and 50A RV outlets."
+    },
+    {
+      question: "Do you install 2-story foyer chandeliers and vaulted great-room ceiling fans in Great Bridge & Greenbrier?",
+      answer: "Yes. Our crew brings interior scaffolding and high-reach fiberglass ladders to mount heavy chandeliers and extended-downrod fans onto NEC 314.27 structural steel braces."
+    },
+    {
+      question: "When does a larger home in Grassfield or Edinburgh need a 400A (Class 320) electrical upgrade?",
+      answer: "If your 3,800+ sq ft home runs dual heat pumps, a heated saltwater pool, a workshop subpanel, and one or two Level 2 EV chargers, upgrading to a Class 320 (400A) twin-panel service prevents main breaker overload."
+    },
+    {
+      question: "Do you service commercial warehouses and retail centers in the Greenbrier & Battlefield corridors?",
+      answer: "Yes. We install and troubleshoot 120/208V and 277/480V 3-phase commercial switchgear, high-bay LED lighting, parallel EMT conduit runs, and emergency egress systems across Chesapeake."
+    }
+  ]}
+/>

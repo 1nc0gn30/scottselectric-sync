@@ -1,111 +1,150 @@
 ---
 const cities = [
-  { name: 'Virginia Beach', slug: '/virginia-beach-electrician' },
-  { name: 'Norfolk', slug: '/norfolk-electrician' },
-  { name: 'Chesapeake', slug: '/chesapeake-electrician' },
-  { name: 'Newport News', slug: '/newport-news-electrician' },
-  { name: 'Hampton', slug: '/hampton-electrician' },
-  { name: 'Portsmouth', slug: '/portsmouth-electrician' },
-  { name: 'Suffolk', slug: '/suffolk-electrician' }
+  { name: 'Virginia Beach', slug: '/virginia-beach-electrician/' },
+  { name: 'Norfolk', slug: '/norfolk-electrician/' },
+  { name: 'Chesapeake', slug: '/chesapeake-electrician/' },
+  { name: 'Newport News', slug: '/newport-news-electrician/' },
+  { name: 'Hampton', slug: '/hampton-electrician/' },
+  { name: 'Portsmouth', slug: '/portsmouth-electrician/' },
+  { name: 'Suffolk', slug: '/suffolk-electrician/' }
 ];
 
-const services = [
-  'Electrical Panel Installation & Upgrades',
-  'EV Charging Station Installation',
-  'Whole Home Backup Generators',
-  'Custom Recessed & Ambient Lighting',
-  'Smart Home Automation',
-  'Pool & Spa Electrical Wiring',
-  'Surge Protection Systems',
-  'Electrical Safety Inspections',
-  'Commercial Electrical Services',
-  'Appliance Wiring & Outlet Repair'
+const coreServices = [
+  { name: '24/7 Emergency Electrician (757)', href: '/services/emergency-electrician-757/' },
+  { name: '200A & 400A Electrical Panel Upgrades', href: '/services/electrical-panel-upgrades/' },
+  { name: 'Level 2 EV Charger Installation (240V)', href: '/services/ev-charger-installation/' },
+  { name: 'Whole-Home Standby Generators & ATS', href: '/services/whole-home-generators/' },
+  { name: 'NEC 680 Pool & Hot Tub Wiring', href: '/services/pool-hot-tub-wiring/' },
+  { name: 'Historic Rewiring & AlumiConn Fixes', href: '/services/historic-home-rewiring/' },
+  { name: 'Meter Bases, Masts & Weatherheads', href: '/services/meter-base-weatherhead-repair/' }
+];
+
+const moreServices = [
+  { name: '2-Story Chandeliers & Vaulted Fans', href: '/services/ceiling-fan-chandelier-installation/' },
+  { name: 'Detached Garage & Shop Subpanels', href: '/services/subpanel-workshop-wiring/' },
+  { name: 'Whole-Home Surge Protection (SPD)', href: '/services/whole-home-surge-protection/' },
+  { name: 'Safety & Real-Estate PICRA Audits', href: '/services/electrical-code-inspections/' },
+  { name: 'Recessed LED & Dusk Security Lights', href: '/services/custom-lighting-installation/' },
+  { name: 'Smart Switches & Energy Monitors', href: '/services/smart-home-automation/' },
+  { name: '3-Phase Commercial & Meter Banks', href: '/services/commercial-electrical/' }
 ];
 ---
 
-<footer class="bg-gradient-to-b from-brand-dark to-black text-gray-400 border-t border-brand-border pt-16 pb-28 md:pb-24 mt-20 relative z-10">
+<footer class="bg-coastal-deep text-slate-300 border-t border-white/10 pt-16 pb-28 sm:pb-24 relative z-10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-      
-      <!-- Col 1: Brand Info -->
-      <div class="space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+      <!-- Col 1: Keyword Authority & Credentials (3 cols) -->
+      <div class="lg:col-span-3 space-y-4">
         <div class="flex items-center gap-3">
-          <img src="/assets/images/scotts_electric_logo_transparent.png" alt="Scott's Electric Logo" class="h-28 md:h-36 w-auto bg-transparent border-none p-0 m-0" />
-        </div>
-        <p class="text-xs text-gray-400 leading-relaxed">
-          Scott's Electric is Hampton Roads' trusted licensed Master Electrician. Providing top-tier residential and commercial electrical repair, installation, and emergency service across all 7 cities of 757.
-        </p>
-      </div>
-
-      <!-- Col 2: 7 Cities Coverage -->
-      <div>
-        <h3 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4 border-b border-brand-border pb-2">
-          757 Service Area (7 Cities)
-        </h3>
-        <ul class="space-y-2 text-xs">
-          {cities.map(city => (
-            <li>
-              <a href={city.slug} class="hover:text-brand-amber transition-colors flex items-center gap-1.5">
-                <span class="text-brand-gold">📍</span> Electrician in {city.name}, VA
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Col 3: Services -->
-      <div>
-        <h3 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4 border-b border-brand-border pb-2">
-          Electrical Services
-        </h3>
-        <ul class="space-y-2 text-xs">
-          {services.map(service => (
-            <li>
-              <a href="/services" class="hover:text-brand-amber transition-colors flex items-center gap-1.5">
-                <span class="text-brand-cyan">⚡</span> {service}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Col 4: Contact & Dispatch -->
-      <div class="space-y-4">
-        <h3 class="font-heading font-bold text-white text-sm uppercase tracking-wider border-b border-brand-border pb-2">
-          Dispatch & Contact
-        </h3>
-        <div class="bg-brand-card p-4 rounded-xl border border-gray-800 space-y-3">
+          <img
+            src="/assets/images/scotts_electric_logo_transparent.png"
+            alt="Licensed Master Electrician in Hampton Roads 757 — Scott's Electric"
+            width="80"
+            height="80"
+            class="h-16 w-auto object-contain"
+          />
           <div>
-            <div class="text-[10px] text-brand-muted uppercase tracking-widest">24/7 Emergency Line</div>
-            <a href="tel:7575360478" class="text-base font-extrabold text-brand-gold hover:underline">
+            <div class="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-400">
+              VA CLASS A CONTRACTOR
+            </div>
+            <div class="font-heading text-lg font-extrabold text-white">
+              Scott's Electric LLC
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Licensed &amp; insured Virginia Master Electrician providing 24/7 emergency repair, 200A/400A panel replacements, Level 2 EV charging circuits, NEC 680 pool wiring, 3-phase commercial switchgear, and standby generators across all 7 cities of 757.
+        </p>
+        <div class="font-mono text-[11px] text-slate-300">
+          2829 Shore Dr, Virginia Beach, VA 23451
+        </div>
+        <div class="pt-1 space-y-1.5 text-xs">
+          <a href="/guides/757-electrical-cost-guide/" class="block font-bold text-amber-400 hover:text-white">
+            → 2026–2027 757 Electrical Cost Guide
+          </a>
+          <a href="/guides/757-electrical-permits-dominion-energy/" class="block font-bold text-cyan-400 hover:text-white">
+            → 757 Permits &amp; Dominion Energy Guide
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Core Residential & Emergency Scopes (3 cols) -->
+      <div class="lg:col-span-3">
+        <h3 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+          Core Electrical Scopes
+        </h3>
+        <ul class="space-y-2 text-xs">
+          {coreServices.map(service => (
+            <li>
+              <a href={service.href} class="hover:text-amber-400 transition-colors block py-0.5">
+                {service.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 3: Specialty & Commercial Scopes (3 cols) -->
+      <div class="lg:col-span-3">
+        <h3 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+          Specialty &amp; Commercial
+        </h3>
+        <ul class="space-y-2 text-xs">
+          {moreServices.map(service => (
+            <li>
+              <a href={service.href} class="hover:text-amber-400 transition-colors block py-0.5">
+                {service.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 4: 7 Cities + 24/7 Direct Dispatch (3 cols) -->
+      <div class="lg:col-span-3 space-y-5">
+        <div class="bento-card p-5 rounded-2xl space-y-3.5">
+          <div>
+            <div class="font-mono text-[10px] text-amber-400 uppercase tracking-widest">
+              Primary 24/7 Dispatch Line
+            </div>
+            <a href="tel:7575360478" class="font-mono text-xl font-extrabold text-white hover:text-amber-400 transition-colors block mt-1">
               (757) 536-0478
             </a>
           </div>
           <div>
-            <div class="text-[10px] text-brand-muted uppercase tracking-widest">Email Inquiries</div>
-            <a href="mailto:info@scottselectric.pro" class="text-xs font-medium text-gray-300 hover:text-white">
-              info@scottselectric.pro
+            <a href="/contact/" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-white">
+              <span>Online Estimate &amp; Scheduling Form</span>
+              <span>→</span>
             </a>
           </div>
-          <div>
-            <div class="text-[10px] text-brand-muted uppercase tracking-widest">Hours</div>
-            <div class="text-xs text-gray-300">Mon-Fri: 7:00 AM - 7:00 PM</div>
-            <div class="text-xs text-brand-gold font-bold">24/7 Emergency Response</div>
+          <div class="pt-2 border-t border-slate-800/80 text-[11px] text-slate-300">
+            <span class="text-emerald-400 font-bold">● 24/7 Emergency Dispatch:</span>{' '}
+            {cities.map((c, idx) => (
+              <>
+                <a href={c.slug} class="hover:text-amber-400 underline decoration-slate-700">{c.name}</a>
+                {idx < cities.length - 1 ? ', ' : ''}
+              </>
+            ))}
           </div>
         </div>
       </div>
-
     </div>
 
-    <!-- Bottom Bar -->
-    <div class="mt-12 pt-6 border-t border-gray-900 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 gap-4 mb-4">
+    <!-- Bottom Legal Bar -->
+    <div class="mt-12 pt-6 border-t border-slate-900 flex flex-col lg:flex-row items-start lg:items-center justify-between text-xs text-slate-500 gap-4">
       <div>
-        &copy; {new Date().getFullYear()} Scott's Electric. All rights reserved. Serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk.
+        &copy; {new Date().getFullYear()} Scott's Electric LLC. All rights reserved. Licensed &amp; Insured Virginia Master Electrician serving all 7 cities of 757.
       </div>
-      <div class="flex items-center gap-6">
-        <a href="/privacy" class="hover:text-gray-400">Privacy Policy</a>
-        <a href="/terms" class="hover:text-gray-400">Terms of Service</a>
-        <a href="/sitemap.xml" class="hover:text-gray-400">Sitemap</a>
+
+      <div class="flex flex-wrap items-center gap-4 sm:gap-5 shrink-0">
+        <a href="/services/" class="hover:text-slate-300">All Services</a>
+        <a href="/about/" class="hover:text-slate-300">About</a>
+        <a href="/faqs/" class="hover:text-slate-300">50 FAQs</a>
+        <a href="/ax/" class="hover:text-slate-300">AI / AX Entity</a>
+        <a href="/privacy/" class="hover:text-slate-300">Privacy</a>
+        <a href="/terms/" class="hover:text-slate-300">Terms</a>
+        <a href="/sitemap.xml" class="hover:text-slate-300">Sitemap</a>
+        <a href="/image-sitemap.xml" class="hover:text-slate-300">Image Sitemap</a>
       </div>
     </div>
   </div>

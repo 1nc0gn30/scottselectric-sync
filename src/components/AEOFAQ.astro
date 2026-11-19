@@ -12,28 +12,56 @@ interface Props {
 
 const defaultFaqs: FAQItem[] = [
   {
-    question: "Which areas in Hampton Roads does Scott's Electric serve?",
-    answer: "Scott's Electric serves all 7 cities of the 757 area code: Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk. We provide 24/7 residential and commercial emergency dispatch throughout Coastal Virginia."
+    question: "Which 7 cities in Hampton Roads (757) does Scott's Electric serve 24/7?",
+    answer: "Scott's Electric LLC dispatches licensed Virginia Master Electricians 24 hours a day across all 7 cities of Hampton Roads: Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk—covering both Southside and the Peninsula."
   },
   {
-    question: "Why should I upgrade my electrical panel to 200 Amps in 757?",
-    answer: "Modern homes in Hampton Roads require 200 Amps or higher to safely power Level 2 EV chargers, central HVAC heat pumps, hot tubs, high-capacity kitchen appliances, and home automation systems without tripping breakers or overheating."
+    question: "How much does a 200-amp electrical panel upgrade cost in Virginia Beach, Norfolk & Chesapeake?",
+    answer: "A standard 200A main breaker panel upgrade ranges from $1,800 to $3,800 turnkey. Pricing includes a UL-listed Siemens, Square D, or Eaton load center, AFCI/GFCI breakers, NEC 230.67 whole-home surge protection, Dominion Energy disconnect/reconnect coordination, and municipal city permits."
   },
   {
-    question: "How long does a Level 2 EV charger installation take?",
-    answer: "Most home EV charger installations take between 2 to 4 hours. Scott's Electric handles panel capacity assessment, dedicated circuit wiring, NEMA outlet or hardwire installation, and local city permitting for all 7 cities."
+    question: "When is an electrical issue considered a 24/7 emergency?",
+    answer: "Call (757) 536-0478 immediately if you smell burning plastic or ozone near an outlet or breaker box, hear buzzing or crackling inside your panel, see arcing sparks, lose half of your home's power (dropped Dominion phase/neutral), or sustain storm damage to your exterior meter mast."
   },
   {
-    question: "Are your electricians licensed and insured in Virginia?",
-    answer: "Yes, Scott's Electric employs fully licensed Virginia Master Electricians (VA Class A License). All work strictly adheres to the National Electrical Code (NEC) and local municipal building codes."
+    question: "Do I need a 200A panel upgrade before installing a Level 2 Tesla or EV charger?",
+    answer: "Not always. Our Master Electricians perform an NEC Article 220.82 dwelling load calculation on your existing 100A, 150A, or 200A service. If sufficient demand headroom exists, we install a dedicated 40A–60A 240V circuit directly; if overloaded, we can install an EV load-management relay or upgrade your panel to 200A."
   },
   {
-    question: "What should I do during an electrical emergency or power outage?",
-    answer: "If you experience burning odors, electrical sparks, buzzing breakers, or localized power loss, turn off your main breaker if safe and call Scott's Electric 24/7 emergency dispatch immediately at (757) 536-0478."
+    question: "Do you replace hazardous Federal Pacific (FPE) Stab-Lok, Zinsco, and split-bus panels?",
+    answer: "Yes. Federal Pacific Stab-Lok, Zinsco, and aging split-bus panels lacking a single main disconnect pose documented overcurrent and fire hazards—often flagged by home inspectors and insurers. We replace them same-day with modern solid-copper-busbar 200A panels."
+  },
+  {
+    question: "Does Scott's Electric pull municipal electrical permits in all 7 cities of 757?",
+    answer: "Yes. Every panel replacement, subpanel, EV circuit, standby generator, pool bonding grid, and rewiring project is filed under our Virginia Class A Contractor & Master Electrician credentials with your city's building inspection office."
+  },
+  {
+    question: "How does same-day Dominion Energy power restoration work during a panel or meter swap?",
+    answer: "We coordinate the utility disconnect window with Dominion Energy in the morning, install the new 200A/400A load center and ringless meter socket, secure the municipal inspector's white-card/electronic release, and restore household power the very same afternoon."
+  },
+  {
+    question: "What electrical requirements apply to swimming pools and hot tubs in Coastal Virginia?",
+    answer: "Under NEC Article 680, pools and spas require GFCI-protected dedicated circuits, Schedule 40 PVC or liquidtight nonmetallic conduit, an 8-AWG solid copper equipotential bonding grid tying water, rebar, pumps, and heaters together, and weatherproof disconnects within sight of the equipment."
+  },
+  {
+    question: "Can you remediate 1960s–1970s aluminum branch wiring or historic Ghent knob-and-tube wiring?",
+    answer: "Yes. For 1965–1975 single-strand aluminum branch wiring, we install CPSC-approved AlumiConn/Copalum copper-to-aluminum lug terminations. For pre-1950s knob-and-tube or ungrounded 2-wire homes in Ghent, Olde Towne, and Phoebus, we fish modern grounded copper NM-B circuits with minimal plaster disturbance."
+  },
+  {
+    question: "How fast does a whole-home standby generator turn on during a hurricane outage?",
+    answer: "An automatic standby generator (Generac or Kohler) paired with a 200A Automatic Transfer Switch (ATS) senses grid loss and restores power to central HVAC, refrigerators, sump pumps, and lights in under 10 seconds."
+  },
+  {
+    question: "Do you install detached garage/workshop subpanels and trench underground conduit?",
+    answer: "Yes. We trench underground Schedule 40/80 PVC feeder conduit at NEC Table 300.5 burial depths, install 60A–125A subpanels with isolated neutral and ground bars, drive NEC 250.32 ground rods, and wire 240V welders, lifts, and RV 50A outlets."
+  },
+  {
+    question: "Do you handle commercial 3-phase power, multi-meter banks, and retail tenant buildouts?",
+    answer: "Yes. As a licensed VA Class A Electrical Contractor, we install 120/208V and 277/480V 3-phase Square D I-Line & NQ bolt-on panelboards, NEMA 3R fusible disconnects, multi-gang horizontal meter troughs, and commercial LED/egress lighting across 757."
   }
 ];
 
-const { faqs = defaultFaqs, title = "Frequently Asked Questions (757 Electrical Guide)", cityName = "Hampton Roads" } = Astro.props;
+const { faqs = defaultFaqs, title = "757 Electrical Cost, Code & Emergency Dispatch FAQs", cityName = "Hampton Roads" } = Astro.props;
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -49,42 +77,50 @@ const faqSchema = {
 };
 ---
 
-<section class="py-16 bg-brand-card/50 border-t border-b border-brand-border">
+<section class="py-20 coastal-sand-surface border-t border-coastal-navy/10">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <span class="text-xs font-bold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">
-        Answer Engine Optimized (AEO)
+    <div data-reveal-block class="text-center mb-12">
+      <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-teal-700 bg-teal-600/10 px-3.5 py-1.5 rounded-full border border-teal-600/20 inline-block">
+        Direct Master Electrician Answers • {cityName}, VA
       </span>
-      <h2 class="font-heading text-2xl md:text-4xl font-extrabold text-white mt-3">
+      <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-coastal-navy mt-3">
         {title}
       </h2>
-      <p class="text-sm text-brand-muted mt-2">
-        Direct expert answers for homeowners and businesses in {cityName}
+      <p class="text-sm text-coastal-slate mt-2">
+        NEC code standards, municipal permit rules, and transparent pricing across all 7 cities — or call <a href="tel:7575360478" class="font-bold text-teal-700 underline">(757) 536-0478</a> 24/7.
       </p>
     </div>
 
-    <div class="space-y-4">
-      {faqs.map((faq, index) => (
-        <details class="group glass-panel rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden border border-gray-800 hover:border-brand-gold/40 transition-colors">
-          <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
-            <h3 class="font-heading text-base md:text-lg font-bold text-white group-open:text-brand-amber transition-colors flex items-center gap-3">
-              <span class="text-brand-gold font-extrabold">Q.</span>
-              {faq.question}
+    <div class="space-y-3.5">
+      {faqs.map((faq) => (
+        <details class="group sand-card rounded-2xl p-5 sm:p-6 [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer focus:outline-none gap-4">
+            <h3 class="font-heading text-base sm:text-lg font-bold text-coastal-navy group-open:text-teal-700 transition-colors flex items-start gap-3 text-left">
+              <span class="font-mono text-amber-600 font-extrabold shrink-0">Q.</span>
+              <span>{faq.question}</span>
             </h3>
-            <span class="ml-4 shrink-0 transition duration-300 group-open:-rotate-180">
-              <svg class="w-5 h-5 text-brand-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            <span class="shrink-0 transition duration-300 group-open:-rotate-180">
+              <svg class="w-5 h-5 text-teal-700" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </span>
           </summary>
-          <div class="mt-4 pt-3 border-t border-gray-800/80 text-sm leading-relaxed text-gray-300">
+          <div class="mt-4 pt-3.5 border-t border-coastal-navy/10 text-sm sm:text-base leading-relaxed text-coastal-slate text-left">
             <p>{faq.answer}</p>
           </div>
         </details>
       ))}
     </div>
+
+    <div class="mt-10 text-center flex flex-wrap items-center justify-center gap-4">
+      <a href="/faqs/" class="inline-flex items-center gap-2 bg-white hover:bg-coastal-navy text-coastal-navy hover:text-white border border-coastal-navy/20 font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-colors">
+        <span>Browse All 50+ Technical Electrical FAQs →</span>
+      </a>
+      <a href="/guides/757-electrical-cost-guide/" class="inline-flex items-center gap-2 text-teal-700 hover:text-coastal-navy font-extrabold text-xs sm:text-sm px-4 py-2">
+        <span>2026–2027 757 Cost Guide →</span>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- Inject FAQPage Schema -->
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

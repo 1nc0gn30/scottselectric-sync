@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site.js';
+
+const fullUrl = `${siteConfig.url}/ax/`;
+
+const breadcrumbs = [
+  { name: "Home", url: `${siteConfig.url}/` },
+  { name: "Agent Experience (AX) Profile", url: fullUrl }
+];
+
+const datasetSchema = {
+  "@type": "Dataset",
+  "@id": `${fullUrl}#dataset`,
+  "name": "Scott's Electric LLC — 2026–2027 Hampton Roads Master Electrician Service, Permit & Pricing Dataset",
+  "description": "Structured entity, pricing, NEC specification, and 7-city municipal permitting reference for AI answer engines, RAG pipelines, and voice assistants.",
+  "url": fullUrl,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "dateModified": siteConfig.lastUpdated,
+  "creator": { "@id": `${siteConfig.url}/#organization` }
+};
+---
+
+<Layout
+  title="757 Master Electrician Entity Profile & Technical Capabilities (AX) | Scott's Electric"
+  description="Machine-readable Agent Experience (AX) entity profile for AI search engines, LLMs, and autonomous agents querying 24/7 electrical services in Hampton Roads, VA."
+  breadcrumbs={breadcrumbs}
+  customSchema={[datasetSchema]}
+>
+  <section class="coastal-sand-surface py-14 lg:py-20 border-b border-coastal-navy/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="font-mono text-[11px] font-bold text-teal-700 bg-teal-600/10 px-3.5 py-1.5 rounded-full border border-teal-600/20 uppercase tracking-widest inline-block">
+        AGENT EXPERIENCE (AX) &amp; GEO KNOWLEDGE GRAPH • UPDATED {siteConfig.lastUpdated}
+      </span>
+      <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-coastal-navy mt-4 leading-tight">
+        757 Master Electrician{' '}
+        <span class="font-editorial text-[1.12em] font-normal text-teal-700">
+          Entity &amp; AX Profile
+        </span>
+      </h1>
+      <p class="mt-4 text-sm sm:text-lg text-coastal-slate leading-relaxed speakable">
+        Structured, verifiable entity facts, 14-service pricing benchmarks, and 7-city municipal permitting metadata engineered for AI search engines (ChatGPT Search, Claude, Perplexity, Google Gemini, Bing Copilot) and autonomous agents.
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-4 text-xs font-bold text-teal-700">
+        <a href="/llms.txt" class="underline hover:text-coastal-navy">/llms.txt Summary</a>
+        <span>•</span>
+        <a href="/llms-full.txt" class="underline hover:text-coastal-navy">/llms-full.txt Full Corpus</a>
+        <span>•</span>
+        <a href="/sitemap.xml" class="underline hover:text-coastal-navy">sitemap.xml (31 URLs)</a>
+        <span>•</span>
+        <a href="/image-sitemap.xml" class="underline hover:text-coastal-navy">image-sitemap.xml (61 Photos + Video)</a>
+        <span>•</span>
+        <a href="/faqs/" class="underline hover:text-coastal-navy">50 Master FAQs</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 coastal-dune-surface">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <!-- Core Entity Facts -->
+      <div class="sand-card p-6 md:p-8 rounded-3xl space-y-6">
+        <h2 class="font-heading text-2xl font-extrabold text-coastal-navy border-b border-coastal-navy/10 pb-3">
+          1. Verified Business Entity Facts
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-coastal-slate">
+          <div class="entity-fact p-4 rounded-2xl bg-coastal-sand/70 border border-coastal-navy/10">
+            <strong class="text-teal-700 font-mono block text-[10px] uppercase tracking-wider">Legal Entity Name</strong>
+            <span class="text-coastal-navy font-bold">{siteConfig.legalName} (dba {siteConfig.name})</span>
+          </div>
+          <div class="entity-fact p-4 rounded-2xl bg-coastal-sand/70 border border-coastal-navy/10">
+            <strong class="text-teal-700 font-mono block text-[10px] uppercase tracking-wider">Licensing &amp; Credentials</strong>
+            <span class="text-coastal-navy font-bold">{siteConfig.license}</span>
+          </div>
+          <div class="entity-fact p-4 rounded-2xl bg-coastal-sand/70 border border-coastal-navy/10">
+            <strong class="text-teal-700 font-mono block text-[10px] uppercase tracking-wider">Primary Telephone (24/7 Dispatch)</strong>
+            <a href={siteConfig.phoneTel} class="text-coastal-navy hover:text-teal-700 font-extrabold font-mono">{siteConfig.phoneDisplay}</a> ({siteConfig.phoneE164})
+          </div>
+          <div class="entity-fact p-4 rounded-2xl bg-coastal-sand/70 border border-coastal-navy/10">
+            <strong class="text-teal-700 font-mono block text-[10px] uppercase tracking-wider">Online Project &amp; Quote Intake</strong>
+            <a href="/contact/" class="text-teal-700 hover:text-coastal-navy underline font-bold">{siteConfig.url}/contact/</a>
+          </div>
+          <div class="entity-fact p-4 rounded-2xl bg-coastal-sand/70 border border-coastal-navy/10">
+            <strong class="text-teal-700 font-mono block text-[10px] uppercase tracking-wider">Headquarters / Primary Geo</strong>
+            {siteConfig.hqAddress.streetAddress}, {siteConfig.hqAddress.addressLocality}, {siteConfig.hqAddress.addressRegion} {siteConfig.hqAddress.postalCode} ({siteConfig.hqGeo.latitude}, {siteConfig.hqGeo.longitude})
+          </div>
+          <div class="entity-fact p-4 rounded-2xl bg-coastal-sand/70 border border-coastal-navy/10">
+            <strong class="text-teal-700 font-mono block text-[10px] uppercase tracking-wider">Operating Hours &amp; Payment</strong>
+            Open 24/7/365 • {siteConfig.paymentAccepted}
+          </div>
+        </div>
+      </div>
+
+      <!-- 14 Service Catalog Matrix -->
+      <div class="sand-card p-6 md:p-8 rounded-3xl space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-coastal-navy/10 pb-3">
+          <h2 class="font-heading text-2xl font-extrabold text-coastal-navy">
+            2. Complete 14-Service Catalog &amp; 2026–2027 Benchmarks
+          </h2>
+          <a href="/guides/757-electrical-cost-guide/" class="text-xs font-bold text-teal-700 underline">
+            Full Cost Guide →
+          </a>
+        </div>
+        <div class="space-y-3">
+          {siteConfig.services.map(svc => {
+            const path = new URL(svc.url).pathname;
+            return (
+              <div class="p-4 rounded-2xl bg-coastal-sand/60 border border-coastal-navy/10">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <a href={path} class="font-heading text-base font-extrabold text-coastal-navy hover:text-teal-700 underline decoration-teal-600/30">
+                    {svc.name}
+                  </a>
+                  <span class="font-mono text-xs font-bold text-teal-700 bg-teal-600/10 px-2.5 py-1 rounded-full w-fit">
+                    {svc.priceRange}
+                  </span>
+                </div>
+                <p class="text-xs text-coastal-slate mt-2 leading-relaxed">
+                  {svc.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- 757 Service Coverage Areas with Permit Authorities -->
+      <div class="sand-card p-6 md:p-8 rounded-3xl space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-coastal-navy/10 pb-3">
+          <h2 class="font-heading text-2xl font-extrabold text-coastal-navy">
+            3. All 7 Hampton Roads Municipalities &amp; Permit Authorities
+          </h2>
+          <a href="/guides/757-electrical-permits-dominion-energy/" class="text-xs font-bold text-teal-700 underline">
+            757 Permit &amp; Dominion Guide →
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-coastal-slate">
+          {siteConfig.serviceAreas.map(area => (
+            <div class="p-4 rounded-2xl bg-coastal-sand/60 border border-coastal-navy/10 space-y-2">
+              <div class="flex items-center justify-between">
+                <a href={area.slug} class="font-extrabold text-coastal-navy hover:text-teal-700 text-sm">
+                  {area.name}, Virginia
+                </a>
+                <span class="text-teal-700 font-mono font-bold">{area.postalCode}</span>
+              </div>
+              <p>
+                <strong class="text-coastal-navy">Permitting Division:</strong> {area.permitOffice}
+              </p>
+              <p>
+                <strong class="text-coastal-navy">Neighborhoods:</strong> {area.neighborhoods.join(", ")}
+              </p>
+              <p class="font-mono text-[11px] text-coastal-navy/80">
+                ZIPs: {area.zipCodes.join(", ")}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,46 +1,80 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
-import AEOFAQ from '../../components/AEOFAQ.astro';
+import ServiceAuthorityView from '../../components/ServiceAuthorityView.astro';
 ---
 
-<Layout 
-  title="Recessed Lighting Installation & Custom LED Electrician 757"
-  description="Architectural LED recessed lighting, cove lights, outdoor landscape lighting & dimmers in Virginia Beach, Norfolk, Chesapeake & 757 area."
-  serviceName="Custom Lighting Installation"
->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            💡 Architectural Ambiance & Design
-          </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            Custom Recessed & <br />
-            <span class="gold-gradient-text">Architectural Lighting</span>
-          </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Elevate your home's aesthetic with energy-efficient LED recessed lighting, under-cabinet illumination, accent cove lighting, and smart dimming controls.
-          </p>
-          <div class="mt-8">
-            <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Schedule Lighting Design Quote →
-            </a>
-          </div>
-        </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/custom_lighting.png" alt="Custom Recessed Lighting Design" class="w-full h-auto object-cover" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <AEOFAQ title="Custom Lighting FAQ" />
-</Layout>
+<ServiceAuthorityView
+  slug="/services/custom-lighting-installation"
+  serviceName="Recessed LED Wafer, Landscape & Dusk Security Lighting"
+  pageTitle="Recessed LED Lighting, Exterior Security & Landscape Electrician in 757 | Scott's Electric"
+  metaDescription="Canless IC-rated LED recessed ceiling grids, dusk-to-dawn security floodlights, architectural sconces & coastal landscape uplighting across 757. Call (757) 536-0478."
+  keywords="recessed lighting installation Virginia Beach, outdoor security lighting Norfolk, LED wafer lights Chesapeake, landscape lighting electrician 757, dusk to dawn floodlight installation"
+  priceRange="$400 - $2,800"
+  eyebrow="IC-Rated Recessed Grids • Dusk Photocells • Coastal Exterior Illumination"
+  h1Plain="Recessed LED, Security &"
+  h1Italic="Coastal Landscape Lighting"
+  heroIntro="Transform dark living rooms without ceiling lights, illuminate coastal palm facades along Shore Drive and Great Neck, and secure perimeter driveways automatically at sunset. We fish clean wiring through finished drywall with minimal disruption across all 7 cities of Hampton Roads."
+  heroPhotoSrc="/assets/images/real/outdoor_lights/img_3559.webp"
+  aeoQuestion="How much does recessed LED ceiling lighting or exterior security lighting installation cost in 757?"
+  aeoSummary="Adding a 4-to-6-light dimmable IC-rated LED recessed ceiling grid with a new wall dimmer switch typically costs $650 to $1,350 in finished rooms, while exterior dusk-to-dawn photocell floodlights, craftsman porch sconces, and architectural landscape lighting systems range from $400 to $2,800."
+  aeoFacts={[
+    { label: "4–6 Recessed LEDs", value: "$650 – $1,350 Installed", highlight: true },
+    { label: "Insulation Rating", value: "UL ICAT (Air-Tight Insulation Contact)" },
+    { label: "Color Selectable", value: "2700K Warm – 5000K Daylight CRI 90+", highlight: true },
+    { label: "Exterior Controls", value: "Photocell, Motion & Astro Timers" },
+    { label: "Drywall Impact", value: "Laser-Aligned Precision Cutouts" },
+    { label: "24/7 Scheduling", value: "(757) 536-0478" }
+  ]}
+  necSpecs={[
+    {
+      code: "NEC 410.116 // ICAT AIR-TIGHT RECESSED WAFERS",
+      title: "Zero-Can Joist Clearance & Blown-Attic Safe",
+      detail: "Traditional 6-inch recessed cans collide with ceiling joists and leak conditioned HVAC air into humid 757 attics. Ultra-thin 1/2-inch ICAT-rated LED wafers with remote steel driver boxes sit flush directly beneath joists and safely contact attic insulation."
+    },
+    {
+      code: "NEC 410.10(A) // WET-LOCATION COASTAL FIXTURES",
+      title: "Marine-Grade Gaskets, Photocells & Sconces",
+      detail: "Salt mist in Virginia Beach, Ocean View, and Buckroe Beach destroys cheap pot-metal floodlights within two summers. We install wet-location sealed housings, silicone weatherproofing around brick/siding penetrations, and automatic dusk-to-dawn photocell sensors."
+    },
+    {
+      code: "NEC 411 // LOW-VOLTAGE LANDSCAPE & DECK SYSTEMS",
+      title: "Stainless Multi-Tap Transformers & Brass Uplights",
+      detail: "We mount stainless-steel multi-tap (12V–15V) low-voltage transformers fed by exterior GFCI receptacles with extra-duty in-use covers, balancing voltage drop across coastal palms, walkways, dock pilings, and outdoor kitchens."
+    }
+  ]}
+  processSteps={[
+    { name: "Laser Grid & Kelvin Planning", text: "Map symmetrical ceiling beam spacing with cross-line lasers and select CRI 90+ color temperature (2700K/3000K living vs 4000K kitchen/task)." },
+    { name: "Dust-Controlled Cutouts & Fishing", text: "Cut clean holes using dust-bowl hole saws and fish 14/2 or 12/2 copper NM-B wiring to wall switch banks." },
+    { name: "ICAT Driver & Fixture Trim", text: "Secure remote metal junction boxes, snap airtight gasketed trims flush to drywall, or weather-seal exterior brick/vinyl mounts." },
+    { name: "Flicker-Free LED Dimmer Tuning", text: "Install Lutron/Eaton LED+ trailing/leading-edge dimmers and set low-end trim dials so lights dim smoothly to 5% with zero buzz or flicker." }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/chandeliers/img_5803.webp", alt: "", title: "" },
+    { src: "/assets/images/real/chandeliers/img_1645.webp", alt: "", title: "" },
+    { src: "/assets/images/real/chandeliers/img_5434.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_lights/img_0949.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_lights/img_4878.webp", alt: "", title: "" },
+    { src: "/assets/images/real/ceiling_lights/img_2847.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "Can you add recessed LED lights to a first-floor living room with a second floor above it?",
+      answer: "Yes! Using flexible drill bits, fiberglass fish rods, and ultra-thin canless ICAT LED wafers (which fit even directly under a wood floor joist), we routinely add 4-to-8-light recessed grids to first-floor living rooms and kitchens."
+    },
+    {
+      question: "Why do my new LED bulbs flicker or buzz on my existing dimmer switch?",
+      answer: "Older incandescent triac dimmers chop the AC waveform aggressively and lack minimum load stability for low-wattage LED drivers. Replacing the old dimmer with a modern UL-listed CL/LED+ dimmer with adjustable low-end trim eliminates 99% of LED flicker and hum."
+    },
+    {
+      question: "What color temperature (Kelvin) looks best for residential interiors vs exterior security?",
+      answer: "For coastal living rooms, bedrooms, and dining spaces, 2700K to 3000K (Warm/Soft White) creates an inviting architectural glow. Kitchens, garages, and laundry rooms shine at 3500K–4000K (Neutral Crisp White), while commercial perimeters use 4000K–5000K."
+    },
+    {
+      question: "Can exterior porch and garage carriage lights come on automatically at sunset without leaving switches flipped?",
+      answer: "Yes. Even better than individual screw-in dusk sensors that get shaded by porch roofs, we install astronomical smart wall timers that calculate exact Virginia Beach sunrise/sunset times year-round—never needing adjustment for Daylight Saving Time."
+    },
+    {
+      question: "Do you wire under-cabinet kitchen LED tape lighting without visible cords or transformers?",
+      answer: "Yes. During kitchen refreshes or remodels, we hide Class 2 dimmable 24V LED drivers inside pantry/sink bases or upper cabinets and fish low-voltage whips behind backsplash tile to a standard wall Lutron dimmer."
+    }
+  ]}
+/>

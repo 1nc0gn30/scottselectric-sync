@@ -1,0 +1,313 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AEODirectAnswer from '../../components/AEODirectAnswer.astro';
+import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
+import AEOFAQ from '../../components/AEOFAQ.astro';
+import { siteConfig } from '../../config/site.js';
+
+const fullUrl = `${siteConfig.url}/guides/757-electrical-cost-guide/`;
+
+const breadcrumbs = [
+  { name: 'Home', url: `${siteConfig.url}/` },
+  { name: 'Electrical Services', url: `${siteConfig.url}/services/` },
+  { name: '2026–2027 757 Electrical Cost Guide', url: fullUrl }
+];
+
+const pricingMatrix = [
+  {
+    scope: '200A Main Electrical Panel Upgrade (Heavy-Up)',
+    link: '/services/electrical-panel-upgrades/',
+    range: '$1,800 – $3,800',
+    time: '4 – 8 Hours (Same-Day)',
+    permit: 'Yes + Dominion Cut/Reconnect',
+    includes: 'Siemens/Square D/Eaton copper-busbar panel, NEC 230.67 surge device, 2x ground rods, city permit'
+  },
+  {
+    scope: '400A (Class 320) Dual-Panel Heavy-Up',
+    link: '/services/electrical-panel-upgrades/',
+    range: '$3,900 – $7,500+',
+    time: '1 – 2 Days',
+    permit: 'Yes + Dominion Engineering',
+    includes: '320A/400A meter base, twin 200A main-breaker load centers, parallel feeders, full grounding'
+  },
+  {
+    scope: 'Level 2 EV Charger Circuit (240V / 40A–60A)',
+    link: '/services/ev-charger-installation/',
+    range: '$650 – $1,500',
+    time: '2 – 4 Hours',
+    permit: 'Yes (NEC Article 625)',
+    includes: 'NEC 220.82 load calculation, copper conductors, 2-pole breaker, hardwire or EV-rated Hubbell 14-50'
+  },
+  {
+    scope: 'Whole-Home Standby Generator (18kW–26kW + ATS)',
+    link: '/services/whole-home-generators/',
+    range: '$5,500 – $14,000',
+    time: '1 – 2 Days',
+    permit: 'Yes (Electrical + Gas/Bldg)',
+    includes: 'Generac/Kohler unit, 200A service-rated ATS, hurricane pad, load-shed modules, commissioning'
+  },
+  {
+    scope: 'Portable Generator Interlock + 50A Inlet Box',
+    link: '/services/whole-home-generators/',
+    range: '$750 – $1,450',
+    time: '2 – 3 Hours',
+    permit: 'Yes (NEC Article 702)',
+    includes: 'UL-listed mechanical breaker interlock plate, NEMA 3R 30A/50A inlet box, backfeed breaker'
+  },
+  {
+    scope: 'Hot Tub / Spa 50A–60A GFCI Disconnect',
+    link: '/services/pool-hot-tub-wiring/',
+    range: '$850 – $1,650',
+    time: '3 – 5 Hours',
+    permit: 'Yes (NEC Article 680)',
+    includes: 'Weatherproof NEMA 3R GFCI spa panel (>=5 ft from water), Schedule 40 PVC / liquidtight whip'
+  },
+  {
+    scope: 'Inground Saltwater Pool Pad & Bonding Grid',
+    link: '/services/pool-hot-tub-wiring/',
+    range: '$1,600 – $2,900+',
+    time: '2 Phases (Bond + Final)',
+    permit: 'Yes (Trench/Bond + Final)',
+    includes: 'Hayward/Pentair subpanel, 8-AWG bare copper perimeter bonding grid, pump/heater/salt/light feeds'
+  },
+  {
+    scope: 'Electric Meter Base, Mast & Weatherhead Repair',
+    link: '/services/meter-base-weatherhead-repair/',
+    range: '$950 – $3,200',
+    time: '3 – 6 Hours (Same-Day)',
+    permit: 'Yes + Emergency White Card',
+    includes: 'NEMA 3R ringless meter socket, rigid/SEU riser, weatherhead, Noalox lugs, utility reconnect'
+  },
+  {
+    scope: 'Detached Garage / Workshop 100A Subpanel + Trench',
+    link: '/services/subpanel-workshop-wiring/',
+    range: '$1,850 – $3,600',
+    time: '1 Day',
+    permit: 'Yes (Open-Trench + Final)',
+    includes: '18"+ Schedule 40/80 PVC trench, 4-wire feeder, 100A subpanel, 2x local ground rods, 240V outlets'
+  },
+  {
+    scope: 'Whole-Home Surge Protector (Type 1 / Type 2 SPD)',
+    link: '/services/whole-home-surge-protection/',
+    range: '$395 – $850',
+    time: '45 – 75 Minutes',
+    permit: 'Included w/ Panel or Standalone',
+    includes: 'UL 1449 50kA–140kA panel SPD (Siemens FirstSurge / Square D HEPD80), dedicated 2-pole breaker'
+  },
+  {
+    scope: '2-Story Foyer Chandelier or Vaulted Ceiling Fan',
+    link: '/services/ceiling-fan-chandelier-installation/',
+    range: '$550 – $1,800',
+    time: '2 – 4 Hours',
+    permit: 'When Adding New Circuits',
+    includes: 'Interior scaffolding, NEC 314.27 structural fan/fixture brace (70–150 lb), downrod & dimmer'
+  },
+  {
+    scope: 'Recessed LED Ceiling Grid (4–6 ICAT Wafers)',
+    link: '/services/custom-lighting-installation/',
+    range: '$650 – $1,350',
+    time: '3 – 5 Hours',
+    permit: 'Yes (New Lighting Circuit/Zone)',
+    includes: 'CRI 90+ color-selectable ICAT LED downlights, fished copper NM-B wiring, Lutron LED+ wall dimmer'
+  },
+  {
+    scope: 'Aluminum Pigtailing (AlumiConn) / Historic Rewire',
+    link: '/services/historic-home-rewiring/',
+    range: '$1,200 – $12,500+',
+    time: '1 – 5+ Days',
+    permit: 'Yes + Insurance Sign-Off',
+    includes: 'CPSC-accepted AlumiConn remediation or full copper NM-B rewire with AFCI/GFCI protection'
+  },
+  {
+    scope: 'Master Electrician Safety / Real-Estate PICRA Audit',
+    link: '/services/electrical-code-inspections/',
+    range: '$199 – $350',
+    time: '60 – 90 Minutes',
+    permit: 'Diagnostic Inspection',
+    includes: 'Dead-front busbar & torque check, GFCI/AFCI testing, written report & upfront repair quote'
+  }
+];
+
+const costFaqs = [
+  {
+    question: "Why does electrical pricing vary between two homes with the same square footage in 757?",
+    answer: "Four physical variables drive electrical installation labor and material costs in Hampton Roads: (1) wire run distance and access path (open crawlspace/attic vs finished slab-on-grade ceiling), (2) exterior coastal corrosion requiring NEMA 3R/4X stainless or PVC hardware near Chesapeake Bay/Atlantic Ocean, (3) existing panel busbar headroom vs needing load management, and (4) underground trenching footage."
+  },
+  {
+    question: "Are municipal city electrical permit fees included in turnkey estimates?",
+    answer: "Yes. When Scott's Electric LLC provides a written turnkey quote for a panel upgrade, EV charger, generator, pool pad, or subpanel across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, or Suffolk, permit preparation, filing, and inspector coordination are transparently built in."
+  },
+  {
+    question: "Does Scott's Electric charge overtime hidden surprises after starting a quoted job?",
+    answer: "No. After inspecting your panel or jobsite scope, our licensed Master Electricians provide upfront flat-rate project pricing before tools touch your system, so you know the exact investment upfront."
+  },
+  {
+    question: "How much does it cost to add a 240V EV charger if my breaker panel is on the opposite side of the house?",
+    answer: "When a panel sits 10 feet from the garage bay, a 60A Level 2 EV circuit typically lands near $650–$850. When 6-AWG copper must route 55–85 feet across a crawlspace, attic, or exterior painted EMT/PVC conduit from the far corner of the home, total material and labor typically range from $1,150 to $1,550."
+  },
+  {
+    question: "Is financing available for larger 200A heavy-ups, rewiring, or whole-home standby generators?",
+    answer: "Yes. We accept all major credit cards, checks, cash, and offer flexible financing options on major panel replacements, historic rewiring, and whole-home standby generator installations. Call (757) 536-0478 for details."
+  }
+];
+
+const articleSchema = {
+  "@type": "TechArticle",
+  "@id": `${fullUrl}#techarticle`,
+  "headline": "2026–2027 Hampton Roads (757) Electrical Cost & Pricing Guide",
+  "description": "Verified 2026–2027 residential and commercial electrical cost ranges across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk.",
+  "datePublished": "2026-01-15",
+  "dateModified": siteConfig.lastUpdated,
+  "author": { "@id": `${siteConfig.url}/#organization` },
+  "publisher": { "@id": `${siteConfig.url}/#organization` },
+  "mainEntityOfPage": fullUrl,
+  "proficiencyLevel": "Beginner to Expert",
+  "about": [
+    "200A Electrical Panel Upgrade Cost Virginia Beach",
+    "Level 2 EV Charger Installation Cost 757",
+    "Whole-Home Standby Generator Cost Hampton Roads",
+    "NEC 680 Pool & Hot Tub Wiring Cost"
+  ]
+};
+---
+
+<Layout
+  title="2026–2027 Electrical Cost & Pricing Guide for Virginia Beach & Hampton Roads (757) | Scott's Electric"
+  description="Transparent 2026–2027 electrical pricing guide for Virginia Beach, Norfolk, Chesapeake & 757: 200A panel upgrades ($1,800–$3,800), EV chargers ($650–$1,500), generators, pool pads & rewiring."
+  keywords="electrician cost Virginia Beach 2026, 200 amp panel upgrade cost 757, EV charger installation cost Norfolk, generator installation price Chesapeake, electrical pricing guide Hampton Roads"
+  ogImage={`${siteConfig.url}/assets/images/real/panels/img_4022.webp`}
+  breadcrumbs={breadcrumbs}
+  customSchema={[articleSchema]}
+>
+  <section class="coastal-sand-surface py-14 lg:py-20 border-b border-coastal-navy/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl space-y-5">
+        <span class="font-mono text-[11px] font-bold text-teal-700 bg-teal-600/10 px-3.5 py-1.5 rounded-full border border-teal-600/20 uppercase tracking-widest inline-block">
+          2026–2027 VERIFIED 757 BENCHMARK DATA • UPDATED {siteConfig.lastUpdated}
+        </span>
+        <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-coastal-navy leading-[1.06]">
+          Hampton Roads Electrical{' '}
+          <span class="font-editorial text-[1.12em] font-normal text-teal-700">
+            Cost &amp; Pricing Guide
+          </span>
+        </h1>
+        <p class="text-sm sm:text-lg text-coastal-slate leading-relaxed speakable">
+          Published directly by licensed Virginia Master Electricians at Scott's Electric LLC. Review real 2026–2027 turnkey price ranges across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk—including UL-listed copper/NEMA 3R materials, Dominion Energy coordination, and municipal city permits.
+        </p>
+        <div class="pt-2 flex flex-wrap gap-3.5">
+          <a href="tel:7575360478" class="cta-phone-beam bg-coastal-navy hover:bg-slate-800 text-white font-extrabold px-7 py-4 rounded-2xl text-sm shadow-coastal-elevated">
+            Call for Exact Quote: (757) 536-0478
+          </a>
+          <a href="#calculator" class="bg-white border border-coastal-navy/20 hover:border-teal-700 text-coastal-navy font-bold px-6 py-4 rounded-2xl text-sm">
+            Interactive NEC Load &amp; Cost Calculator ↓
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 coastal-ocean-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <AEODirectAnswer
+        question="What do licensed Master Electricians charge for major residential projects in Hampton Roads (757) in 2026–2027?"
+        summary="Across the 7 cities of Hampton Roads in 2026–2027, turnkey 200A panel upgrades average $1,800–$3,800, Level 2 EV charger circuits average $650–$1,500, portable generator interlocks + inlets cost $750–$1,450, whole-home standby generators range from $5,500–$14,000, NEC 680 hot tub/pool wiring runs $850–$2,900, and whole-home surge protection costs $395–$850."
+        facts={[
+          { label: "200A Panel Heavy-Up", value: "$1,800 – $3,800 Turnkey", highlight: true },
+          { label: "Level 2 EV Circuit", value: "$650 – $1,500 Installed" },
+          { label: "Whole-Home Surge SPD", value: "$395 – $850 Complete", highlight: true },
+          { label: "Hot Tub / Pool Pad", value: "$850 – $2,900+ (NEC 680)" },
+          { label: "Generator Interlock / Standby", value: "$750 Interlock • $5.5k+ Standby" },
+          { label: "Direct Quote Line", value: "(757) 536-0478" }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
+    </div>
+  </section>
+
+  <!-- Complete 14-Scope Semantic HTML Pricing Table -->
+  <section class="py-16 coastal-dune-surface border-t border-coastal-navy/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="max-w-3xl">
+        <span class="font-mono text-[11px] font-bold uppercase tracking-widest text-teal-700">
+          2026–2027 TURNKEY PRICE BENCHMARKS
+        </span>
+        <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-coastal-navy mt-2">
+          14 Common Electrical Scopes in 757:{' '}
+          <span class="font-editorial text-[1.12em] font-normal text-amber-600">
+            Turnkey Cost, Time &amp; Permit Matrix
+          </span>
+        </h2>
+      </div>
+
+      <div class="overflow-x-auto rounded-3xl border border-coastal-navy/15 bg-white shadow-coastal-card">
+        <table class="w-full text-left border-collapse min-w-[760px]">
+          <thead>
+            <tr class="bg-coastal-navy text-white font-mono text-[11px] uppercase tracking-wider">
+              <th class="py-4 px-5">Electrical Project Scope</th>
+              <th class="py-4 px-5">2026–2027 Turnkey Range</th>
+              <th class="py-4 px-5">Typical Time</th>
+              <th class="py-4 px-5">Permit / Utility</th>
+              <th class="py-4 px-5">What Is Included</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-coastal-navy/10 text-xs sm:text-sm text-coastal-slate">
+            {pricingMatrix.map((row) => (
+              <tr class="hover:bg-coastal-sand/60 transition-colors">
+                <td class="py-4 px-5 font-bold text-coastal-navy">
+                  <a href={row.link} class="hover:text-teal-700 underline decoration-teal-600/40">
+                    {row.scope}
+                  </a>
+                </td>
+                <td class="py-4 px-5 font-mono font-extrabold text-teal-700 whitespace-nowrap">
+                  {row.range}
+                </td>
+                <td class="py-4 px-5 whitespace-nowrap font-medium text-coastal-navy">
+                  {row.time}
+                </td>
+                <td class="py-4 px-5 text-xs">
+                  {row.permit}
+                </td>
+                <td class="py-4 px-5 text-xs leading-relaxed">
+                  {row.includes}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Coastal Cost Drivers Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+        <div class="sand-card p-6 rounded-3xl space-y-2.5">
+          <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-teal-700">COST DRIVER 01</span>
+          <h3 class="font-heading text-lg font-extrabold text-coastal-navy">Salt-Air &amp; Flood-Zone Hardware</h3>
+          <p class="text-xs sm:text-sm text-coastal-slate leading-relaxed">
+            Properties within 3 miles of the Atlantic Ocean, Chesapeake Bay, or Elizabeth/Nansemond rivers require NEMA 3R/4X corrosion-resistant enclosures, Schedule 40/80 PVC conduit, stainless fasteners, and anti-oxidant lug compounds so salt fog never pits meter jaws.
+          </p>
+        </div>
+        <div class="sand-card p-6 rounded-3xl space-y-2.5">
+          <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-teal-700">COST DRIVER 02</span>
+          <h3 class="font-heading text-lg font-extrabold text-coastal-navy">Conductor Gauge &amp; Run Length</h3>
+          <p class="text-xs sm:text-sm text-coastal-slate leading-relaxed">
+            6-AWG copper THHN/NM-B for a 60A EV charger or 2/0 copper service entrance cable varies significantly between a 10-foot back-to-back garage run and an 85-foot crawlspace or underground trenched run to a detached shop.
+          </p>
+        </div>
+        <div class="sand-card p-6 rounded-3xl space-y-2.5">
+          <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-teal-700">COST DRIVER 03</span>
+          <h3 class="font-heading text-lg font-extrabold text-coastal-navy">NEC 2020/2023 Safety Mandates</h3>
+          <p class="text-xs sm:text-sm text-coastal-slate leading-relaxed">
+            Modern Virginia USBC code inspections verify NEC 230.67 whole-home surge protection, NEC 210.8 240V garage/outdoor GFCI breakers, and dual copper ground rods—higher component cost upfront, exponentially higher fire and appliance protection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calculator" class="py-16 coastal-ocean-surface border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <InteractiveQuoteCalculator client:visible />
+    </div>
+  </section>
+
+  <AEOFAQ faqs={costFaqs} title="757 Electrical Cost & Estimating FAQs" />
+</Layout>

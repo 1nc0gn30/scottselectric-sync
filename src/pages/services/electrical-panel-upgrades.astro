@@ -1,57 +1,84 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
-import AEOFAQ from '../../components/AEOFAQ.astro';
-
-const faqs = [
-  {
-    question: "When should I upgrade my electrical panel from 100A to 200A?",
-    answer: "If your breakers trip frequently, you plan to install an EV charger, hot tub, central heat pump, or major kitchen appliances, upgrading to a 200-amp panel provides safe and reliable power capacity."
-  },
-  {
-    question: "How long does an electrical panel upgrade take?",
-    answer: "A complete main panel replacement takes between 4 to 8 hours. Scott's Electric coordinates with Dominion Energy for power disconnect/reconnect to minimize household downtime."
-  }
-];
+import ServiceAuthorityView from '../../components/ServiceAuthorityView.astro';
 ---
 
-<Layout 
-  title="200 Amp Electrical Panel Upgrade & Breaker Box Replacement 757"
-  description="Upgrade your electrical breaker box to 200A or 400A in Virginia Beach, Norfolk, Chesapeake & 757 area. Licensed Master Electricians, code compliant."
-  serviceName="Electrical Panel Upgrades"
->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            ⚡ Electrical Capacity & Safety
-          </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            200A & 400A Smart <br />
-            <span class="gold-gradient-text">Electrical Panel Upgrades</span>
-          </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Power modern living in Hampton Roads with a state-of-the-art circuit breaker panel installation. Designed to eliminate breaker trips, support EV chargers, and protect sensitive smart home electronics.
-          </p>
-          <div class="mt-8 flex gap-4">
-            <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Schedule Panel Inspection →
-            </a>
-          </div>
-        </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/panel_upgrade.png" alt="200 Amp Electrical Panel Upgrade" class="w-full h-auto object-cover" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <AEOFAQ faqs={faqs} title="Panel Upgrade FAQ" />
-</Layout>
+<ServiceAuthorityView
+  slug="/services/electrical-panel-upgrades"
+  serviceName="200A & 400A Electrical Panel Upgrades"
+  pageTitle="200A & 400A Electrical Panel Upgrades & Breaker Box Replacement in 757 | Scott's Electric"
+  metaDescription="Same-day 200A & 400A electrical panel upgrades in Virginia Beach, Norfolk, Chesapeake & all 7 cities of 757. Solid copper busbars, Dominion Energy disconnect & permits. Call (757) 536-0478."
+  keywords="200 amp panel upgrade Virginia Beach, breaker box replacement Norfolk, 400 amp electrical service Chesapeake, Federal Pacific panel replacement 757, Zinsco panel upgrade Hampton Roads"
+  priceRange="$1,800 - $3,800"
+  eyebrow="Same-Day Dominion Energy Reconnect • Solid-Copper-Busbar Load Centers"
+  h1Plain="200A & 400A Electrical"
+  h1Italic="Panel Upgrades in 757"
+  heroIntro="Eliminate nuisance breaker trips, satisfy homeowners insurance underwriting, and unlock safe 240V capacity for Level 2 EV chargers, heat pumps, pools, and generators. We replace overloaded 100A boxes, split-bus enclosures, and Federal Pacific/Zinsco hazards same-day across all 7 cities of Hampton Roads."
+  heroPhotoSrc="/assets/images/real/panels/img_4022.webp"
+  aeoQuestion="How much does a 200A electrical panel upgrade cost in Hampton Roads (757)?"
+  aeoSummary="A turnkey 200A electrical panel upgrade by a licensed Virginia Master Electrician typically costs between $1,800 and $3,800 ($3,900 to $7,500+ for 400A dual-panel heavy ups). This includes a UL-listed Siemens, Square D, or Eaton solid-copper-busbar load center, NEC 230.67 whole-home surge protection, dual ground rods, Dominion Energy disconnect/reconnect coordination, and municipal city permits with same-day power restoration."
+  aeoFacts={[
+    { label: "Same-Day Turnaround", value: "4 – 8 Hours Power Restored", highlight: true },
+    { label: "200A Turnkey Price", value: "$1,800 – $3,800 Complete" },
+    { label: "Utility Coordination", value: "Dominion Energy Cut/Reconnect", highlight: true },
+    { label: "Busbar Specification", value: "Solid Copper (Siemens / Square D / Eaton)" },
+    { label: "Code Inclusions", value: "NEC 230.67 SPD + 2x Ground Rods" },
+    { label: "24/7 Dispatch Line", value: "(757) 536-0478" }
+  ]}
+  necSpecs={[
+    {
+      code: "NEC 408 & 230.85 // SOLID COPPER BUSBARS",
+      title: "40/80-Circuit Plug-On Neutral Load Centers",
+      detail: "We install commercial-grade Siemens PL, Square D QO/Homeline, and Eaton BR/CH load centers engineered with solid copper busbars, insulated service lug guards, clean printed circuit directories, and NEC 230.85 exterior emergency disconnects where required."
+    },
+    {
+      code: "NEC 250.53 & 250.66 // GROUNDING ELECTRODE SYSTEM",
+      title: "Dual 8-Ft Copper Ground Rods & Cold-Water Bonding",
+      detail: "Older 100A services often rely on a single corroded ground rod or outdated galvanized pipe. Every heavy-up includes two 8-foot copper-clad ground rods spaced 6+ feet apart with continuous #4 AWG bare copper grounding electrode conductors and intersystem bonding termination."
+    },
+    {
+      code: "NEC 230.67 & 210.12 // SURGE & AFCI/GFCI SAFETY",
+      title: "Integrated Surge Protection & Arc-Fault Breakers",
+      detail: "Panel replacements include mandatory NEC 230.67 Type 1/Type 2 whole-home surge suppression to shield HVAC inverters and appliances, alongside modern AFCI/GFCI protection where circuits are extended or remediated."
+    }
+  ]}
+  processSteps={[
+    { name: "NEC 220 Load Calc & Permit Filing", text: "Calculate dwelling demand load, file the municipal electrical permit in your 757 city, and schedule the Dominion Energy morning service cut." },
+    { name: "Safe Utility Disconnect & Removal", text: "De-energize service entrance conductors, label every existing branch circuit, and remove the obsolete 100A, split-bus, FPE, or Zinsco box." },
+    { name: "Copper-Busbar Panel & Grounding", text: "Mount the new 200A/400A load center, drive dual copper ground rods, torque feeder lugs to NEC 110.14(D) inch-pound specs, and dress branch wiring." },
+    { name: "White-Card Sign-Off & Re-Energize", text: "Complete municipal inspection/white-card release, verify 120/240V phase balance under load, and hand over a printed circuit directory." }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_3626.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_4523.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_3805.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_3691.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_0283.webp", alt: "", title: "" },
+    { src: "/assets/images/real/panels/img_3369.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "When should I upgrade my electrical panel from 100A to 200A in Hampton Roads?",
+      answer: "Upgrade to 200A (or 400A for large estates) if your breakers trip under simultaneous AC/kitchen loads, lights dim when the heat pump starts, your home still uses a 60A/100A fuse or split-bus panel without a single main breaker, or you are adding a Level 2 EV charger, hot tub, heat pump, or standby generator."
+    },
+    {
+      question: "How long will my home be without power during a 200A panel upgrade?",
+      answer: "Power is typically off for 4 to 6 hours during the workday while we swap the meter base/panel and torque terminations. We coordinate Dominion Energy disconnect/reconnect and municipal permit release so your power, HVAC, and refrigerators are back online the very same afternoon."
+    },
+    {
+      question: "Why do insurance companies require replacing Federal Pacific (FPE) and Zinsco panels?",
+      answer: "Federal Pacific Electric Stab-Lok and Zinsco/GTE-Sylvania panels have documented mechanical design flaws where circuit breakers jam internally or weld to aluminum busbars, failing to trip even at 150%–200% overload. Replacing them removes a major fire hazard and restores homeowners insurance eligibility."
+    },
+    {
+      question: "What is the difference between a 'panel swap' and a full '200A service heavy-up'?",
+      answer: "A panel swap replaces an aging 200A indoor breaker box while keeping healthy existing 200A meter/service entrance cables ($1,800–$2,500). A 100A-to-200A heavy-up upgrades the entire utility path—new 200A ringless meter socket, 2/0 copper or 4/0 aluminum SEU/riser mast, new 200A main-breaker panel, and dual ground rods ($2,600–$3,800)."
+    },
+    {
+      question: "When does a home require a 320A / 400A Class 320 electrical service?",
+      answer: "Homes over 3,800 sq ft running dual heat pumps, dual EV chargers, an electric tankless water heater, an induction kitchen, and a heated saltwater pool routinely exceed 200A continuous capacity under NEC 220.82. A Class 320 (400A) meter base feeds twin 200A main-breaker panels for effortless headroom."
+    },
+    {
+      question: "Do all 7 Hampton Roads cities require an electrical permit for a breaker box replacement?",
+      answer: "Yes. Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk all require a Virginia USBC electrical permit and inspection for any main panel replacement or service amperage upgrade—and Dominion Energy requires municipal authorization for permanent meter sealing."
+    }
+  ]}
+/>
