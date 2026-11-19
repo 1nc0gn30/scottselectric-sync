@@ -18,18 +18,13 @@ const craftsmanshipPhotos = [
 ];
 
 const aboutSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "AboutPage",
-      "@id": `${siteConfig.url}/about#webpage`,
-      "url": `${siteConfig.url}/about`,
-      "name": "Licensed Virginia Master Electricians & VA Class A Electrical Contractor in 757 | Scott's Electric",
-      "description": "Licensed & insured Virginia Master Electricians serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk since 2012.",
-      "isPartOf": { "@id": `${siteConfig.url}/#website` },
-      "about": { "@id": `${siteConfig.url}/#organization` }
-    }
-  ]
+  "@type": "AboutPage",
+  "@id": `${siteConfig.url}/about/#aboutpage`,
+  "url": `${siteConfig.url}/about/`,
+  "name": "Licensed Virginia Master Electricians & VA Class A Electrical Contractor in 757 | Scott's Electric",
+  "description": "Licensed & insured Virginia Master Electricians serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk since 2012.",
+  "isPartOf": { "@id": `${siteConfig.url}/#website` },
+  "about": { "@id": `${siteConfig.url}/#organization` }
 };
 ---
 

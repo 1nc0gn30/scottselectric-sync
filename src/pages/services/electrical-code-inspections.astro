@@ -1,0 +1,77 @@
+---
+import ServiceAuthorityView from '../../components/ServiceAuthorityView.astro';
+---
+
+<ServiceAuthorityView
+  slug="/services/electrical-code-inspections"
+  serviceName="Electrical Safety Inspections, Home-Sale Repairs & FPE Audits"
+  pageTitle="Electrical Safety Inspections, Home-Sale PICRA Repairs & Insurance Audits in 757 | Scott's Electric"
+  metaDescription="Master Electrician safety inspections, real-estate PICRA closing repairs, 4-point insurance electrical sign-offs & FPE/Zinsco panel audits across 757. Call (757) 536-0478."
+  keywords="electrical home inspection repairs Virginia Beach, PICRA electrician Norfolk, 4 point insurance electrical inspection Chesapeake, Federal Pacific panel inspection 757, master electrician code audit"
+  priceRange="$199 - $1,500"
+  eyebrow="VA Class A Master Electrician • Real Estate Closing & Insurance Sign-Offs"
+  h1Plain="Electrical Code Inspections &"
+  h1Italic="PICRA Closing Repairs"
+  heroIntro="Buying or selling a home in Hampton Roads, renewing homeowners insurance on an older property, or noticing flickering lights? General home inspectors flag symptoms—only a licensed Virginia Master Electrician can open live dead-fronts, measure busbar thermal load, correct NEC violations, and issue official contractor repair documentation."
+  heroPhotoSrc="/assets/images/real/panels/img_3369.webp"
+  aeoQuestion="How much does a Master Electrician safety inspection or real-estate PICRA repair audit cost in Hampton Roads (757)?"
+  aeoSummary="A comprehensive Master Electrician diagnostic safety inspection or 4-point homeowners insurance electrical audit costs $199 to $350 across Hampton Roads, including dead-front panel busbar inspection, torque/thermal checks, GFCI/AFCI trip testing, and itemized upfront pricing for any real-estate closing (PICRA) repairs."
+  aeoFacts={[
+    { label: "Diagnostic Audit", value: "$199 – $350 Written Report", highlight: true },
+    { label: "Real Estate PICRA", value: "Fast Closing-Deadline Turnaround" },
+    { label: "Insurance 4-Point", value: "FPE, Zinsco, Split-Bus & Aluminum", highlight: true },
+    { label: "Testing Protocol", value: "Dead-Front Torque + GFCI/AFCI Trip" },
+    { label: "Documentation", value: "VA Class A Contractor Invoice/Sign-Off" },
+    { label: "24/7 Direct Line", value: "(757) 536-0478" }
+  ]}
+  necSpecs={[
+    {
+      code: "NEC 110.14(D) // TORQUE & THERMAL DIAGNOSTICS",
+      title: "Dead-Front Removal, Double-Tap & Lug Inspection",
+      detail: "Loose neutral lugs and double-tapped breakers cause 80% of panel overheating. We remove the panel cover to inspect busbar stabs for pitting, separate illegal double-tapped conductors, verify anti-oxidant compound on aluminum feeders, and torque terminals."
+    },
+    {
+      code: "REAL ESTATE PICRA // CLOSING DEFICIENCY REPAIRS",
+      title: "Same-Week Repair of Home Inspector Punch Lists",
+      detail: "Under contract with a tight Hampton Roads REIN PICRA deadline? Send us your home inspection electrical pages—we fix open crawlspace/attic junction boxes, reverse polarity outlets, missing GFCIs, ungrounded 3-prong bootleg receptacles, and improper breaker sizing."
+    },
+    {
+      code: "INSURANCE UNDERWRITING // LEGACY HAZARD AUDITS",
+      title: "Federal Pacific, Zinsco, Pushmatic & Cloth-Wire Reports",
+      detail: "Carriers like USAA, State Farm, Chubb, and coastal Virginia underwriters routinely flag pre-1980 electrical panels and aluminum branch wiring. We document exact panel make/age and perform turnkey replacements when underwriting requires remediation."
+    }
+  ]}
+  processSteps={[
+    { name: "Service Entrance & Meter Check", text: "Inspect weatherhead, service drop drip loops, meter base jaw condition, and exterior grounding electrode bonds." },
+    { name: "Internal Panel & Breaker Audit", text: "Open main and subpanel dead-fronts to check busbar stabs, breaker brand compatibility, neutral/ground separation, and conductor sizing." },
+    { name: "Branch Receptacle & Safety Testing", text: "Test kitchen, bath, garage, exterior, and crawlspace GFCI/AFCI trip times, polarity, grounding continuity, and smoke/CO interconnects." },
+    { name: "Itemized Report or Turnkey Repair", text: "Deliver clear photo-backed documentation, VA Class A contractor sign-off letters for closing/insurance, or same-day code corrections." }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_0304.webp", alt: "", title: "" },
+    { src: "/assets/images/real/pigtailed_and_wire_nut_wire_open_box_in_sheet_rock/img_8405.webp", alt: "", title: "" },
+    { src: "/assets/images/real/twisted_insulated_copper_ready_for_wire_nut/img_4992.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "How quickly can you complete real-estate home inspection (PICRA) electrical repairs before closing?",
+      answer: "We work directly with Hampton Roads buyers, sellers, and real estate agents to review REIN home inspection electrical sections within 24 hours and complete repairs with signed VA Class A Master Electrician invoices prior to walk-through and closing."
+    },
+    {
+      question: "What is a 'bootleg ground' flagged by a home inspector?",
+      answer: "A bootleg ground occurs when someone illegally installs a 3-prong outlet on older 2-wire ungrounded wiring and jumps a short wire from the neutral screw to the ground screw to trick cheap plug-in 3-light testers. It is a serious shock hazard that we identify and remediate using NEC 406.4(D) GFCI protection or dedicated ground rewiring."
+    },
+    {
+      question: "What are double-tapped circuit breakers and how do you fix them?",
+      answer: "A double-tap happens when two branch wires are clamped under a single breaker lug only UL-listed for one wire, causing loose connections and arcing heat. Depending on the panel brand (e.g., Square D QO allows 2 copper wires on specific breakers, whereas Siemens/GE/Homeline mostly require 1), we either pigtail the conductors or install listed tandem/new breakers."
+    },
+    {
+      question: "Why did my homeowners insurance company cancel or hold my policy over my electrical panel?",
+      answer: "Insurance underwriters reject Federal Pacific Electric (FPE Stab-Lok), Zinsco/Sylvania, Challenger, fuse boxes, and split-bus panels without a main breaker because of documented failure-to-trip rates under overload. Replacing the panel with a modern 200A load center immediately restores full insurability."
+    },
+    {
+      question: "Are mismatched 'alien' circuit breakers inside a panel really a code violation?",
+      answer: "Yes. Under NEC 110.3(B), circuit breakers must be UL-listed or UL-classified specifically for that exact panel enclosure. Snapping a Square D Homeline breaker into a Siemens or Eaton box (even though it physically fits) creates improper stab contact tension that melts busbars."
+    }
+  ]}
+/>

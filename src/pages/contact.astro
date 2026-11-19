@@ -9,18 +9,13 @@ const breadcrumbs = [
 ];
 
 const contactSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ContactPage",
-      "@id": `${siteConfig.url}/contact#webpage`,
-      "url": `${siteConfig.url}/contact`,
-      "name": "24/7 Emergency Electrician Dispatch & Project Quote Form in 757 — (757) 536-0478",
-      "description": "Call (757) 536-0478 for immediate 24/7 Master Electrician dispatch or submit our online project quote form across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk.",
-      "isPartOf": { "@id": `${siteConfig.url}/#website` },
-      "about": { "@id": `${siteConfig.url}/#organization` }
-    }
-  ]
+  "@type": "ContactPage",
+  "@id": `${siteConfig.url}/contact/#contactpage`,
+  "url": `${siteConfig.url}/contact/`,
+  "name": "24/7 Emergency Electrician Dispatch & Project Quote Form in 757 — (757) 536-0478",
+  "description": "Call (757) 536-0478 for immediate 24/7 Master Electrician dispatch or submit our online project quote form across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk.",
+  "isPartOf": { "@id": `${siteConfig.url}/#website` },
+  "about": { "@id": `${siteConfig.url}/#organization` }
 };
 ---
 

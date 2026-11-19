@@ -1,113 +1,79 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
-import AEOFAQ from '../../components/AEOFAQ.astro';
-import JobsiteGallery from '../../components/JobsiteGallery.astro';
-import AEODirectAnswer from '../../components/AEODirectAnswer.astro';
-import { siteConfig } from '../../config/site.js';
-
-const breadcrumbs = [
-  { name: "Home", url: siteConfig.url },
-  { name: "Services", url: `${siteConfig.url}/services` },
-  { name: "Smart Switches & Automation", url: `${siteConfig.url}/services/smart-home-automation` }
-];
-
-const serviceData = {
-  name: "Smart Switches, Energy Monitoring & Pool Automation",
-  description: "Multi-gang smart dimmers, whole-home energy monitoring relays, photocell controls, and automated pool/lighting load centers across Hampton Roads (757).",
-  url: `${siteConfig.url}/services/smart-home-automation`,
-  priceRange: "$350 - $2,500"
-};
-
-const smartGalleryPhotos = [
-  { src: '/assets/images/real/switches/img_2677.webp', alt: '', title: '' },
-  { src: '/assets/images/real/panels/img_4251.webp', alt: '', title: '' },
-  { src: '/assets/images/real/outdoor_power/img_4370.webp', alt: '', title: '' },
-  { src: '/assets/images/real/outdoor_lights/img_4878.webp', alt: '', title: '' },
-  { src: '/assets/images/real/ceiling_lights/img_2847.webp', alt: '', title: '' },
-  { src: '/assets/images/real/pigtailed_and_wire_nut_wire_open_box_in_sheet_rock/img_8405.webp', alt: '', title: '' }
-];
-
-const faqs = [
-  {
-    question: "Which smart switch and energy monitoring ecosystems do you install in 757?",
-    answer: "We wire and commission Lutron Caséta, Eaton/Leviton Decora Smart switch banks, Emporia/Span circuit-level energy monitors, photocell exterior lighting, and Hayward 8-relay pool automation centers."
-  },
-  {
-    question: "Do smart dimmers require a dedicated neutral conductor in the switch box?",
-    answer: "Most smart switches require a neutral wire under NEC 404.2(C). Where older switch loops lack neutrals, we either pull a code-compliant neutral conductor or install Lutron neutral-optional smart dimmers."
-  }
-];
+import ServiceAuthorityView from '../../components/ServiceAuthorityView.astro';
 ---
 
-<Layout
-  title="Smart Switches, Energy Monitors & Electrical Automation in 757 | Scott's Electric"
-  description="Lutron & Decora smart switch banks, circuit energy monitors, photocell controls & 8-relay automation panels in Virginia Beach, Norfolk & 757. Call (757) 536-0478."
-  serviceName="Smart Switches & Electrical Automation"
-  breadcrumbs={breadcrumbs}
-  isServicePage={true}
-  serviceData={serviceData}
->
-  <section class="py-16 bg-gradient-to-b from-brand-surface to-brand-dark border-b border-slate-800/80 tech-grid-bg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-7 space-y-5">
-          <span class="font-mono text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 uppercase tracking-widest">
-            Multi-Gang Smart Controls • Relay Panels • Energy Telemetry
-          </span>
-          <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-            Smart Switches, Relay Panels &amp; <span class="gold-gradient-text">Home Automation in 757</span>
-          </h1>
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-            Clean, pre-twisted copper pigtail makeup inside multi-gang Decora switch banks, circuit-by-circuit load monitoring, dusk-to-dawn photocell sensors, and 8-relay outdoor equipment automation across Hampton Roads.
-          </p>
-          <div class="pt-2 flex flex-wrap gap-4">
-            <a href="tel:7575360478" class="cta-phone-beam bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-gold-intense">
-              Call Automation Team: (757) 536-0478
-            </a>
-            <a href="#quote" class="border border-slate-700 hover:border-amber-400/60 bg-slate-900 text-slate-100 font-bold px-6 py-3.5 rounded-2xl text-sm">
-              Calculate Project Quote ↓
-            </a>
-          </div>
-        </div>
-        <div class="lg:col-span-5 bento-card rounded-3xl overflow-hidden vf-corners">
-          <img
-            src="/assets/images/real/switches/img_2677.webp"
-            alt="Three white Eaton Decora rocker switches aligned inside a recessed three-gang wall box in painted drywall"
-            class="w-full aspect-[4/4.3] object-cover object-[47%_47%]"
-          />
-        </div>
-      </div>
-
-      <AEODirectAnswer
-        question="What smart electrical and automation hardware do you wire in Hampton Roads?"
-        summary="Scott's Electric LLC installs multi-gang Lutron and Decora smart dimmer banks, neutral wire retrofits, panel-mounted energy monitors, dusk-to-dawn exterior photocells, and high-voltage 8-relay automation load centers across all 7 cities of 757."
-        facts={[
-          { label: "Wall Controls", value: "Lutron Caséta, Leviton & Eaton", highlight: true },
-          { label: "Relay Load Centers", value: "8-Relay Pool & Landscape Panels" },
-          { label: "Energy Tracking", value: "Span & Emporia CT Clamps", highlight: true },
-          { label: "Typical Investment", value: "$350 – $2,500" },
-          { label: "Box Makeup", value: "Pre-Twisted Copper Pigtails" },
-          { label: "Direct Phone", value: "(757) 536-0478" }
-        ]}
-        cityName="Hampton Roads (757)"
-      />
-    </div>
-  </section>
-
-  <JobsiteGallery
-    title="Verified Switch Banks, 8-Relay Enclosures & Photocell Controls"
-    subtitle="Real jobsite photographs of multi-gang Decora switch alignments, 8-relay automation subpanels, and neutral pigtail splices."
-    badge="Control & Automation Work"
-    photos={smartGalleryPhotos}
-    columns="3"
-  />
-
-  <section id="quote" class="py-16 bg-brand-dark border-t border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <AEOFAQ faqs={faqs} title="Smart Switch & Electrical Automation FAQs (757)" />
-</Layout>
+<ServiceAuthorityView
+  slug="/services/smart-home-automation"
+  serviceName="Smart Switches, Multi-Gang Dimmers & Energy Monitoring"
+  pageTitle="Smart Switches, Lutron Dimmers & Whole-Home Energy Monitors in 757 | Scott's Electric"
+  metaDescription="Lutron Caséta/RA3 multi-gang smart dimmers, NEC 404.2(C) neutral retrofits & Emporia/Span circuit energy monitoring across Virginia Beach, Norfolk & 757. Call (757) 536-0478."
+  keywords="Lutron smart switch installation Virginia Beach, Emporia Vue energy monitor electrician 757, Span smart panel Norfolk, multi gang dimmer wiring Chesapeake, smart home electrician"
+  priceRange="$350 - $2,500"
+  eyebrow="NEC 404.2(C) Neutral Retrofits • Lutron Smart Controls • CT Energy Telemetry"
+  h1Plain="Smart Switches, Dimmers &"
+  h1Italic="Circuit Energy Telemetry"
+  heroIntro="Crowded 3-gang and 4-gang wall boxes packed with bulky smart switches fail fast if wires are back-stabbed or jammed without box-fill discipline. We execute clean pre-twisted copper pigtail makeup, Lutron Caséta/RA3 lighting scenes, and real-time CT-clamp circuit energy monitoring across Hampton Roads."
+  heroPhotoSrc="/assets/images/real/switches/img_2677.webp"
+  aeoQuestion="How much does smart switch bank or whole-home panel energy monitor installation cost in 757?"
+  aeoSummary="Multi-gang Lutron Caséta or Decora Smart dimmer installations and whole-home CT-clamp energy monitors (Emporia Vue Gen 3, Sense) typically range from $350 to $950, while whole-home architectural lighting control packages or Span Smart Panel replacements range from $1,200 to $2,500+ (plus Span hardware)."
+  aeoFacts={[
+    { label: "Energy Monitor Install", value: "$350 – $650 (Emporia / Sense)", highlight: true },
+    { label: "Smart Switch Ecosystems", value: "Lutron Caséta, RA3, Leviton Matter" },
+    { label: "Multi-Gang Makeup", value: "Pre-Twisted Solid Copper Pigtails", highlight: true },
+    { label: "3-Way / 4-Way Circuits", value: "Pico / Companion Digital Travellers" },
+    { label: "No-Neutral Homes", value: "NEC 404.2(C) Neutral or Lutron Dimmer" },
+    { label: "24/7 Direct Phone", value: "(757) 536-0478" }
+  ]}
+  necSpecs={[
+    {
+      code: "NEC 314.16 & 110.14 // DEEP BOX FILL & PIGTAILING",
+      title: "Zero Back-Stabs — Pre-Twisted Solid Copper Splices",
+      detail: "Smart Wi-Fi, Matter, and Z-Wave switches are twice as deep as standard toggle switches. Instead of daisy-chaining wires across device screws, we fold compact pre-twisted copper pigtails into the rear of deep gang boxes so wallplates sit razor-level."
+    },
+    {
+      code: "NEC 404.2(C) // SWITCH-LOOP NEUTRAL SOLUTIONS",
+      title: "Pre-2011 Homes Without Neutral Wires Solved",
+      detail: "Homes built before the 2011 NEC often have 'dead-end' 2-wire switch loops with no white neutral wire in the box (only hot and switch-leg). We identify disguised white travelers immediately and either pull a true neutral or deploy UL-listed neutral-free Lutron Caséta dimmers."
+    },
+    {
+      code: "UL 916 // PANEL CT-CLAMP ENERGY MONITORS",
+      title: "Real-Time Dominion Energy Bill & Solar/EV Tracking",
+      detail: "Wondering why your summer Dominion Energy electric bill spiked? Installing 200A main + 16-branch current transformer (CT) sensors inside your panel tracks exact live wattage for HVAC compressors, electric water heaters, pool pumps, dehumidifiers, and EVs on your phone."
+    }
+  ]}
+  processSteps={[
+    { name: "Switch-Box Neutral & Load Mapping", text: "Map 3-way/4-way travelers, verify neutral availability in every gang box, and confirm fixture LED driver compatibility." },
+    { name: "Copper Pigtail & Deep Box Trim", text: "Upgrade cramped shallow boxes to deep old-work enclosures where needed and dress pre-twisted solid copper splices." },
+    { name: "Panel CT Sensor Routing", text: "Install UL-listed 200A main and branch current clamps neatly inside the dead-front without crowding busbar clearances." },
+    { name: "Scene Calibration & App Handoff", text: "Pair Apple HomeKit / Matter / Alexa / Lutron bridge hubs, label digital circuits, and verify 3-way companion rockers." }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_4251.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_power/img_4370.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_lights/img_4878.webp", alt: "", title: "" },
+    { src: "/assets/images/real/ceiling_lights/img_2847.webp", alt: "", title: "" },
+    { src: "/assets/images/real/pigtailed_and_wire_nut_wire_open_box_in_sheet_rock/img_8405.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "Why did my DIY smart switch burn out or refuse to power on when I connected the white wire?",
+      answer: "In pre-2011 homes, a white wire inside a switch box is frequently a re-tasked 120V hot or 3-way traveler wire—NOT a neutral! Connecting a smart switch's neutral lead to a traveler either leaves it dead or damages internal electronics. Our electricians trace every conductor with a meter before terminating."
+    },
+    {
+      question: "Why is Lutron Caséta preferred over generic Wi-Fi smart switches?",
+      answer: "Generic 2.4GHz Wi-Fi switches congest home routers with dozens of endpoints and drop offline after router reboots. Lutron uses proprietary Clear Connect sub-GHz RF communication that responds instantaneously, works even if internet drops, and offers reliable no-neutral dimmer options."
+    },
+    {
+      question: "Is it safe to install an Emporia Vue or Sense energy monitor inside my 200A breaker panel?",
+      answer: "Yes, when installed by a licensed electrician. Working around uninsulated 200A utility service lugs inside an open main panel carries severe arc-flash risk because flipping your main breaker OFF still leaves the top utility lugs energized at 240V!"
+    },
+    {
+      question: "Can you install a Span Smart Electrical Panel in Virginia Beach or Norfolk?",
+      answer: "Yes! As a licensed VA Class A Master Electrical Contractor, we install Span.IO smart panels that replace a traditional 200A breaker box with app-controlled circuit breakers, per-circuit power metering, and dynamic battery/EV/generator load shedding."
+    },
+    {
+      question: "Can you add a second wall switch at the bottom of stairs or opposite end of a room without tearing open walls?",
+      answer: "Yes. Using Lutron Pico wireless remotes mounted inside a standard recessed wallplate bracket, we can create code-clean 3-way and 4-way switching on brick, tile, or finished walls with zero drywall patching."
+    }
+  ]}
+/>

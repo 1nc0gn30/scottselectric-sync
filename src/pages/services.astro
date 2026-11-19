@@ -5,192 +5,251 @@ import JobsiteGallery from '../components/JobsiteGallery.astro';
 import AEODirectAnswer from '../components/AEODirectAnswer.astro';
 import { siteConfig } from '../config/site.js';
 
+const fullUrl = `${siteConfig.url}/services/`;
+
 const breadcrumbs = [
-  { name: "Home", url: siteConfig.url },
-  { name: "Electrical Services", url: `${siteConfig.url}/services` }
+  { name: "Home", url: `${siteConfig.url}/` },
+  { name: "All 14 Electrical Services", url: fullUrl }
 ];
 
 const allServices = [
   {
+    title: "24/7 Emergency Electrician & Troubleshooting",
+    price: "24/7 Immediate Dispatch",
+    img: "/assets/images/real/panels/img_3369.webp",
+    alt: "Open legacy split-bus electrical panel during Master Electrician emergency safety inspection",
+    fx: "46% 52%",
+    desc: "Under-45-minute 24/7 Master Electrician response across 757 for burning smells, arcing breakers, half-power neutral faults, and storm outages.",
+    link: "/services/emergency-electrician-757/"
+  },
+  {
     title: "200A & 400A Electrical Panel Upgrades",
+    price: "$1,800 – $3,800",
     img: "/assets/images/real/panels/img_4022.webp",
     alt: "Open Siemens 200-amp main breaker panel featuring heavy solid copper busbars and printed conductor labels",
     fx: "31% 48%",
-    desc: "Replace overloaded 100A panels, split-bus boxes, or FPE/Zinsco hazards with solid-copper-busbar 200A/400A load centers.",
-    link: "/services/electrical-panel-upgrades"
+    desc: "Same-day replacement of overloaded 100A boxes, split-bus panels, or FPE/Zinsco hazards with solid-copper-busbar 200A/400A load centers.",
+    link: "/services/electrical-panel-upgrades/"
   },
   {
     title: "Level 2 EV Charger Circuits (240V)",
+    price: "$650 – $1,500",
     img: "/assets/images/real/panels/img_5010.webp",
     alt: "Open NEMA 3R Square D Homeline 200-amp exterior main-breaker panel with dedicated 240-volt branch wiring",
     fx: "48% 50%",
-    desc: "Dedicated 40A–60A 240V circuits for Tesla Wall Connector, NACS, Rivian, Ford, and NEMA 14-50 charging stations.",
-    link: "/services/ev-charger-installation"
+    desc: "NEC Article 625 continuous-duty 40A–60A copper circuits for Tesla Wall Connector (NACS), Rivian, Ford, and EV-rated Hubbell 14-50 outlets.",
+    link: "/services/ev-charger-installation/"
   },
   {
     title: "Whole-Home Standby Generators & Interlocks",
+    price: "$5,500 – $14,000",
     img: "/assets/images/real/panels/img_3691.webp",
     alt: "Flush-mounted Siemens panel featuring brass mechanical breaker interlocks and red-taped 240-volt conductors",
     fx: "47% 50%",
-    desc: "Automatic standby natural gas & propane generators, automatic transfer switches (ATS), and mechanical interlock kits.",
-    link: "/services/whole-home-generators"
+    desc: "Automatic Generac/Kohler natural gas & propane generators, 200A Automatic Transfer Switches (ATS), and UL-listed 50A portable interlocks.",
+    link: "/services/whole-home-generators/"
   },
   {
-    title: "Chandeliers, Recessed & Landscape Lighting",
-    img: "/assets/images/real/chandeliers/img_5803.webp",
-    alt: "Technician dressing crystal prisms on an energized multi-tier chandelier wired with metal-clad cable",
-    fx: "46% 48%",
-    desc: "Two-story foyer chandelier rigging, canless LED recessed downlights, ceiling medallions, and dusk exterior uplights.",
-    link: "/services/custom-lighting-installation"
-  },
-  {
-    title: "Smart Switches, Dimmers & Energy Monitors",
-    img: "/assets/images/real/switches/img_2677.webp",
-    alt: "Three white Eaton Decora rocker switches aligned inside a recessed three-gang wall box",
-    fx: "47% 47%",
-    desc: "Multi-gang Decora/Lutron smart dimmers, neutral wire retrofits, and Span/Emporia panel energy monitoring.",
-    link: "/services/smart-home-automation"
-  },
-  {
-    title: "Commercial 3-Phase Distribution & Meter Banks",
-    img: "/assets/images/real/panels/img_4537.webp",
-    alt: "Twin Square D three-phase main-lug subpanels framed in wood studs with PVC feeder conduits and MC cables",
-    fx: "50% 46%",
-    desc: "Square D I-Line & NQ bolt-on 3-phase switchgear, parallel EMT offsets, NEMA 3R fusible switches, and tenant buildouts.",
-    link: "/services/commercial-electrical"
-  },
-  {
-    title: "NEC 680 Swimming Pool & Hot Tub Subpanels",
+    title: "NEC 680 Swimming Pool & Hot Tub Wiring",
+    price: "$850 – $2,900",
     img: "/assets/images/real/outdoor_power/img_4370.webp",
     alt: "Outdoor Hayward pool automation subpanel, salt chlorinator controller, Schedule 40 PVC conduits, and GFCI outlet",
     fx: "52% 50%",
-    desc: "Hayward/Pentair automation subpanels, 8-relay load centers, salt chlorinator transformers, and equipotential bonding.",
-    link: "#quote"
+    desc: "Hayward/Pentair 8-relay automation load centers, 50A/60A GFCI spa disconnects, salt-chlorinator feeds, and 8-AWG bare copper bonding grids.",
+    link: "/services/pool-hot-tub-wiring/"
   },
   {
-    title: "Vaulted Ceiling Fans & Exhaust Luminaires",
-    img: "/assets/images/real/ceiling_fans/img_3327.webp",
-    alt: "Six-blade gunmetal ceiling fan with dark woodgrain blades and integrated frosted LED drum light",
-    fx: "49% 41%",
-    desc: "Fan-rated structural boxes, extended vaulted ceiling downrods, wall speed controls, and bathroom exhaust luminaires.",
-    link: "/services/custom-lighting-installation"
+    title: "Historic Home Rewiring & Aluminum Fixes",
+    price: "$1,200 – $12,500+",
+    img: "/assets/images/real/under_house_raceway_stapled_wire_neat_and_organized/img_0348.webp",
+    alt: "Neat copper NM-B branch raceways stapled uniformly along residential crawlspace floor joists",
+    fx: "50% 50%",
+    desc: "Plaster-conscious rewiring of knob-and-tube/cloth 2-wire homes, CPSC-accepted AlumiConn aluminum remediation, and NEC 334.30 crawlspace wiring.",
+    link: "/services/historic-home-rewiring/"
   },
   {
-    title: "Utility Meter Sockets & Exterior Disconnects",
-    img: "/assets/images/real/meters/img_5108.webp",
-    alt: "Six-position horizontal electric meter socket trough feeding five exterior General Electric load centers on brick wall",
-    fx: "45% 49%",
-    desc: "Single and multi-gang ringless meter bases, Noalox aluminum terminations, NEMA 3R disconnects, and Dominion tie-ins.",
-    link: "/services/electrical-panel-upgrades"
+    title: "Meter Bases, Service Masts & Weatherheads",
+    price: "$950 – $3,200",
+    img: "/assets/images/real/panels/img_0283.webp",
+    alt: "Open NEMA 3R utility meter socket showing clean aluminum service terminations treated with anti-oxidant compound",
+    fx: "48% 50%",
+    desc: "Replacement of salt-rusted coastal 200A/400A ringless meter sockets, storm-pulled weatherhead risers, and same-day Dominion white-card reconnects.",
+    link: "/services/meter-base-weatherhead-repair/"
   },
   {
-    title: "Weatherproof Exterior GFCI & Appliance Feeds",
-    img: "/assets/images/real/outdoor_outlets/img_5884.webp",
-    alt: "Exterior weatherproof bell box with raised clear polycarbonate in-use bubble cover and white GFCI receptacle",
-    fx: "56% 48%",
-    desc: "Extra-duty polycarbonate in-use GFCI receptacles, underground Schedule 40 PVC risers, and tankless heater circuits.",
-    link: "#quote"
+    title: "2-Story Chandeliers & Vaulted Ceiling Fans",
+    price: "$250 – $1,800",
+    img: "/assets/images/real/chandeliers/img_0757.webp",
+    alt: "High-ceiling geometric foyer pendant chandelier mounted cleanly in a two-story residential entryway",
+    fx: "50% 45%",
+    desc: "Interior scaffolding, NEC 314.27 70–150 lb steel structural ceiling braces, extended vaulted downrod balancing, and quiet bathroom exhaust fans.",
+    link: "/services/ceiling-fan-chandelier-installation/"
   },
   {
-    title: "Crawlspace, Slab Trench & Open-Stud Rewiring",
-    img: "/assets/images/real/wire_raceways_neat_and_oragnized_open_walls_no_sheetrock/img_0174.webp",
-    alt: "Open-wall residential electrical rough-in showing a blue two-gang switch box with stapled NM-B Romex cables",
-    fx: "52% 54%",
-    desc: "NEC 334.30 stapled crawlspace raceways, saw-cut kitchen island slab conduit, and historic home copper rewiring.",
-    link: "#quote"
+    title: "Detached Garage & Workshop Subpanels",
+    price: "$950 – $3,600",
+    img: "/assets/images/real/outdoor_power/img_4572.webp",
+    alt: "Exterior NEMA 3R subpanel installation with Schedule 40 PVC and liquidtight conduit feeds",
+    fx: "50% 50%",
+    desc: "60A–125A detached garage, shop, and barn subpanels with 18\"+ Schedule 40/80 PVC underground trenching, ground rods, and 240V shop/RV outlets.",
+    link: "/services/subpanel-workshop-wiring/"
   },
   {
-    title: "24/7 Emergency Electrical Troubleshooting",
-    img: "/assets/images/real/panels/img_3369.webp",
-    alt: "Open legacy split-bus electrical panel during pre-remediation safety inspection",
-    fx: "46% 52%",
-    desc: "Rapid Master Electrician dispatch for tripping main breakers, burning odors, arcing splices, and storm outage damage.",
-    link: "/contact"
+    title: "Whole-Home Surge Protection (NEC 230.67)",
+    price: "$395 – $850",
+    img: "/assets/images/real/panels/img_3626.webp",
+    alt: "Open Square D 200-amp main breaker panel with lug guards and clean branch circuit routing",
+    fx: "48% 50%",
+    desc: "UL 1449 Type 1 & Type 2 panel-mounted 50kA–140kA Surge Protective Devices shielding variable-speed HVAC inverters, EVs, and appliances.",
+    link: "/services/whole-home-surge-protection/"
+  },
+  {
+    title: "Safety Inspections & Home-Sale PICRA Repairs",
+    price: "$199 – $1,500",
+    img: "/assets/images/real/pigtailed_and_wire_nut_wire_open_box_in_sheet_rock/img_8405.webp",
+    alt: "Open single-gang wall box displaying clean solid-copper pigtail splice workmanship",
+    fx: "50% 50%",
+    desc: "Master Electrician dead-front safety audits, REIN closing PICRA deficiency repairs, 4-point insurance sign-offs, and double-tap/bootleg fixes.",
+    link: "/services/electrical-code-inspections/"
+  },
+  {
+    title: "Recessed LED, Security & Landscape Lighting",
+    price: "$400 – $2,800",
+    img: "/assets/images/real/outdoor_lights/img_3559.webp",
+    alt: "Coastal home exterior illuminated at dusk with architectural porch sconces and warm landscape uplights",
+    fx: "50% 50%",
+    desc: "Canless ICAT-rated LED wafer ceiling grids, automatic dusk-to-dawn photocell security floodlights, and coastal palm/facade uplighting.",
+    link: "/services/custom-lighting-installation/"
+  },
+  {
+    title: "Smart Switches, Dimmers & Energy Monitors",
+    price: "$350 – $2,500",
+    img: "/assets/images/real/switches/img_2677.webp",
+    alt: "Three white Eaton Decora rocker switches aligned inside a recessed three-gang wall box",
+    fx: "47% 47%",
+    desc: "Multi-gang Lutron Caséta & Decora Smart dimmers, NEC 404.2(C) neutral retrofits, and Emporia/Span CT-clamp circuit energy monitoring.",
+    link: "/services/smart-home-automation/"
+  },
+  {
+    title: "3-Phase Commercial Switchgear & Buildouts",
+    price: "$750 – $15,000+",
+    img: "/assets/images/real/panels/img_4537.webp",
+    alt: "Twin Square D three-phase main-lug subpanels framed in wood studs with PVC feeder conduits and MC cables",
+    fx: "50% 46%",
+    desc: "120/208V & 277/480V Square D I-Line & NQ bolt-on panelboards, parallel EMT offsets, NEMA 3R fusible switches, 6-gang meter banks, and buildouts.",
+    link: "/services/commercial-electrical/"
   }
 ];
 
 const serviceShowcasePhotos = [
-  { src: '/assets/images/real/panels/img_3626.webp', alt: '', title: '' },
   { src: '/assets/images/real/panels/img_4525.webp', alt: '', title: '' },
   { src: '/assets/images/real/panels/img_4251.webp', alt: '', title: '' },
   { src: '/assets/images/real/chandeliers/img_1645.webp', alt: '', title: '' },
-  { src: '/assets/images/real/outdoor_lights/img_3559.webp', alt: '', title: '' },
+  { src: '/assets/images/real/meters/img_5108.webp', alt: '', title: '' },
+  { src: '/assets/images/real/scotts_electric_employee_in_action/img_2651.webp', alt: '', title: '' },
   { src: '/assets/images/real/twisted_insulated_copper_ready_for_wire_nut/img_4992.webp', alt: '', title: '' }
 ];
+
+const itemListSchema = {
+  '@type': 'ItemList',
+  '@id': `${fullUrl}#service-list`,
+  name: '14 Master Electrical Contracting Services in Hampton Roads (757)',
+  numberOfItems: allServices.length,
+  itemListElement: allServices.map((s, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    name: s.title,
+    url: `${siteConfig.url}${s.link}`
+  }))
+};
 ---
 
 <Layout
-  title="200A Panel Upgrades, EV Chargers, Generators & Commercial Electrical Services in 757 | Scott's Electric"
-  description="Complete residential, commercial & 24/7 emergency electrical services across Virginia Beach, Norfolk, Chesapeake & all 7 cities of 757. Call (757) 536-0478."
+  title="All 14 Electrical Services: 200A Panels, EV Chargers, Pools, Generators & 3-Phase in 757 | Scott's Electric"
+  description="Complete catalog of 14 residential, 3-phase commercial & 24/7 emergency electrical services across Virginia Beach, Norfolk, Chesapeake & all 7 cities of 757. Call (757) 536-0478."
   breadcrumbs={breadcrumbs}
+  customSchema={[itemListSchema]}
 >
-  <section class="py-16 bg-gradient-to-b from-brand-surface to-brand-dark border-b border-slate-800/80 tech-grid-bg">
+  <section class="coastal-sand-surface py-14 lg:py-20 border-b border-coastal-navy/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="inline-block font-mono text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 uppercase tracking-widest">
-        Residential • 3-Phase Commercial • 24/7 Emergency Dispatch
+      <span class="inline-block font-mono text-[11px] font-bold text-teal-700 bg-teal-600/10 px-3.5 py-1.5 rounded-full border border-teal-600/20 uppercase tracking-widest">
+        14 Specialized Scopes • VA Class A Master Contractor • 24/7 Dispatch
       </span>
-      <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white mt-4 leading-tight max-w-5xl mx-auto">
-        200A Panels, EV Chargers, Standby Generators &amp; <span class="gold-gradient-text">Electrical Services in 757</span>
+      <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-coastal-navy mt-4 leading-[1.06] max-w-5xl mx-auto">
+        Complete Residential, Coastal &amp;{' '}
+        <span class="font-editorial text-[1.12em] font-normal text-teal-700">
+          3-Phase Electrical Services in 757
+        </span>
       </h1>
-      <p class="mt-4 text-sm sm:text-base text-slate-300 max-w-3xl mx-auto">
-        Every scope below is illustrated with real jobsite photography from our licensed Virginia Master Electricians serving all 7 cities of Hampton Roads.
+      <p class="mt-4 text-sm sm:text-lg text-coastal-slate max-w-3xl mx-auto speakable">
+        Every single service below is backed by real, unretouched Hampton Roads jobsite photography, upfront 2026–2027 turnkey pricing, municipal city permitting, and licensed Virginia Master Electricians.
       </p>
 
-      <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <a href="tel:7575360478" class="cta-phone-beam bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-gold-intense">
+      <div class="mt-8 flex flex-wrap justify-center gap-3.5">
+        <a href="tel:7575360478" class="cta-phone-beam bg-coastal-navy hover:bg-slate-800 text-white font-extrabold px-7 py-4 rounded-2xl text-sm shadow-coastal-elevated">
           Call 24/7 Dispatch: (757) 536-0478
         </a>
-        <a href="#quote" class="border border-slate-700 hover:border-amber-400/60 bg-slate-900 text-slate-100 font-bold px-6 py-3.5 rounded-2xl text-sm">
-          Calculate Project Estimate ↓
+        <a href="/guides/757-electrical-cost-guide/" class="border border-coastal-navy/20 hover:border-teal-700 bg-white text-coastal-navy font-bold px-6 py-4 rounded-2xl text-sm">
+          2026–2027 Cost &amp; Pricing Table →
         </a>
-      </div>
-
-      <div class="mt-10 max-w-5xl mx-auto text-left">
-        <AEODirectAnswer
-          question="What residential and commercial electrical services are available across Hampton Roads (757)?"
-          summary="Scott's Electric LLC executes 200A/400A main breaker panel upgrades, dedicated 240V Level 2 EV charger circuits, automatic standby generators, NEC Article 680 pool automation subpanels, two-story foyer chandelier rigging, and 120/208V & 277/480V 3-phase commercial switchgear across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk."
-          facts={[
-            { label: "Emergency Dispatch", value: "24/7 Call: (757) 536-0478", highlight: true },
-            { label: "Panel Replacements", value: "200A & 400A Solid Copper Bus" },
-            { label: "EV & Pool Circuits", value: "240V Dedicated + NEC 680 Pads", highlight: true },
-            { label: "3-Phase Commercial", value: "Square D I-Line, NQ & Meter Banks" },
-            { label: "Municipal Permits", value: "Filed Across All 7 Cities" },
-            { label: "Credential", value: "VA Class A Master Contractor" }
-          ]}
-          cityName="Hampton Roads (757)"
-        />
+        <a href="/guides/757-electrical-permits-dominion-energy/" class="border border-coastal-navy/20 hover:border-teal-700 bg-white text-coastal-navy font-bold px-6 py-4 rounded-2xl text-sm">
+          757 Permits &amp; Dominion Guide →
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="py-20 bg-brand-dark">
+  <section class="py-8 coastal-ocean-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <AEODirectAnswer
+        question="What residential and commercial electrical services are available across Hampton Roads (757)?"
+        summary="Scott's Electric LLC executes 14 core electrical disciplines across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk: 24/7 emergency troubleshooting, 200A/400A copper-busbar panel upgrades, Level 2 EV chargers, Generac/Kohler standby generators, NEC 680 pool/spa wiring, historic home & aluminum remediation, meter bases, 2-story chandeliers, detached shop subpanels, whole-home surge defense, code/PICRA inspections, recessed/landscape LEDs, smart automation, and 3-phase commercial switchgear."
+        facts={[
+          { label: "Emergency Dispatch", value: "24/7 Call: (757) 536-0478", highlight: true },
+          { label: "Service Catalog", value: "14 Specialized NEC Scopes" },
+          { label: "EV, Pool & Standby", value: "NEC 625, 680 & 702 Certified", highlight: true },
+          { label: "3-Phase Commercial", value: "Square D I-Line, NQ & Meter Banks" },
+          { label: "Municipal Permits", value: "Filed Across All 7 Cities" },
+          { label: "Credential", value: "VA Class A Master Contractor" }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
+    </div>
+  </section>
+
+  <section class="py-20 coastal-dune-surface border-t border-coastal-navy/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {allServices.map(srv => (
-          <article class="group bento-card rounded-3xl overflow-hidden flex flex-col justify-between">
+          <article class="group sand-card rounded-3xl overflow-hidden flex flex-col justify-between">
             <div>
-              <div class="relative h-52 overflow-hidden bg-slate-950 vf-corners">
+              <a href={srv.link} class="block relative h-52 overflow-hidden bg-coastal-navy">
                 <img
                   src={srv.img}
                   alt={srv.alt}
                   loading="lazy"
                   decoding="async"
                   style={`object-position: ${srv.fx};`}
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-              </div>
+                <span class="absolute top-3 right-3 font-mono text-[10px] font-bold bg-coastal-navy/90 text-amber-300 px-2.5 py-1 rounded-lg border border-white/15 backdrop-blur-md">
+                  {srv.price}
+                </span>
+              </a>
               <div class="p-6">
-                <h2 class="font-heading text-xl font-bold text-white group-hover:text-amber-300 transition-colors mb-2">{srv.title}</h2>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">{srv.desc}</p>
+                <h2 class="font-heading text-xl font-extrabold text-coastal-navy group-hover:text-teal-700 transition-colors mb-2">
+                  <a href={srv.link}>{srv.title}</a>
+                </h2>
+                <p class="text-xs sm:text-sm text-coastal-slate leading-relaxed">{srv.desc}</p>
               </div>
             </div>
-            <div class="px-6 pb-6 pt-0 space-y-2">
-              <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                <a href="tel:7575360478" class="font-mono font-extrabold text-amber-400 hover:text-amber-300">
-                  Call (757) 536-0478
+            <div class="px-6 pb-6 pt-0">
+              <div class="pt-4 border-t border-coastal-navy/10 flex items-center justify-between text-xs">
+                <a href="tel:7575360478" class="font-mono font-extrabold text-coastal-navy hover:text-teal-700">
+                  (757) 536-0478
                 </a>
-                <a href={srv.link} class="font-bold text-cyan-400 hover:text-white">
-                  Scope Details →
+                <a href={srv.link} class="font-extrabold text-teal-700 hover:text-coastal-navy">
+                  Specs, NEC &amp; Pricing →
                 </a>
               </div>
             </div>
@@ -202,13 +261,13 @@ const serviceShowcasePhotos = [
 
   <JobsiteGallery
     title="Additional Verified Field Installations Across 757"
-    subtitle="Authentic close-up documentation of busbars, relays, fusible disconnects, and pre-twisted solid copper conductors."
+    subtitle="Authentic close-up documentation of busbars, relays, fusible disconnects, underground conduit trenching, and pre-twisted solid copper conductors."
     badge="Field Proof"
     photos={serviceShowcasePhotos}
     columns="3"
   />
 
-  <section id="quote" class="py-16 bg-brand-dark border-t border-slate-800/80">
+  <section id="quote" class="py-16 coastal-ocean-surface border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>

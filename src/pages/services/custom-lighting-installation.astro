@@ -1,117 +1,80 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import InteractiveQuoteCalculator from '../../components/InteractiveQuoteCalculator.jsx';
-import AEOFAQ from '../../components/AEOFAQ.astro';
-import JobsiteGallery from '../../components/JobsiteGallery.astro';
-import AEODirectAnswer from '../../components/AEODirectAnswer.astro';
-import { siteConfig } from '../../config/site.js';
-
-const breadcrumbs = [
-  { name: "Home", url: siteConfig.url },
-  { name: "Services", url: `${siteConfig.url}/services` },
-  { name: "Chandeliers, Recessed & Exterior Lighting", url: `${siteConfig.url}/services/custom-lighting-installation` }
-];
-
-const serviceData = {
-  name: "High-Bay Chandelier, Recessed LED & Exterior Lighting Installation",
-  description: "Two-story foyer chandelier rigging, canless LED recessed lighting, vaulted ceiling fans, and dusk-to-dawn landscape & security illumination across Hampton Roads (757).",
-  url: `${siteConfig.url}/services/custom-lighting-installation`,
-  priceRange: "$400 - $2,800"
-};
-
-const lightingGalleryPhotos = [
-  { src: '/assets/images/real/chandeliers/img_1645.webp', alt: '', title: '' },
-  { src: '/assets/images/real/chandeliers/img_0757.webp', alt: '', title: '' },
-  { src: '/assets/images/real/chandeliers/img_3482.webp', alt: '', title: '' },
-  { src: '/assets/images/real/chandeliers/img_5434.webp', alt: '', title: '' },
-  { src: '/assets/images/real/outdoor_lights/img_3559.webp', alt: '', title: '' },
-  { src: '/assets/images/real/outdoor_lights/img_0949.webp', alt: '', title: '' }
-];
-
-const faqs = [
-  {
-    question: "Do you hang heavy chandeliers in 2-story foyers and open-truss venues?",
-    answer: "Yes. We install fan/fixture-rated structural support boxes braced directly to ceiling joists or trusses, utilizing high-reach A-frame and extension rigging for residential foyers and commercial pavilions."
-  },
-  {
-    question: "Can LED recessed downlights be added to finished ceilings without patching drywall?",
-    answer: "Yes. Canless IC-rated LED wafer downlights require precision hole-saw cutouts and fished NM-B wiring, allowing clean multi-zone ceiling illumination with minimal drywall disruption."
-  },
-  {
-    question: "Do you install dusk-to-dawn photocell floodlights and landscape uplighting?",
-    answer: "Yes. We wire weatherproof PAR38 security floodlights with automatic photocells, craftsman exterior wall sconces, and low-voltage architectural landscape uplighting."
-  }
-];
+import ServiceAuthorityView from '../../components/ServiceAuthorityView.astro';
 ---
 
-<Layout
-  title="2-Story Chandelier Rigging, Recessed LED & Exterior Lighting Electrician in 757 | Scott's Electric"
-  description="High-ceiling foyer chandelier installation, LED recessed lighting, vaulted ceiling fans & dusk landscape lighting in Virginia Beach, Norfolk & 757. Call (757) 536-0478."
-  serviceName="Chandelier & Custom Lighting Installation"
-  breadcrumbs={breadcrumbs}
-  isServicePage={true}
-  serviceData={serviceData}
->
-  <section class="py-16 bg-gradient-to-b from-brand-surface to-brand-dark border-b border-slate-800/80 tech-grid-bg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-7 space-y-5">
-          <span class="font-mono text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 uppercase tracking-widest">
-            2-Story Foyer Rigging • Recessed LEDs • Exterior Uplights
-          </span>
-          <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-            Chandeliers, Recessed LED &amp; <span class="gold-gradient-text">Architectural Lighting in 757</span>
-          </h1>
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-            From heavy crystal chandeliers in two-story foyers and open-truss waterfront pavilions to dimmable LED recessed grids, vaulted ceiling fans, and dusk-to-dawn perimeter lighting across Hampton Roads.
-          </p>
-          <div class="pt-2 flex flex-wrap gap-4">
-            <a href="tel:7575360478" class="cta-phone-beam bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-gold-intense">
-              Call Lighting Team: (757) 536-0478
-            </a>
-            <a href="#quote" class="border border-slate-700 hover:border-amber-400/60 bg-slate-900 text-slate-100 font-bold px-6 py-3.5 rounded-2xl text-sm">
-              Estimate Fixture Project ↓
-            </a>
-          </div>
-        </div>
-        <div class="lg:col-span-5 bento-card rounded-3xl overflow-hidden vf-corners">
-          <img
-            src="/assets/images/real/chandeliers/img_5803.webp"
-            alt="Technician dressing crystal prisms on an energized multi-tier chandelier wired with metal-clad cable along exposed commercial ceiling joists"
-            class="w-full aspect-[4/4.3] object-cover object-[46%_48%]"
-          />
-        </div>
-      </div>
-
-      <AEODirectAnswer
-        question="How much does chandelier rigging and recessed LED lighting installation cost in 757?"
-        summary="Custom interior and exterior lighting projects range from $400 to $2,800 depending on ceiling elevation, structural box bracing requirements, and fixture count. Every heavy chandelier and vaulted ceiling fan is mounted to UL-listed structural support hardware."
-        facts={[
-          { label: "High-Bay Access", value: "2-Story Foyers & Open Trusses", highlight: true },
-          { label: "Recessed LEDs", value: "IC-Rated Dimmable Downlights" },
-          { label: "Exterior Systems", value: "Photocell, Sconces & Uplights", highlight: true },
-          { label: "Typical Investment", value: "$400 – $2,800" },
-          { label: "Dimmer Controls", value: "Lutron & Eaton Multi-Gang" },
-          { label: "Direct Phone", value: "(757) 536-0478" }
-        ]}
-        cityName="Hampton Roads (757)"
-      />
-    </div>
-  </section>
-
-  <JobsiteGallery
-    title="Verified Chandelier, Medallion & Dusk Exterior Installations"
-    subtitle="Real jobsite photography from our foyer chandelier mounts, commercial truss arrays, and nighttime coastal exterior lighting projects."
-    badge="Lighting Portfolio"
-    photos={lightingGalleryPhotos}
-    columns="3"
-  />
-
-  <section id="quote" class="py-16 bg-brand-dark border-t border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <AEOFAQ faqs={faqs} title="Chandelier & Custom Lighting FAQs (757)" />
-</Layout>
+<ServiceAuthorityView
+  slug="/services/custom-lighting-installation"
+  serviceName="Recessed LED Wafer, Landscape & Dusk Security Lighting"
+  pageTitle="Recessed LED Lighting, Exterior Security & Landscape Electrician in 757 | Scott's Electric"
+  metaDescription="Canless IC-rated LED recessed ceiling grids, dusk-to-dawn security floodlights, architectural sconces & coastal landscape uplighting across 757. Call (757) 536-0478."
+  keywords="recessed lighting installation Virginia Beach, outdoor security lighting Norfolk, LED wafer lights Chesapeake, landscape lighting electrician 757, dusk to dawn floodlight installation"
+  priceRange="$400 - $2,800"
+  eyebrow="IC-Rated Recessed Grids • Dusk Photocells • Coastal Exterior Illumination"
+  h1Plain="Recessed LED, Security &"
+  h1Italic="Coastal Landscape Lighting"
+  heroIntro="Transform dark living rooms without ceiling lights, illuminate coastal palm facades along Shore Drive and Great Neck, and secure perimeter driveways automatically at sunset. We fish clean wiring through finished drywall with minimal disruption across all 7 cities of Hampton Roads."
+  heroPhotoSrc="/assets/images/real/outdoor_lights/img_3559.webp"
+  aeoQuestion="How much does recessed LED ceiling lighting or exterior security lighting installation cost in 757?"
+  aeoSummary="Adding a 4-to-6-light dimmable IC-rated LED recessed ceiling grid with a new wall dimmer switch typically costs $650 to $1,350 in finished rooms, while exterior dusk-to-dawn photocell floodlights, craftsman porch sconces, and architectural landscape lighting systems range from $400 to $2,800."
+  aeoFacts={[
+    { label: "4–6 Recessed LEDs", value: "$650 – $1,350 Installed", highlight: true },
+    { label: "Insulation Rating", value: "UL ICAT (Air-Tight Insulation Contact)" },
+    { label: "Color Selectable", value: "2700K Warm – 5000K Daylight CRI 90+", highlight: true },
+    { label: "Exterior Controls", value: "Photocell, Motion & Astro Timers" },
+    { label: "Drywall Impact", value: "Laser-Aligned Precision Cutouts" },
+    { label: "24/7 Scheduling", value: "(757) 536-0478" }
+  ]}
+  necSpecs={[
+    {
+      code: "NEC 410.116 // ICAT AIR-TIGHT RECESSED WAFERS",
+      title: "Zero-Can Joist Clearance & Blown-Attic Safe",
+      detail: "Traditional 6-inch recessed cans collide with ceiling joists and leak conditioned HVAC air into humid 757 attics. Ultra-thin 1/2-inch ICAT-rated LED wafers with remote steel driver boxes sit flush directly beneath joists and safely contact attic insulation."
+    },
+    {
+      code: "NEC 410.10(A) // WET-LOCATION COASTAL FIXTURES",
+      title: "Marine-Grade Gaskets, Photocells & Sconces",
+      detail: "Salt mist in Virginia Beach, Ocean View, and Buckroe Beach destroys cheap pot-metal floodlights within two summers. We install wet-location sealed housings, silicone weatherproofing around brick/siding penetrations, and automatic dusk-to-dawn photocell sensors."
+    },
+    {
+      code: "NEC 411 // LOW-VOLTAGE LANDSCAPE & DECK SYSTEMS",
+      title: "Stainless Multi-Tap Transformers & Brass Uplights",
+      detail: "We mount stainless-steel multi-tap (12V–15V) low-voltage transformers fed by exterior GFCI receptacles with extra-duty in-use covers, balancing voltage drop across coastal palms, walkways, dock pilings, and outdoor kitchens."
+    }
+  ]}
+  processSteps={[
+    { name: "Laser Grid & Kelvin Planning", text: "Map symmetrical ceiling beam spacing with cross-line lasers and select CRI 90+ color temperature (2700K/3000K living vs 4000K kitchen/task)." },
+    { name: "Dust-Controlled Cutouts & Fishing", text: "Cut clean holes using dust-bowl hole saws and fish 14/2 or 12/2 copper NM-B wiring to wall switch banks." },
+    { name: "ICAT Driver & Fixture Trim", text: "Secure remote metal junction boxes, snap airtight gasketed trims flush to drywall, or weather-seal exterior brick/vinyl mounts." },
+    { name: "Flicker-Free LED Dimmer Tuning", text: "Install Lutron/Eaton LED+ trailing/leading-edge dimmers and set low-end trim dials so lights dim smoothly to 5% with zero buzz or flicker." }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/chandeliers/img_5803.webp", alt: "", title: "" },
+    { src: "/assets/images/real/chandeliers/img_1645.webp", alt: "", title: "" },
+    { src: "/assets/images/real/chandeliers/img_5434.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_lights/img_0949.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_lights/img_4878.webp", alt: "", title: "" },
+    { src: "/assets/images/real/ceiling_lights/img_2847.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "Can you add recessed LED lights to a first-floor living room with a second floor above it?",
+      answer: "Yes! Using flexible drill bits, fiberglass fish rods, and ultra-thin canless ICAT LED wafers (which fit even directly under a wood floor joist), we routinely add 4-to-8-light recessed grids to first-floor living rooms and kitchens."
+    },
+    {
+      question: "Why do my new LED bulbs flicker or buzz on my existing dimmer switch?",
+      answer: "Older incandescent triac dimmers chop the AC waveform aggressively and lack minimum load stability for low-wattage LED drivers. Replacing the old dimmer with a modern UL-listed CL/LED+ dimmer with adjustable low-end trim eliminates 99% of LED flicker and hum."
+    },
+    {
+      question: "What color temperature (Kelvin) looks best for residential interiors vs exterior security?",
+      answer: "For coastal living rooms, bedrooms, and dining spaces, 2700K to 3000K (Warm/Soft White) creates an inviting architectural glow. Kitchens, garages, and laundry rooms shine at 3500K–4000K (Neutral Crisp White), while commercial perimeters use 4000K–5000K."
+    },
+    {
+      question: "Can exterior porch and garage carriage lights come on automatically at sunset without leaving switches flipped?",
+      answer: "Yes. Even better than individual screw-in dusk sensors that get shaded by porch roofs, we install astronomical smart wall timers that calculate exact Virginia Beach sunrise/sunset times year-round—never needing adjustment for Daylight Saving Time."
+    },
+    {
+      question: "Do you wire under-cabinet kitchen LED tape lighting without visible cords or transformers?",
+      answer: "Yes. During kitchen refreshes or remodels, we hide Class 2 dimmable 24V LED drivers inside pantry/sink bases or upper cabinets and fish low-voltage whips behind backsplash tile to a standard wall Lutron dimmer."
+    }
+  ]}
+/>

@@ -7,6 +7,8 @@ interface Props {
   serviceName?: string;
   pageTitle?: string;
   pageDescription?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
   breadcrumbs?: Array<{ name: string; url: string }>;
   customSchema?: any[];
   isServicePage?: boolean;
@@ -23,17 +25,20 @@ const {
   serviceName = "24/7 Master Electrician & Panel Upgrades",
   pageTitle = `${serviceName} in ${cityName}, VA (757) | Scott's Electric`,
   pageDescription = `Licensed Virginia Master Electrician serving ${cityName} and all 7 cities of Hampton Roads (757). 24/7 Emergency Electrical Repair, 200A Panel Upgrades, EV Chargers & Standby Generators. Call (757) 536-0478.`,
-  breadcrumbs = [{ name: "Home", url: siteConfig.url }],
+  canonicalUrl,
+  ogImage = siteConfig.heroImage,
+  breadcrumbs = [{ name: "Home", url: `${siteConfig.url}/` }],
   customSchema = [],
   isServicePage = false,
   serviceData
 } = Astro.props;
 
-const currentUrl = Astro.url.href;
+const rawPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const pageUrl = canonicalUrl || `${siteConfig.url}${rawPath === '//' ? '/' : rawPath}`;
 
 const businessSchema = getBusinessSchema(cityName);
 const websiteSchema = getWebSiteSchema();
-const webpageSchema = getWebPageSchema(currentUrl, pageTitle, pageDescription);
+const webpageSchema = getWebPageSchema(pageUrl, pageTitle, pageDescription, ogImage);
 const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
 const howToSchema = getHowToQuoteSchema();
 const imageGallerySchema = getImageGallerySchema(siteConfig.url);
@@ -45,7 +50,7 @@ const webAppSchema = {
   "url": `${siteConfig.url}/#instant-calculator`,
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Web",
-  "description": "Free interactive NEC Article 220 residential dwelling load calculator and 757 electrical project budget estimator for 200A panel upgrades, Level 2 EV chargers, and standby generators.",
+  "description": "Free interactive NEC Article 220.82 residential dwelling load calculator and 757 electrical project budget estimator for 200A panel upgrades, Level 2 EV chargers, and standby generators.",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -65,10 +70,47 @@ const graphItems: any[] = [
   imageGallerySchema
 ];
 
+function buildPriceSpec(rangeStr?: string) {
+  if (!rangeStr) {
+    return {
+      "@type": "PriceSpecification",
+      "priceCurrency": "USD",
+      "description": "Upfront Master Electrician Quote"
+    };
+  }
+  const nums = (rangeStr.match(/[\d,]+/g) || [])
+    .map((n) => Number(n.replace(/,/g, '')))
+    .filter((n) => Number.isFinite(n) && n >= 100);
+  if (nums.length >= 2) {
+    return {
+      "@type": "PriceSpecification",
+      "priceCurrency": "USD",
+      "minPrice": nums[0],
+      "maxPrice": nums[1],
+      "description": rangeStr
+    };
+  }
+  if (nums.length === 1) {
+    return {
+      "@type": "PriceSpecification",
+      "priceCurrency": "USD",
+      "minPrice": nums[0],
+      "description": rangeStr
+    };
+  }
+  return {
+    "@type": "PriceSpecification",
+    "priceCurrency": "USD",
+    "description": rangeStr
+  };
+}
+
 if (isServicePage && serviceData) {
+  const svcUrl = serviceData.url.endsWith('/') ? serviceData.url : `${serviceData.url}/`;
   graphItems.push({
     "@type": "Service",
-    "@id": `${serviceData.url}#service`,
+    "@id": `${svcUrl}#service`,
+    "url": svcUrl,
     "name": serviceData.name,
     "description": serviceData.description,
     "provider": { "@id": `${siteConfig.url}/#organization` },
@@ -76,8 +118,9 @@ if (isServicePage && serviceData) {
     "serviceType": serviceData.name,
     "offers": {
       "@type": "Offer",
+      "url": svcUrl,
       "priceCurrency": "USD",
-      "price": serviceData.priceRange || "$$",
+      "priceSpecification": buildPriceSpec(serviceData.priceRange),
       "availability": "https://schema.org/InStock",
       "validFrom": "2026-01-01"
     }

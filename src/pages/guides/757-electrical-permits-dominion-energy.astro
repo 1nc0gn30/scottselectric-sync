@@ -1,0 +1,243 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AEODirectAnswer from '../../components/AEODirectAnswer.astro';
+import AEOFAQ from '../../components/AEOFAQ.astro';
+import { siteConfig } from '../../config/site.js';
+
+const fullUrl = `${siteConfig.url}/guides/757-electrical-permits-dominion-energy/`;
+
+const breadcrumbs = [
+  { name: 'Home', url: `${siteConfig.url}/` },
+  { name: 'Electrical Services', url: `${siteConfig.url}/services/` },
+  { name: '757 Permits & Dominion Energy Guide', url: fullUrl }
+];
+
+const permitRules = [
+  {
+    category: 'Permit ALWAYS Required (Virginia USBC)',
+    items: [
+      '200A or 400A main electrical panel replacements & heavy-ups',
+      'Electric meter socket, service mast, or weatherhead replacement',
+      'New 240V circuits: Level 2 EV chargers, hot tubs, heat pumps, electric ranges',
+      'Whole-home standby generators, Automatic Transfer Switches (ATS) & breaker interlocks',
+      'Inground or above-ground swimming pool pumps, heaters & NEC 680.26 bonding grids',
+      'Detached garage, shed, or workshop subpanels & underground PVC trenching',
+      'Whole-house or partial knob-and-tube / cloth-wire / aluminum branch rewiring'
+    ]
+  },
+  {
+    category: 'Typically Permit-Exempt Minor Maintenance (USBC 108.2)',
+    items: [
+      'One-for-one replacement of defective wall switches, dimmers, or 15A/20A receptacles on existing wiring',
+      'Replacing an existing light fixture or ceiling fan on an already listed, compliant outlet box without adding new branch wiring',
+      'Replacing a defective plug-on circuit breaker of identical amperage and listing inside an existing healthy panel',
+      'Diagnostic troubleshooting, thermal testing, and NEC safety/PICRA inspections'
+    ]
+  }
+];
+
+const permitFaqs = [
+  {
+    question: "Can a homeowner pull their own electrical permit or cut a Dominion Energy meter tag in Virginia?",
+    answer: "Never cut a Dominion Energy utility meter seal yourself—tampering with a live utility meter carries severe electrocution hazard (unfused 10,000+ amp utility transformer fault current) and automatic utility tampering penalties. When you hire Scott's Electric LLC, our Virginia Class A Master Electricians pull the contractor electrical permit and coordinate authorized Dominion Energy disconnects and white-card reconnects."
+  },
+  {
+    question: "What is a 'White Card' or Emergency Electrical Release with Dominion Energy?",
+    answer: "When a coastal storm pulls a meter mast off your house or a 200A panel upgrade is scheduled, Dominion Energy requires proof from the municipal building inspection division (often referred to as an electrical release or white-card inspection) confirming the meter socket, grounding, and main breaker meet NEC/USBC safety standards before locking in permanent utility service."
+  },
+  {
+    question: "What happens if previous unpermitted electrical work is discovered when selling a house in 757?",
+    answer: "Unpermitted panel swaps, DIY garage subpanels, or uninspected EV/hot-tub circuits frequently stall real-estate closings during REIN home inspections or void homeowners insurance fire claims. Our Master Electricians audit unpermitted installations, bring non-compliant wiring up to current Virginia USBC code, and obtain official municipal sign-off."
+  },
+  {
+    question: "Which version of the National Electrical Code (NEC) is enforced across Hampton Roads in 2026–2027?",
+    answer: "All 7 cities in Hampton Roads enforce the Virginia Uniform Statewide Building Code (USBC), which incorporates the adopted National Electrical Code (NEC 2020 transitioning into NEC 2023 provisions) uniformly across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk."
+  },
+  {
+    question: "How long does it take to get an electrical permit approved in Virginia Beach, Norfolk, or Chesapeake?",
+    answer: "For standard residential 200A panel upgrades, EV chargers, subpanels, and hot tub circuits, contractor electronic permit portals in Hampton Roads typically issue permits within 1 to 3 business days—and emergency storm/fire service repairs are dispatched immediately under emergency USBC provisions with next-business-day filing."
+  }
+];
+
+const guideHowTo = {
+  "@type": "HowTo",
+  "@id": `${fullUrl}#howto-dominion`,
+  "name": "How Same-Day Dominion Energy Disconnects & Municipal Inspections Work in 757",
+  "description": "Four-step coordination workflow used by Scott's Electric LLC for 200A panel upgrades and meter base replacements across Hampton Roads.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Electronic Municipal Permit Filing",
+      "text": "Scott's Electric submits load calculations and scope details to your city's permits & inspections portal (Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, or Suffolk)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Dominion Energy Work Request & Morning Cut",
+      "text": "We coordinate the Dominion Energy Virginia service order so overhead or underground utility conductors are safely de-energized on installation morning."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "NEC-Compliant Upgrade & Grounding",
+      "text": "Our Master Electricians install the new 200A/400A copper-busbar panel, meter socket, NEC 230.67 surge protector, and dual copper ground rods in 4–6 hours."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Municipal Release & Same-Day Power Restoration",
+      "text": "We complete city inspection verification / white-card release so household power is restored the same afternoon."
+    }
+  ]
+};
+
+const articleSchema = {
+  "@type": "TechArticle",
+  "@id": `${fullUrl}#techarticle`,
+  "headline": "757 Municipal Electrical Permits & Dominion Energy Disconnect/Reconnect Guide (2026–2027)",
+  "description": "Complete 7-city Hampton Roads electrical permitting directory, Virginia USBC permit requirements, and Dominion Energy same-day service reconnect workflow.",
+  "datePublished": "2026-01-15",
+  "dateModified": siteConfig.lastUpdated,
+  "author": { "@id": `${siteConfig.url}/#organization` },
+  "publisher": { "@id": `${siteConfig.url}/#organization` },
+  "mainEntityOfPage": fullUrl
+};
+---
+
+<Layout
+  title="757 Electrical Permits & Dominion Energy Disconnect Guide (All 7 Cities) | Scott's Electric"
+  description="Complete 2026–2027 guide to electrical permits across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth & Suffolk + Dominion Energy reconnect rules."
+  keywords="Virginia Beach electrical permit, Dominion Energy meter disconnect reconnect 757, Norfolk electrical inspection, Chesapeake electrical permit requirements, Virginia USBC NEC code"
+  ogImage={`${siteConfig.url}/assets/images/real/meters/img_5108.webp`}
+  breadcrumbs={breadcrumbs}
+  customSchema={[articleSchema, guideHowTo]}
+>
+  <section class="coastal-sand-surface py-14 lg:py-20 border-b border-coastal-navy/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl space-y-5">
+        <span class="font-mono text-[11px] font-bold text-teal-700 bg-teal-600/10 px-3.5 py-1.5 rounded-full border border-teal-600/20 uppercase tracking-widest inline-block">
+          VIRGINIA USBC &amp; DOMINION ENERGY PROTOCOL • ALL 7 CITIES OF 757
+        </span>
+        <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-coastal-navy leading-[1.06]">
+          757 Municipal Electrical Permits &amp;{' '}
+          <span class="font-editorial text-[1.12em] font-normal text-teal-700">
+            Dominion Energy Guide
+          </span>
+        </h1>
+        <p class="text-sm sm:text-lg text-coastal-slate leading-relaxed speakable">
+          Navigating city building safety portals and Dominion Energy meter disconnects shouldn't fall on the homeowner. Here is the authoritative 2026–2027 reference on when Virginia law requires an electrical permit, how each of the 7 Hampton Roads municipalities inspects work, and how Scott's Electric restores power the same day.
+        </p>
+        <div class="pt-2 flex flex-wrap gap-3.5">
+          <a href="tel:7575360478" class="cta-phone-beam bg-coastal-navy hover:bg-slate-800 text-white font-extrabold px-7 py-4 rounded-2xl text-sm shadow-coastal-elevated">
+            24/7 Master Electrician: (757) 536-0478
+          </a>
+          <a href="/guides/757-electrical-cost-guide/" class="bg-white border border-coastal-navy/20 hover:border-teal-700 text-coastal-navy font-bold px-6 py-4 rounded-2xl text-sm">
+            View 2026–2027 Cost Guide →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 coastal-ocean-surface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <AEODirectAnswer
+        question="Do panel upgrades, EV chargers, hot tubs, and generators require city permits in Hampton Roads?"
+        summary="Yes. Under the Virginia Uniform Statewide Building Code (USBC), all 7 cities in Hampton Roads require an electrical permit and municipal safety inspection whenever replacing a main breaker panel or meter base, installing a 240V EV charger, wiring a pool/hot tub, adding a detached subpanel, or installing a standby generator or breaker interlock. Scott's Electric LLC files all permits and coordinates Dominion Energy directly."
+        facts={[
+          { label: "Governing Code", value: "Virginia USBC + Adopted NEC", highlight: true },
+          { label: "Electric Utility", value: "Dominion Energy Virginia" },
+          { label: "Emergency Storm Repairs", value: "Immediate 24/7 Dispatch Allowed", highlight: true },
+          { label: "Contractor Credential", value: "VA Class A Master Electrician" },
+          { label: "Cities Covered", value: "All 7 Southside & Peninsula Cities" },
+          { label: "Direct Dispatch", value: "(757) 536-0478" }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
+    </div>
+  </section>
+
+  <!-- Permit Required vs Exempt + 7-City Municipal Table -->
+  <section class="py-16 coastal-dune-surface border-t border-coastal-navy/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {permitRules.map((box, idx) => (
+          <div class="sand-card p-6 sm:p-8 rounded-3xl space-y-4">
+            <span class={`font-mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md inline-block ${idx === 0 ? 'text-teal-700 bg-teal-600/10' : 'text-amber-700 bg-amber-500/15'}`}>
+              {idx === 0 ? 'PERMIT & INSPECTION MANDATORY' : 'ROUTINE REPAIR EXEMPTIONS'}
+            </span>
+            <h2 class="font-heading text-xl sm:text-2xl font-extrabold text-coastal-navy">
+              {box.category}
+            </h2>
+            <ul class="space-y-2.5 text-xs sm:text-sm text-coastal-slate">
+              {box.items.map((item) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="text-teal-700 font-extrabold mt-0.5">{idx === 0 ? '✓' : '•'}</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <!-- 7-City Permitting Authority Directory -->
+      <div class="space-y-5">
+        <h2 class="font-heading text-2xl sm:text-4xl font-extrabold text-coastal-navy">
+          757 Municipal Electrical Inspection Authorities
+        </h2>
+        <div class="overflow-x-auto rounded-3xl border border-coastal-navy/15 bg-white shadow-coastal-card">
+          <table class="w-full text-left border-collapse min-w-[720px]">
+            <thead>
+              <tr class="bg-coastal-navy text-white font-mono text-[11px] uppercase tracking-wider">
+                <th class="py-4 px-5">Municipality</th>
+                <th class="py-4 px-5">Permitting &amp; Inspection Division</th>
+                <th class="py-4 px-5">Primary ZIP Codes</th>
+                <th class="py-4 px-5">Local Electrician Hub</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-coastal-navy/10 text-xs sm:text-sm text-coastal-slate">
+              {siteConfig.serviceAreas.map((area) => (
+                <tr class="hover:bg-coastal-sand/60 transition-colors">
+                  <td class="py-4 px-5 font-bold text-coastal-navy whitespace-nowrap">
+                    {area.name}, VA
+                  </td>
+                  <td class="py-4 px-5">
+                    {area.permitOffice}
+                  </td>
+                  <td class="py-4 px-5 font-mono text-xs">
+                    {area.zipCodes.join(', ')}
+                  </td>
+                  <td class="py-4 px-5 whitespace-nowrap">
+                    <a href={area.slug} class="font-bold text-teal-700 hover:text-coastal-navy underline">
+                      {area.name} Dispatch →
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 4-Step Dominion Workflow -->
+      <div class="sand-card p-6 sm:p-10 rounded-3xl">
+        <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-coastal-navy mb-6">
+          How Same-Day Dominion Energy Disconnect &amp; Reconnect Works
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {guideHowTo.step.map((s) => (
+            <div class="border-l-2 border-teal-600 pl-4 space-y-2">
+              <span class="font-mono text-xs font-extrabold text-amber-600">STEP 0{s.position}</span>
+              <h3 class="font-heading text-base font-bold text-coastal-navy">{s.name}</h3>
+              <p class="text-xs text-coastal-slate leading-relaxed">{s.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <AEOFAQ faqs={permitFaqs} title="757 Electrical Permit & Dominion Energy FAQs" />
+</Layout>

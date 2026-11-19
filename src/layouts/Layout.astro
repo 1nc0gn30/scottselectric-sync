@@ -18,6 +18,7 @@ interface Props {
   breadcrumbs?: Array<{ name: string; url: string }>;
   customSchema?: any[];
   isServicePage?: boolean;
+  noindex?: boolean;
   serviceData?: {
     name: string;
     description: string;
@@ -26,17 +27,21 @@ interface Props {
   };
 }
 
+const rawPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const normalizedCanonical = `${siteConfig.url}${rawPath === '//' ? '/' : rawPath}`;
+
 const {
   title = "24/7 Emergency Electrician, 200A Panel Upgrades & EV Chargers in Virginia Beach, Norfolk & 757 | Scott's Electric",
   description = "Licensed Virginia Master Electrician serving all 7 cities of Hampton Roads (757). 24/7 Emergency Electrical Repair, 200A/400A Panel Upgrades, Level 2 EV Chargers, 3-Phase Commercial & Standby Generators. Call (757) 536-0478.",
   cityName = "Hampton Roads",
   serviceName = "24/7 Master Electrician Services",
-  canonicalUrl = Astro.url.href,
+  canonicalUrl = normalizedCanonical,
   ogImage = siteConfig.heroImage,
-  keywords = `24/7 emergency electrician ${cityName}, 200 amp panel upgrade ${cityName}, licensed master electrician 757, EV charger installation ${cityName}, standby generator installation Virginia Beach, commercial 3-phase electrician Norfolk, electrical repair Chesapeake, Scott's Electric`,
+  keywords = `24/7 emergency electrician ${cityName}, 200 amp panel upgrade ${cityName}, licensed master electrician 757, EV charger installation ${cityName}, standby generator installation Virginia Beach, commercial 3-phase electrician Norfolk, pool wiring Chesapeake, Scott's Electric`,
   breadcrumbs,
   customSchema,
   isServicePage = false,
+  noindex = false,
   serviceData
 } = Astro.props;
 
@@ -63,9 +68,11 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
 
   <!-- Canonical & Search/AI Bot Directives -->
   <link rel="canonical" href={canonicalUrl} />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+  <meta name="googlebot" content={noindex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
+  <meta name="bingbot" content={noindex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
+  <meta name="theme-color" content="#0A1929" />
+  <link rel="manifest" href="/manifest.json" />
 
   <!-- Geographic Meta Tags for Local & Maps Search (AEO / Local SEO) -->
   <meta name="geo.region" content={geoRegion} />
@@ -98,14 +105,16 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
 
   <meta name="format-detection" content="telephone=yes" />
 
-  <!-- AI Discovery Endpoints -->
+  <!-- AI Discovery & Sitemap Endpoints -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Agent Summary" />
   <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Exhaustive LLM Knowledge Graph" />
-  <link rel="alternate" type="text/html" href="/ax" title="Agent Experience (AX) Entity Cockpit" />
+  <link rel="alternate" type="text/html" href="/ax/" title="Agent Experience (AX) Entity Cockpit" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/assets/images/scotts_electric_logo_transparent.png" />
-  <link rel="apple-touch-icon" href="/assets/images/scotts_electric_logo_transparent.png" />
+  <!-- Favicons & Apple Touch Icon -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/logo192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   <!-- Schema.org Microdata & JSON-LD Knowledge Graph -->
   <SchemaMarkup
@@ -113,6 +122,8 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
     serviceName={serviceName}
     pageTitle={title}
     pageDescription={description}
+    canonicalUrl={canonicalUrl}
+    ogImage={ogImage}
     breadcrumbs={breadcrumbs}
     customSchema={customSchema}
     isServicePage={isServicePage}

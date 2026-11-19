@@ -1,0 +1,5 @@
+Contact: https://scottselectric.pro/contact/
+Contact: tel:+1-757-536-0478
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://scottselectric.pro/.well-known/security.txt
