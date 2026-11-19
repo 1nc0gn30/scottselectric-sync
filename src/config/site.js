@@ -16,7 +16,7 @@ export const siteConfig = {
   foundingDate: "2012",
   logo: "https://scottselectric.pro/assets/images/scotts_electric_logo.png",
   logoTransparent: "https://scottselectric.pro/assets/images/scotts_electric_logo_transparent.png",
-  heroImage: "https://scottselectric.pro/assets/images/real/scotts_electric_employee_in_action/img_2651.webp",
+  heroImage: "https://scottselectric.pro/assets/images/real/panels/img_4022.webp",
   priceRange: "$$",
   hours: [
     {

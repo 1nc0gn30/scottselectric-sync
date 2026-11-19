@@ -9,137 +9,105 @@ import { siteConfig } from '../../config/site.js';
 const breadcrumbs = [
   { name: "Home", url: siteConfig.url },
   { name: "Services", url: `${siteConfig.url}/services` },
-  { name: "Commercial Electrical", url: `${siteConfig.url}/services/commercial-electrical` }
+  { name: "3-Phase Commercial Electrical", url: `${siteConfig.url}/services/commercial-electrical` }
 ];
 
 const serviceData = {
-  name: "Commercial Electrical Contracting & 3-Phase Power",
-  description: "3-phase power distribution (120/208V & 277/480V), retail and office tenant buildouts, high-bay commercial LED lighting, and 24/7 emergency dispatch in Hampton Roads (757).",
+  name: "Commercial Electrical Contracting & 3-Phase Power Distribution",
+  description: "120/208V and 277/480V 3-phase Square D I-Line & NQ panelboards, multi-gang meter banks, parallel EMT conduit offsets, retail/office buildouts, and 24/7 commercial dispatch in 757.",
   url: `${siteConfig.url}/services/commercial-electrical`,
   priceRange: "$750 - $12,000+"
 };
 
 const commercialGalleryPhotos = [
-  {
-    src: '/assets/images/real/business_office_workspace_service/img_0806.webp',
-    alt: "Commercial Office Workspace Power and Lighting",
-    title: "Business & Office Electrical",
-    category: "Commercial",
-    desc: "Commercial workspace wiring and branch circuits."
-  },
-  {
-    src: '/assets/images/real/panels/img_5010.webp',
-    alt: "Electrical Subpanel Installation",
-    title: "Electrical Panels",
-    category: "Panels",
-    desc: "Circuit breaker subpanel and power distribution."
-  },
-  {
-    src: '/assets/images/real/ceiling_lights/img_3486.webp',
-    alt: "Recessed Ceiling Lighting Grid",
-    title: "Ceiling Lights",
-    category: "Lighting",
-    desc: "Recessed ceiling lights and fixture layout."
-  },
-  {
-    src: '/assets/images/real/meters/img_5108.webp',
-    alt: "Electric Meter Base and Service Entrance",
-    title: "Meters & Service Entrances",
-    category: "Service Entrance",
-    desc: "Electric meter base and utility service connection."
-  },
-  {
-    src: '/assets/images/real/switches/img_2677.webp',
-    alt: "Switches and Wall Controls",
-    title: "Switches & Controls",
-    category: "Switches",
-    desc: "Wall switches, dimmers, and control device wiring."
-  },
-  {
-    src: '/assets/images/real/work_van_and_tools/img_4519.webp',
-    alt: "Service Van and Tools",
-    title: "Service Vans & Tools",
-    category: "Equipment",
-    desc: "Equipped service vehicle with electrical tooling and testing gear."
-  }
+  { src: '/assets/images/real/panels/img_4533.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_4525.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_3246.webp', alt: '', title: '' },
+  { src: '/assets/images/real/meters/img_5108.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_4536.webp', alt: '', title: '' },
+  { src: '/assets/images/real/business_office_workspace_service/img_0806.webp', alt: '', title: '' }
 ];
 
 const faqs = [
   {
-    question: "What commercial electrical services does Scott's Electric provide in 757?",
-    answer: "We provide 3-phase power distribution, commercial LED retrofits, retail tenant buildouts, dedicated machinery wiring, emergency lighting compliance, and industrial motor controls throughout Virginia Beach, Norfolk, Chesapeake, and Newport News."
+    question: "What 3-phase commercial switchgear and distribution systems do you install in 757?",
+    answer: "We install and service Square D I-Line power distribution panelboards, QOB bolt-on NQ subpanels, Siemens B-series commercial cans, heavy-duty NEMA 3R fusible safety switches, parallel EMT/PVC risers, and multi-unit horizontal meter troughs."
   },
   {
-    question: "Do you offer 24/7 emergency dispatch for commercial facilities in Hampton Roads?",
-    answer: "Yes, we maintain priority on-call dispatch for commercial power outages, main distribution breaker trips, sparking panels, and code compliance violations."
+    question: "Do you provide 24/7 emergency dispatch for commercial facilities and multi-family properties?",
+    answer: "Yes. Call (757) 536-0478 any hour for commercial main breaker trips, lost phases, burnt meter jaws, emergency egress lighting repairs, and municipal code citations across all 7 cities."
   }
 ];
 ---
 
-<Layout 
-  title="Commercial Electrical Contractor 757 | 3-Phase Power & Wiring"
-  description="Licensed Commercial Master Electricians in Virginia Beach, Norfolk, Chesapeake & 757 area. 3-phase power, commercial lighting, safety audits & data cabling. Call (757) 536-0478."
-  serviceName="Commercial Electrical"
+<Layout
+  title="3-Phase Commercial Electrician, Meter Banks & Tenant Buildouts in 757 | Scott's Electric"
+  description="Licensed VA Class A Commercial Master Electricians in Virginia Beach, Norfolk, Chesapeake & 757. 3-phase Square D I-Line panels, EMT risers, meter banks & LED retrofits. Call (757) 536-0478."
+  serviceName="3-Phase Commercial Electrical Contracting"
   breadcrumbs={breadcrumbs}
   isServicePage={true}
   serviceData={serviceData}
 >
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
+  <section class="py-16 bg-gradient-to-b from-brand-surface to-brand-dark border-b border-slate-800/80 tech-grid-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            🏢 Commercial & Industrial Power
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <span class="font-mono text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 uppercase tracking-widest">
+            120/208V &amp; 277/480V 3-Phase • VA Class A Contractor
           </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            Commercial Electrical <br />
-            <span class="gold-gradient-text">Contracting Services</span>
+          <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+            3-Phase Commercial Electrical &amp; <span class="gold-gradient-text">Tenant Buildouts in 757</span>
           </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            From retail buildouts to office lighting retrofits, 3-phase electrical panel upgrades, access control systems, and priority commercial emergency dispatch in Hampton Roads.
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Square D I-Line main distribution boards, twin QOB bolt-on subpanels, parallel EMT conduit offsets, heavy-duty NEMA 3R fusible disconnects, 6-gang multi-family meter banks, and commercial LED/egress lighting across Hampton Roads.
           </p>
-          <div class="mt-8 flex gap-4">
-            <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Request Commercial Quote →
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="tel:7575360478" class="cta-phone-beam bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-gold-intense">
+              Commercial Dispatch: (757) 536-0478
+            </a>
+            <a href="#quote" class="border border-slate-700 hover:border-amber-400/60 bg-slate-900 text-slate-100 font-bold px-6 py-3.5 rounded-2xl text-sm">
+              Request Commercial Bid ↓
             </a>
           </div>
         </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/real/business_office_workspace_service/img_0806.webp" alt="Commercial Electrical Contracting in Hampton Roads" class="w-full h-auto object-cover" />
+        <div class="lg:col-span-5 bento-card rounded-3xl overflow-hidden vf-corners">
+          <img
+            src="/assets/images/real/panels/img_4537.webp"
+            alt="Twin Square D three-phase main-lug subpanels framed in wood studs with open dead-fronts, bottom PVC feeder conduits, and strapped MC cables"
+            class="w-full aspect-[4/4.3] object-cover object-[50%_46%]"
+          />
         </div>
       </div>
 
-      <!-- Commercial AEO Direct Answer Block -->
-      <AEODirectAnswer 
-        question="Who is the leading commercial electrical contractor in Hampton Roads?"
-        summary="Scott's Electric LLC provides licensed commercial electrical contracting including 3-phase (120/208V & 277/480V) power distribution, retail & office tenant buildouts, high-efficiency LED retrofits, and 24/7 priority emergency dispatch across all 7 cities of 757."
+      <AEODirectAnswer
+        question="Need a licensed VA Class A commercial electrical contractor in Hampton Roads (757)?"
+        summary="Scott's Electric LLC delivers 3-phase (120/208V & 277/480V) power distribution, Square D I-Line & NQ bolt-on panelboards, multi-position meter troughs, retail/office/hospitality tenant buildouts, MC-cable venue lighting, and 24/7 commercial emergency response across all 7 cities."
         facts={[
-          { label: "Commercial Response", value: "24/7 Priority (<45 mins)", highlight: true },
-          { label: "Power Systems", value: "3-Phase (208V / 480V) & Transformers" },
-          { label: "Tenant Buildouts", value: "Retail, Office, Restaurant, Industrial", highlight: true },
-          { label: "Price Range", value: "$750 - $12,000+" },
-          { label: "Licensure", value: "VA Class A Contractor" },
-          { label: "Commercial Dispatch", value: "(757) 536-0478" }
+          { label: "Commercial Priority", value: "24/7 Dispatch (<45 Min Avg)", highlight: true },
+          { label: "Switchgear", value: "Square D I-Line, NQ & Fusible" },
+          { label: "Multi-Family", value: "Multi-Gang Meter Banks & Risers", highlight: true },
+          { label: "Contractor Class", value: "VA Class A Master Electrician" },
+          { label: "Raceway Methods", value: "Parallel EMT, Schedule 40 PVC & MC" },
+          { label: "Direct Line", value: "(757) 536-0478" }
         ]}
         cityName="Hampton Roads (757)"
       />
     </div>
   </section>
 
-  <!-- Real Commercial Gallery -->
-  <JobsiteGallery 
-    title="Real Commercial Electrical Installations"
-    subtitle="Direct photos from Scott's Electric office workspace power distribution, 3-phase panels, and commercial LED grid installations in 757."
-    badge="Commercial Portfolio"
+  <JobsiteGallery
+    title="Verified 3-Phase Switchgear, EMT Offsets & Multi-Meter Banks"
+    subtitle="Real commercial field installations showing black/red/blue 3-phase conductors, Littelfuse NEMA 3R safety switches, parallel EMT risers, and 6-socket meter troughs."
+    badge="Commercial Field Proof"
     photos={commercialGalleryPhotos}
     columns="3"
   />
 
-  <section class="py-16 bg-brand-dark">
+  <section id="quote" class="py-16 bg-brand-dark border-t border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
 
-  <AEOFAQ faqs={faqs} title="Commercial Electrical FAQ & Answers" />
+  <AEOFAQ faqs={faqs} title="3-Phase Commercial Electrical FAQs (757)" />
 </Layout>

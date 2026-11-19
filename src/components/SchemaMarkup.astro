@@ -1,5 +1,6 @@
 ---
 import { siteConfig, getBusinessSchema, getWebSiteSchema, getWebPageSchema, getBreadcrumbSchema, getHowToQuoteSchema } from '../config/site.js';
+import { getImageGallerySchema } from '../config/verifiedMedia.js';
 
 interface Props {
   cityName?: string;
@@ -19,9 +20,9 @@ interface Props {
 
 const {
   cityName = "Hampton Roads",
-  serviceName = "Electrical Services",
-  pageTitle = `${serviceName} in ${cityName} | Scott's Electric (757)`,
-  pageDescription = `Top-rated Master Electrician serving ${cityName} and all 7 cities of Hampton Roads. 24/7 Emergency Electrical Repair, 200A Panel Upgrades, EV Chargers & Standby Generators.`,
+  serviceName = "24/7 Master Electrician & Panel Upgrades",
+  pageTitle = `${serviceName} in ${cityName}, VA (757) | Scott's Electric`,
+  pageDescription = `Licensed Virginia Master Electrician serving ${cityName} and all 7 cities of Hampton Roads (757). 24/7 Emergency Electrical Repair, 200A Panel Upgrades, EV Chargers & Standby Generators. Call (757) 536-0478.`,
   breadcrumbs = [{ name: "Home", url: siteConfig.url }],
   customSchema = [],
   isServicePage = false,
@@ -35,13 +36,37 @@ const websiteSchema = getWebSiteSchema();
 const webpageSchema = getWebPageSchema(currentUrl, pageTitle, pageDescription);
 const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
 const howToSchema = getHowToQuoteSchema();
+const imageGallerySchema = getImageGallerySchema(siteConfig.url);
+
+const webAppSchema = {
+  "@type": "WebApplication",
+  "@id": `${siteConfig.url}/#nec-estimator-app`,
+  "name": "757 Electrical Project & NEC Article 220 Panel Load Calculator",
+  "url": `${siteConfig.url}/#instant-calculator`,
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "description": "Free interactive NEC Article 220 residential dwelling load calculator and 757 electrical project budget estimator for 200A panel upgrades, Level 2 EV chargers, and standby generators.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "Neal Frazier Tech",
+    "url": "https://nullai.tech"
+  },
+  "provider": { "@id": `${siteConfig.url}/#organization` }
+};
 
 const graphItems: any[] = [
   businessSchema,
   websiteSchema,
   webpageSchema,
+  webAppSchema,
   breadcrumbSchema,
-  howToSchema
+  howToSchema,
+  imageGallerySchema
 ];
 
 if (isServicePage && serviceData) {

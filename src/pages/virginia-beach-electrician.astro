@@ -1,170 +1,61 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import AEOFAQ from '../components/AEOFAQ.astro';
-import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
-import JobsiteGallery from '../components/JobsiteGallery.astro';
-import AEODirectAnswer from '../components/AEODirectAnswer.astro';
-import { siteConfig } from '../config/site.js';
-
-const breadcrumbs = [
-  { name: "Home", url: siteConfig.url },
-  { name: "Virginia Beach Electrician", url: `${siteConfig.url}/virginia-beach-electrician` }
-];
-
-const vbPhotos = [
-  {
-    src: '/assets/images/real/panels/img_3246.webp',
-    alt: "Electrical Panel Installation",
-    title: "Electrical Panels",
-    category: "Panels",
-    desc: "Circuit breaker panel installation and clean wire management."
-  },
-  {
-    src: '/assets/images/real/outdoor_power/img_4370.webp',
-    alt: "Outdoor Power and Disconnect Switch",
-    title: "Outdoor Power & Disconnects",
-    category: "Outdoor Power",
-    desc: "Dedicated outdoor disconnect switch and conduit installation."
-  },
-  {
-    src: '/assets/images/real/chandeliers/img_5803.webp',
-    alt: "Chandelier and Lighting Installation",
-    title: "Chandeliers",
-    category: "Lighting",
-    desc: "High-ceiling chandelier hanging and fixture support."
-  },
-  {
-    src: '/assets/images/real/outdoor_outlets/img_5721.webp',
-    alt: "Outdoor Weatherproof Outlet",
-    title: "Outdoor Outlets",
-    category: "Outlets",
-    desc: "Weatherproof GFCI outlet with protective in-use cover."
-  }
-];
-
-const cityFaqs = [
-  {
-    question: "How fast can an electrician arrive for an emergency in Virginia Beach?",
-    answer: "Scott's Electric offers 24/7 emergency dispatch across Virginia Beach with average arrival times under 45 minutes to Oceanfront, Town Center, Great Neck, Kempsville, Chic's Beach, Red Mill, Sandbridge, and Lynnhaven."
-  },
-  {
-    question: "Do I need a city permit for an EV charger or panel upgrade in Virginia Beach?",
-    answer: "Yes, the City of Virginia Beach Department of Planning & Community Development requires an electrical permit for Level 2 EV charger installations and 200A panel upgrades. Scott's Electric handles all city permitting, filing, and municipal code inspection scheduling for you."
-  },
-  {
-    question: "Why are standby generator installations critical for Virginia Beach homes?",
-    answer: "Coastal Virginia Beach frequently experiences hurricane season power outages, Nor'easters, and storm surges. Whole-home standby generators provide automatic backup power within 10 seconds to keep HVAC heat pumps, refrigeration, sump pumps, and medical devices operational."
-  },
-  {
-    question: "Can Scott's Electric handle electrical rewiring for beachfront and coastal properties?",
-    answer: "Yes, we specialize in weatherproofing, marine-grade corrosion resistance, GFCI/AFCI compliance, and exterior architectural lighting designed to withstand salt air and coastal humidity in Sandbridge and Virginia Beach Oceanfront."
-  }
-];
+import CityLandingView from '../components/CityLandingView.astro';
 ---
 
-<Layout 
-  title="Electrician in Virginia Beach VA | 24/7 Emergency Repair & 200A Panel Upgrades"
-  description="Top-rated Master Electrician in Virginia Beach, VA. 24/7 emergency repairs, 200A panel upgrades, Level 2 Tesla EV chargers & whole-home standby generators. Call (757) 536-0478."
+<CityLandingView
   cityName="Virginia Beach"
-  serviceName="Virginia Beach Electrical Contractor"
-  breadcrumbs={breadcrumbs}
->
-  
-  <!-- City Hero Header -->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            📍 Virginia Beach, VA Electrical Services
-          </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            Top-Rated Master Electrician in <br />
-            <span class="gold-gradient-text">Virginia Beach, VA</span>
-          </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            From Oceanfront luxury homes to Sandbridge, Great Neck, Kempsville, Chic's Beach, and Pembroke Town Center—Scott's Electric provides 24/7 licensed Master Electrician solutions tailored to Virginia Beach homes and commercial properties.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Get Virginia Beach Estimate →
-            </a>
-            <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
-              📞 24/7 VB Dispatch: (757) 536-0478
-            </a>
-          </div>
-        </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/real/outdoor_lights/img_3559.webp" alt="Master Electrician in Virginia Beach, VA" class="w-full h-auto object-cover" />
-        </div>
-      </div>
-
-      <!-- Local AEO Direct Answer Block -->
-      <AEODirectAnswer 
-        question="Looking for a certified licensed electrician in Virginia Beach, VA?"
-        summary="Scott's Electric LLC provides 24/7 emergency electrical diagnostics, 200A/400A panel upgrades, Level 2 EV charging station installations, and Generac standby backup generators throughout Virginia Beach. All work is performed by licensed Virginia Master Electricians with full city permit handling."
-        facts={[
-          { label: "VB Response Time", value: "30-45 Minutes", highlight: true },
-          { label: "City Permits", value: "VB Dept. of Planning Filed" },
-          { label: "Utility Provider", value: "Dominion Energy Aligned", highlight: true },
-          { label: "License Status", value: "VA Class A Contractor" },
-          { label: "Emergency Line", value: "(757) 536-0478" },
-          { label: "ZIP Codes", value: "23451, 23452, 23454, 23455, 23456, 23462, 23464" }
-        ]}
-        cityName="Virginia Beach"
-      />
-    </div>
-  </section>
-
-  <!-- City Specific Services Grid -->
-  <section class="py-16 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-8">
-        Popular Electrical Services in Virginia Beach
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">⚡</div>
-          <h3 class="font-heading text-xl font-bold text-white">200A & 400A Panel Upgrades</h3>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            Upgrade aging breaker boxes to accommodate modern central air conditioning, hot tubs, and heavy appliances in VB coastal homes.
-          </p>
-        </div>
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">🚘</div>
-          <h3 class="font-heading text-xl font-bold text-white">Level 2 EV Charger Setup</h3>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            Dedicated garage circuits and weatherized exterior charging posts for Tesla, Ford Lightning, and all electric vehicles.
-          </p>
-        </div>
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">🔋</div>
-          <h3 class="font-heading text-xl font-bold text-white">Standby Generator Installs</h3>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            Hurricane and Nor'easter backup power solutions with automatic transfer switches for uninterrupted power.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Real Work Gallery -->
-  <JobsiteGallery 
-    title="Featured Jobsite Photos"
-    subtitle="Authentic electrical installations, panels, lighting, and power setups by Scott's Electric."
-    badge="Our Work"
-    photos={vbPhotos}
-    columns="4"
-  />
-
-  <!-- Quote Calculator -->
-  <section id="quote" class="py-16 bg-brand-card/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <!-- City AEO FAQ -->
-  <AEOFAQ faqs={cityFaqs} title="Virginia Beach Electrical FAQ & Direct Answers" cityName="Virginia Beach" />
-
-</Layout>
+  slug="/virginia-beach-electrician"
+  pageTitle="24/7 Emergency Electrician, 200A Panel Upgrades & EV Chargers in Virginia Beach, VA | Scott's Electric"
+  metaDescription="Licensed Master Electrician in Virginia Beach, VA. 24/7 emergency electrical repair, 200A/400A panel upgrades, Level 2 EV chargers & standby generators. Call (757) 536-0478."
+  eyebrow="Virginia Beach, VA • 24/7 Master Electrician Dispatch"
+  h1Lead="24/7 Emergency Electrician, 200A Panels & EV Chargers"
+  heroIntro="Serving Oceanfront, Town Center, Great Neck, Kempsville, Chic's Beach, Red Mill, Lynnhaven, and Sandbridge with licensed Virginia Master Electrician diagnostics, same-day 200A panel upgrades, coastal NEMA 3R disconnects, and standby backup generators."
+  heroPhotoSrc="/assets/images/real/outdoor_lights/img_3559.webp"
+  aeoQuestion="Need a licensed 24/7 emergency electrician in Virginia Beach, VA?"
+  aeoSummary="Scott's Electric LLC dispatches licensed Virginia Master Electricians (VA Class A Contractor) throughout Virginia Beach for 24/7 emergency electrical repairs, 200A/400A panel replacements, Level 2 EV charging circuits, NEC 680 pool subpanels, and standby generators—including City of Virginia Beach permitting and Dominion Energy coordination."
+  aeoFacts={[
+    { label: "VB Emergency Arrival", value: "30–45 Minutes Avg", highlight: true },
+    { label: "Municipal Permits", value: "VB Dept. of Planning Filed" },
+    { label: "Utility Coordination", value: "Dominion Energy Same-Day", highlight: true },
+    { label: "Contractor Class", value: "VA Class A Master" },
+    { label: "24/7 Direct Line", value: "(757) 536-0478" },
+    { label: "Virginia Beach ZIPs", value: "23451–23457, 23462, 23464" }
+  ]}
+  localScopes={[
+    {
+      code: "01 // SERVICE CAPACITY",
+      title: "200A & 400A Coastal Panel Upgrades",
+      desc: "Replace overloaded 100A panels, split-bus boxes, and salt-corroded exterior NEMA 3R load centers with solid-copper-busbar systems."
+    },
+    {
+      code: "02 // DEDICATED 240V",
+      title: "Level 2 EV & Pool Automation Circuits",
+      desc: "Hardwired 48A Tesla/NACS chargers and NEC Article 680 Hayward pool automation subpanels with Schedule 40 PVC & liquidtight whips."
+    },
+    {
+      code: "03 // STORM RESILIENCE",
+      title: "Hurricane Standby Generators & ATS",
+      desc: "Automatic transfer switches (ATS) and whole-home Generac/Kohler backup generators engineered for Oceanfront and Sandbridge outages."
+    }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_4022.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_power/img_4370.webp", alt: "", title: "" },
+    { src: "/assets/images/real/chandeliers/img_5803.webp", alt: "", title: "" },
+    { src: "/assets/images/real/outdoor_outlets/img_5884.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "How fast can an emergency electrician arrive in Virginia Beach?",
+      answer: "We maintain 24/7 Master Electrician dispatch across Oceanfront, Great Neck, Kempsville, Town Center, Chic's Beach, Red Mill, and Sandbridge with typical emergency arrival in 30 to 45 minutes. Call (757) 536-0478."
+    },
+    {
+      question: "Does a 200A panel upgrade or Level 2 EV charger require a Virginia Beach city permit?",
+      answer: "Yes. The City of Virginia Beach Department of Planning & Community Development requires electrical permits for panel replacements, subpanels, generators, and EV circuits. We handle all permit filings and municipal inspections."
+    },
+    {
+      question: "Do you install corrosion-resistant exterior disconnects and coastal lighting in Sandbridge & Oceanfront?",
+      answer: "Yes. We install NEMA 3R/4X weatherproof enclosures, extra-duty polycarbonate GFCI bubble covers, and dusk-to-dawn landscape/security lighting built for salt-air environments."
+    }
+  ]}
+/>

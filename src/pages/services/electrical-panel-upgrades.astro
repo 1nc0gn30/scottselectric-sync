@@ -9,145 +9,113 @@ import { siteConfig } from '../../config/site.js';
 const breadcrumbs = [
   { name: "Home", url: siteConfig.url },
   { name: "Services", url: `${siteConfig.url}/services` },
-  { name: "Electrical Panel Upgrades", url: `${siteConfig.url}/services/electrical-panel-upgrades` }
+  { name: "200A & 400A Panel Upgrades", url: `${siteConfig.url}/services/electrical-panel-upgrades` }
 ];
 
 const serviceData = {
   name: "200A & 400A Electrical Panel Upgrades",
-  description: "Complete replacement of obsolete 100A or hazardous Federal Pacific/Zinsco breaker boxes with modern 200A or 400A smart electrical panels in Hampton Roads (757).",
+  description: "Complete replacement of obsolete 100A, split-bus, or hazardous Federal Pacific/Zinsco breaker boxes with modern 200A or 400A solid-copper-busbar load centers across Hampton Roads (757).",
   url: `${siteConfig.url}/services/electrical-panel-upgrades`,
   priceRange: "$1,800 - $3,800"
 };
 
 const panelGalleryPhotos = [
-  {
-    src: '/assets/images/real/panels/img_0304.webp',
-    alt: "Electrical Panel Breaker Installation",
-    title: "Electrical Panels",
-    category: "Panels",
-    desc: "Circuit breaker load center and service panel wiring."
-  },
-  {
-    src: '/assets/images/real/panels/img_3369.webp',
-    alt: "Electrical Subpanel Installation",
-    title: "Electrical Subpanels",
-    category: "Panels",
-    desc: "Subpanel installation and circuit wiring."
-  },
-  {
-    src: '/assets/images/real/panels/img_1141.webp',
-    alt: "Circuit Breaker Wiring and Dressing",
-    title: "Circuit Breaker Wiring",
-    category: "Panels",
-    desc: "Breaker panel wiring and circuit dressing."
-  },
-  {
-    src: '/assets/images/real/meters/img_5108.webp',
-    alt: "Electric Meter Base and Service Entrance",
-    title: "Meters & Service Entrances",
-    category: "Service Entrance",
-    desc: "Electric meter base and utility service connection."
-  },
-  {
-    src: '/assets/images/real/panels/img_4251.webp',
-    alt: "Breaker Panel Installation",
-    title: "Breaker Panel Installation",
-    category: "Panels",
-    desc: "Panel installation with dedicated circuit runs."
-  },
-  {
-    src: '/assets/images/real/panels/img_3626.webp',
-    alt: "Main Service Electrical Panel",
-    title: "Main Service Panels",
-    category: "Panels",
-    desc: "Main service panel distribution and breaker installation."
-  }
+  { src: '/assets/images/real/panels/img_3626.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_4523.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_3805.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_3691.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_0283.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_3369.webp', alt: '', title: '' }
 ];
 
 const faqs = [
   {
     question: "When should I upgrade my electrical panel from 100A to 200A in Hampton Roads?",
-    answer: "If your breakers trip frequently, you plan to install a Level 2 EV charger, central heat pump, hot tub, induction range, or whole-home generator, upgrading to a 200-amp or 400-amp panel provides safe, code-compliant capacity."
+    answer: "If your breakers trip frequently, you have an older split-bus panel without a single main disconnect, or you plan to add a Level 2 EV charger, heat pump, hot tub, or standby generator, upgrading to a 200A or 400A panel provides safe NEC-compliant capacity."
   },
   {
     question: "How long does an electrical panel replacement take?",
-    answer: "A complete main electrical panel replacement takes between 4 to 8 hours. Scott's Electric coordinates directly with Dominion Energy for the disconnect/reconnect and handles city municipal inspection permits so power is restored on the same day."
+    answer: "A complete main electrical panel replacement takes 4 to 8 hours. Scott's Electric coordinates directly with Dominion Energy for the disconnect/reconnect and handles municipal inspection permits so power is restored the same day."
   },
   {
-    question: "Do you replace dangerous Federal Pacific (FPE) and Zinsco panels in 757?",
-    answer: "Yes. Federal Pacific Stab-Lok and Zinsco panels fail to trip during overcurrent events and represent severe fire risks. We replace them with UL-listed Siemens, Square D, or Eaton modern breaker panels."
+    question: "Do you replace hazardous Federal Pacific (FPE), Zinsco, and oversprayed split-bus panels?",
+    answer: "Yes. Defective FPE Stab-Lok, Zinsco, and aging split-bus load centers represent serious overcurrent and fire risks. We replace them with UL-listed Siemens, Square D, or Eaton solid-copper-busbar breaker panels."
   },
   {
     question: "How much does a 200 amp panel upgrade cost in Virginia Beach, Norfolk & Chesapeake?",
-    answer: "A standard 200A panel upgrade typically ranges from $1,800 to $3,800 depending on meter base condition, grounding electrode requirements, and utility service entrance cables."
+    answer: "A standard 200A panel upgrade typically ranges from $1,800 to $3,800 depending on exterior meter socket condition, grounding electrode requirements, and utility service entrance conductors."
   }
 ];
 ---
 
-<Layout 
-  title="200 Amp Electrical Panel Upgrade & Breaker Box Replacement 757"
-  description="Upgrade your electrical breaker box to 200A or 400A in Virginia Beach, Norfolk, Chesapeake & 757 area. Licensed Master Electricians, Dominion Energy coordination, full permits."
-  serviceName="Electrical Panel Upgrades"
+<Layout
+  title="200A & 400A Electrical Panel Upgrades & Breaker Box Replacement in 757 | Scott's Electric"
+  description="Same-day 200A & 400A electrical panel upgrades in Virginia Beach, Norfolk, Chesapeake & all 7 cities of 757. Solid copper busbars, Dominion Energy disconnect & permits. Call (757) 536-0478."
+  serviceName="200A & 400A Electrical Panel Upgrades"
   breadcrumbs={breadcrumbs}
   isServicePage={true}
   serviceData={serviceData}
 >
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
+  <section class="py-16 bg-gradient-to-b from-brand-surface to-brand-dark border-b border-slate-800/80 tech-grid-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            ⚡ Electrical Capacity & Safety
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <span class="font-mono text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 uppercase tracking-widest">
+            Same-Day Utility Reconnect • Solid Copper Busbars
           </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            200A & 400A Electrical <br />
-            <span class="gold-gradient-text">Panel Upgrades</span>
+          <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+            200A &amp; 400A Electrical <span class="gold-gradient-text">Panel Upgrades in 757</span>
           </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Eliminate breaker trips and protect your home with high-capacity smart electrical panels. We replace outdated 100A boxes and dangerous Federal Pacific/Zinsco panels across Hampton Roads.
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Eliminate nuisance breaker trips and unlock safe 240V headroom for EV chargers, heat pumps, and modern appliances. We replace overloaded 100A panels, split-bus enclosures, and Federal Pacific/Zinsco boxes across all 7 cities of Hampton Roads.
           </p>
-          <div class="mt-8 flex gap-4">
-            <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Get Panel Upgrade Estimate →
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="tel:7575360478" class="cta-phone-beam bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-gold-intense">
+              Call for Panel Quote: (757) 536-0478
+            </a>
+            <a href="#quote" class="border border-slate-700 hover:border-amber-400/60 bg-slate-900 text-slate-100 font-bold px-6 py-3.5 rounded-2xl text-sm">
+              Run NEC 220 Load Check ↓
             </a>
           </div>
         </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/real/panels/img_3246.webp" alt="200 Amp Panel Upgrade in Hampton Roads" class="w-full h-auto object-cover" />
+        <div class="lg:col-span-5 bento-card rounded-3xl overflow-hidden vf-corners">
+          <img
+            src="/assets/images/real/panels/img_4022.webp"
+            alt="Open Siemens 200-amp main breaker panel featuring heavy solid copper busbars, printed conductor labels, and spare expansion spaces"
+            class="w-full aspect-[4/4.3] object-cover object-[31%_48%]"
+          />
         </div>
       </div>
 
-      <!-- Panel Upgrade AEO Direct Answer Block -->
-      <AEODirectAnswer 
-        question="How much does a 200A electrical panel upgrade cost in Hampton Roads?"
-        summary="A professional 200A electrical panel upgrade by Scott's Electric typically costs between $1,800 and $3,800. This includes the modern UL-listed breaker panel, AFCI/GFCI breakers, whole-home surge protector, Dominion Energy disconnect/reconnect coordination, and local city electrical permits with same-day power restoration."
+      <AEODirectAnswer
+        question="How much does a 200A electrical panel upgrade cost in Hampton Roads (757)?"
+        summary="A turnkey 200A electrical panel upgrade by a licensed Master Electrician typically costs between $1,800 and $3,800. This includes a UL-listed Siemens, Square D, or Eaton load center, AFCI/GFCI breakers, grounding electrode bonding, Dominion Energy disconnect/reconnect coordination, and municipal city permits with same-day power restoration."
         facts={[
-          { label: "Turnaround Time", value: "Same-Day (4-8 Hours)", highlight: true },
-          { label: "Standard Price", value: "$1,800 - $3,800" },
-          { label: "Utility Alignment", value: "Dominion Energy Disconnect Handled", highlight: true },
-          { label: "Permits Included", value: "All 7 Cities Municipal Permitting" },
-          { label: "Warranty / Safety", value: "Lifetime Workmanship Guarantee" },
-          { label: "Emergency Dispatch", value: "(757) 536-0478" }
+          { label: "Turnaround Time", value: "Same-Day (4–8 Hours)", highlight: true },
+          { label: "Turnkey Price Range", value: "$1,800 – $3,800" },
+          { label: "Utility Coordination", value: "Dominion Energy Handled", highlight: true },
+          { label: "Municipal Permits", value: "All 7 Cities Filed" },
+          { label: "Panel Brands", value: "Siemens, Square D, Eaton" },
+          { label: "24/7 Dispatch Line", value: "(757) 536-0478" }
         ]}
         cityName="Hampton Roads (757)"
       />
     </div>
   </section>
 
-  <!-- Real Work Panel Gallery -->
-  <JobsiteGallery 
-    title="Real Electrical Panel Projects in 757"
-    subtitle="Direct photos from Scott's Electric panel replacements, subpanel installations, and clean wire raceways across Hampton Roads."
+  <JobsiteGallery
+    title="Verified 200A Panel & Meter Socket Installations"
+    subtitle="Real internal dead-front inspections showing solid copper busbars, insulated lug guards, AFCI arrays, exterior NEMA 3R panels, and pre-upgrade split-bus audits."
     badge="Panel Upgrade Portfolio"
     photos={panelGalleryPhotos}
     columns="3"
   />
 
-  <section class="py-16 bg-brand-dark">
+  <section id="quote" class="py-16 bg-brand-dark border-t border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
 
-  <AEOFAQ faqs={faqs} title="Panel Upgrade FAQ & Direct Answers" />
+  <AEOFAQ faqs={faqs} title="200A Electrical Panel Upgrade FAQs (757)" />
 </Layout>

@@ -1,160 +1,57 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import AEOFAQ from '../components/AEOFAQ.astro';
-import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
-import JobsiteGallery from '../components/JobsiteGallery.astro';
-import AEODirectAnswer from '../components/AEODirectAnswer.astro';
-import { siteConfig } from '../config/site.js';
-
-const breadcrumbs = [
-  { name: "Home", url: siteConfig.url },
-  { name: "Norfolk Electrician", url: `${siteConfig.url}/norfolk-electrician` }
-];
-
-const norfolkPhotos = [
-  {
-    src: '/assets/images/real/chandeliers/img_0805.webp',
-    alt: "Chandelier and Lighting Installation",
-    title: "Chandeliers",
-    category: "Lighting",
-    desc: "Custom chandelier and decorative lighting fixture mounting."
-  },
-  {
-    src: '/assets/images/real/business_office_workspace_service/img_0806.webp',
-    alt: "Commercial Office and Workspace Electrical Service",
-    title: "Business & Office Electrical",
-    category: "Commercial",
-    desc: "Workspace power drops, branch circuits, and commercial fixtures."
-  },
-  {
-    src: '/assets/images/real/wire_raceways_neat_and_oragnized_open_walls_no_sheetrock/img_0174.webp',
-    alt: "Neat and Organized Wire Raceways Open Walls",
-    title: "Wire Raceways & Rough-In",
-    category: "Rough-In",
-    desc: "Organized open-wall cable runs and code-compliant stapling."
-  },
-  {
-    src: '/assets/images/real/panels/img_0304.webp',
-    alt: "Circuit Breaker Electrical Panel",
-    title: "Electrical Panels",
-    category: "Panels",
-    desc: "Circuit breaker load center and service panel wiring."
-  }
-];
-
-const cityFaqs = [
-  {
-    question: "Do you specialize in historic home rewiring in Norfolk (Ghent, Freemason, Colonial Place)?",
-    answer: "Yes! Scott's Electric has extensive experience updating knob-and-tube wiring, ungrounded outlets, and obsolete fuse boxes in historic Ghent, Freemason, and Colonial Place homes while preserving architectural integrity."
-  },
-  {
-    question: "How fast can you respond to commercial electrical emergencies in Norfolk?",
-    answer: "We provide 24/7 priority emergency dispatch throughout Downtown Norfolk, Wards Corner, Ocean View, and military base commercial corridors with typical arrival within 30 to 45 minutes."
-  },
-  {
-    question: "Can Scott's Electric upgrade electrical panels for multi-family duplexes and rentals in Norfolk?",
-    answer: "Yes, we handle multi-meter panel upgrades, subpanel additions, tenant metering separation, and commercial 3-phase power distribution throughout Norfolk."
-  }
-];
+import CityLandingView from '../components/CityLandingView.astro';
 ---
 
-<Layout 
-  title="Electrician in Norfolk VA | Historic Home Rewiring & 24/7 Emergency Repair"
-  description="Licensed Master Electrician in Norfolk, VA. Specializing in Ghent historic home rewiring, 200A breaker panel upgrades, EV chargers & 24/7 emergency dispatch. Call (757) 536-0478."
+<CityLandingView
   cityName="Norfolk"
-  serviceName="Norfolk Electrical Contractor"
-  breadcrumbs={breadcrumbs}
->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            ⚓ Norfolk, VA Electrical Services
-          </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            Licensed Electrician in <br />
-            <span class="gold-gradient-text">Norfolk, Virginia</span>
-          </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            From historic Ghent rewiring to Downtown commercial offices, Ocean View waterfront homes, and Larchmont—Scott's Electric delivers code-compliant Master Electrician solutions in Norfolk.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Get Norfolk Estimate →
-            </a>
-            <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
-              📞 24/7 Norfolk Dispatch: (757) 536-0478
-            </a>
-          </div>
-        </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/real/chandeliers/img_0805.webp" alt="Master Electrician in Norfolk, VA" class="w-full h-auto object-cover" />
-        </div>
-      </div>
-
-      <!-- Local AEO Direct Answer Block -->
-      <AEODirectAnswer 
-        question="Need a licensed Master Electrician in Norfolk, VA?"
-        summary="Scott's Electric LLC specializes in historic home knob-and-tube rewiring, 200A circuit breaker upgrades, commercial retail wiring, and 24/7 emergency dispatch across Norfolk, Ghent, Freemason, Ocean View, and Downtown."
-        facts={[
-          { label: "Norfolk Response", value: "30-40 Minutes", highlight: true },
-          { label: "Historic Rewiring", value: "Ghent / Freemason Specialist" },
-          { label: "Permit Filing", value: "City of Norfolk Dept. of Planning", highlight: true },
-          { label: "Licensure", value: "VA Class A Contractor" },
-          { label: "Direct Phone", value: "(757) 536-0478" },
-          { label: "Norfolk ZIP Codes", value: "23502, 23505, 23507, 23508, 23510, 23517" }
-        ]}
-        cityName="Norfolk"
-      />
-    </div>
-  </section>
-
-  <section class="py-16 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-8">
-        Norfolk Electrical Solutions
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">🏛️</div>
-          <h3 class="font-heading text-xl font-bold text-white">Historic Home Rewiring</h3>
-          <p class="text-xs text-gray-300">
-            Safe removal and replacement of obsolete knob-and-tube or ungrounded wiring in historic Ghent residences.
-          </p>
-        </div>
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">🏢</div>
-          <h3 class="font-heading text-xl font-bold text-white">Commercial Electrical</h3>
-          <p class="text-xs text-gray-300">
-            Retail, office, and industrial lighting, data cabling, 3-phase power, and safety compliance audits.
-          </p>
-        </div>
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">🚨</div>
-          <h3 class="font-heading text-xl font-bold text-white">24/7 Emergency Dispatch</h3>
-          <p class="text-xs text-gray-300">
-            Immediate dispatch for burning odors, power surges, or complete breaker loss in Norfolk.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Real Work Gallery -->
-  <JobsiteGallery 
-    title="Featured Jobsite Photos"
-    subtitle="Real photos of panel replacements, commercial power, lighting, and cable management."
-    badge="Our Work"
-    photos={norfolkPhotos}
-    columns="4"
-  />
-
-  <section id="quote" class="py-16 bg-brand-card/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <AEOFAQ faqs={cityFaqs} title="Norfolk Electrical Guide & Direct FAQ" cityName="Norfolk" />
-</Layout>
+  slug="/norfolk-electrician"
+  pageTitle="24/7 Emergency Electrician, Historic Rewiring & 200A Panels in Norfolk, VA | Scott's Electric"
+  metaDescription="Licensed Master Electrician in Norfolk, VA serving Ghent, Downtown, Ocean View & Freemason. Historic rewiring, 200A panel upgrades, 3-phase commercial & 24/7 repair. Call (757) 536-0478."
+  eyebrow="Norfolk, VA • Residential, Historic & 3-Phase Commercial"
+  h1Lead="24/7 Emergency Electrician, Rewiring & 200A Panels"
+  heroIntro="Serving Ghent, Freemason, Colonial Place, Larchmont, Downtown Norfolk, Wards Corner, and Ocean View with code-compliant historic home rewiring, 200A panel upgrades, multi-family meter banks, and 3-phase commercial power."
+  heroPhotoSrc="/assets/images/real/meters/img_5108.webp"
+  aeoQuestion="Looking for a licensed Master Electrician for historic rewiring or commercial power in Norfolk, VA?"
+  aeoSummary="Scott's Electric LLC specializes in Ghent and Freemason historic home copper rewiring, 60A/100A to 200A main breaker upgrades, 6-gang multi-family meter banks, 3-phase commercial tenant buildouts, and 24/7 emergency troubleshooting across Norfolk."
+  aeoFacts={[
+    { label: "Norfolk Emergency ETA", value: "30–40 Minutes Avg", highlight: true },
+    { label: "Historic Homes", value: "Ghent & Freemason Rewiring" },
+    { label: "Permitting Authority", value: "City of Norfolk Planning Filed", highlight: true },
+    { label: "Multi-Family & 3-Phase", value: "Meter Banks & Square D I-Line" },
+    { label: "24/7 Dispatch Phone", value: "(757) 536-0478" },
+    { label: "Norfolk ZIP Codes", value: "23502–23510, 23513, 23517, 23518" }
+  ]}
+  localScopes={[
+    {
+      code: "01 // HISTORIC REMEDIATION",
+      title: "Ghent & Freemason Copper Rewiring",
+      desc: "Safe replacement of ungrounded 2-wire branch circuits, brittle cloth wiring, and fuse boxes with AFCI/GFCI-protected solid copper circuits."
+    },
+    {
+      code: "02 // MULTI-UNIT & COMMERCIAL",
+      title: "Multi-Gang Meter Banks & 3-Phase",
+      desc: "Horizontal multi-socket meter troughs, exterior GE/Square D disconnects, parallel EMT risers, and retail/office tenant buildouts."
+    },
+    {
+      code: "03 // RAPID TROUBLESHOOTING",
+      title: "24/7 Emergency Outage & Panel Repair",
+      desc: "Immediate Master Electrician response for lost phases, arcing breakers, water-damaged Ocean View meter sockets, and burning odors."
+    }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_3246.webp", alt: "", title: "" },
+    { src: "/assets/images/real/chandeliers/img_0805.webp", alt: "", title: "" },
+    { src: "/assets/images/real/wire_raceways_neat_and_oragnized_open_walls_no_sheetrock/img_0174.webp", alt: "", title: "" },
+    { src: "/assets/images/real/business_office_workspace_service/img_0806.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "Do you rewire older homes in Ghent, Freemason, and Colonial Place?",
+      answer: "Yes. We remediate ungrounded 2-wire receptacles, obsolete split-bus/fuse panels, and aging branch circuits while preserving historic plaster, trim, and ceiling medallions."
+    },
+    {
+      question: "Can you upgrade multi-meter duplexes and commercial storefronts in Norfolk?",
+      answer: "Yes. We install multi-position horizontal meter troughs, NEMA 3R exterior load centers, and 120/208V 3-phase Square D panelboards with full City of Norfolk permit sign-off."
+    }
+  ]}
+/>

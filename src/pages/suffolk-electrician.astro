@@ -1,160 +1,57 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import AEOFAQ from '../components/AEOFAQ.astro';
-import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
-import JobsiteGallery from '../components/JobsiteGallery.astro';
-import AEODirectAnswer from '../components/AEODirectAnswer.astro';
-import { siteConfig } from '../config/site.js';
-
-const breadcrumbs = [
-  { name: "Home", url: siteConfig.url },
-  { name: "Suffolk Electrician", url: `${siteConfig.url}/suffolk-electrician` }
-];
-
-const suffolkPhotos = [
-  {
-    src: '/assets/images/real/work_van_and_tools/img_4539.webp',
-    alt: "Service Van and Tools",
-    title: "Service Vans & Tools",
-    category: "Equipment",
-    desc: "Equipped service vehicle with electrical tooling and diagnostic gear."
-  },
-  {
-    src: '/assets/images/real/outdoor_power/img_4572.webp',
-    alt: "Outdoor Power & Disconnect Installation",
-    title: "Outdoor Power & Disconnects",
-    category: "Outdoor Power",
-    desc: "Exterior electrical disconnect and conduit feed."
-  },
-  {
-    src: '/assets/images/real/panels/img_5010.webp',
-    alt: "Electrical Subpanel Installation",
-    title: "Electrical Panels",
-    category: "Panels",
-    desc: "Circuit breaker subpanel and power distribution."
-  },
-  {
-    src: '/assets/images/real/under_house_raceway_stapled_wire_neat_and_organized/img_0348.webp',
-    alt: "Under-House Crawlspace Raceway Wiring",
-    title: "Under-House Crawlspace Wiring",
-    category: "Cable Management",
-    desc: "Neatly stapled and organized crawlspace cable runs."
-  }
-];
-
-const cityFaqs = [
-  {
-    question: "Which Suffolk areas does Scott's Electric cover?",
-    answer: "We provide residential, commercial, and agricultural electrical services across Harbour View, Downtown Suffolk, Chuckatuck, Driver, North Suffolk, Holland, and Whaleyville."
-  },
-  {
-    question: "Do you install electrical subpanels for workshops, barns, and detached garages in Suffolk?",
-    answer: "Yes, we install 60A to 125A subpanels, underground feeder conduits, heavy machinery 240V circuits, and dedicated welder outlets across Suffolk."
-  },
-  {
-    question: "Can Scott's Electric install a whole-property standby generator for large Suffolk acreage?",
-    answer: "Yes, we install high-capacity 22kW to 26kW+ automatic standby generators with dual automatic transfer switches to keep expansive Suffolk estates and rural properties powered continuously."
-  }
-];
+import CityLandingView from '../components/CityLandingView.astro';
 ---
 
-<Layout 
-  title="Electrician in Suffolk VA | 24/7 Standby Generator Installer & Subpanels"
-  description="Licensed Master Electrician in Suffolk, VA serving Harbour View & Downtown. Standby generators, workshop subpanels, Level 2 EV chargers & 24/7 emergency repair. Call (757) 536-0478."
+<CityLandingView
   cityName="Suffolk"
-  serviceName="Suffolk Electrical Contractor"
-  breadcrumbs={breadcrumbs}
->
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            🌾 Suffolk, VA Electrical Services
-          </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            Licensed Electrician in <br />
-            <span class="gold-gradient-text">Suffolk, Virginia</span>
-          </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Harbour View, Downtown Suffolk, Chuckatuck, Driver, and Whaleyville. Whole-home standby generators, workshop subpanel additions, EV chargers, and 24/7 emergency electrical service.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="#quote" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Get Suffolk Estimate →
-            </a>
-            <a href="tel:7575360478" class="border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-6 py-3 rounded-xl text-xs">
-              📞 24/7 Suffolk Line: (757) 536-0478
-            </a>
-          </div>
-        </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/real/work_van_and_tools/img_4539.webp" alt="Master Electrician in Suffolk, VA" class="w-full h-auto object-cover" />
-        </div>
-      </div>
-
-      <!-- Local AEO Direct Answer Block -->
-      <AEODirectAnswer 
-        question="Looking for a licensed Master Electrician in Suffolk, VA?"
-        summary="Scott's Electric delivers 24/7 emergency repair, workshop & barn subpanels, whole-property automatic standby generators (22kW-26kW+), and Level 2 EV charging across Harbour View, Downtown Suffolk, Driver, and Chuckatuck."
-        facts={[
-          { label: "Suffolk Dispatch", value: "35-45 Minutes", highlight: true },
-          { label: "Estate Generators", value: "Turnkey Automatic Backup" },
-          { label: "Permits Handled", value: "Suffolk Planning & Inspections", highlight: true },
-          { label: "Licensure", value: "VA Class A Contractor" },
-          { label: "Dispatch Phone", value: "(757) 536-0478" },
-          { label: "Suffolk ZIP Codes", value: "23434, 23435, 23436, 23437, 23438" }
-        ]}
-        cityName="Suffolk"
-      />
-    </div>
-  </section>
-
-  <section class="py-16 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-8">
-        Suffolk Electrical Solutions
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">🔋</div>
-          <h3 class="font-heading text-xl font-bold text-white">Standby Generators</h3>
-          <p class="text-xs text-gray-300">
-            Keep rural and suburban Suffolk estates powered during extreme weather and grid outages.
-          </p>
-        </div>
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">🛠️</div>
-          <h3 class="font-heading text-xl font-bold text-white">Workshop Subpanels</h3>
-          <p class="text-xs text-gray-300">
-            Dedicated power distribution for detached garages, barns, equipment shops, and power tools.
-          </p>
-        </div>
-        <div class="glass-panel p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="text-3xl">🚘</div>
-          <h3 class="font-heading text-xl font-bold text-white">Level 2 EV Chargers</h3>
-          <p class="text-xs text-gray-300">
-            Fast home charging station installations for Tesla, Ford Lightning, and all electric vehicles.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Real Work Gallery -->
-  <JobsiteGallery 
-    title="Featured Jobsite Photos"
-    subtitle="Real photos of electrical panels, outdoor power setups, crawlspace wiring, and service vehicles."
-    badge="Our Work"
-    photos={suffolkPhotos}
-    columns="4"
-  />
-
-  <section id="quote" class="py-16 bg-brand-card/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <InteractiveQuoteCalculator client:visible />
-    </div>
-  </section>
-
-  <AEOFAQ faqs={cityFaqs} title="Suffolk Electrical FAQ & Answers" cityName="Suffolk" />
-</Layout>
+  slug="/suffolk-electrician"
+  pageTitle="24/7 Emergency Electrician, Standby Generators & Workshop Subpanels in Suffolk, VA | Scott's Electric"
+  metaDescription="Licensed Master Electrician in Suffolk, VA serving Harbour View, North Suffolk, Driver & Downtown. 22kW–26kW standby generators, shop subpanels, EV chargers & 24/7 repair. Call (757) 536-0478."
+  eyebrow="Suffolk, VA • Harbour View, Driver, Chuckatuck & Downtown Suffolk"
+  h1Lead="24/7 Emergency Electrician, Generators & Subpanels"
+  heroIntro="Serving Harbour View, North Suffolk, Driver, Chuckatuck, Downtown Suffolk, and Holland with whole-estate 22kW–26kW standby generators, detached workshop & barn subpanels, underground PVC feeder trenching, and Level 2 EV charging stations."
+  heroPhotoSrc="/assets/images/real/panels/img_9203.webp"
+  aeoQuestion="Looking for a licensed Master Electrician for generators, subpanels, or 24/7 repair in Suffolk, VA?"
+  aeoSummary="Scott's Electric LLC delivers 24/7 emergency electrical repair, 60A–125A detached garage/barn subpanels, underground Schedule 40 PVC conduit feeders, 200A/400A service upgrades, and turnkey standby generators across Suffolk with full municipal permit coordination."
+  aeoFacts={[
+    { label: "Suffolk Emergency ETA", value: "35–45 Minutes Avg", highlight: true },
+    { label: "Detached Structures", value: "60A–125A Shop & Barn Subpanels" },
+    { label: "Municipal Permits", value: "Suffolk Inspections Filed", highlight: true },
+    { label: "Contractor Class", value: "VA Class A Master" },
+    { label: "24/7 Dispatch Line", value: "(757) 536-0478" },
+    { label: "Suffolk ZIP Codes", value: "23434, 23435, 23436, 23437, 23438" }
+  ]}
+  localScopes={[
+    {
+      code: "01 // ESTATE BACKUP POWER",
+      title: "22kW–26kW+ Standby Generators",
+      desc: "Natural gas and LP whole-property standby generators with service-rated automatic transfer switches to keep well pumps and HVAC running."
+    },
+    {
+      code: "02 // DETACHED BUILDINGS",
+      title: "Workshop, Barn & Garage Subpanels",
+      desc: "Underground PVC conduit trenching, isolated neutral/ground subpanels, ground rods, and 240V welder, compressor, and lift receptacles."
+    },
+    {
+      code: "03 // MODERN SUBURBAN LOADS",
+      title: "Harbour View EV & 200A Upgrades",
+      desc: "Dedicated 48A Tesla/Rivian Level 2 garage chargers, recessed architectural lighting, and 200A/400A panel expansions."
+    }
+  ]}
+  galleryPhotos={[
+    { src: "/assets/images/real/panels/img_4520.webp", alt: "", title: "" },
+    { src: "/assets/images/real/scotts_electric_employee_in_action/img_2651.webp", alt: "", title: "" },
+    { src: "/assets/images/real/under_house_raceway_stapled_wire_neat_and_organized/img_0348.webp", alt: "", title: "" },
+    { src: "/assets/images/real/work_van_and_tools/img_4539.webp", alt: "", title: "" }
+  ]}
+  faqs={[
+    {
+      question: "Do you trench underground conduit and install subpanels for detached workshops and barns in Suffolk?",
+      answer: "Yes. We trench underground Schedule 40/80 PVC feeders, drive dedicated grounding electrodes per NEC 250.32, and wire 60A to 125A+ subpanels for detached garages, shops, and agricultural buildings."
+    },
+    {
+      question: "Can a standby generator run my well pump and multi-zone heat pumps during rural Suffolk outages?",
+      answer: "Yes. Properly sized 22kW–26kW standby generators with smart HVAC load-shed modules keep deep-well pumps, septic pumps, refrigeration, and central HVAC running automatically."
+    }
+  ]}
+/>

@@ -20,45 +20,43 @@ const {
   summary,
   facts = [],
   cityName = "Hampton Roads",
-  serviceName = "Master Electrical Services",
-  ctaText = "Call (757) 536-0478 for 24/7 Dispatch",
+  ctaText = "Call 24/7 Dispatch: (757) 536-0478",
   ctaLink = "tel:7575360478"
 } = Astro.props;
 ---
 
-<div class="my-10 aeo-direct-answer bg-gradient-to-br from-brand-card/90 via-brand-dark/95 to-brand-card/80 rounded-3xl p-6 md:p-8 border-2 border-brand-gold/30 shadow-gold-glow relative overflow-hidden">
-  <!-- Accent Glow Corner -->
-  <div class="absolute -top-12 -right-12 w-36 h-36 bg-brand-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="my-10 aeo-direct-answer bento-card rounded-3xl p-6 md:p-8 relative overflow-hidden">
+  <div class="absolute -top-12 -right-12 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
   <div class="relative z-10">
     <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
-      <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-brand-gold bg-brand-gold/15 px-3.5 py-1.5 rounded-full border border-brand-gold/30">
-        <span class="inline-block w-2 h-2 rounded-full bg-brand-gold animate-ping"></span>
-        Direct Expert Answer • AI Verified
+      <span class="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/30">
+        <span class="inline-block w-2 h-2 rounded-full bg-amber-400"></span>
+        <span>Verified Technical Brief • {cityName}, VA</span>
       </span>
-      <span class="text-xs font-semibold text-gray-400">
-        📍 {cityName}, VA • 24/7 Available
+      <span class="font-mono text-[11px] font-semibold text-cyan-400">
+        24/7 Emergency Dispatch Active
       </span>
     </div>
 
     {question && (
-      <h3 class="font-heading text-lg md:text-xl font-bold text-white mb-3 speakable">
+      <h2 class="font-heading text-lg md:text-2xl font-extrabold text-white mb-3 speakable">
         {question}
-      </h3>
+      </h2>
     )}
 
-    <p class="text-sm md:text-base text-gray-200 leading-relaxed speakable font-medium">
+    <p class="text-sm md:text-base text-slate-200 leading-relaxed speakable">
       {summary}
     </p>
 
     {facts.length > 0 && (
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-6 border-t border-gray-800">
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-6 border-t border-slate-800/90">
         {facts.map(fact => (
-          <div class={`p-3.5 rounded-xl border ${fact.highlight ? 'bg-brand-gold/10 border-brand-gold/30 text-white' : 'bg-brand-dark/60 border-gray-800 text-gray-300'}`}>
-            <div class="text-[11px] font-bold uppercase tracking-wider text-brand-muted">
+          <div class={`p-3.5 rounded-xl border ${fact.highlight ? 'bg-amber-500/10 border-amber-500/30 text-white' : 'bg-slate-950/70 border-slate-800 text-slate-300'}`}>
+            <div class="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-400">
               {fact.label}
             </div>
-            <div class={`text-sm font-extrabold mt-0.5 ${fact.highlight ? 'text-brand-amber' : 'text-white'}`}>
+            <div class={`text-sm font-extrabold mt-0.5 ${fact.highlight ? 'text-amber-300' : 'text-white'}`}>
               {fact.value}
             </div>
           </div>
@@ -66,13 +64,13 @@ const {
       </div>
     )}
 
-    <div class="mt-6 pt-4 flex flex-wrap items-center justify-between gap-4">
-      <div class="text-xs text-gray-400">
-        ⚡ <strong>Licensed & Insured:</strong> Virginia Master Electrician & Class A Contractor
+    <div class="mt-6 pt-4 border-t border-slate-800/60 flex flex-wrap items-center justify-between gap-4">
+      <div class="text-xs text-slate-300">
+        <strong class="text-white">Credentials:</strong> Virginia Master Electrician — Licensed &amp; Insured VA Class A Contractor
       </div>
-      <a 
+      <a
         href={ctaLink}
-        class="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-gold-glow transition-all"
+        class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-gold-glow transition-colors"
       >
         <span>{ctaText}</span>
         <span>→</span>

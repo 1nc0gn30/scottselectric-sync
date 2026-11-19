@@ -3,36 +3,41 @@ interface Props {
   cityName: string;
   slug: string;
   description: string;
-  population?: string;
-  icon?: string;
+  zipSample?: string;
 }
 
-const { cityName, slug, description, population = "100k+", icon = "📍" } = Astro.props;
+const { cityName, slug, description, zipSample = "24/7 Local Dispatch" } = Astro.props;
 ---
 
-<a 
+<a
   href={slug}
-  class="group glass-panel p-6 rounded-2xl border border-gray-800 hover:border-brand-gold/50 transition-all duration-300 transform hover:-translate-y-1 shadow-card flex flex-col justify-between"
+  class="group bento-card p-6 rounded-3xl flex flex-col justify-between hover:-translate-y-1"
 >
   <div>
-    <div class="flex items-center justify-between mb-4">
-      <span class="text-2xl">{icon}</span>
-      <span class="text-[10px] font-bold tracking-widest text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full border border-brand-gold/20">
-        757 CITY HUB
+    <div class="flex items-center justify-between gap-2 mb-4">
+      <span class="inline-flex items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/25">
+        <svg class="w-3 h-3" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span>757 MUNICIPAL HUB</span>
       </span>
+      <span class="font-mono text-[10px] text-slate-400">{zipSample}</span>
     </div>
-    <h3 class="font-heading text-xl font-bold text-white group-hover:text-brand-amber transition-colors mb-2">
-      {cityName}, VA
+
+    <h3 class="font-heading text-xl font-extrabold text-white group-hover:text-amber-300 transition-colors mb-2">
+      Electrician in {cityName}, VA
     </h3>
-    <p class="text-xs text-gray-300 leading-relaxed mb-4">
+
+    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
       {description}
     </p>
   </div>
 
-  <div class="pt-4 border-t border-gray-800/80 flex items-center justify-between text-xs">
-    <span class="text-brand-cyan font-semibold">24/7 Local Dispatch</span>
-    <span class="text-brand-gold font-bold group-hover:translate-x-1 transition-transform">
-      Explore City Services →
+  <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+    <span class="font-mono text-[11px] text-cyan-400 font-semibold">(757) 536-0478</span>
+    <span class="text-amber-400 font-bold group-hover:translate-x-1 transition-transform">
+      {cityName} Scope →
     </span>
   </div>
 </a>

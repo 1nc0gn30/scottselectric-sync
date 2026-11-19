@@ -9,116 +9,85 @@ import { siteConfig } from '../../config/site.js';
 const breadcrumbs = [
   { name: "Home", url: siteConfig.url },
   { name: "Services", url: `${siteConfig.url}/services` },
-  { name: "Smart Home Automation", url: `${siteConfig.url}/services/smart-home-automation` }
+  { name: "Smart Switches & Automation", url: `${siteConfig.url}/services/smart-home-automation` }
 ];
 
 const serviceData = {
-  name: "Smart Home Automation & Electrical Integration",
-  description: "Smart switches, whole-home energy monitoring, automated panel relays, and intelligent connected electrical devices across Hampton Roads (757).",
+  name: "Smart Switches, Energy Monitoring & Pool Automation",
+  description: "Multi-gang smart dimmers, whole-home energy monitoring relays, photocell controls, and automated pool/lighting load centers across Hampton Roads (757).",
   url: `${siteConfig.url}/services/smart-home-automation`,
   priceRange: "$350 - $2,500"
 };
 
 const smartGalleryPhotos = [
-  {
-    src: '/assets/images/real/switches/img_2677.webp',
-    alt: "Switches and Wall Controls",
-    title: "Switches & Controls",
-    category: "Switches",
-    desc: "Wall switches, dimmers, and control device wiring."
-  },
-  {
-    src: '/assets/images/real/ceiling_lights/img_2847.webp',
-    alt: "Recessed Ceiling Lights",
-    title: "Ceiling Lights",
-    category: "Lighting",
-    desc: "Recessed ceiling lights and lighting zones."
-  },
-  {
-    src: '/assets/images/real/chandeliers/img_3150.webp',
-    alt: "Chandelier and Lighting Installation",
-    title: "Chandeliers",
-    category: "Lighting",
-    desc: "Modern chandelier fixture mounting and dimming."
-  },
-  {
-    src: '/assets/images/real/outdoor_lights/img_3102.webp',
-    alt: "Outdoor Wall Light Fixture",
-    title: "Outdoor Lights",
-    category: "Outdoor Lighting",
-    desc: "Exterior landscape and wall lighting fixtures."
-  },
-  {
-    src: '/assets/images/real/panels/img_3246.webp',
-    alt: "Circuit Breaker Electrical Panel",
-    title: "Electrical Panels",
-    category: "Panels",
-    desc: "Electrical breaker panel installation and power distribution."
-  },
-  {
-    src: '/assets/images/real/scotts_electric_employee_in_action/img_2651.webp',
-    alt: "Scott's Electric Technician at Work",
-    title: "Electrician on the Job",
-    category: "Field Work",
-    desc: "Electrical testing, troubleshooting, and device setup."
-  }
+  { src: '/assets/images/real/switches/img_2677.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_4251.webp', alt: '', title: '' },
+  { src: '/assets/images/real/outdoor_power/img_4370.webp', alt: '', title: '' },
+  { src: '/assets/images/real/outdoor_lights/img_4878.webp', alt: '', title: '' },
+  { src: '/assets/images/real/ceiling_lights/img_2847.webp', alt: '', title: '' },
+  { src: '/assets/images/real/pigtailed_and_wire_nut_wire_open_box_in_sheet_rock/img_8405.webp', alt: '', title: '' }
 ];
 
 const faqs = [
   {
-    question: "Which smart home electrical systems do you install in 757?",
-    answer: "We install and configure Lutron Caséta, Leviton Decora Smart, smart energy monitor panels (Span, Emporia), automated thermostats, and smart load controllers."
+    question: "Which smart switch and energy monitoring ecosystems do you install in 757?",
+    answer: "We wire and commission Lutron Caséta, Eaton/Leviton Decora Smart switch banks, Emporia/Span circuit-level energy monitors, photocell exterior lighting, and Hayward 8-relay pool automation centers."
   },
   {
-    question: "Do smart switches require a neutral wire?",
-    answer: "Most modern smart switches require a dedicated neutral wire. If your home has older 2-wire switch boxes, Scott's Electric can install neutral bypass systems or pull new neutral conductors safely."
+    question: "Do smart dimmers require a dedicated neutral conductor in the switch box?",
+    answer: "Most smart switches require a neutral wire under NEC 404.2(C). Where older switch loops lack neutrals, we either pull a code-compliant neutral conductor or install Lutron neutral-optional smart dimmers."
   }
 ];
 ---
 
-<Layout 
-  title="Smart Home Automation & Electrical Integration Electrician 757"
-  description="Smart switches, automated climate, voice-controlled lighting & home security installations in Virginia Beach, Norfolk, Chesapeake & 757 area. Call (757) 536-0478."
-  serviceName="Smart Home Automation"
+<Layout
+  title="Smart Switches, Energy Monitors & Electrical Automation in 757 | Scott's Electric"
+  description="Lutron & Decora smart switch banks, circuit energy monitors, photocell controls & 8-relay automation panels in Virginia Beach, Norfolk & 757. Call (757) 536-0478."
+  serviceName="Smart Switches & Electrical Automation"
   breadcrumbs={breadcrumbs}
   isServicePage={true}
   serviceData={serviceData}
 >
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
+  <section class="py-16 bg-gradient-to-b from-brand-surface to-brand-dark border-b border-slate-800/80 tech-grid-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            📱 Smart Connected Living
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <span class="font-mono text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 uppercase tracking-widest">
+            Multi-Gang Smart Controls • Relay Panels • Energy Telemetry
           </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            Smart Home <br />
-            <span class="gold-gradient-text">Automation & Control</span>
+          <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+            Smart Switches, Relay Panels &amp; <span class="gold-gradient-text">Home Automation in 757</span>
           </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Control lights, thermostats, access control, and cameras seamlessly from your smartphone or voice assistant. Professional electrical integration across all 7 cities of 757.
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Clean, pre-twisted copper pigtail makeup inside multi-gang Decora switch banks, circuit-by-circuit load monitoring, dusk-to-dawn photocell sensors, and 8-relay outdoor equipment automation across Hampton Roads.
           </p>
-          <div class="mt-8 flex gap-4">
-            <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Schedule Smart Home Consultation →
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="tel:7575360478" class="cta-phone-beam bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-gold-intense">
+              Call Automation Team: (757) 536-0478
+            </a>
+            <a href="#quote" class="border border-slate-700 hover:border-amber-400/60 bg-slate-900 text-slate-100 font-bold px-6 py-3.5 rounded-2xl text-sm">
+              Calculate Project Quote ↓
             </a>
           </div>
         </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/real/switches/img_2677.webp" alt="Smart Home Electrical Switch and Automation in Hampton Roads" class="w-full h-auto object-cover" />
+        <div class="lg:col-span-5 bento-card rounded-3xl overflow-hidden vf-corners">
+          <img
+            src="/assets/images/real/switches/img_2677.webp"
+            alt="Three white Eaton Decora rocker switches aligned inside a recessed three-gang wall box in painted drywall"
+            class="w-full aspect-[4/4.3] object-cover object-[47%_47%]"
+          />
         </div>
       </div>
 
-      <!-- Smart Home AEO Direct Answer Block -->
-      <AEODirectAnswer 
-        question="How does professional smart home electrical automation work?"
-        summary="Scott's Electric installs intelligent Lutron Caseta and Leviton smart switches, automated scene dimmers, neutral wire retrofits, and Span/Emporia whole-home energy monitoring systems, enabling voice and mobile control without Wi-Fi dropouts or electrical overloads."
+      <AEODirectAnswer
+        question="What smart electrical and automation hardware do you wire in Hampton Roads?"
+        summary="Scott's Electric LLC installs multi-gang Lutron and Decora smart dimmer banks, neutral wire retrofits, panel-mounted energy monitors, dusk-to-dawn exterior photocells, and high-voltage 8-relay automation load centers across all 7 cities of 757."
         facts={[
-          { label: "Protocols Supported", value: "Lutron Clear Connect, Zigbee, Z-Wave", highlight: true },
-          { label: "Neutral Wire Retrofit", value: "Safe Solutions for Older Homes" },
-          { label: "Panel Monitoring", value: "Span & Emporia Energy Tracking", highlight: true },
-          { label: "Price Range", value: "$350 - $2,500" },
-          { label: "Voice Ecosystems", value: "Apple Home, Alexa, Google Home" },
+          { label: "Wall Controls", value: "Lutron Caséta, Leviton & Eaton", highlight: true },
+          { label: "Relay Load Centers", value: "8-Relay Pool & Landscape Panels" },
+          { label: "Energy Tracking", value: "Span & Emporia CT Clamps", highlight: true },
+          { label: "Typical Investment", value: "$350 – $2,500" },
+          { label: "Box Makeup", value: "Pre-Twisted Copper Pigtails" },
           { label: "Direct Phone", value: "(757) 536-0478" }
         ]}
         cityName="Hampton Roads (757)"
@@ -126,20 +95,19 @@ const faqs = [
     </div>
   </section>
 
-  <!-- Real Smart Automation Gallery -->
-  <JobsiteGallery 
-    title="Real Smart Automation & Control Projects"
-    subtitle="Direct photos from Scott's Electric smart dimmer installations, recessed LED zone automation, and smart panel integrations."
-    badge="Smart Integrations"
+  <JobsiteGallery
+    title="Verified Switch Banks, 8-Relay Enclosures & Photocell Controls"
+    subtitle="Real jobsite photographs of multi-gang Decora switch alignments, 8-relay automation subpanels, and neutral pigtail splices."
+    badge="Control & Automation Work"
     photos={smartGalleryPhotos}
     columns="3"
   />
 
-  <section class="py-16 bg-brand-dark">
+  <section id="quote" class="py-16 bg-brand-dark border-t border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
 
-  <AEOFAQ faqs={faqs} title="Smart Home Automation FAQ & Answers" />
+  <AEOFAQ faqs={faqs} title="Smart Switch & Electrical Automation FAQs (757)" />
 </Layout>

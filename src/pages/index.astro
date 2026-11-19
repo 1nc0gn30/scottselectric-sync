@@ -1,334 +1,135 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HiggsfieldHeroStage from '../components/HiggsfieldHeroStage.jsx';
+import ParallaxMotionReel from '../components/ParallaxMotionReel.jsx';
+import MotionVaultGallery from '../components/MotionVaultGallery.jsx';
 import CityServiceCard from '../components/CityServiceCard.astro';
 import AEOFAQ from '../components/AEOFAQ.astro';
 import InteractiveQuoteCalculator from '../components/InteractiveQuoteCalculator.jsx';
-import JobsiteGallery from '../components/JobsiteGallery.astro';
 import AEODirectAnswer from '../components/AEODirectAnswer.astro';
 
 const cityList = [
   {
     name: 'Virginia Beach',
     slug: '/virginia-beach-electrician',
-    description: 'Premier residential & oceanfront electrical contractor. Panel upgrades, EV chargers, outdoor landscape lighting & beach home generators.',
-    icon: '🌊'
+    zipSample: '23451–23464',
+    description: '200A/400A panel upgrades, Level 2 EV charger circuits, coastal NEMA 3R disconnects, chandelier rigging & standby generators across Oceanfront, Great Neck, Kempsville & Sandbridge.'
   },
   {
     name: 'Norfolk',
     slug: '/norfolk-electrician',
-    description: 'Historic home wiring rewiring, commercial retail electrical, Ghent apartment upgrades, naval base area 24/7 emergency dispatch.',
-    icon: '⚓'
+    zipSample: '23502–23518',
+    description: 'Ghent & Freemason historic home rewiring, 3-phase commercial switchgear, multi-family meter banks, and 24/7 emergency troubleshooting across Norfolk & Ocean View.'
   },
   {
     name: 'Chesapeake',
     slug: '/chesapeake-electrician',
-    description: 'Greenbrier & Great Bridge suburban electrical specialists. Smart home automation, ceiling fans, hot tub wiring & panel replacements.',
-    icon: '🏡'
+    zipSample: '23320–23325',
+    description: 'NEC Article 680 swimming pool & hot tub subpanels, 200A breaker replacements, vaulted downrod ceiling fans, and EV charging across Greenbrier, Great Bridge & Hickory.'
   },
   {
     name: 'Newport News',
     slug: '/newport-news-electrician',
-    description: 'Peninsula residential & industrial electrical solutions. Whole home surge protection, main breaker replacement, subpanel installs.',
-    icon: '🏗️'
+    zipSample: '23601–23608',
+    description: 'Peninsula 200A service upgrades, utility meter sockets, whole-home surge protection, and commercial LED/power distribution across Oyster Point, Hilton Village & Denbigh.'
   },
   {
     name: 'Hampton',
     slug: '/hampton-electrician',
-    description: 'Phoebus & Buckroe Beach electrical repairs. Coastal weatherproofing, aluminum wire remediation, backup standby power setup.',
-    icon: '🏖️'
+    zipSample: '23661–23669',
+    description: 'Aluminum conductor remediation, coastal exterior weatherproofing, standby backup generator transfer switches, and 24/7 repairs across Phoebus, Buckroe Beach & Fox Hill.'
   },
   {
     name: 'Portsmouth',
     slug: '/portsmouth-electrician',
-    description: 'Olde Towne historic electrical upgrades, code compliance violations remediation, circuit breaker troubleshooting & outlets.',
-    icon: '⚙️'
+    zipSample: '23701–23707',
+    description: 'Olde Towne & Churchland fuse-box-to-200A breaker conversions, municipal code violation corrections, AFCI/GFCI upgrades, and rapid emergency power restoration.'
   },
   {
     name: 'Suffolk',
     slug: '/suffolk-electrician',
-    description: 'New construction electrical, rural estate standby generator systems, agricultural & commercial shop subpanels.',
-    icon: '🌾'
-  }
-];
-
-const featuredServices = [
-  {
-    title: 'Electrical Panel Upgrades',
-    desc: 'Upgrade outdated 100A panels to 200A or 400A smart breaker systems capable of supporting EV chargers, heat pumps, and modern appliances.',
-    img: '/assets/images/real/panels/img_3246.webp',
-    link: '/services/electrical-panel-upgrades',
-    tag: 'MOST POPULAR'
-  },
-  {
-    title: 'EV Charging Station Installation',
-    desc: 'Certified Level 2 home and commercial charging station installations for Tesla, Rivian, Ford, and all major EV models in 757.',
-    img: '/assets/images/real/outdoor_power/img_4370.webp',
-    link: '/services/ev-charger-installation',
-    tag: 'FAST INSTALL'
-  },
-  {
-    title: 'Whole-Home Standby Generators',
-    desc: 'Don’t get left in the dark during coastal storms. Automatic gas and propane backup generator installations with transfer switches.',
-    img: '/assets/images/real/outdoor_power/img_4572.webp',
-    link: '/services/whole-home-generators',
-    tag: 'STORM PREP'
-  },
-  {
-    title: 'Custom Recessed & Architectural Lighting',
-    desc: 'Transform your interior with high-efficiency dimmable LED recessed lights, custom chandeliers, under-cabinet lighting, and fixtures.',
-    img: '/assets/images/real/chandeliers/img_5803.webp',
-    link: '/services/custom-lighting-installation',
-    tag: 'INTERIOR DESIGN'
-  }
-];
-
-const realShowcasePhotos = [
-  {
-    src: '/assets/images/real/panels/img_3246.webp',
-    alt: "Electrical Panel Breaker Installation",
-    title: "Electrical Panels",
-    category: "Panels",
-    desc: "Circuit breaker load center and clean wire management."
-  },
-  {
-    src: '/assets/images/real/chandeliers/img_5803.webp',
-    alt: "Chandelier and Lighting Installation",
-    title: "Chandeliers",
-    category: "Lighting",
-    desc: "High-ceiling chandelier hanging and fixture support."
-  },
-  {
-    src: '/assets/images/real/scotts_electric_employee_in_action/img_2651.webp',
-    alt: "Scott's Electric Technician at Work",
-    title: "Electrician on the Job",
-    category: "Field Work",
-    desc: "Electrical troubleshooting, testing, and panel work."
-  },
-  {
-    src: '/assets/images/real/outdoor_power/img_4370.webp',
-    alt: "Outdoor Power and Disconnect Switch",
-    title: "Outdoor Power & Disconnects",
-    category: "Outdoor Power",
-    desc: "Dedicated outdoor disconnect switch and conduit installation."
-  },
-  {
-    src: '/assets/images/real/ceiling_fans/img_4926.webp',
-    alt: "Ceiling Fan Installation",
-    title: "Ceiling Fans",
-    category: "Fixtures",
-    desc: "Ceiling fan mounting, balancing, and wall control switches."
-  },
-  {
-    src: '/assets/images/real/wire_raceways_neat_and_oragnized_open_walls_no_sheetrock/img_0174.webp',
-    alt: "Neat and Organized Wire Raceways Open Walls",
-    title: "Wire Raceways & Rough-In",
-    category: "Rough-In",
-    desc: "Organized open-wall cable runs and code-compliant stapling."
+    zipSample: '23434–23438',
+    description: 'Detached workshop & barn subpanels, underground PVC feeder trenching, whole-estate 22kW–26kW standby generators, and EV circuits across Harbour View & North Suffolk.'
   }
 ];
 ---
 
-<Layout 
-  title="Electrician in Virginia Beach, Norfolk, Chesapeake & 757 | 24/7 Emergency Repair"
-  description="Need a licensed electrician in Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, or Suffolk? 24/7 emergency dispatch, 200A panel upgrades, EV chargers & generators."
+<Layout
+  title="24/7 Emergency Electrician, 200A Panel Upgrades & EV Chargers in Virginia Beach, Norfolk & 757 | Scott's Electric"
+  description="Licensed Master Electrician serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth & Suffolk. 24/7 emergency repair, 200A/400A panel upgrades, EV chargers, 3-phase commercial & standby generators. Call (757) 536-0478."
 >
-  
-  <!-- Hero Section -->
-  <section class="relative min-h-[90vh] flex items-center justify-center pt-8 pb-16 overflow-hidden">
-    <!-- Background Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/80 via-brand-dark/95 to-brand-dark z-10"></div>
-    
-    <!-- Background Hero Image -->
-    <img 
-      src="/assets/images/real/scotts_electric_employee_in_action/img_2651.webp" 
-      alt="Scott's Electric Master Electrician in Virginia Beach Hampton Roads" 
-      class="absolute inset-0 w-full h-full object-cover object-center opacity-30 filter brightness-90 z-0 scale-105 animate-glow"
-    />
+  <!-- 1. Higgsfield Motion-Edit Hero Stage (Keyword-First H1 + 3D Speed-Ramp Viewfinder + Direct Phone CTA) -->
+  <HiggsfieldHeroStage client:load />
 
-    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      
-      <!-- Enhanced Brand Logo Emblem Hero Showcase -->
-      <div class="inline-flex items-center gap-4 bg-brand-card/90 border border-brand-gold/40 px-6 py-3 rounded-full mb-6 shadow-gold-glow">
-        <img src="/assets/images/scotts_electric_logo_transparent.png" alt="Scott's Electric Logo" class="h-16 md:h-24 w-auto bg-transparent border-none p-0 m-0" />
-        <span class="text-xs md:text-sm font-extrabold text-brand-gold tracking-wide">
-          HAMPTON ROADS' PREMIER ELECTRICIAN • ALL 7 CITIES
-        </span>
-      </div>
-
-      <!-- Main Headline -->
-      <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight max-w-5xl mx-auto leading-tight">
-        Safe, Powerful & Reliable <br />
-        <span class="gold-gradient-text">Electrical Solutions</span> for 757
-      </h1>
-
-      <p class="mt-6 text-base sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-        From 24/7 emergency repair to 200A panel upgrades, EV chargers, and standby generators—Scott's Electric delivers licensed Master Electrician expertise to homes and businesses across <strong class="text-white">Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth & Suffolk</strong>.
-      </p>
-
-      <!-- Action Buttons -->
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a 
-          href="#instant-calculator" 
-          class="w-full sm:w-auto bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 hover:from-amber-400 hover:to-yellow-300 text-black font-extrabold px-8 py-4 rounded-2xl shadow-gold-glow text-base transition-all transform hover:scale-105"
-        >
-          ⚡ Get Instant Quote Estimate →
-        </a>
-        <a 
-          href="tel:7575360478" 
-          class="w-full sm:w-auto border-2 border-brand-gold/60 hover:border-brand-gold bg-brand-card/80 hover:bg-brand-card text-brand-amber font-extrabold px-8 py-4 rounded-2xl text-base transition-all flex items-center justify-center gap-2"
-        >
-          <span>📞 24/7 Dispatch: (757) 536-0478</span>
-        </a>
-      </div>
-
-      <!-- Trust Badges Bar -->
-      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-gray-800/80">
-        <div class="text-center p-3 rounded-xl glass-panel">
-          <div class="text-xl md:text-2xl font-extrabold text-brand-gold">Master</div>
-          <div class="text-[11px] text-gray-400 font-semibold uppercase">Licensed Electricians</div>
-        </div>
-        <div class="text-center p-3 rounded-xl glass-panel">
-          <div class="text-xl md:text-2xl font-extrabold text-brand-cyan">Class A</div>
-          <div class="text-[11px] text-gray-400 font-semibold uppercase">Licensed & Insured</div>
-        </div>
-        <div class="text-center p-3 rounded-xl glass-panel">
-          <div class="text-xl md:text-2xl font-extrabold text-brand-gold">24 / 7</div>
-          <div class="text-[11px] text-gray-400 font-semibold uppercase">Emergency Dispatch</div>
-        </div>
-        <div class="text-center p-3 rounded-xl glass-panel">
-          <div class="text-xl md:text-2xl font-extrabold text-brand-cyan">7 Cities</div>
-          <div class="text-[11px] text-gray-400 font-semibold uppercase">Hampton Roads Covered</div>
-        </div>
-      </div>
-
-      <!-- AEO Direct Answer / Executive Summary Box for AI & Search Snippets -->
-      <div class="mt-12 max-w-4xl mx-auto text-left">
-        <AEODirectAnswer 
-          question="Who is the licensed electrician serving all 7 cities of Hampton Roads?"
-          summary="Scott's Electric LLC is a licensed & insured Virginia Master Electrical Contractor providing 24/7 emergency repair, 200A/400A panel replacements, Level 2 EV charging stations, and whole-home standby generators across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk."
-          facts={[
-            { label: "Emergency Dispatch", value: "24/7 Response (<45 mins)", highlight: true },
-            { label: "Credentials", value: "VA Master Electrician / Class A" },
-            { label: "Pricing Model", value: "Upfront Fixed Quotes ($$)", highlight: true },
-            { label: "Service Area", value: "All 7 Cities of 757" },
-            { label: "Utility Alignment", value: "Dominion Energy Coordinated" },
-            { label: "Workmanship", value: "100% Code-Compliant & Insured" }
-          ]}
-          cityName="Hampton Roads (757)"
-        />
-      </div>
-
+  <!-- 2. High-Intent Technical Brief & AEO Direct Answer -->
+  <section class="py-6 bg-brand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <AEODirectAnswer
+        question="Need a licensed 24/7 emergency electrician or 200A panel upgrade in Hampton Roads (757)?"
+        summary="Scott's Electric LLC dispatches licensed & insured Virginia Master Electricians (VA Class A Contractor) across all 7 cities of 757 for 24/7 emergency diagnostics, same-day 200A/400A main breaker panel upgrades, dedicated 240V Level 2 EV chargers, 3-phase commercial switchgear, and automatic standby generators—including Dominion Energy disconnect coordination and municipal permits."
+        facts={[
+          { label: "24/7 Emergency Dispatch", value: "Call (757) 536-0478 (<45 Min Avg)", highlight: true },
+          { label: "200A Panel Upgrades", value: "$1,800 – $3,800 Same-Day Turnkey" },
+          { label: "Level 2 EV Chargers", value: "$650 – $1,500 (Tesla / NACS / J1772)", highlight: true },
+          { label: "Contractor Classification", value: "VA Master Electrician • Class A" },
+          { label: "Utility & Code Alignment", value: "Dominion Energy + All 7 City Permits" },
+          { label: "Commercial Capability", value: "120/208V & 277/480V 3-Phase" }
+        ]}
+        cityName="Hampton Roads (757)"
+      />
     </div>
   </section>
 
-  <!-- Featured Electrical Services Section -->
-  <section class="py-20 bg-brand-dark">
+  <!-- 3. Parallax Motion-Edit Scrollytelling Chapters + Interactive Before/After Panel Scrubbers -->
+  <ParallaxMotionReel client:visible />
+
+  <!-- 4. Complete 61-Photo Vision-Cataloged Jobsite Vault + Lightbox Inspector -->
+  <MotionVaultGallery client:visible />
+
+  <!-- 5. 7-City Hampton Roads Local SEO Coverage Grid -->
+  <section class="py-20 bg-brand-dark border-t border-slate-800/90">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-          Comprehensive Electrical Care
-        </span>
-        <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-white mt-3">
-          Our Primary Electrical Services
-        </h2>
-        <p class="text-sm md:text-base text-brand-muted mt-3">
-          Clean, code-compliant, precision electrical work engineered for safety and energy efficiency.
-        </p>
-      </div>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div class="max-w-3xl">
+          <span class="font-mono text-[11px] font-bold text-cyan-400 bg-cyan-500/10 px-3 py-1.5 rounded-full border border-cyan-500/25 uppercase tracking-widest">
+            757 Regional Dispatch • Southside &amp; Peninsula
+          </span>
+          <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
+            Licensed Master Electrician Serving <span class="gold-gradient-text">All 7 Cities of 757</span>
+          </h2>
+          <p class="text-sm sm:text-base text-slate-300 mt-2.5">
+            Select your municipality for local permitting information, neighborhood coverage, and 24/7 dispatch times.
+          </p>
+        </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {featuredServices.map(service => (
-          <div class="group bento-card rounded-3xl overflow-hidden shadow-card flex flex-col justify-between">
-            <div>
-              <div class="relative h-64 overflow-hidden">
-                <img 
-                  src={service.img} 
-                  alt={service.title} 
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span class="absolute top-4 right-4 bg-brand-dark/90 text-brand-gold text-[10px] font-extrabold px-3 py-1 rounded-full border border-brand-gold/40 backdrop-blur-md">
-                  {service.tag}
-                </span>
-              </div>
-              <div class="p-6 md:p-8">
-                <h3 class="font-heading text-2xl font-bold text-white group-hover:text-brand-amber transition-colors mb-3">
-                  {service.title}
-                </h3>
-                <p class="text-xs md:text-sm text-gray-300 leading-relaxed mb-6">
-                  {service.desc}
-                </p>
-              </div>
-            </div>
-            <div class="px-6 md:px-8 pb-6 pt-0">
-              <a 
-                href={service.link}
-                class="inline-flex items-center justify-between w-full bg-brand-cardHover hover:bg-brand-gold hover:text-black text-brand-gold font-bold px-5 py-3 rounded-xl text-xs transition-colors border border-gray-800"
-              >
-                <span>Learn More About {service.title}</span>
-                <span>→</span>
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div class="text-center mt-12">
-        <a href="/services" class="inline-block border border-brand-cyan/40 text-brand-cyan hover:bg-brand-cyan hover:text-black font-extrabold px-8 py-3.5 rounded-xl text-xs transition-all">
-          Browse All 18+ Electrical Services →
+        <a
+          href="tel:7575360478"
+          class="shrink-0 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow-gold-glow"
+        >
+          <span>24/7 Hotline: (757) 536-0478</span>
         </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Real Field Work & Craftsmanship Gallery Section -->
-  <JobsiteGallery 
-    title="Verified Jobsite Work in Hampton Roads"
-    subtitle="Authentic photos from Scott's Electric residential and commercial projects across Virginia Beach, Norfolk, Chesapeake, and the 757 Peninsula."
-    badge="Real Jobsite Photography"
-    photos={realShowcasePhotos}
-    columns="3"
-  />
-
-  <!-- 757 City Coverage Section -->
-  <section class="py-20 bg-brand-card/30 border-t border-brand-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold text-brand-cyan bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/20 uppercase tracking-widest">
-          Local SEO & Community Coverage
-        </span>
-        <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-white mt-3">
-          Serving All 7 Cities of Hampton Roads
-        </h2>
-        <p class="text-sm md:text-base text-brand-muted mt-3">
-          Fast, local dispatch across the 757 area. Click your city below for localized service details and emergency response times.
-        </p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {cityList.map(city => (
-          <CityServiceCard 
+          <CityServiceCard
             cityName={city.name}
             slug={city.slug}
             description={city.description}
-            icon={city.icon}
+            zipSample={city.zipSample}
           />
         ))}
       </div>
-
     </div>
   </section>
 
-  <!-- Interactive Quote Calculator Section -->
-  <section id="instant-calculator" class="py-20 bg-brand-dark">
+  <!-- 6. Interactive NEC Article 220 Load & Project Price Workbench -->
+  <section id="instant-calculator" class="py-20 bg-brand-surface border-t border-slate-800/90">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
 
-  <!-- AEO FAQ Section -->
+  <!-- 7. Answer-Engine Optimized FAQ & JSON-LD -->
   <AEOFAQ />
-
 </Layout>

@@ -26,20 +26,19 @@ interface Props {
 }
 
 const {
-  title = "Electrician in Virginia Beach, Norfolk, Chesapeake & 757 | 24/7 Electrical Repair",
-  description = "Top-rated Master Electrician serving all 7 cities of Hampton Roads (757). 24/7 Emergency Electrical Repair, 200A Panel Upgrades, EV Chargers & Standby Generators. Call (757) 536-0478.",
+  title = "24/7 Emergency Electrician, 200A Panel Upgrades & EV Chargers in Virginia Beach, Norfolk & 757 | Scott's Electric",
+  description = "Licensed Virginia Master Electrician serving all 7 cities of Hampton Roads (757). 24/7 Emergency Electrical Repair, 200A/400A Panel Upgrades, Level 2 EV Chargers, 3-Phase Commercial & Standby Generators. Call (757) 536-0478.",
   cityName = "Hampton Roads",
-  serviceName = "Electrical Services",
+  serviceName = "24/7 Master Electrician Services",
   canonicalUrl = Astro.url.href,
   ogImage = siteConfig.heroImage,
-  keywords = `electrician ${cityName}, 757 electrician, electrical repair ${cityName}, EV charger installation ${cityName}, generator installation Virginia Beach, electrical panel upgrade Norfolk, Scott's Electric, licensed master electrician Hampton Roads`,
+  keywords = `24/7 emergency electrician ${cityName}, 200 amp panel upgrade ${cityName}, licensed master electrician 757, EV charger installation ${cityName}, standby generator installation Virginia Beach, commercial 3-phase electrician Norfolk, electrical repair Chesapeake, Scott's Electric`,
   breadcrumbs,
   customSchema,
   isServicePage = false,
   serviceData
 } = Astro.props;
 
-// Compute Geo Meta for local search engines
 const currentArea = siteConfig.serviceAreas.find(a => a.name.toLowerCase() === cityName.toLowerCase());
 const geoLatitude = currentArea ? currentArea.geo.latitude : siteConfig.hqGeo.latitude;
 const geoLongitude = currentArea ? currentArea.geo.longitude : siteConfig.hqGeo.longitude;
@@ -56,7 +55,11 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
   <meta name="description" content={description} />
   <meta name="keywords" content={keywords} />
   <meta name="author" content="Scott's Electric LLC" />
-  
+
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <!-- Canonical & Search/AI Bot Directives -->
   <link rel="canonical" href={canonicalUrl} />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -69,16 +72,16 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
   <meta name="geo.position" content={`${geoLatitude};${geoLongitude}`} />
   <meta name="ICBM" content={`${geoLatitude}, ${geoLongitude}`} />
 
-  <!-- OpenGraph / Social Graph (FB, LinkedIn, WhatsApp, AI Snippets) -->
+  <!-- OpenGraph / Social Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImage} />
-  <meta property="og:image:alt" content={`${title} - Scott's Electric`} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content="Scott's Electric" />
+  <meta property="og:image:alt" content={title} />
+  <meta property="og:image:width" content="1440" />
+  <meta property="og:image:height" content="1920" />
+  <meta property="og:site_name" content="24/7 Electrician 757 — Scott's Electric" />
   <meta property="og:locale" content="en_US" />
   <meta property="business:contact_data:phone_number" content={siteConfig.phoneE164} />
   <meta property="business:contact_data:locality" content={geoPlacename} />
@@ -87,10 +90,12 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@1nc0gn30" />
+  <meta name="twitter:creator" content="@1nc0gn30" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
-  <meta name="twitter:image:alt" content={`${title} - Scott's Electric`} />
+  <meta name="twitter:image:alt" content={title} />
 
   <meta name="format-detection" content="telephone=yes" />
 
@@ -104,8 +109,8 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
   <link rel="apple-touch-icon" href="/assets/images/scotts_electric_logo_transparent.png" />
 
   <!-- Schema.org Microdata & JSON-LD Knowledge Graph -->
-  <SchemaMarkup 
-    cityName={cityName} 
+  <SchemaMarkup
+    cityName={cityName}
     serviceName={serviceName}
     pageTitle={title}
     pageDescription={description}
@@ -115,17 +120,7 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
     serviceData={serviceData}
   />
 </head>
-<body class="bg-brand-dark text-brand-text min-h-screen flex flex-col antialiased selection:bg-brand-gold selection:text-black relative">
-  <!-- Brand Watermark Overlay -->
-  <div class="fixed inset-0 pointer-events-none z-0 flex items-center justify-center opacity-10 overflow-hidden">
-    <img 
-      src="/assets/images/scotts_electric_watermark.png" 
-      alt="Scott's Electric Watermark" 
-      class="w-[650px] max-w-none filter blur-[1px] animate-pulse"
-      loading="lazy"
-    />
-  </div>
-
+<body class="bg-brand-dark text-brand-text min-h-screen flex flex-col antialiased selection:bg-amber-400 selection:text-slate-950 relative">
   <!-- Netlify Form Discovery Declaration -->
   <form name="quote-request" data-netlify="true" data-netlify-honeypot="bot-field" hidden aria-hidden="true">
     <input type="text" name="name" />
@@ -145,8 +140,8 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
     <input type="text" name="service" />
   </form>
 
-  <!-- Immediate On-Load Lead Popup Modal -->
-  <LeadPopup client:load />
+  <!-- User-Triggered Callback Modal (Never Auto-Interrupts On Load) -->
+  <LeadPopup client:idle />
 
   <!-- Accessibility Skip Link -->
   <a href="#main-content" class="skip-to-content">
@@ -157,29 +152,64 @@ const geoPlacename = cityName === "Hampton Roads" ? "Virginia Beach" : cityName;
   <Header />
 
   <!-- Main Content Body -->
-  <main id="main-content" class="flex-grow pt-24">
+  <main id="main-content" class="flex-grow pt-20">
     <slot />
   </main>
 
-  <!-- Sticky Emergency Dispatch Bar (Mobile & Desktop) -->
-  <div class="fixed bottom-4 right-4 z-50 flex items-center gap-2">
-    <a 
-      href="tel:7575360478" 
-      aria-label="Call Scott's Electric Emergency Dispatch 24/7"
-      class="flex items-center gap-3 bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-black font-extrabold px-5 py-3.5 rounded-full shadow-gold-glow transition-all transform hover:scale-105 group"
+  <!-- Sticky Phone-First 24/7 Emergency Dispatch Dock (Reveals Smoothly On Scroll Past Hero) -->
+  <div
+    id="floating-dispatch-dock"
+    class="fixed bottom-4 right-4 left-4 sm:left-auto z-40 flex items-center justify-end gap-2 pointer-events-none opacity-0 translate-y-4 transition-all duration-300"
+  >
+    <button
+      type="button"
+      id="sticky-callback-btn"
+      aria-label="Request a phone callback"
+      class="pointer-events-auto hidden sm:inline-flex items-center gap-2 bg-slate-950/95 hover:bg-slate-900 border border-slate-700 hover:border-amber-400/60 text-slate-200 font-bold text-xs px-4 py-3.5 rounded-full shadow-card backdrop-blur-md transition-colors"
     >
-      <span class="relative flex h-3 w-3">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-700"></span>
+      <span>Request Callback</span>
+    </button>
+
+    <a
+      href="tel:7575360478"
+      aria-label="Call 24/7 Emergency Electrician at (757) 536-0478"
+      class="pointer-events-auto cta-phone-beam w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 hover:from-amber-400 hover:to-yellow-300 text-slate-950 font-extrabold px-5 py-3.5 rounded-full shadow-gold-intense transition-transform hover:scale-[1.02]"
+    >
+      <span class="relative flex h-2.5 w-2.5 shrink-0">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-80"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-700"></span>
       </span>
-      <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-4 h-4 text-slate-950 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
       </svg>
-      <span class="tracking-tight text-sm md:text-base">24/7 Call: (757) 536-0478</span>
+      <span class="tracking-tight text-sm sm:text-base whitespace-nowrap">24/7 Dispatch: (757) 536-0478</span>
     </a>
   </div>
 
   <!-- Footer -->
   <Footer />
+
+  <script>
+    const cbBtn = document.getElementById('sticky-callback-btn');
+    const dock = document.getElementById('floating-dispatch-dock');
+    if (cbBtn) {
+      cbBtn.addEventListener('click', () => {
+        window.dispatchEvent(new CustomEvent('open-callback-modal'));
+      });
+    }
+    if (dock) {
+      const syncDock = () => {
+        if (window.scrollY > 300) {
+          dock.classList.remove('opacity-0', 'translate-y-4');
+          dock.classList.add('opacity-100', 'translate-y-0');
+        } else {
+          dock.classList.add('opacity-0', 'translate-y-4');
+          dock.classList.remove('opacity-100', 'translate-y-0');
+        }
+      };
+      syncDock();
+      window.addEventListener('scroll', syncDock, { passive: true });
+    }
+  </script>
 </body>
 </html>

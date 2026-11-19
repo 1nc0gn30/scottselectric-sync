@@ -5,52 +5,16 @@ import { siteConfig } from '../config/site.js';
 
 const breadcrumbs = [
   { name: "Home", url: siteConfig.url },
-  { name: "About", url: `${siteConfig.url}/about` }
+  { name: "Licensed Master Electricians", url: `${siteConfig.url}/about` }
 ];
 
 const craftsmanshipPhotos = [
-  {
-    src: '/assets/images/real/work_van_and_tools/img_4539.webp',
-    alt: "Service Van and Tools",
-    title: "Service Vans & Tools",
-    category: "Equipment",
-    desc: "Equipped service vehicle with electrical tooling and diagnostic gear."
-  },
-  {
-    src: '/assets/images/real/wire_raceways_neat_and_oragnized_open_walls_no_sheetrock/img_0174.webp',
-    alt: "Neat and Organized Wire Raceways Open Walls",
-    title: "Wire Raceways & Rough-In",
-    category: "Rough-In",
-    desc: "Organized open-wall cable runs and code-compliant stapling."
-  },
-  {
-    src: '/assets/images/real/twisted_insulated_copper_ready_for_wire_nut/img_4992.webp',
-    alt: "Twisted Insulated Solid Copper Wire Ready for Wire Nut",
-    title: "Twisted Insulated Copper Wire",
-    category: "Conductors",
-    desc: "Twisted solid copper conductors prepared for secure wire nut connection."
-  },
-  {
-    src: '/assets/images/real/pigtailed_and_wire_nut_wire_open_box_in_sheet_rock/img_8405.webp',
-    alt: "Pigtailed Wire Nut Open Box in Sheetrock",
-    title: "Pigtailed & Wire Nut Connections",
-    category: "Junction Boxes",
-    desc: "Conductor pigtailing and secure wire nut connections in open box."
-  },
-  {
-    src: '/assets/images/real/under_house_raceway_stapled_wire_neat_and_organized/img_0348.webp',
-    alt: "Under-House Crawlspace Raceway Wiring",
-    title: "Under-House Crawlspace Wiring",
-    category: "Cable Management",
-    desc: "Neatly stapled and organized crawlspace cable runs."
-  },
-  {
-    src: '/assets/images/real/scotts_electric_employee_in_action/img_2846.webp',
-    alt: "Scott's Electric Technician at Work",
-    title: "Electrician on the Job",
-    category: "Field Work",
-    desc: "Electrical troubleshooting, testing, and panel diagnostics."
-  }
+  { src: '/assets/images/real/work_van_and_tools/img_4539.webp', alt: '', title: '' },
+  { src: '/assets/images/real/wire_raceways_neat_and_oragnized_open_walls_no_sheetrock/img_0174.webp', alt: '', title: '' },
+  { src: '/assets/images/real/twisted_insulated_copper_ready_for_wire_nut/img_4992.webp', alt: '', title: '' },
+  { src: '/assets/images/real/pigtailed_and_wire_nut_wire_open_box_in_sheet_rock/img_8405.webp', alt: '', title: '' },
+  { src: '/assets/images/real/chandeliers/img_3150.webp', alt: '', title: '' },
+  { src: '/assets/images/real/scotts_electric_employee_in_action/img_2651.webp', alt: '', title: '' }
 ];
 
 const aboutSchema = {
@@ -60,8 +24,8 @@ const aboutSchema = {
       "@type": "AboutPage",
       "@id": `${siteConfig.url}/about#webpage`,
       "url": `${siteConfig.url}/about`,
-      "name": "About Scott's Electric | Master Electricians in Hampton Roads 757",
-      "description": "Learn about Scott's Electric, Hampton Roads' trusted Master Electrician serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk.",
+      "name": "Licensed Virginia Master Electricians & VA Class A Electrical Contractor in 757 | Scott's Electric",
+      "description": "Licensed & insured Virginia Master Electricians serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk since 2012.",
       "isPartOf": { "@id": `${siteConfig.url}/#website` },
       "about": { "@id": `${siteConfig.url}/#organization` }
     }
@@ -69,65 +33,75 @@ const aboutSchema = {
 };
 ---
 
-<Layout 
-  title="About Scott's Electric | Master Electricians in Hampton Roads 757"
-  description="Learn about Scott's Electric, Hampton Roads' trusted Master Electrician serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk. 24/7 emergency dispatch."
+<Layout
+  title="Licensed Virginia Master Electricians & Class A Contractor in 757 | Scott's Electric"
+  description="Licensed & insured Virginia Master Electricians serving Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth & Suffolk. Call 24/7: (757) 536-0478."
   breadcrumbs={breadcrumbs}
   customSchema={[aboutSchema]}
 >
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
+  <section class="py-16 bg-gradient-to-b from-brand-surface to-brand-dark border-b border-slate-800/80 tech-grid-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            Master Electricians Since Day One
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <span class="inline-block font-mono text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 uppercase tracking-widest">
+            VA Class A Electrical Contractor • Est. 2012
           </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            About <span class="gold-gradient-text">Scott's Electric</span>
+          <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+            Licensed Virginia Master Electricians Serving <span class="gold-gradient-text">All 7 Cities of 757</span>
           </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Founded on the pillars of safety, precision, and uncompromised craftsmanship, Scott's Electric is Coastal Virginia's leading electrical contracting team. We serve homeowners, business owners, and property managers throughout the 7 cities of 757.
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Every panel replacement, 240V EV feeder, 3-phase commercial distribution board, and crawlspace circuit run we complete is built to pass inspection the first time—and stay safe behind drywall for decades.
           </p>
-          <p class="mt-4 text-sm text-gray-400 leading-relaxed">
-            Whether installing a Level 2 EV charger in Virginia Beach, rewiring a historic Ghent home in Norfolk, or protecting a Suffolk farm estate with standby generator power, our certified Master Electricians handle every detail with code-compliant excellence.
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Scott's Electric LLC operates outfitted field vehicles across Virginia Beach, Norfolk, Chesapeake, Newport News, Hampton, Portsmouth, and Suffolk with direct 24/7 Master Electrician phone dispatch.
           </p>
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="tel:7575360478" class="cta-phone-beam bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-gold-intense">
+              Call (757) 536-0478 — 24/7 Dispatch
+            </a>
+            <a href="/contact" class="border border-slate-700 hover:border-amber-400/60 bg-slate-900 text-slate-200 font-bold px-6 py-3.5 rounded-2xl text-sm">
+              Online Quote Form →
+            </a>
+          </div>
         </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/real/scotts_electric_employee_in_action/img_2651.webp" alt="Scott's Electric Master Electrician working on electrical panel box in Hampton Roads" class="w-full h-auto object-cover" />
+
+        <!-- Real Outfitted Fleet & Crawlspace Video Split -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="bento-card rounded-3xl overflow-hidden vf-corners">
+            <img
+              src="/assets/images/real/work_van_and_tools/img_4519.webp"
+              alt="Open rear doors of an electrical contractor cargo van stocked with cordless power tools, fish tapes, wire spools, and roof ladders"
+              class="w-full aspect-[4/3] object-cover object-[50%_44%]"
+            />
+          </div>
+          <div class="bento-card rounded-2xl overflow-hidden grid grid-cols-12 items-center">
+            <div class="col-span-5 h-28 bg-slate-950">
+              <video
+                src="/assets/videos/crawlspace_raceway.mp4"
+                poster="/assets/images/real/under_house_raceway_stapled_wire_neat_and_organized/img_0348.webp"
+                autoplay
+                muted
+                loop
+                playsinline
+                class="w-full h-full object-cover"
+              ></video>
+            </div>
+            <div class="col-span-7 p-3.5">
+              <div class="font-mono text-[10px] font-bold uppercase text-cyan-400">LIVE CRAWLSPACE REEL</div>
+              <div class="text-xs font-bold text-white mt-0.5">Stapled 12-AWG NM-B Joist Runs</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Clean vapor-lined crawlspace routing.</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Craftsmanship Gallery -->
-  <JobsiteGallery 
-    title="Master Craftsmanship & Real Jobsite Standards"
-    subtitle="Take a look behind the walls at Scott's Electric's meticulous wiring, rough-in raceways, and vehicle tooling across Hampton Roads."
-    badge="Uncompromising Quality"
+  <JobsiteGallery
+    title="Behind-the-Walls Wiring, Trenching & Splice Standards"
+    subtitle="Real macro and rough-in photographs showing pre-twisted solid copper splices, open-stud boxes, sub-walkway conduit trenching, and staged THHN/Siemens gear."
+    badge="Verified Craftsmanship"
     photos={craftsmanshipPhotos}
     columns="3"
   />
-
-  <section class="py-20 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-heading text-3xl font-bold text-white mb-12">Our Core Commitments</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="glass-panel p-8 rounded-3xl border border-gray-800">
-          <div class="text-4xl mb-4">🛡️</div>
-          <h3 class="font-heading text-xl font-bold text-white mb-2">Uncompromising Safety</h3>
-          <p class="text-xs text-gray-300">All work strictly adheres to the National Electrical Code (NEC) and municipal permits in all 7 cities.</p>
-        </div>
-        <div class="glass-panel p-8 rounded-3xl border border-gray-800">
-          <div class="text-4xl mb-4">⏱️</div>
-          <h3 class="font-heading text-xl font-bold text-white mb-2">24/7 Rapid Response</h3>
-          <p class="text-xs text-gray-300">Electrical emergencies don't wait for business hours. Our dispatch team is ready 24 hours a day, 365 days a year.</p>
-        </div>
-        <div class="glass-panel p-8 rounded-3xl border border-gray-800">
-          <div class="text-4xl mb-4">💡</div>
-          <h3 class="font-heading text-xl font-bold text-white mb-2">Upfront Pricing</h3>
-          <p class="text-xs text-gray-300">No surprise fees or hidden costs. We provide clear, transparent estimate calculations before work begins.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 </Layout>

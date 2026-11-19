@@ -1,110 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap');
-
-html {
-  scroll-behavior: smooth;
-  background-color: #0A111E;
-  color: #F3F4F6;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }
 
-/* Accessibility Focus States */
-:focus-visible {
-  outline: 3px solid #F59E0B;
-  outline-offset: 3px;
-  border-radius: 4px;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #06080D;
+    color: #F8FAFC;
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #06080D;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(245, 158, 11, 0.08), transparent 40%),
+      radial-gradient(circle at 85% 12%, rgba(34, 211, 238, 0.06), transparent 38%);
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Syne', 'Space Grotesk', sans-serif;
+    letter-spacing: -0.025em;
+  }
 }
 
-/* Skip link for Accessibility */
-.skip-to-content {
-  position: absolute;
-  top: -100px;
-  left: 1rem;
-  background: #F59E0B;
-  color: #000;
-  font-weight: 700;
-  padding: 0.75rem 1.25rem;
-  z-index: 9999;
-  transition: top 0.2s ease-in-out;
-  border-radius: 0 0 8px 8px;
+/* Subtle 35mm Cinema Grain & Architectural Grid */
+.cinema-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 0);
+  background-size: 24px 24px;
 }
 
-.skip-to-content:focus {
-  top: 0;
+.tech-grid-bg {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #0A111E;
-}
-::-webkit-scrollbar-thumb {
-  background: #1E293B;
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #F59E0B;
+/* Glass & Bento Surfaces */
+.glass-nav {
+  background: rgba(6, 8, 13, 0.84);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.16);
 }
 
-/* Bento Glassmorphism Card Styling */
-.glass-panel, .bento-card {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.glass-panel {
+  background: linear-gradient(160deg, rgba(16, 22, 34, 0.88) 0%, rgba(9, 13, 22, 0.94) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.bento-card {
+  background: linear-gradient(155deg, rgba(18, 25, 40, 0.95) 0%, rgba(8, 12, 20, 0.98) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.16);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.45s ease;
 }
 
 .bento-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.25);
-  border-color: rgba(245, 158, 11, 0.4);
+  border-color: rgba(245, 158, 11, 0.52);
+  box-shadow: 0 24px 56px -14px rgba(0, 0, 0, 0.78), 0 0 28px rgba(245, 158, 11, 0.16);
 }
 
-.glass-nav {
-  background: rgba(10, 17, 30, 0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
+/* Metallic Copper / Safety Amber Headline Gradient */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #D97706 100%);
+  background: linear-gradient(135deg, #FEF08A 0%, #FBBF24 42%, #F59E0B 78%, #EA580C 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.cyan-gradient-text {
-  background: linear-gradient(135deg, #38BDF8 0%, #06B6D4 50%, #0284C7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.03);
+/* Conic Border Beam for Primary Phone CTA */
+@keyframes spinBeam {
+  to {
+    --beam-angle: 360deg;
   }
 }
 
-.animate-glow {
-  animation: pulseGlow 5s infinite ease-in-out;
+.cta-phone-beam {
+  position: relative;
+  isolation: isolate;
+}
+
+.cta-phone-beam::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(from var(--beam-angle), transparent 55%, #FDE047 78%, #F59E0B 92%, #22D3EE 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spinBeam 3.6s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Higgsfield Motion-Edit Camera Trajectories */
+@keyframes hfPushIn {
+  0% { transform: scale(1.01) translate3d(0, 0, 0); }
+  100% { transform: scale(1.15) translate3d(0, -1.5%, 0); }
+}
+
+@keyframes hfPullOut {
+  0% { transform: scale(1.16) translate3d(0, 1%, 0); }
+  100% { transform: scale(1.02) translate3d(0, 0, 0); }
+}
+
+@keyframes hfPanDown {
+  0% { transform: scale(1.14) translate3d(0, -4%, 0); }
+  100% { transform: scale(1.08) translate3d(0, 4%, 0); }
+}
+
+@keyframes hfTiltUp {
+  0% { transform: scale(1.14) translate3d(0, 4.5%, 0); }
+  100% { transform: scale(1.07) translate3d(0, -3.5%, 0); }
+}
+
+@keyframes hfDollyLeft {
+  0% { transform: scale(1.13) translate3d(3.5%, 0, 0); }
+  100% { transform: scale(1.06) translate3d(-3.5%, 0, 0); }
+}
+
+@keyframes hfDollyRight {
+  0% { transform: scale(1.13) translate3d(-3.5%, 0, 0); }
+  100% { transform: scale(1.06) translate3d(3.5%, 0, 0); }
+}
+
+@keyframes hfShutterFlash {
+  0% { opacity: 0.42; filter: brightness(1.65) contrast(1.18); }
+  100% { opacity: 0; filter: brightness(1) contrast(1); }
+}
+
+.hf-cam-push-in { animation: hfPushIn 6.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.hf-cam-pull-out { animation: hfPullOut 6.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.hf-cam-pan-down { animation: hfPanDown 6.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.hf-cam-tilt-up { animation: hfTiltUp 6.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.hf-cam-dolly-left { animation: hfDollyLeft 6.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.hf-cam-dolly-right { animation: hfDollyRight 6.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+.hf-shutter-flash {
+  animation: hfShutterFlash 340ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Viewfinder Corner Brackets */
+.vf-corners {
+  position: relative;
+}
+.vf-corners::before,
+.vf-corners::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  z-index: 20;
+}
+.vf-corners::before {
+  top: 12px;
+  left: 12px;
+  border-top: 1.5px solid rgba(251, 191, 36, 0.75);
+  border-left: 1.5px solid rgba(251, 191, 36, 0.75);
+}
+.vf-corners::after {
+  bottom: 12px;
+  right: 12px;
+  border-bottom: 1.5px solid rgba(251, 191, 36, 0.75);
+  border-right: 1.5px solid rgba(251, 191, 36, 0.75);
+}
+
+/* Accessibility Skip Link */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-to-content:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.25rem;
+  background: #F59E0B;
+  color: #000000;
+  font-weight: 800;
+  border-radius: 0.5rem;
+  z-index: 9999;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  html {
+    scroll-behavior: auto;
+  }
+  .hf-cam-push-in,
+  .hf-cam-pull-out,
+  .hf-cam-pan-down,
+  .hf-cam-tilt-up,
+  .hf-cam-dolly-left,
+  .hf-cam-dolly-right,
+  .hf-shutter-flash,
+  .cta-phone-beam::before {
+    animation: none !important;
+    transform: none !important;
   }
 }

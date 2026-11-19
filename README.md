@@ -1,71 +1,24 @@
-# Getting Started with Create React App
+# Scott's Electric — 757 Master Electrician Motion-Edit Web App (`scottselectric.pro`)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+High-converting, keyword-first local SEO & motion-edit web application for **Scott's Electric LLC** — Licensed & Insured Virginia Master Electrician (VA Class A Contractor) serving all 7 cities of Hampton Roads (`757`).
 
-## Available Scripts
+## What It Does
+- **Phone-First 24/7 Dispatch Architecture**: Routes urgent residential and commercial electrical inquiries directly to **`(757) 536-0478`** (`tel:7575360478`) alongside a streamlined Netlify-backed online quote intake (`quote-request` and `popup`).
+- **Higgsfield Motion-Edit & Parallax Scrollytelling**:
+  - **3D Speed-Ramp Viewfinder Hero (`HiggsfieldHeroStage.jsx`)**: Pointer-reactive 3D camera stage with tungsten shutter-flash cuts, focal-point Ken Burns trajectories, and real jobsite telemetry.
+  - **5-Chapter Depth Parallax Reel (`ParallaxMotionReel.jsx`)**: Scroll-velocity reactive marquee, multi-layer `translate3d` depth cards, live encapsulated crawlspace raceway video (`crawlspace_raceway.mp4`), and interactive Before/After & Rough-In-to-Interlock panel scrubbers.
+  - **61-Photo Vision-Verified Field Archive (`MotionVaultGallery.jsx`)**: Every jobsite photograph inspected and cataloged with zero-fluff Master Electrician equipment, busbar, conduit, and splice descriptions (`src/config/realPhotos.json`).
+- **Real Client-Side NEC Article 220.82 Load Calculator (`InteractiveQuoteCalculator.jsx`)**: Computes dwelling demand in Amps @ 240V and kVA from heated square footage and 240V appliances (`48A EV Charger`, `Heat Pump`, `Range`, `Dryer`, `Pool/Spa`) to determine whether an existing `100A` panel requires a `200A` upgrade.
+- **Keyword-First Local SEO, AEO & AX**:
+  - 7 dedicated municipal landing pages (`Virginia Beach`, `Norfolk`, `Chesapeake`, `Newport News`, `Hampton`, `Portsmouth`, `Suffolk`) + 6 technical service pages.
+  - Connected Schema.org `@graph` (`Electrician`, `WebSite`, `WebPage`, `WebApplication`, `Service`, `FAQPage`, `BreadcrumbList`, `HowTo`, `ImageGallery`), `/llms.txt`, `/llms-full.txt`, `/ax`, `robots.txt`, and `sitemap.xml`.
 
-In the project directory, you can run:
+## Tech Stack & Commands
+- **Framework**: Astro 5 + React 18 + Tailwind CSS + Lenis + Lucide Icons
+- **Install**: `npm install`
+- **Development**: `npm run dev`
+- **Production Build**: `npm run build`
+- **Preview Build**: `npm run preview`
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# scottselectric
+---
+Engineered by **Neal Frazier Tech (@1nc0gn30) • NullAI Platform** (`https://nullai.tech`).

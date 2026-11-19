@@ -9,141 +9,109 @@ import { siteConfig } from '../../config/site.js';
 const breadcrumbs = [
   { name: "Home", url: siteConfig.url },
   { name: "Services", url: `${siteConfig.url}/services` },
-  { name: "EV Charger Installation", url: `${siteConfig.url}/services/ev-charger-installation` }
+  { name: "Level 2 EV Charger Installation", url: `${siteConfig.url}/services/ev-charger-installation` }
 ];
 
 const serviceData = {
   name: "Level 2 EV Charging Station Installation",
-  description: "Certified Level 2 home & commercial EV charger installations for Tesla, Rivian, Ford, Chevy, and all electric vehicles across Hampton Roads (757).",
+  description: "Certified 240V Level 2 home & commercial EV charger circuit installations for Tesla Wall Connector, NACS, Rivian, Ford, and J1772 across Hampton Roads (757).",
   url: `${siteConfig.url}/services/ev-charger-installation`,
   priceRange: "$650 - $1,500"
 };
 
 const evGalleryPhotos = [
-  {
-    src: '/assets/images/real/outdoor_power/img_5869.webp',
-    alt: "Outdoor Disconnect Switch",
-    title: "Outdoor Power & Disconnects",
-    category: "Outdoor Power",
-    desc: "Outdoor disconnect box and conduit wiring."
-  },
-  {
-    src: '/assets/images/real/outdoor_outlets/img_5721.webp',
-    alt: "Outdoor Weatherproof Outlet",
-    title: "Outdoor Outlets",
-    category: "Outlets",
-    desc: "Weatherproof outlet with protective enclosure."
-  },
-  {
-    src: '/assets/images/real/panels/img_0304.webp',
-    alt: "Electrical Panel Breaker Installation",
-    title: "Electrical Panels",
-    category: "Panels",
-    desc: "Circuit breaker load center and dedicated circuit addition."
-  },
-  {
-    src: '/assets/images/real/wire_raceways_neat_and_oragnized_open_walls_no_sheetrock/img_0174.webp',
-    alt: "Neat and Organized Wire Raceways Open Walls",
-    title: "Wire Raceways & Rough-In",
-    category: "Rough-In",
-    desc: "Organized open-wall cable runs and code-compliant stapling."
-  },
-  {
-    src: '/assets/images/real/meters/img_5108.webp',
-    alt: "Electric Meter Base and Service Entrance",
-    title: "Meters & Service Entrances",
-    category: "Service Entrance",
-    desc: "Electric meter base and utility service connection."
-  },
-  {
-    src: '/assets/images/real/outdoor_power/img_4370.webp',
-    alt: "Outdoor Weatherproof Disconnect",
-    title: "Outdoor Power & Disconnects",
-    category: "Outdoor Power",
-    desc: "Dedicated exterior electrical disconnect switch."
-  }
+  { src: '/assets/images/real/panels/img_5010.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_4523.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_9203.webp', alt: '', title: '' },
+  { src: '/assets/images/real/outdoor_power/img_5869.webp', alt: '', title: '' },
+  { src: '/assets/images/real/outdoor_outlets/img_5884.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_0283.webp', alt: '', title: '' }
 ];
 
 const faqs = [
   {
-    question: "Which EV chargers can Scott's Electric install in 757?",
-    answer: "We install all Level 2 home charging units including Tesla Universal Wall Connector, Tesla Gen 3 Wall Connector, ChargePoint Home Flex, Emporia EV Charger, Grizzl-E, Rivian Wall Charger, and Ford Charge Station Pro."
+    question: "Which EV chargers can be installed on a dedicated 240V circuit in 757?",
+    answer: "We install hardwired and receptacle-fed Level 2 charging stations including Tesla Universal Wall Connector, Tesla Gen 3 Wall Connector, ChargePoint Home Flex, Emporia, Rivian Wall Charger, and Ford Charge Station Pro."
   },
   {
     question: "Do I need a 200 amp panel upgrade to install an EV charger?",
-    answer: "Not necessarily. If your current 100A or 150A panel has available capacity based on our NEC Article 220 load calculation, we can install a dedicated 40A or 50A breaker. If your panel is full, we can install a subpanel or upgrade to 200A."
+    answer: "Not always. If your existing 100A or 150A panel has available headroom under an NEC Article 220.82 load calculation, we can add a dedicated 40A–60A two-pole breaker. Use our NEC Load Calculator below or call (757) 536-0478 to verify."
   },
   {
-    question: "How much faster is Level 2 charging compared to a regular wall plug?",
-    answer: "Level 2 charging delivers 240V power at 32A-48A, adding 30 to 50 miles of range per hour (compared to only 3-5 miles per hour with a standard 120V Level 1 wall outlet)."
+    question: "How much faster is 240V Level 2 charging compared to a 120V wall outlet?",
+    answer: "A hardwired 48A Level 2 circuit (60A breaker) delivers 11.5 kW, adding 35 to 48 miles of range per hour—compared to 3 to 4 miles per hour on a 120V Level 1 plug."
   }
 ];
 ---
 
-<Layout 
-  title="Level 2 EV Charger Installation in Virginia Beach & 757 Area"
-  description="Licensed Level 2 EV Charger Installation for Tesla, Rivian, Ford, Chevy in Virginia Beach, Norfolk, Chesapeake & 757 area. Dedicated 240V circuits & full permits. Call (757) 536-0478."
-  serviceName="EV Charger Installation"
+<Layout
+  title="Level 2 EV Charger Installation (Tesla, NACS & 240V) in Virginia Beach & 757 | Scott's Electric"
+  description="Licensed Level 2 EV charger installation for Tesla, Rivian, Ford & J1772 across Virginia Beach, Norfolk, Chesapeake & 757. Dedicated 240V circuits & city permits. Call (757) 536-0478."
+  serviceName="Level 2 EV Charger Installation"
   breadcrumbs={breadcrumbs}
   isServicePage={true}
   serviceData={serviceData}
 >
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
+  <section class="py-16 bg-gradient-to-b from-brand-surface to-brand-dark border-b border-slate-800/80 tech-grid-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            🚘 Clean Electric Vehicle Power
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <span class="font-mono text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 uppercase tracking-widest">
+            Dedicated 40A–60A 240V Circuits • NEC Article 625 Compliant
           </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            Level 2 Home <br />
-            <span class="gold-gradient-text">EV Charger Installation</span>
+          <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+            Level 2 Home &amp; Commercial <span class="gold-gradient-text">EV Charger Installation in 757</span>
           </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Charge your electric vehicle up to 7x faster at home. Professional Level 2 charger installation, dedicated 240V circuit wiring, permit handling, and safety inspections across all 7 cities of 757.
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Charge up to 9x faster overnight with a dedicated 240V copper branch circuit, Schedule 40 PVC or EMT conduit routing, NEC Article 220 load verification, and full municipal permit handling across all 7 cities of Hampton Roads.
           </p>
-          <div class="mt-8 flex gap-4">
-            <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Book EV Charger Installation →
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="tel:7575360478" class="cta-phone-beam bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-gold-intense">
+              Book EV Circuit: (757) 536-0478
+            </a>
+            <a href="#quote" class="border border-slate-700 hover:border-amber-400/60 bg-slate-900 text-slate-100 font-bold px-6 py-3.5 rounded-2xl text-sm">
+              Check Panel Capacity ↓
             </a>
           </div>
         </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/real/outdoor_power/img_4370.webp" alt="Level 2 EV Charging Station Installation in Virginia Beach" class="w-full h-auto object-cover" />
+        <div class="lg:col-span-5 bento-card rounded-3xl overflow-hidden vf-corners">
+          <img
+            src="/assets/images/real/panels/img_5010.webp"
+            alt="Open NEMA 3R Square D Homeline 200-amp exterior main-breaker panel with dedicated 240-volt branch circuits"
+            class="w-full aspect-[4/4.3] object-cover object-[48%_50%]"
+          />
         </div>
       </div>
 
-      <!-- EV Charger AEO Direct Answer Block -->
-      <AEODirectAnswer 
-        question="How much does home Level 2 EV charger installation cost in Hampton Roads?"
-        summary="A standard Level 2 EV charger installation by Scott's Electric costs between $650 and $1,500. This includes installing a dedicated 240V circuit (40A-60A), heavy-gauge copper wiring, conduit run to your garage or driveway, NEMA 14-50 receptacle or hardwire connector, and municipal permit sign-off."
+      <AEODirectAnswer
+        question="How much does home Level 2 EV charger installation cost in Hampton Roads (757)?"
+        summary="A professional Level 2 EV charger circuit installation typically costs between $650 and $1,500 depending on run distance from your breaker panel to the garage or driveway. Installation includes NEC Article 220 load calculation, a 40A–60A two-pole breaker, heavy-gauge copper conductors, hardwire or industrial NEMA 14-50 termination, and city permit filing."
         facts={[
           { label: "Install Duration", value: "2 to 4 Hours", highlight: true },
-          { label: "Charging Speed", value: "30-50 Miles of Range / Hour" },
-          { label: "Models Supported", value: "Tesla, Rivian, Ford, Chevy, All EVs", highlight: true },
-          { label: "Price Range", value: "$650 - $1,500" },
-          { label: "City Permits", value: "Handled for All 7 Cities" },
-          { label: "Direct Booking", value: "(757) 536-0478" }
+          { label: "Charging Output", value: "35–48 Miles Range / Hour" },
+          { label: "Supported Standards", value: "Tesla NACS & Universal J1772", highlight: true },
+          { label: "Standard Price", value: "$650 – $1,500" },
+          { label: "Code Standard", value: "NEC Article 625 Continuous Duty" },
+          { label: "Direct Scheduling", value: "(757) 536-0478" }
         ]}
         cityName="Hampton Roads (757)"
       />
     </div>
   </section>
 
-  <!-- Real EV & Outdoor Power Gallery -->
-  <JobsiteGallery 
-    title="Real EV Charger & Dedicated 240V Installations"
-    subtitle="Direct photos from Scott's Electric residential EV charging setups, dedicated 240V outlets, and outdoor disconnect installations."
-    badge="EV Power Work"
+  <JobsiteGallery
+    title="Dedicated 240V Load Centers, Conduit Runs & Exterior Disconnects"
+    subtitle="Real field work showing 200A exterior panels, Schedule 40 PVC appliance conduit runs, NEMA 3R disconnects, and weatherproof receptacles."
+    badge="240V Power Infrastructure"
     photos={evGalleryPhotos}
     columns="3"
   />
 
-  <section class="py-16 bg-brand-dark">
+  <section id="quote" class="py-16 bg-brand-dark border-t border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
 
-  <AEOFAQ faqs={faqs} title="EV Charger Installation FAQ & Direct Answers" />
+  <AEOFAQ faqs={faqs} title="Level 2 EV Charger Installation FAQs (757)" />
 </Layout>

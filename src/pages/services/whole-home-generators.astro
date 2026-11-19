@@ -9,141 +9,109 @@ import { siteConfig } from '../../config/site.js';
 const breadcrumbs = [
   { name: "Home", url: siteConfig.url },
   { name: "Services", url: `${siteConfig.url}/services` },
-  { name: "Whole Home Generators", url: `${siteConfig.url}/services/whole-home-generators` }
+  { name: "Whole-Home Standby Generators", url: `${siteConfig.url}/services/whole-home-generators` }
 ];
 
 const serviceData = {
-  name: "Whole-Home Standby Generator Installation",
-  description: "Automatic natural gas and propane standby backup generator installation with automatic transfer switch (ATS) for storm resilience across Hampton Roads (757).",
+  name: "Whole-Home Standby Generator & Interlock Installation",
+  description: "Automatic natural gas and propane standby backup generator installation with automatic transfer switches (ATS) and mechanical panel interlocks across Hampton Roads (757).",
   url: `${siteConfig.url}/services/whole-home-generators`,
   priceRange: "$5,500 - $14,000"
 };
 
 const generatorGalleryPhotos = [
-  {
-    src: '/assets/images/real/outdoor_power/img_5869.webp',
-    alt: "Outdoor Disconnect Switch",
-    title: "Outdoor Power & Disconnects",
-    category: "Outdoor Power",
-    desc: "Outdoor disconnect box and conduit wiring."
-  },
-  {
-    src: '/assets/images/real/meters/img_5108.webp',
-    alt: "Electric Meter Base and Service Entrance",
-    title: "Meters & Service Entrances",
-    category: "Service Entrance",
-    desc: "Electric meter base and utility service connection."
-  },
-  {
-    src: '/assets/images/real/panels/img_3369.webp',
-    alt: "Electrical Subpanel Installation",
-    title: "Electrical Subpanels",
-    category: "Panels",
-    desc: "Subpanel installation and circuit wiring."
-  },
-  {
-    src: '/assets/images/real/outdoor_power/img_4572.webp',
-    alt: "Outdoor Power & Disconnect Installation",
-    title: "Outdoor Power & Disconnects",
-    category: "Outdoor Power",
-    desc: "Exterior electrical disconnect and conduit feed."
-  },
-  {
-    src: '/assets/images/real/panels/img_4251.webp',
-    alt: "Electrical Panel Breaker Installation",
-    title: "Electrical Panels",
-    category: "Panels",
-    desc: "Panel installation with dedicated circuit runs."
-  },
-  {
-    src: '/assets/images/real/work_van_and_tools/img_4539.webp',
-    alt: "Service Van and Tools",
-    title: "Service Vans & Tools",
-    category: "Equipment",
-    desc: "Equipped service vehicle with electrical tooling and diagnostic gear."
-  }
+  { src: '/assets/images/real/panels/img_3691.webp', alt: '', title: '' },
+  { src: '/assets/images/real/panels/img_3805.webp', alt: '', title: '' },
+  { src: '/assets/images/real/outdoor_power/img_4572.webp', alt: '', title: '' },
+  { src: '/assets/images/real/outdoor_power/img_5869.webp', alt: '', title: '' },
+  { src: '/assets/images/real/meters/img_5108.webp', alt: '', title: '' },
+  { src: '/assets/images/real/work_van_and_tools/img_4539.webp', alt: '', title: '' }
 ];
 
 const faqs = [
   {
-    question: "How quickly does a whole-home standby generator turn on during a power outage?",
-    answer: "An automatic standby generator detects grid loss and restores whole-house electrical power in under 10 seconds through an automated transfer switch (ATS)."
+    question: "How quickly does an automatic standby generator restore power during a hurricane outage?",
+    answer: "An automatic standby generator senses utility voltage loss and transfers whole-house or essential-circuit loads in under 10 seconds via an Automatic Transfer Switch (ATS)."
   },
   {
-    question: "Do whole-home generators run on natural gas or propane?",
-    answer: "We install standby generators configured for your home's existing natural gas utility line or dedicated liquid propane (LP) tanks for uninterrupted fuel supply during severe weather."
+    question: "Do you also install mechanical generator interlock kits and exterior power inlets?",
+    answer: "Yes. In addition to turnkey automatic Generac and Kohler standby units, we install UL-listed brass mechanical breaker interlocks and NEMA 3R 30A/50A power inlet boxes to prevent hazardous utility backfeeding."
   },
   {
-    question: "What generator brands does Scott's Electric install in Virginia Beach & Hampton Roads?",
-    answer: "We install and service Generac Guardian series, Kohler, Cummins, and Briggs & Stratton automatic standby generators with comprehensive manufacturer warranties."
+    question: "What standby generator brands do you install in Virginia Beach & 757?",
+    answer: "We wire and commission Generac Guardian, Kohler, Cummins, and Briggs & Stratton natural gas and liquid propane standby systems with full municipal permits."
   }
 ];
 ---
 
-<Layout 
-  title="Whole-Home Standby Generator Installation 757 | Coastal Storm Power"
-  description="Automatic standby natural gas & propane generator installation in Virginia Beach, Norfolk, Chesapeake & 757 area. Automatic transfer switches & hurricane prep. Call (757) 536-0478."
-  serviceName="Whole-Home Generators"
+<Layout
+  title="Whole-Home Standby Generator, ATS & Interlock Installation in 757 | Scott's Electric"
+  description="Automatic standby generator, transfer switch (ATS) & breaker interlock installation across Virginia Beach, Norfolk, Chesapeake & 757. Hurricane backup power. Call (757) 536-0478."
+  serviceName="Whole-Home Standby Generators"
   breadcrumbs={breadcrumbs}
   isServicePage={true}
   serviceData={serviceData}
 >
-  <section class="py-16 bg-gradient-to-b from-brand-card to-brand-dark border-b border-brand-border">
+  <section class="py-16 bg-gradient-to-b from-brand-surface to-brand-dark border-b border-slate-800/80 tech-grid-bg">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20 uppercase tracking-widest">
-            🔋 Storm Outage Resilience
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <span class="font-mono text-[11px] font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/25 uppercase tracking-widest">
+            Automatic Transfer Switches (ATS) • Mechanical Panel Interlocks
           </span>
-          <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            Whole-Home Standby <br />
-            <span class="gold-gradient-text">Generator Installation</span>
+          <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+            Whole-Home Standby <span class="gold-gradient-text">Generator Installation in 757</span>
           </h1>
-          <p class="mt-4 text-base text-gray-300 leading-relaxed">
-            Never lose power during coastal storms, Nor'easters, or hurricanes. Automatic backup power for your central heat pump, refrigeration, lights, and medical devices across Hampton Roads.
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Protect HVAC heat pumps, refrigeration, sump pumps, and home medical equipment from coastal hurricanes and Nor'easters with automatic standby power, NEMA 3R transfer switches, and code-compliant breaker interlocks.
           </p>
-          <div class="mt-8 flex gap-4">
-            <a href="tel:7575360478" class="bg-brand-gold hover:bg-brand-goldHover text-black font-extrabold px-6 py-3 rounded-xl text-xs shadow-gold-glow">
-              Request Generator Consultation →
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="tel:7575360478" class="cta-phone-beam bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-gold-intense">
+              Call Generator Line: (757) 536-0478
+            </a>
+            <a href="#quote" class="border border-slate-700 hover:border-amber-400/60 bg-slate-900 text-slate-100 font-bold px-6 py-3.5 rounded-2xl text-sm">
+              Estimate Backup Power ↓
             </a>
           </div>
         </div>
-        <div class="relative rounded-3xl overflow-hidden shadow-card border border-gray-800">
-          <img src="/assets/images/real/outdoor_power/img_4572.webp" alt="Whole-Home Generator Installation in Hampton Roads" class="w-full h-auto object-cover" />
+        <div class="lg:col-span-5 bento-card rounded-3xl overflow-hidden vf-corners">
+          <img
+            src="/assets/images/real/panels/img_3691.webp"
+            alt="Flush-mounted Siemens main-lug panel in textured drywall featuring brass mechanical breaker interlocks and red-taped 240-volt conductors"
+            class="w-full aspect-[4/4.3] object-cover object-[47%_50%]"
+          />
         </div>
       </div>
 
-      <!-- Generator AEO Direct Answer Block -->
-      <AEODirectAnswer 
-        question="How does whole-home standby generator installation work in Hampton Roads?"
-        summary="Scott's Electric installs turnkey Generac and Kohler standby generators (14kW to 26kW+) connected to an Automatic Transfer Switch (ATS). When utility power drops during a storm, the generator automatically starts and restores power to your entire home in under 10 seconds."
+      <AEODirectAnswer
+        question="How does standby generator and transfer switch installation work in Hampton Roads?"
+        summary="Scott's Electric LLC installs 14kW to 26kW+ Generac and Kohler standby generators paired with 200A service-rated Automatic Transfer Switches (ATS), as well as UL-listed mechanical breaker interlocks for portable backup systems—handling NEC Article 702 load management, grounding, and municipal permits across all 7 cities."
         facts={[
-          { label: "Power Restoration", value: "<10 Seconds (Automatic)", highlight: true },
-          { label: "Fuel Options", value: "Natural Gas or Propane (LP)" },
-          { label: "Leading Brands", value: "Generac, Kohler, Cummins", highlight: true },
-          { label: "Price Range", value: "$5,500 - $14,000 Turnkey" },
-          { label: "Storm Prep", value: "Hurricane & Nor'easter Ready" },
-          { label: "Consultation Line", value: "(757) 536-0478" }
+          { label: "Transfer Speed", value: "< 10 Seconds (Automatic ATS)", highlight: true },
+          { label: "Fuel Types", value: "Natural Gas or Propane (LP)" },
+          { label: "Interlock Options", value: "ATS + Brass Panel Interlocks", highlight: true },
+          { label: "Turnkey Standby Range", value: "$5,500 – $14,000" },
+          { label: "Code Compliance", value: "NEC Article 702 Certified" },
+          { label: "24/7 Dispatch", value: "(757) 536-0478" }
         ]}
         cityName="Hampton Roads (757)"
       />
     </div>
   </section>
 
-  <!-- Real Generator Gallery -->
-  <JobsiteGallery 
-    title="Real Generator & Transfer Switch Installations"
-    subtitle="Direct photos from Scott's Electric standby generator hookups, utility meter integrations, and heavy-duty disconnects in 757."
-    badge="Backup Power Portfolio"
+  <JobsiteGallery
+    title="Verified Interlock Panels, Exterior NEMA 3R Gear & Service Entrances"
+    subtitle="Real field photographs of brass mechanical breaker interlocks, exterior 200A service panels, NEMA 3R disconnects, and multi-meter distribution."
+    badge="Backup Power Infrastructure"
     photos={generatorGalleryPhotos}
     columns="3"
   />
 
-  <section class="py-16 bg-brand-dark">
+  <section id="quote" class="py-16 bg-brand-dark border-t border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <InteractiveQuoteCalculator client:visible />
     </div>
   </section>
 
-  <AEOFAQ faqs={faqs} title="Standby Generator FAQ & Direct Answers" />
+  <AEOFAQ faqs={faqs} title="Standby Generator & Transfer Switch FAQs (757)" />
 </Layout>
