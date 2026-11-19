@@ -1,454 +1,431 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { PhoneCall, ArrowRight, MoveHorizontal, CheckCircle2, Film } from 'lucide-react';
-import { PARALLAX_CHAPTERS, BEFORE_AFTER_PAIRS } from '../config/verifiedMedia.js';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { PhoneCall, ArrowRight, CheckCircle2, Compass } from 'lucide-react';
+import { HOME_STACKED_SERVICES, HOME_HORIZONTAL_REEL } from '../config/verifiedMedia.js';
 
-function BeforeAfterCard({ pair }) {
-  const [split, setSplit] = useState(52);
-  const containerRef = useRef(null);
-
-  const updateFromClientX = (clientX) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const pct = Math.max(8, Math.min(92, ((clientX - rect.left) / rect.width) * 100));
-    setSplit(Math.round(pct));
-  };
-
-  return (
-    <div className="bento-card rounded-3xl overflow-hidden flex flex-col justify-between">
-      <div className="p-5 sm:p-6 border-b border-slate-800/90">
-        <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/25 px-2.5 py-1 rounded-md">
-          {pair.badge}
-        </span>
-        <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-white mt-3 leading-snug">
-          {pair.title}
-        </h3>
-        <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-          {pair.summary}
-        </p>
-      </div>
-
-      {/* Interactive Split Comparison Viewport */}
-      <div
-        ref={containerRef}
-        onPointerMove={(e) => {
-          if (e.buttons === 1) updateFromClientX(e.clientX);
-        }}
-        onClick={(e) => updateFromClientX(e.clientX)}
-        className="relative aspect-[4/4.3] select-none overflow-hidden bg-slate-950 cursor-ew-resize"
-      >
-        {/* Base Layer: AFTER (Completed) */}
-        <img
-          src={pair.after.src}
-          alt={pair.after.seoAlt}
-          loading="lazy"
-          style={{
-            objectPosition: `${pair.after.focalPoint.x}% ${pair.after.focalPoint.y}%`,
-          }}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        {/* Clipped Layer: BEFORE / STAGE 1 */}
-        <div
-          style={{ clipPath: `inset(0 ${100 - split}% 0 0)` }}
-          className="absolute inset-0"
-        >
-          <img
-            src={pair.before.src}
-            alt={pair.before.seoAlt}
-            loading="lazy"
-            style={{
-              objectPosition: `${pair.before.focalPoint.x}% ${pair.before.focalPoint.y}%`,
-            }}
-            className="w-full h-full object-cover filter contrast-105"
-          />
-        </div>
-
-        {/* Corner Telemetry Labels */}
-        <span className="pointer-events-none absolute top-3 left-3 font-mono text-[10px] font-bold uppercase bg-slate-950/90 text-slate-200 border border-slate-700 px-2.5 py-1 rounded-md backdrop-blur-md">
-          {pair.beforeLabel}
-        </span>
-        <span className="pointer-events-none absolute top-3 right-3 font-mono text-[10px] font-bold uppercase bg-slate-950/90 text-amber-400 border border-amber-500/40 px-2.5 py-1 rounded-md backdrop-blur-md">
-          {pair.afterLabel}
-        </span>
-
-        {/* Divider Line & Handle */}
-        <div
-          style={{ left: `${split}%` }}
-          className="pointer-events-none absolute inset-y-0 w-0.5 bg-amber-400 shadow-[0_0_16px_rgba(251,191,36,0.9)]"
-        >
-          <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center shadow-lg border-2 border-slate-950">
-            <MoveHorizontal className="w-5 h-5 stroke-[2.5]" />
-          </div>
-        </div>
-
-        {/* Accessible Range Control */}
-        <input
-          type="range"
-          min="8"
-          max="92"
-          value={split}
-          aria-label={`Compare before and after for ${pair.title}`}
-          onChange={(e) => setSplit(Number(e.target.value))}
-          className="absolute inset-x-4 bottom-3 z-20 opacity-0 h-10 cursor-ew-resize"
-        />
-      </div>
-
-      <div className="p-4 sm:p-5 bg-slate-950/90 border-t border-slate-800/90 flex flex-wrap items-center justify-between gap-3">
-        <span className="font-mono text-[11px] text-slate-400">
-          Drag slider to inspect busbar &amp; conductor dressing
-        </span>
-        <a
-          href="tel:7575360478"
-          className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs px-4 py-2.5 rounded-xl transition-colors"
-        >
-          <PhoneCall className="w-3.5 h-3.5" />
-          <span>Book Panel Inspection: (757) 536-0478</span>
-        </a>
-      </div>
-    </div>
-  );
-}
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ParallaxMotionReel() {
-  const chapterRefs = useRef([]);
-  const marqueeRef = useRef(null);
+  const stackSectionRef = useRef(null);
+  const stackCardRefs = useRef([]);
+  const horizSectionRef = useRef(null);
+  const horizTrackRef = useRef(null);
+  const [reelProgress, setReelProgress] = useState(1);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return undefined;
 
-    let rafId = null;
-    let lastScrollY = window.scrollY;
-    let smoothSkew = 0;
+    const mm = gsap.matchMedia();
 
-    const updateParallax = () => {
-      const vh = window.innerHeight || 800;
-      const scrollY = window.scrollY;
-      const velocity = scrollY - lastScrollY;
-      lastScrollY = scrollY;
-
-      // Velocity-reactive marquee skew
-      const targetSkew = Math.max(-8, Math.min(8, velocity * 0.22));
-      smoothSkew += (targetSkew - smoothSkew) * 0.18;
-      if (marqueeRef.current) {
-        const shift = (scrollY * 0.18) % 420;
-        marqueeRef.current.style.transform = `translate3d(${-shift}px, 0, 0) skewX(${smoothSkew.toFixed(2)}deg)`;
-      }
-
-      // Per-chapter depth parallax transforms
-      chapterRefs.current.forEach((node) => {
-        if (!node) return;
-        const rect = node.getBoundingClientRect();
-        const centerOffset = (rect.top + rect.height * 0.5 - vh * 0.5) / vh;
-        const clamped = Math.max(-1, Math.min(1, centerOffset));
-        const focusGain = 1 + (1 - Math.min(1, Math.abs(clamped))) * 0.085;
-
-        const mainMedia = node.querySelector('[data-parallax-main]');
-        const satTop = node.querySelector('[data-parallax-top]');
-        const satBottom = node.querySelector('[data-parallax-bottom]');
-
-        if (mainMedia) {
-          mainMedia.style.transform = `translate3d(0, ${(clamped * -26).toFixed(1)}px, 0) scale(${focusGain.toFixed(3)})`;
-        }
-        if (satTop) {
-          satTop.style.transform = `translate3d(0, ${(clamped * -44).toFixed(1)}px, 0)`;
-        }
-        if (satBottom) {
-          satBottom.style.transform = `translate3d(0, ${(clamped * 36).toFixed(1)}px, 0)`;
+    // Desktop (>= 1024px): Pinned Stacked-Card Depth Scale + Pinned Horizontal Coastal Film-Track
+    mm.add('(min-width: 1024px)', () => {
+      // 1. Stacked Service Cards smoothly recede & scale down as next card deals over them
+      const cards = stackCardRefs.current.filter(Boolean);
+      cards.forEach((card, i) => {
+        if (i < cards.length - 1) {
+          const nextCard = cards[i + 1];
+          gsap.to(card, {
+            scale: 0.94,
+            y: -14,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: nextCard,
+              start: 'top 78%',
+              end: 'top 18%',
+              scrub: true,
+            },
+          });
         }
       });
 
-      rafId = null;
-    };
+      // 2. Pinned Horizontal Coastal Film-Reel with internal counter-panning image parallax
+      if (horizSectionRef.current && horizTrackRef.current) {
+        const track = horizTrackRef.current;
+        const getScrollDistance = () => -(track.scrollWidth - window.innerWidth + 64);
 
-    const onScroll = () => {
-      if (rafId === null) {
-        rafId = window.requestAnimationFrame(updateParallax);
+        const horizTween = gsap.to(track, {
+          x: getScrollDistance,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: horizSectionRef.current,
+            start: 'top top',
+            end: () => `+=${Math.max(1400, track.scrollWidth - window.innerWidth)}`,
+            pin: true,
+            anticipatePin: 1,
+            scrub: 0.85,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const idx = Math.min(
+                HOME_HORIZONTAL_REEL.length,
+                Math.max(1, Math.ceil(self.progress * HOME_HORIZONTAL_REEL.length))
+              );
+              setReelProgress(idx);
+            },
+          },
+        });
+
+        // Counter-pan images inside each horizontal window for multi-plane depth
+        const innerImgs = track.querySelectorAll('[data-horiz-img]');
+        innerImgs.forEach((img) => {
+          gsap.fromTo(
+            img,
+            { xPercent: -9, scale: 1.16 },
+            {
+              xPercent: 9,
+              scale: 1.16,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: horizSectionRef.current,
+                start: 'top top',
+                end: () => `+=${Math.max(1400, track.scrollWidth - window.innerWidth)}`,
+                scrub: 0.85,
+              },
+            }
+          );
+        });
+
+        return () => {
+          horizTween.kill();
+        };
       }
-    };
+      return undefined;
+    });
 
-    updateParallax();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
+    // Mobile & Tablet (< 1024px): Smooth Vertical Scroll-Assembled Cards (Native Touch Speed)
+    mm.add('(max-width: 1023px)', () => {
+      const mobileCards = gsap.utils.toArray('[data-mobile-reel-card]');
+      mobileCards.forEach((card) => {
+        gsap.fromTo(
+          card,
+          { y: 36, opacity: 0.35 },
+          {
+            y: 0,
+            opacity: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 94%',
+              end: 'top 68%',
+              scrub: 0.4,
+            },
+          }
+        );
+      });
+    });
 
-    // Optional Lenis desktop wheel interpolation
-    let lenisInstance = null;
-    let lenisRaf = null;
-    if (window.innerWidth >= 1024) {
-      import('lenis')
-        .then(({ default: Lenis }) => {
-          lenisInstance = new Lenis({
-            lerp: 0.09,
-            smoothWheel: true,
-          });
-          const loop = (time) => {
-            lenisInstance.raf(time);
-            lenisRaf = window.requestAnimationFrame(loop);
-          };
-          lenisRaf = window.requestAnimationFrame(loop);
-        })
-        .catch(() => {});
-    }
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-      if (rafId) window.cancelAnimationFrame(rafId);
-      if (lenisRaf) window.cancelAnimationFrame(lenisRaf);
-      if (lenisInstance) lenisInstance.destroy();
-    };
+    return () => mm.revert();
   }, []);
 
   return (
-    <section id="field-motion-reel" className="relative py-16 lg:py-24 bg-brand-dark overflow-hidden">
-      {/* Velocity-Reactive Kinetic Telemetry Strip */}
-      <div className="border-y border-slate-800/90 bg-slate-950/90 py-3 mb-16 overflow-hidden">
-        <div
-          ref={marqueeRef}
-          className="flex items-center gap-8 whitespace-nowrap font-mono text-xs font-bold uppercase tracking-widest text-slate-400 will-change-transform"
-        >
-          {Array.from({ length: 4 }).map((_, idx) => (
-            <React.Fragment key={idx}>
-              <span className="text-amber-400">⚡ 200A &amp; 400A PANEL UPGRADES</span>
-              <span>•</span>
-              <span className="text-slate-200">24/7 EMERGENCY DISPATCH: (757) 536-0478</span>
-              <span>•</span>
-              <span className="text-cyan-400">LEVEL 2 TESLA &amp; NACS EV CHARGERS</span>
-              <span>•</span>
-              <span className="text-slate-200">3-PHASE SQUARE D COMMERCIAL POWER</span>
-              <span>•</span>
-              <span className="text-amber-400">STANDBY GENERATORS &amp; ATS</span>
-              <span>•</span>
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header (Keyword-First SEO) */}
-        <div className="max-w-3xl mb-14 lg:mb-20">
-          <div className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/25 px-3 py-1.5 rounded-full">
-            <Film className="w-3.5 h-3.5" />
-            <span>Parallax Jobsite Inspection • 100% Real 757 Field Work</span>
+    <>
+      {/* =====================================================================
+          STAGE A: PINNED STACKED-DECK ELECTRICAL SCOPES (SUNLIT COASTAL DUNE)
+         ===================================================================== */}
+      <section
+        id="field-motion-reel"
+        ref={stackSectionRef}
+        className="coastal-dune-surface py-20 lg:py-28 relative"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div data-reveal-block className="max-w-3xl mb-14 lg:mb-20">
+            <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-teal-700 bg-teal-600/10 border border-teal-600/20 px-3.5 py-1.5 rounded-full inline-block">
+              Core 757 Electrical Scopes • Scroll-Stacked Deck
+            </span>
+            <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-coastal-navy mt-4 leading-tight">
+              Precision Coastal Electrical Work,{' '}
+              <span className="font-editorial text-[1.12em] font-normal text-teal-700">
+                Laid Out Scope by Scope
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base text-coastal-slate mt-3 leading-relaxed">
+              Every service card below pairs real, unretouched Hampton Roads jobsite photography with upfront scope details and direct Master Electrician phone dispatch.
+            </p>
+            <div data-draw-rule className="h-[1px] bg-coastal-navy/15 mt-7" />
           </div>
-          <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-white mt-4 leading-tight">
-            Master Electrician Workmanship Across{' '}
-            <span className="gold-gradient-text">Panels, 3-Phase, EV &amp; Lighting</span>
-          </h2>
-          <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
-            Zero stock photography. Scroll through multi-angle field documentation of our residential load centers, commercial three-phase switchgear, high-bay chandeliers, and crawlspace copper raceways across Hampton Roads.
-          </p>
-        </div>
 
-        {/* 5 Multi-Layer Depth Parallax Chapters */}
-        <div className="space-y-20 lg:space-y-28">
-          {PARALLAX_CHAPTERS.map((chapter, idx) => {
-            const reversed = idx % 2 === 1;
-            return (
-              <article
-                key={chapter.id}
-                ref={(el) => {
-                  chapterRefs.current[idx] = el;
-                }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
-              >
-                {/* Parallax Visual Rig */}
-                <div className={`lg:col-span-7 ${reversed ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <div className="relative">
-                    {/* Primary Dolly-Zoom Frame */}
-                    <div className="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-950 shadow-card aspect-[4/3.4] sm:aspect-[16/11] vf-corners">
-                      {chapter.videoSrc ? (
-                        <video
-                          data-parallax-main
-                          src={chapter.videoSrc}
-                          poster={chapter.videoPoster}
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          preload="metadata"
-                          className="w-full h-full object-cover will-change-transform"
-                        />
-                      ) : (
-                        <img
-                          data-parallax-main
-                          src={chapter.primaryPhoto.src}
-                          alt={chapter.primaryPhoto.seoAlt}
-                          loading="lazy"
-                          style={{
-                            objectPosition: `${chapter.primaryPhoto.focalPoint.x}% ${chapter.primaryPhoto.focalPoint.y}%`,
-                          }}
-                          className="w-full h-full object-cover will-change-transform"
-                        />
-                      )}
-
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-transparent" />
-
-                      <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2 pointer-events-none">
-                        <span className="font-mono text-[10px] font-bold uppercase tracking-wider bg-slate-950/85 text-amber-400 border border-amber-500/40 px-2.5 py-1 rounded-lg backdrop-blur-md">
-                          {chapter.videoSpec || chapter.primaryPhoto.technicalSpec}
-                        </span>
-                        <span className="font-mono text-[10px] font-bold text-slate-300 bg-slate-950/85 border border-slate-700 px-2.5 py-1 rounded-lg">
-                          REEL {chapter.index}
-                        </span>
-                      </div>
-
-                      <div className="absolute bottom-3.5 left-4 right-4 md:right-48 pointer-events-none">
-                        <div className="text-sm sm:text-base font-bold text-white drop-shadow">
-                          {chapter.primaryPhoto.title}
+          {/* Stacked Deck Cards */}
+          <div className="space-y-8 lg:space-y-12">
+            {HOME_STACKED_SERVICES.map((scope, idx) => {
+              const isNavy = scope.cardTone === 'navy';
+              const topOffset = 92 + idx * 14;
+              return (
+                <article
+                  key={scope.id}
+                  ref={(el) => {
+                    stackCardRefs.current[idx] = el;
+                  }}
+                  style={{ top: `${topOffset}px` }}
+                  className={`lg:sticky rounded-[2rem] overflow-hidden shadow-coastal-elevated transition-shadow will-change-transform ${
+                    isNavy
+                      ? 'bg-coastal-navy text-white border border-white/15'
+                      : 'bg-coastal-shell text-coastal-navy border border-coastal-navy/12'
+                  }`}
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
+                    {/* Left Copy Column */}
+                    <div className="lg:col-span-6 p-6 sm:p-9 lg:p-11 flex flex-col justify-between space-y-6">
+                      <div className="space-y-4">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <span
+                            className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
+                              isNavy ? 'text-teal-300' : 'text-teal-700'
+                            }`}
+                          >
+                            {scope.num} // {scope.eyebrow}
+                          </span>
+                          <span
+                            className={`font-mono text-[11px] font-semibold px-3 py-1 rounded-full ${
+                              isNavy
+                                ? 'bg-white/10 text-amber-300'
+                                : 'bg-amber-500/15 text-amber-800'
+                            }`}
+                          >
+                            {scope.priceHint}
+                          </span>
                         </div>
-                        <p className="text-xs text-slate-200 line-clamp-2 mt-0.5">
-                          {chapter.primaryPhoto.caption}
+
+                        <h3 className="font-heading text-2xl sm:text-4xl font-extrabold leading-[1.1]">
+                          {scope.titlePlain}{' '}
+                          <span
+                            className={`font-editorial text-[1.12em] font-normal ${
+                              isNavy ? 'text-amber-300' : 'text-teal-700'
+                            }`}
+                          >
+                            {scope.titleItalic}
+                          </span>
+                        </h3>
+
+                        <p
+                          className={`text-sm sm:text-base leading-relaxed ${
+                            isNavy ? 'text-slate-300' : 'text-coastal-slate'
+                          }`}
+                        >
+                          {scope.summary}
                         </p>
+
+                        <ul className="space-y-2 pt-1">
+                          {scope.bullets.map((b) => (
+                            <li key={b} className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold">
+                              <CheckCircle2
+                                className={`w-4 h-4 shrink-0 ${
+                                  isNavy ? 'text-teal-400' : 'text-teal-600'
+                                }`}
+                              />
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="pt-4 border-t border-current/10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                        <a
+                          href="tel:7575360478"
+                          className={`inline-flex items-center justify-center gap-2.5 font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-transform hover:scale-[1.02] ${
+                            isNavy
+                              ? 'bg-amber-400 hover:bg-amber-300 text-coastal-navy shadow-gold-glow'
+                              : 'bg-coastal-navy hover:bg-slate-800 text-white shadow-md'
+                          }`}
+                        >
+                          <PhoneCall className="w-4 h-4 shrink-0" />
+                          <span>Call (757) 536-0478</span>
+                        </a>
+                        <a
+                          href={scope.href}
+                          className={`inline-flex items-center justify-center gap-2 font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl border transition-colors ${
+                            isNavy
+                              ? 'border-white/20 hover:border-amber-300 text-slate-200 hover:text-amber-300'
+                              : 'border-coastal-navy/20 hover:border-teal-700 text-coastal-navy hover:text-teal-700'
+                          }`}
+                        >
+                          <span>Full Scope &amp; FAQs</span>
+                          <ArrowRight className="w-4 h-4 shrink-0" />
+                        </a>
                       </div>
                     </div>
 
-                    {/* Desktop Floating Depth Satellite Cards + Mobile Clean 2-Up */}
-                    <div className="mt-3 grid grid-cols-2 gap-3 md:mt-0">
-                      {/* Satellite 1 */}
-                      <div
-                        data-parallax-top
-                        className="md:absolute md:-top-6 md:-right-4 md:w-48 rounded-2xl overflow-hidden border border-amber-500/40 bg-slate-950 shadow-card z-20 will-change-transform"
-                      >
-                        <div className="aspect-[4/3] overflow-hidden">
-                          <img
-                            src={chapter.detailTop.src}
-                            alt={chapter.detailTop.seoAlt}
-                            loading="lazy"
-                            style={{
-                              objectPosition: `${chapter.detailTop.focalPoint.x}% ${chapter.detailTop.focalPoint.y}%`,
-                            }}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div className="p-2.5 bg-slate-950/95 border-t border-slate-800">
-                          <div className="font-mono text-[9px] text-amber-400 uppercase truncate">
-                            {chapter.detailTop.technicalSpec}
-                          </div>
-                          <div className="text-[11px] font-bold text-white truncate mt-0.5">
-                            {chapter.detailTop.title}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Satellite 2 */}
-                      <div
-                        data-parallax-bottom
-                        className="md:absolute md:-bottom-6 md:right-4 md:w-52 rounded-2xl overflow-hidden border border-cyan-500/35 bg-slate-950 shadow-card z-20 will-change-transform"
-                      >
-                        <div className="aspect-[4/3] overflow-hidden">
-                          <img
-                            src={chapter.detailBottom.src}
-                            alt={chapter.detailBottom.seoAlt}
-                            loading="lazy"
-                            style={{
-                              objectPosition: `${chapter.detailBottom.focalPoint.x}% ${chapter.detailBottom.focalPoint.y}%`,
-                            }}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div className="p-2.5 bg-slate-950/95 border-t border-slate-800">
-                          <div className="font-mono text-[9px] text-cyan-400 uppercase truncate">
-                            {chapter.detailBottom.technicalSpec}
-                          </div>
-                          <div className="text-[11px] font-bold text-white truncate mt-0.5">
-                            {chapter.detailBottom.title}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Chapter Copy, Micro-Reel & Direct Phone Conversion */}
-                <div className={`lg:col-span-5 space-y-5 ${reversed ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div className="font-mono text-[11px] font-bold uppercase tracking-widest text-amber-400">
-                    {chapter.index} // {chapter.eyebrow}
-                  </div>
-
-                  <h3 className="font-heading text-2xl sm:text-4xl font-extrabold text-white leading-tight">
-                    {chapter.keywordTitle}
-                  </h3>
-
-                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                    {chapter.description}
-                  </p>
-
-                  <ul className="space-y-2 pt-1">
-                    {chapter.specs.map((spec) => (
-                      <li key={spec} className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-200">
-                        <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                        <span>{spec}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Extra 3-Shot Detail Strip */}
-                  <div className="grid grid-cols-3 gap-2.5 pt-2">
-                    {chapter.extraStrip.map((shot) => (
-                      <div
-                        key={shot.cleanBase}
-                        className="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-900 aspect-[4/3]"
-                      >
+                    {/* Right Dual-Frame Unique Media Column */}
+                    <div className="lg:col-span-6 p-4 sm:p-6 lg:p-7 bg-black/5 grid grid-cols-12 gap-3.5 items-stretch">
+                      {/* Primary Unique Photo */}
+                      <div className="col-span-7 relative rounded-2xl overflow-hidden bg-coastal-navy min-h-[260px] sm:min-h-[340px]">
                         <img
-                          src={shot.src}
-                          alt={shot.seoAlt}
+                          data-parallax-img
+                          src={scope.mainPhoto.src}
+                          alt={scope.mainPhoto.seoAlt}
                           loading="lazy"
                           style={{
-                            objectPosition: `${shot.focalPoint.x}% ${shot.focalPoint.y}%`,
+                            objectPosition: `${scope.mainPhoto.focalPoint.x}% ${scope.mainPhoto.focalPoint.y}%`,
                           }}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-1.5">
-                          <span className="block font-mono text-[9px] text-slate-200 truncate">
-                            {shot.title}
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-coastal-navy/85 via-transparent to-transparent" />
+                        <div className="absolute bottom-3 left-3 right-3">
+                          <span className="font-mono text-[9px] uppercase tracking-wider text-teal-300 block">
+                            {scope.mainPhoto.technicalSpec}
+                          </span>
+                          <span className="text-xs font-bold text-white line-clamp-1">
+                            {scope.mainPhoto.title}
                           </span>
                         </div>
                       </div>
-                    ))}
-                  </div>
 
-                  {/* Direct Phone Action First */}
-                  <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                    <a
-                      href="tel:7575360478"
-                      className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-slate-950 font-extrabold text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow-gold-glow transition-transform hover:scale-[1.02]"
-                    >
-                      <PhoneCall className="w-4 h-4 shrink-0" />
-                      <span>Call (757) 536-0478</span>
-                    </a>
-                    <a
-                      href={chapter.serviceHref}
-                      className="inline-flex items-center justify-center gap-2 border border-slate-700 hover:border-amber-400/60 bg-slate-900/80 text-slate-200 hover:text-amber-300 font-bold text-xs sm:text-sm px-5 py-3.5 rounded-xl transition-colors"
-                    >
-                      <span>View Technical Scope</span>
-                      <ArrowRight className="w-4 h-4 shrink-0" />
-                    </a>
+                      {/* Secondary Unique Photo OR Live Crawlspace Raceway Video */}
+                      <div className="col-span-5 relative rounded-2xl overflow-hidden bg-coastal-navy min-h-[260px] sm:min-h-[340px]">
+                        {scope.videoSrc ? (
+                          <>
+                            <video
+                              src={scope.videoSrc}
+                              poster={scope.videoPosterPhoto.src}
+                              autoPlay
+                              muted
+                              loop
+                              playsInline
+                              preload="metadata"
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-coastal-navy/85 via-transparent to-transparent" />
+                            <div className="absolute bottom-3 left-3 right-3">
+                              <span className="font-mono text-[9px] uppercase tracking-wider text-amber-300 block">
+                                LIVE JOBSITE CLIP
+                              </span>
+                              <span className="text-xs font-bold text-white line-clamp-2">
+                                Encapsulated Crawlspace NM-B Joist Runs
+                              </span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <img
+                              data-parallax-img
+                              src={scope.accentPhoto.src}
+                              alt={scope.accentPhoto.seoAlt}
+                              loading="lazy"
+                              style={{
+                                objectPosition: `${scope.accentPhoto.focalPoint.x}% ${scope.accentPhoto.focalPoint.y}%`,
+                              }}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-coastal-navy/85 via-transparent to-transparent" />
+                            <div className="absolute bottom-3 left-3 right-3">
+                              <span className="font-mono text-[9px] uppercase tracking-wider text-amber-300 block">
+                                {scope.accentPhoto.technicalSpec}
+                              </span>
+                              <span className="text-xs font-bold text-white line-clamp-2">
+                                {scope.accentPhoto.title}
+                              </span>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </article>
-            );
-          })}
+                </article>
+              );
+            })}
+          </div>
         </div>
+      </section>
 
-        {/* Before / After & Rough-In Progression Scrubbers */}
-        <div className="mt-24 pt-16 border-t border-slate-800/90">
-          <div className="max-w-3xl mb-10">
-            <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-cyan-400">
-              INTERACTIVE PANEL SCRUBBERS // BEFORE &amp; AFTER
-            </span>
-            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-white mt-2">
-              Inspect Real 200A Panel Upgrades &amp; Interlock Builds Side-by-Side
+      {/* =====================================================================
+          STAGE B: GSAP PINNED HORIZONTAL COASTAL FILM-TRACK (CHESAPEAKE NAVY)
+         ===================================================================== */}
+      <section
+        ref={horizSectionRef}
+        className="coastal-ocean-surface tech-grid-bg relative overflow-hidden py-16 lg:pt-24 lg:pb-8 lg:min-h-screen lg:flex lg:flex-col lg:justify-center"
+      >
+        {/* Top Bar Inside Pinned Stage */}
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 mb-6 lg:mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div className="inline-flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-widest text-teal-300">
+              <Compass className="w-3.5 h-3.5" />
+              <span>Coastal Field Filmstrip • Continuous Scroll Track</span>
+            </div>
+            <h2 className="font-heading text-3xl sm:text-4xl xl:text-5xl font-extrabold text-white mt-2 leading-tight">
+              Inside Our 757 Jobsites,{' '}
+              <span className="font-editorial text-[1.12em] font-normal text-amber-300">
+                Frame by Frame
+              </span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {BEFORE_AFTER_PAIRS.map((pair) => (
-              <BeforeAfterCard key={pair.id} pair={pair} />
-            ))}
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="hidden lg:inline-flex items-center gap-2 font-mono text-xs text-slate-300 bg-white/5 border border-white/10 px-4 py-2.5 rounded-full whitespace-nowrap">
+              <span className="text-amber-400 font-bold">
+                {String(reelProgress).padStart(2, '0')}
+              </span>
+              <span>/</span>
+              <span>{String(HOME_HORIZONTAL_REEL.length).padStart(2, '0')}</span>
+              <span className="text-slate-400 ml-1">SCROLL TO GLIDE →</span>
+            </div>
+            <a
+              href="tel:7575360478"
+              className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-coastal-navy font-extrabold text-xs sm:text-sm px-5 py-3 rounded-xl shadow-gold-glow shrink-0"
+            >
+              <PhoneCall className="w-4 h-4" />
+              <span>(757) 536-0478</span>
+            </a>
           </div>
         </div>
-      </div>
-    </section>
+
+        {/* Horizontal Track on Desktop / Responsive Grid on Mobile */}
+        <div
+          ref={horizTrackRef}
+          className="px-4 sm:px-6 lg:px-12 grid grid-cols-1 sm:grid-cols-2 gap-6 lg:flex lg:flex-nowrap lg:gap-8 will-change-transform"
+        >
+          {HOME_HORIZONTAL_REEL.map((photo, index) => (
+            <article
+              key={photo.cleanBase}
+              data-mobile-reel-card
+              className="lg:w-[390px] xl:w-[430px] lg:shrink-0 rounded-3xl overflow-hidden bg-brand-surface/90 border border-white/12 shadow-card flex flex-col justify-between"
+            >
+              <div className="relative aspect-[4/3.3] overflow-hidden bg-coastal-deep">
+                <img
+                  data-horiz-img
+                  src={photo.src}
+                  alt={photo.seoAlt}
+                  loading="lazy"
+                  style={{
+                    objectPosition: `${photo.focalPoint.x}% ${photo.focalPoint.y}%`,
+                  }}
+                  className="w-full h-full object-cover will-change-transform"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-coastal-deep/85 via-transparent to-transparent" />
+                <span className="absolute top-3.5 left-3.5 font-mono text-[10px] font-bold uppercase bg-coastal-navy/90 text-teal-300 border border-teal-400/30 px-2.5 py-1 rounded-full backdrop-blur-md">
+                  FRAME {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="absolute bottom-3 left-3.5 right-3.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-amber-300 truncate">
+                  {photo.technicalSpec}
+                </span>
+              </div>
+
+              <div className="p-5 sm:p-6 flex-grow flex flex-col justify-between space-y-4">
+                <div>
+                  <h3 className="font-heading text-lg sm:text-xl font-bold text-white leading-snug">
+                    {photo.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                    {photo.caption}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+                  <span className="font-mono text-[10px] uppercase text-slate-400">
+                    {photo.tradeCategory}
+                  </span>
+                  <a
+                    href="tel:7575360478"
+                    className="font-bold text-amber-300 hover:text-amber-200"
+                  >
+                    Book Similar: (757) 536-0478 →
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
