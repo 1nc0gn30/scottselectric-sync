@@ -11,4 +11,9 @@ export default defineConfig({
     }),
     react(),
   ],
+  vite: {
+    ssr: {
+      noExternal: ['gsap', 'lenis'],
+    },
+  },
 });

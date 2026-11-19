@@ -1,10 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollTriggerPkg from 'gsap/ScrollTrigger';
 import { PhoneCall, ArrowRight, CheckCircle2, Compass } from 'lucide-react';
 import { HOME_STACKED_SERVICES, HOME_HORIZONTAL_REEL } from '../config/verifiedMedia.js';
 
-gsap.registerPlugin(ScrollTrigger);
+const ScrollTrigger = ScrollTriggerPkg?.ScrollTrigger || ScrollTriggerPkg;
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function ParallaxMotionReel() {
   const stackSectionRef = useRef(null);

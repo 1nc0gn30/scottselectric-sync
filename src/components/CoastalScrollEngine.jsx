@@ -1,9 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollTriggerPkg from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
-gsap.registerPlugin(ScrollTrigger);
+const ScrollTrigger = ScrollTriggerPkg?.ScrollTrigger || ScrollTriggerPkg;
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function CoastalScrollEngine() {
   const progressBarRef = useRef(null);
