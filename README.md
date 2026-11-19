@@ -21,4 +21,4 @@ High-converting, keyword-first local SEO & motion-edit web application for **Sco
 - **Preview Build**: `npm run preview`
 
 ---
-Engineered by **Neal Frazier Tech (@1nc0gn30) • NullAI Platform** (`https://nullai.tech`).
+&copy; Scott's Electric LLC — Licensed & Insured Virginia Master Electrician (`https://scottselectric.pro`).
