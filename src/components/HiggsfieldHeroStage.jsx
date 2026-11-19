@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollTriggerPkg from 'gsap/ScrollTrigger';
 import { PhoneCall, Calculator, ShieldCheck, Zap, Compass, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { HOME_HERO_SLIDES } from '../config/verifiedMedia.js';
 
-gsap.registerPlugin(ScrollTrigger);
+const ScrollTrigger = ScrollTriggerPkg?.ScrollTrigger || ScrollTriggerPkg;
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function HiggsfieldHeroStage() {
   const [activeIdx, setActiveIdx] = useState(0);
